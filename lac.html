@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page lac Spot Paddle" />
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Spot Paddle - Détails Lac" />
+    <meta property="og:description" content="Informations complètes du lac avec Paddle Score™" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200" />
+    <meta property="og:locale" content="fr_CA" />
+
+    <title>Spot Paddle - Détails Lac</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans dark:bg-slate-900 dark:text-slate-100 transition-colors">
+
+    <nav class="p-4 flex flex-wrap justify-between items-center bg-gradient-to-r from-blue-600 to-blue-800 shadow-lg sticky top-0 z-[2000] backdrop-blur-md">
+        <a href="index.html" class="text-2xl font-bold text-white flex items-center gap-2">
+            <span class="text-3xl">🚣</span> Spot Paddle
+        </a>
+        <div class="flex items-center gap-4">
+            <a href="index.html" class="text-white hover:text-blue-200 transition text-sm font-medium">← Retour</a>
+            <button id="themeToggle" onclick="toggleTheme()" class="bg-white/20 text-white border border-white/30 px-3 py-2 rounded-full font-medium text-sm shadow-sm hover:bg-white/30 transition">
+                🌙
+            </button>
+        </div>
+    </nav>
+
+    <div id="loading" class="fixed inset-0 bg-white dark:bg-slate-900 flex justify-center items-center h-screen z-[9999]">
+        <div class="text-center">
+            <div class="text-6xl mb-4 animate-bounce">⏳</div>
+            <p class="text-slate-600 dark:text-slate-400 font-medium">Chargement des informations du lac...</p>
+        </div>
+    </div>
+
+    <div id="lakeContainer" class="w-full"></div>
+
+    <div id="photoModal" class="hidden fixed inset-0 bg-black/90 z-[5000] flex items-center justify-center p-4">
+        <button onclick="closePhotoModal()" class="absolute top-4 right-4 text-white text-4xl hover:scale-110 transition">×</button>
+        <img id="modalImage" src="" alt="" class="max-w-4xl max-h-[80vh] rounded-lg shadow-2xl">
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm bg-black/50 px-4 py-2 rounded-full backdrop-blur">
+            <span id="photoCount">1/3</span>
+        </div>
+    </div>
+
+    <div id="nearbyLakesSection" class="hidden fixed bottom-6 right-6 z-[1000] bg-white dark:bg-slate-800 shadow-2xl rounded-2xl p-6 max-w-sm border-l-4 border-blue-600 transition-all">
+        <h3 class="text-lg font-bold mb-4 text-slate-900 dark:text-white">🗺️ Lacs Proches</h3>
+        <div id="nearbyLakesList" class="space-y-3"></div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="data.js"></script>
+    <script>
+        // ========== GESTION DU THÈME ==========
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        }
+
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+        }
+
+        // Vérifier que data.js a chargé au chargement de la fenêtre
+        window.addEventListener('load', () => {
+            if (typeof lacDatabase === 'undefined') {
+                console.error('ERROR: lacDatabase not loaded - data.js missing?');
+                showErrorMessage('Erreur de chargement', 'Impossible de charger les données. Vérifiez que data.js existe dans le dossier.');
+            }
+        });
+
+        // Fonction d'erreur globale
+        function showErrorMessage(title, message) {
+            document.getElementById('lakeContainer').innerHTML = `
+                <div class="max-w-6xl mx-auto px-6 py-16 text-center">
+                    <div class="text-6xl mb-4">⚠️</div>
+                    <h1 class="text-3xl font-bold mb-2">${title}</h1>
+                    <p class="text-slate-600 dark:text-slate-400 mb-6">${message}</p>
+                    <a href="index.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-bold transition">Retour à l'accueil</a>
+                </div>
+            `;
+            const loadingEl = document.getElementById('loading');
+            if (loadingEl) loadingEl.style.display = 'none';
+        }
+
+        // ========== FETCH MÉTÉO AVEC TIMEOUT ==========
+        async function fetchWeatherForLake(lat, lon) {
+            try {
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 3000); // 3 secondes max
+                
+                const response = await fetch(
+                    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=b5d51e383a9219e83fa41ab4f6776e06&units=metric`,
+                    { signal: controller.signal }
+                );
+                
+                clearTimeout(timeoutId);
+                
+                if (!response.ok) throw new Error('API status: ' + response.status);
+                
+                const data = await response.json();
+                return {
+                    temp: data.main.temp,
+                    wind: data.wind.speed * 3.6, // m/s à km/h
+                    rain: data.clouds.all,
+                    waves: (data.wind.speed * 3.6) / 10
+                };
+            } catch (e) {
+                console.warn('Météo indisponible, utilisation des valeurs par défaut:', e.message);
+                return { temp: 21, wind: 8, rain: 20, waves: 0.2 }; // Valeurs par défaut réalistes pour l'été
+            }
+        }
+
+        // ========== INITIALISATION PAGE ==========
+        const urlParams = new URLSearchParams(window.location.search);
+        const lakeSlug = urlParams.get('lake');
+
+        if (typeof lacDatabase === 'undefined') {
+            console.error('❌ lacDatabase non défini.');
+        } else {
+            const currentLake = lacDatabase.find(l => l.slug === lakeSlug);
+
+            if (!currentLake) {
+                showErrorMessage('Lac non trouvé', "Désolé, ce lac n'existe pas ou a été déplacé.");
+            } else {
+                // Métadonnées dynamiques
+                document.title = `${currentLake.name} - Spot Paddle`;
+                const titleMeta = document.querySelector('meta[property="og:title"]');
+                const descMeta = document.querySelector('meta[property="og:description"]');
+                const imgMeta = document.querySelector('meta[property="og:image"]');
+                const descMetaName = document.querySelector('meta[name="description"]');
+                
+                if (titleMeta) titleMeta.setAttribute('content', currentLake.name);
+                if (descMeta) descMeta.setAttribute('content', currentLake.description || '');
+                if (imgMeta) imgMeta.setAttribute('content', currentLake.mainImage || '');
+                if (descMetaName) descMetaName.setAttribute('content', currentLake.description || '');
+
+                // Lancement du rendu
+                renderLakePage(currentLake);
+            }
+        }
+
+        // ========== RENDU PRINCIPAL ==========
+        async function renderLakePage(currentLake) {
+            try {
+                const weatherData = await fetchWeatherForLake(currentLake.lat, currentLake.lon);
+                
+                // Sauvegarde globale de la galerie pour éviter les soucis d'échappement de chaînes HTML inline
+                window.currentLakeGallery = currentLake.gallery || [];
+
+                // Simuler des badges ou scores si non définis
+                const score = currentLake.paddleScore || 85;
+                let badgeEmoji = "🟢", badgeColor = "#10b981";
+                if(score < 50) { badgeEmoji = "🔴"; badgeColor = "#ef4444"; }
+                else if(score < 75) { badgeEmoji = "🟡"; badgeColor = "#f59e0b"; }
+
+                const html = `
+                    <section class="relative h-96 md:h-[60vh] flex items-end overflow-hidden">
+                        <img src="${currentLake.mainImage}" alt="${currentLake.name}" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                        
+                        <div class="relative z-10 max-w-6xl mx-auto w-full px-6 pb-12">
+                            <h1 class="text-4xl md:text-6xl font-black text-white mb-3 drop-shadow-md">${currentLake.name}</h1>
+                            <p class="text-xl text-blue-200 mb-6 drop-shadow-sm">${currentLake.region} • ${currentLake.maxLength || 'Distance non renseignée'}</p>
+                            
+                            <div class="inline-flex items-center gap-3 bg-white/95 dark:bg-slate-900/95 backdrop-blur px-6 py-3 rounded-2xl font-bold shadow-xl">
+                                <span class="text-4xl">${badgeEmoji}</span>
+                                <div>
+                                    <div class="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider">Paddle Score™</div>
+                                    <div class="text-2xl font-black" style="color: ${badgeColor}">${score}/100</div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="max-w-6xl mx-auto px-6 py-12">
+                        <div class="grid md:grid-cols-3 gap-8">
+                            
+                            <div class="md:col-span-2 space-y-12">
+                                <section>
+                                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">📖 À Propos</h2>
+                                    <p class="text-base text-slate-700 dark:text-slate-300 leading-relaxed mb-6">
+                                        ${currentLake.longDescription || currentLake.description || 'Pas de description détaillée disponible.'}
+                                    </p>
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        ${(currentLake.highlights || ['Spot magnifique', 'Idéal en famille']).map(h => `
+                                            <div class="bg-blue-50 dark:bg-blue-950/40 border-l-4 border-blue-500 p-4 rounded-r-xl font-medium text-slate-800 dark:text-slate-200">
+                                                ${h}
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </section>
+
+                                ${currentLake.gallery && currentLake.gallery.length > 0 ? `
+                                <section>
+                                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">📸 Galerie Photos</h2>
+                                    <div class="grid grid-cols-3 gap-4">
+                                        ${currentLake.gallery.map((img, idx) => `
+                                            <img 
+                                                src="${img}" 
+                                                alt="Photo ${idx + 1}"
+                                                onclick="openPhotoModal(${idx}, ${currentLake.gallery.length}, window.currentLakeGallery)"
+                                                class="w-full h-32 md:h-44 object-cover rounded-xl shadow-md hover:scale-105 transition cursor-pointer"
+                                            >
+                                        `).join('')}
+                                    </div>
+                                </section>` : ''}
+
+                                <section>
+                                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">🗺️ Localisation</h2>
+                                    <div id="map" class="shadow-xl rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden" style="height: 350px;"></div>
+                                </section>
+
+                                <section>
+                                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">🚗 Accès & Stationnement</h2>
+                                    <div class="grid md:grid-cols-2 gap-6">
+                                        <div class="bg-slate-100 dark:bg-slate-800/60 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
+                                            <h3 class="text-lg font-bold mb-2 text-blue-600 dark:text-blue-400">📍 Point d'accès</h3>
+                                            <p class="font-semibold text-sm text-slate-700 dark:text-slate-300 mb-2">${currentLake.access?.type || "Mise à l'eau publique"}</p>
+                                            <p class="text-sm text-slate-600 dark:text-slate-400">${currentLake.access?.description || 'Accès direct via la plage principale.'}</p>
+                                            <p class="text-xs text-slate-500 mt-3">Difficulté d'accès: <span class="font-bold">${currentLake.access?.difficulty || 'Facile'}</span></p>
+                                        </div>
+                                        <div class="bg-slate-100 dark:bg-slate-800/60 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
+                                            <h3 class="text-lg font-bold mb-2 text-green-600 dark:text-green-400">🅿️ Stationnement</h3>
+                                            <p class="font-semibold text-sm text-slate-700 dark:text-slate-300 mb-1">${currentLake.parking?.spots || 'Nombreuses'} places disponibles</p>
+                                            <p class="text-sm text-slate-600 dark:text-slate-400">${currentLake.parking?.location || 'Stationnement sur place.'}</p>
+                                            <p class="text-xs text-slate-500 mt-3">Tarif : <span class="font-bold">${currentLake.parking?.cost || 'Gratuit'}</span></p>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section>
+                                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">🌤️ Conditions Météo Live</h2>
+                                    <div class="bg-gradient-to-br from-blue-50 to-sky-100 dark:from-slate-800 dark:to-slate-800/40 border border-blue-200 dark:border-slate-700 p-6 rounded-2xl shadow-sm">
+                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                            <div class="text-center bg-white dark:bg-slate-900/60 p-3 rounded-xl shadow-sm">
+                                                <div class="text-2xl mb-1">🌡️</div>
+                                                <p class="text-xs text-slate-500">Température</p>
+                                                <p class="text-xl font-black">${weatherData.temp.toFixed(1)}°C</p>
+                                            </div>
+                                            <div class="text-center bg-white dark:bg-slate-900/60 p-3 rounded-xl shadow-sm">
+                                                <div class="text-2xl mb-1">💨</div>
+                                                <p class="text-xs text-slate-500">Vent</p>
+                                                <p class="text-xl font-black">${weatherData.wind.toFixed(1)} km/h</p>
+                                            </div>
+                                            <div class="text-center bg-white dark:bg-slate-900/60 p-3 rounded-xl shadow-sm">
+                                                <div class="text-2xl mb-1">☁️</div>
+                                                <p class="text-xs text-slate-500">Nuages</p>
+                                                <p class="text-xl font-black">${weatherData.rain}%</p>
+                                            </div>
+                                            <div class="text-center bg-white dark:bg-slate-900/60 p-3 rounded-xl shadow-sm">
+                                                <div class="text-2xl mb-1">🌊</div>
+                                                <p class="text-xs text-slate-500">Vagues (Est.)</p>
+                                                <p class="text-xl font-black">${weatherData.waves.toFixed(2)}m</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                ${currentLake.faq && currentLake.faq.length > 0 ? `
+                                <section>
+                                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">❓ Questions Fréquentes</h2>
+                                    <div class="space-y-3">
+                                        ${currentLake.faq.map(item => `
+                                            <details class="bg-slate-100 dark:bg-slate-800 p-4 rounded-xl group border border-slate-200 dark:border-slate-700">
+                                                <summary class="font-bold cursor-pointer flex justify-between items-center text-sm md:text-base">
+                                                    ${item.q}
+                                                    <span class="text-xs transition group-open:rotate-180">▼</span>
+                                                </summary>
+                                                <p class="mt-3 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                                                    ${item.a}
+                                                </p>
+                                            </details>
+                                        `).join('')}
+                                    </div>
+                                </section>` : ''}
+
+                                ${currentLake.warnings && currentLake.warnings.length > 0 ? `
+                                <section class="bg-red-50 dark:bg-red-950/30 border-l-4 border-red-500 p-6 rounded-2xl">
+                                    <h2 class="text-xl font-bold mb-3 text-red-700 dark:text-red-400 flex items-center gap-2">⚠️ Points de Vigilance</h2>
+                                    <ul class="list-disc pl-5 space-y-2 text-sm text-red-900 dark:text-red-200">
+                                        ${currentLake.warnings.map(w => `<li>${w}</li>`).join('')}
+                                    </ul>
+                                </section>` : ''}
+                            </div>
+
+                            <div class="space-y-6">
+                                <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm sticky top-24 space-y-6">
+                                    <h3 class="font-bold text-lg border-b pb-2">ℹ️ Infos Rapides</h3>
+                                    <div class="space-y-3 text-sm">
+                                        <div class="flex justify-between pb-2 border-b border-slate-100 dark:border-slate-700">
+                                            <span class="text-slate-500">Niveau requis:</span>
+                                            <span class="font-bold uppercase text-xs px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700">${currentLake.difficulty || 'Tout niveau'}</span>
+                                        </div>
+                                        <div class="flex justify-between pb-2 border-b border-slate-100 dark:border-slate-700">
+                                            <span class="text-slate-500">Tarif d'entrée:</span>
+                                            <span class="font-bold text-green-600 dark:text-green-400">${currentLake.isFree ? 'Gratuit' : 'Payant'}</span>
+                                        </div>
+                                        <div class="flex justify-between pb-2 border-b border-slate-100 dark:border-slate-700">
+                                            <span class="text-slate-500">Qualité de l'eau:</span>
+                                            <span class="font-bold text-blue-500">${currentLake.waterQuality || 'Excellente'}</span>
+                                        </div>
+                                        <div class="flex justify-between pb-2 border-b border-slate-100 dark:border-slate-700">
+                                            <span class="text-slate-500">Longueur max:</span>
+                                            <span class="font-bold">${currentLake.maxLength || 'N/A'}</span>
+                                        </div>
+                                    </div>
+
+                                    ${currentLake.amenities ? `
+                                    <div>
+                                        <h4 class="font-semibold text-xs uppercase tracking-wider text-slate-400 mb-2">Aménagements</h4>
+                                        <ul class="text-xs space-y-1.5 grid grid-cols-2 gap-1 text-slate-600 dark:text-slate-300">
+                                            ${currentLake.amenities.map(a => `<li>✅ ${a}</li>`).join('')}
+                                        </ul>
+                                    </div>` : ''}
+
+                                    <div class="space-y-2 pt-2">
+                                        <button onclick="shareLocation(${currentLake.lat}, ${currentLake.lon})" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-xl shadow-md hover:shadow-lg transition flex justify-center items-center gap-2">
+                                            📍 Me diriger ici
+                                        </button>
+                                        <button onclick="sharePage()" class="w-full bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-800 dark:text-white font-bold py-3 px-4 rounded-xl transition flex justify-center items-center gap-2">
+                                            📤 Partager le spot
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                `;
+
+                document.getElementById('lakeContainer').innerHTML = html;
+                const loadingEl = document.getElementById('loading');
+                if (loadingEl) loadingEl.style.display = 'none';
+
+                // Initialisations Leaflet & Lacs proches
+                initMap(currentLake);
+                if (typeof getNearestLakes === 'function') {
+                    loadNearbyLakes(currentLake);
+                }
+            } catch (error) {
+                console.error('❌ Erreur lors du rendu final:', error);
+                showErrorMessage("Erreur d'affichage", error.message);
+            }
+        }
+
+        // ========== FONCTIONS CARTES & MODALES ==========
+        function initMap(lake) {
+            try {
+                const map = L.map('map', { scrollWheelZoom: false }).setView([lake.lat, lake.lon], 13);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap'
+                }).addTo(map);
+
+                L.circleMarker([lake.lat, lake.lon], {
+                    radius: 12,
+                    fillColor: '#2563eb',
+                    color: '#fff',
+                    weight: 3,
+                    opacity: 1,
+                    fillOpacity: 0.9
+                }).addTo(map).bindPopup(`<strong>${lake.name}</strong><br>${lake.region}`).openPopup();
+            } catch(e) {
+                console.warn("Erreur d'initialisation de la carte Leaflet:", e.message);
+            }
+        }
+
+        let currentGallery = [];
+        let currentImgIdx = 0;
+
+        function openPhotoModal(index, total, galleryArray) {
+            currentGallery = galleryArray || window.currentLakeGallery || [];
+            currentImgIdx = index;
+            
+            const modal = document.getElementById('photoModal');
+            const img = document.getElementById('modalImage');
+            
+            img.src = currentGallery[currentImgIdx];
+            document.getElementById('photoCount').textContent = `${currentImgIdx + 1}/${total}`;
+            modal.classList.remove('hidden');
+            
+            document.onkeydown = (e) => {
+                if (e.key === 'ArrowRight') {
+                    currentImgIdx = (currentImgIdx + 1) % total;
+                    img.src = currentGallery[currentImgIdx];
+                    document.getElementById('photoCount').textContent = `${currentImgIdx + 1}/${total}`;
+                } else if (e.key === 'ArrowLeft') {
+                    currentImgIdx = (currentImgIdx - 1 + total) % total;
+                    img.src = currentGallery[currentImgIdx];
+                    document.getElementById('photoCount').textContent = `${currentImgIdx + 1}/${total}`;
+                } else if (e.key === 'Escape') {
+                    closePhotoModal();
+                }
+            };
+        }
+
+        function closePhotoModal() {
+            document.getElementById('photoModal').classList.add('hidden');
+            document.onkeydown = null;
+        }
+
+        function loadNearbyLakes(currentLake) {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((position) => {
+                    try {
+                        const nearbyLakes = getNearestLakes(position.coords.latitude, position.coords.longitude);
+                        const filtered = nearbyLakes.filter(l => l.slug !== currentLake.slug).slice(0, 2);
+                        
+                        if (filtered.length > 0) {
+                            document.getElementById('nearbyLakesSection').classList.remove('hidden');
+                            const html = filtered.map(lac => `
+                                <a href="?lake=${lac.slug}" class="block bg-slate-50 dark:bg-slate-700/50 p-3 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-blue-500 transition">
+                                    <div class="font-bold text-xs text-slate-800 dark:text-white">${lac.name}</div>
+                                    <div class="text-[11px] text-slate-500 dark:text-slate-400">À environ ${(lac.distance || 0).toFixed(1)} km</div>
+                                </a>
+                            `).join('');
+                            document.getElementById('nearbyLakesList').innerHTML = html;
+                        }
+                    } catch(err) {
+                        console.log("Calcul des lacs proches ignoré (fonctions manquantes dans data.js)");
+                    }
+                }, () => console.log("Géolocalisation refusée par l'usager."));
+            }
+        }
+
+        function shareLocation(lat, lon) {
+            window.open(`https://www.google.com/maps?q=${lat},${lon}`, '_blank');
+        }
+
+        function sharePage() {
+            if (navigator.share) {
+                navigator.share({
+                    title: document.title,
+                    url: window.location.href
+                }).catch(console.error);
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                alert("Lien magique copié dans le presse-papier ! Vous pouvez l'envoyer.");
+            }
+        }
+
+        // Sécurité chargement long (5 secondes)
+        setTimeout(() => {
+            const loadingEl = document.getElementById('loading');
+            if (loadingEl && loadingEl.style.display !== 'none') {
+                showErrorMessage('Chargement ralenti', 'La connexion prend plus de temps que prévu, ou une donnée est manquante.');
+            }
+        }, 5000);
+    </script>
+</body>
+</html>
