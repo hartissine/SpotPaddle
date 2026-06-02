@@ -1,0 +1,607 @@
+/* --- BASE & FLUIDITÉ --- */
+html { 
+    scroll-behavior: smooth; 
+}
+
+/* --- CARTE INTERACTIVE --- */
+#map { 
+    height: 600px; /* On l'agrandit un peu pour le look */
+    border-radius: 2rem; 
+    z-index: 0; 
+    border: 4px solid white;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* --- ANIMATIONS DES CARTES (Les 3 spots du haut) --- */
+.group {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.group:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.3) !important;
+}
+
+.group:hover img {
+    transform: scale(1.1);
+}
+
+/* --- SIDEBAR MODERNE (Effet Glassmorphism) --- */
+#sidebar {
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(12px); /* Floute l'arrière-plan */
+    -webkit-backdrop-filter: blur(12px);
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Version sombre */
+.dark #sidebar {
+    background: rgba(15, 23, 42, 0.8) !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Force la visibilité en mode sombre */
+.dark #sidebar h4 {
+    color: #ffffff !important;
+}
+
+.dark #sidebar p {
+    color: #cbd5e1 !important; /* Gris très clair */
+}
+
+/* On ajuste aussi le fond des petites icônes pour qu'elles ne flashent pas trop */
+.dark #sidebar .bg-white {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* --- LEAFLET FIXES (Garder tes anciens réglages de popups) --- */
+.leaflet-map-pane,
+.leaflet-popup,
+.leaflet-popup-pane,
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+    z-index: 9999 !important;
+}
+
+/* Thème sombre */
+.dark body {
+    background-color: #0f172a;
+    color: #f1f5f9;
+}
+
+.dark nav {
+    background: linear-gradient(to right, #1e293b, #334155);
+}
+
+.dark .bg-white {
+    background-color: #1e293b !important;
+    color: #f1f5f9;
+}
+
+.dark button, .dark select {
+    background-color: #475569 !important;
+    border-color: #64748b !important;
+    color: #f1f5f9 !important;
+}
+
+.dark .text-slate-500 {
+    color: #94a3b8 !important;
+}
+
+.dark .text-blue-600 {
+    color: #3b82f6 !important;
+}
+
+.dark .bg-blue-100 {
+    background-color: #1e40af !important;
+    color: #dbeafe !important;
+}
+
+.dark .text-blue-700 {
+    color: #60a5fa !important;
+}
+
+.dark .bg-green-50 {
+    background-color: #14532d !important;
+    color: #dcfce7 !important;
+}
+
+.dark .text-green-800 {
+    color: #22c55e !important;
+}
+
+.dark .bg-orange-50 {
+    background-color: #9a3412 !important;
+    color: #fed7aa !important;
+}
+
+.dark .text-orange-800 {
+    color: #fb923c !important;
+}
+
+.dark .bg-blue-900 {
+    background-color: #1e3a8a !important;
+}
+
+.dark .text-blue-100 {
+    color: #dbeafe !important;
+}
+
+.dark .bg-slate-900 {
+    background-color: #020617 !important;
+}
+
+.dark .text-slate-400 {
+    color: #94a3b8 !important;
+}
+
+.dark .text-slate-500 {
+    color: #94a3b8 !important;
+}
+
+.dark .text-slate-700 {
+    color: #cbd5e1 !important;
+}
+
+.dark .border-slate-200 {
+    border-color: #475569 !important;
+}
+
+/* Thème sombre pour les favoris */
+.dark .bg-yellow-50 {
+    background-color: #451a03 !important;
+    color: #fef3c7 !important;
+}
+
+.dark .text-yellow-800 {
+    color: #fbbf24 !important;
+}
+
+.dark .border-yellow-100 {
+    border-color: #92400e !important;
+}
+
+.dark .bg-yellow-500 {
+    background-color: #d97706 !important;
+}
+
+.dark .hover\:bg-yellow-100:hover {
+    background-color: #581c87 !important;
+}
+
+.dark .hover\:bg-yellow-600:hover {
+    background-color: #b45309 !important;
+}
+
+/* On limite la taille maximale de la popup */
+.leaflet-popup-content {
+    max-width: 280px !important; /* Largeur fixe pour éviter l'encombrement */
+    max-height: 400px;           /* Hauteur max */
+    overflow-y: auto;            /* Ajoute un scroll si le contenu dépasse */
+    padding: 10px !important;
+}
+
+/* On stylise la barre de défilement pour qu'elle soit discrète */
+.leaflet-popup-content::-webkit-scrollbar {
+    width: 4px;
+}
+.leaflet-popup-content::-webkit-scrollbar-thumb {
+    background: #3b82f6;
+    border-radius: 10px;
+}
+
+/* --- ANIMATION DE CHARGEMENT & PRÉVISIONS --- */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .4; }
+}
+
+.animate-pulse-custom {
+    animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.forecast-card {
+    background: rgba(255, 255, 255, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 1.5rem;
+    padding: 1.25rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+.dark .forecast-card {
+    background: rgba(30, 41, 59, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.forecast-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+    transition: all 0.2s ease-in-out;
+}
+
+.forecast-row:last-child {
+    border-bottom: none;
+}
+
+.forecast-row:hover {
+    transform: scale(1.02);
+}
+
+.dark .forecast-row {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.forecast-badge-green {
+    background-color: #dcfce7;
+    color: #15803d;
+    border: 1px solid #bbf7d0;
+}
+.dark .forecast-badge-green {
+    background-color: #14532d;
+    color: #4ade80;
+    border: 1px solid #166534;
+}
+
+.forecast-badge-yellow {
+    background-color: #fef9c3;
+    color: #a16207;
+    border: 1px solid #fef08a;
+}
+.dark .forecast-badge-yellow {
+    background-color: #713f12;
+    color: #facc15;
+    border: 1px solid #854d0e;
+}
+
+.forecast-badge-red {
+    background-color: #fee2e2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+}
+.dark .forecast-badge-red {
+    background-color: #7f1d1d;
+    color: #f87171;
+    border: 1px solid #991b1b;
+}
+
+/* --- PANNEAU DE FILTRES AVANCÉS --- */
+.filter-panel {
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 9999px;
+    width: fit-content;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.05);
+    transition: border-radius 0.3s ease, width 0.3s ease;
+}
+
+.dark .filter-panel {
+    background: rgba(15, 23, 42, 0.9) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Quand le contenu est ouvert, le panneau prend des coins carrés en bas et s'élargit */
+.filter-panel:has(#filterContent:not(.hidden)) {
+    border-radius: 1.5rem;
+    width: 260px;
+}
+
+/* Transitions pour boutons */
+.filter-type-btn, .filter-level-btn {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.filter-type-btn:hover, .filter-level-btn:hover {
+    transform: scale(1.05);
+}
+
+/* --- MARQUEURS RÉGIONAUX --- */
+.leaflet-marker-icon {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.leaflet-marker-icon:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+}
+
+/* Marqueurs par région */
+.marker-mauricie {
+    filter: hue-rotate(200deg) brightness(1.1);
+}
+
+.marker-laurentides {
+    filter: hue-rotate(280deg) brightness(1);
+}
+
+.marker-estrie {
+    filter: hue-rotate(330deg) brightness(1.1);
+}
+
+.marker-saguenay-lac-saint-jean {
+    filter: hue-rotate(180deg) brightness(1.05);
+}
+
+.marker-gaspésie {
+    filter: hue-rotate(30deg) brightness(1.15);
+}
+
+.marker-québec {
+    filter: hue-rotate(180deg) brightness(1.05);
+}
+
+.marker-outaouais {
+    filter: hue-rotate(140deg) brightness(1.1);
+}
+
+.marker-montréal {
+    filter: hue-rotate(25deg) brightness(1.2);
+}
+
+/* --- ANIMATION PULSE POUR STATISTIQUES --- */
+@keyframes pulse-stats {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+#regionStats {
+    animation: pulse-stats 0.5s ease-out;
+}
+
+/* --- TOAST DE NOTIFICATION PREMIUM --- */
+.custom-toast {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.15), opacity 0.3s ease;
+}
+
+/* --- PADDLE SCORE BADGE --- */
+.paddle-score-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    font-weight: 900;
+    font-size: 18px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    transition: all 0.3s ease;
+}
+
+.paddle-score-badge:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(16, 185, 129, 0.5);
+}
+
+/* États du Paddle Score */
+.paddle-score-excellent {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.paddle-score-good {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+}
+
+.paddle-score-moderate {
+    background: linear-gradient(135deg, #fb923c 0%, #ea580c 100%);
+}
+
+.paddle-score-poor {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+/* --- CARD IMAGES AVEC PADDLE SCORE --- */
+.lake-card-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.lake-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.lake-card-image:hover img {
+    transform: scale(1.1);
+}
+
+.lake-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    padding: 20px;
+    color: white;
+}
+
+/* --- GÉOLOCALISATION MODAL --- */
+.geolocation-modal {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- DÉTAILS LAC - GALERIE --- */
+.gallery-lightbox {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+.gallery-item {
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+/* --- MÉTÉO WIDGET --- */
+.weather-widget {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.weather-stat {
+    text-align: center;
+    padding: 12px;
+}
+
+.weather-stat-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.weather-stat-label {
+    font-size: 12px;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.weather-stat-value {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 4px;
+}
+
+/* --- FAQ STYLING --- */
+details {
+    cursor: pointer;
+}
+
+details summary {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+details > summary::before {
+    content: "▶";
+    display: inline-block;
+    margin-right: 8px;
+    transition: transform 0.2s ease;
+}
+
+details[open] > summary::before {
+    transform: rotate(90deg);
+}
+
+/* --- BOUTONS CALL-TO-ACTION --- */
+.cta-button-primary {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.cta-button-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+.cta-button-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.cta-button-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* --- RESPONSIVE FIXES --- */
+@media (max-width: 768px) {
+    .paddle-score-badge {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+    
+    .gallery-lightbox {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .paddle-score-badge {
+        width: 35px;
+        height: 35px;
+        font-size: 12px;
+    }
+    
+    .gallery-lightbox {
+        grid-template-columns: 1fr;
+    }
+    
+    .weather-widget {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    
+    .weather-stat {
+        padding: 8px;
+    }
+    
+    .weather-stat-icon {
+        font-size: 24px;
+    }
+    
+    .weather-stat-value {
+        font-size: 16px;
+    }
+}

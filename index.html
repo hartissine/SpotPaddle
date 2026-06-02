@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guide paddle & météo live en Mauricie : carte interactive, conditions de vent, sécurité et accès aux meilleurs lacs." />
+
+    <!-- Open Graph / Social preview -->
+    <meta property="og:title" content="Destination Mauricie | Plein Air & Temps Réel" />
+    <meta property="og:description" content="Carte interactive, météo live et conseils sécurité pour naviguer en Mauricie." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200" />
+    <meta property="og:image:alt" content="Vue d'un lac en Mauricie" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <title>Spot Paddle - Paddle Score™ & Conditions en Temps Réel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="data.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans">
+
+    <nav class="p-4 flex flex-wrap justify-between items-center bg-gradient-to-r from-blue-600 to-blue-800 shadow-lg sticky top-0 z-[2000] backdrop-blur-md">
+        <a href="#accueil" class="text-2xl font-bold text-white flex items-center gap-2">
+            <span class="text-3xl">🚣</span> Spot Paddle
+        </a>
+        <div class="flex flex-wrap items-center gap-6">
+            <div class="hidden md:flex space-x-8">
+
+                <a href="#carte" class="text-white hover:text-blue-200 transition duration-300 font-medium flex items-center gap-1 font-semibold">
+                    <span>🗺️</span> Carte des Lacs
+                </a>
+                <a href="#securite" class="text-white hover:text-blue-200 transition duration-300 font-medium flex items-center gap-1">
+                    <span>🛡️</span> Sécurité
+                </a>
+                <a href="#" onclick="showFavorites()" class="text-white hover:text-blue-200 transition duration-300 font-medium flex items-center gap-1 cursor-pointer">
+                    <span>⭐</span> Favoris
+                </a>
+              <!--  <a href="#" class="text-blue-200 hover:text-white transition duration-300 font-medium opacity-75 cursor-not-allowed flex items-center gap-1">
+                    <span>🚣</span> Location (Projet)
+                </a> -->
+            </div>
+            <!-- Menu hamburger pour mobile -->
+            <button id="menuToggle" class="md:hidden text-white focus:outline-none" aria-label="Menu mobile">
+                <span class="text-3xl">☰</span>
+            </button>
+            <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 w-full bg-blue-700 shadow-lg z-[2000] border-t-2 border-blue-500">
+                <div class="flex flex-col space-y-2 p-4">
+                    <a href="#carte" class="text-white hover:text-blue-200 transition font-medium flex items-center gap-2 py-2 font-semibold">
+                        <span>🗺️</span> Carte des Lacs
+                    </a>
+                    <a href="#securite" class="text-white hover:text-blue-200 transition font-medium flex items-center gap-2 py-2">
+                        <span>🛡️</span> Sécurité
+                    </a>
+                    <a href="#" onclick="showFavorites()" class="text-white hover:text-blue-200 transition font-medium flex items-center gap-2 py-2 cursor-pointer">
+                        <span>⭐</span> Favoris
+                    </a>
+                    <a href="#" class="text-blue-200 hover:text-white transition font-medium opacity-75 cursor-not-allowed flex items-center gap-2 py-2">
+                        <span>🚣</span> Location (Projet)
+                    </a>
+                </div>
+            </div>
+            <div class="hidden sm:flex items-center gap-3">
+                <label for="spotSelect" class="sr-only">Choisir un spot</label>
+                <select id="spotSelect" onchange="selectSpot(this.value)" class="bg-white/20 text-white border border-white/30 px-3 py-2 rounded-full font-medium text-sm shadow-sm min-w-[180px] focus:outline-none focus:ring-2 focus:ring-white/50 backdrop-blur-sm">
+                    <option value="" selected class="text-slate-900">📍 Choisir un spot</option>
+                </select>
+                <!-- <button type="button" onclick="resetView()" class="bg-white/20 text-white border border-white/30 px-3 py-2 rounded-full font-medium text-sm shadow-sm hover:bg-white/30 transition duration-300 backdrop-blur-sm" aria-label="Vue globale">
+                    🔄 Vue globale
+                </button> -->
+                <button id="themeToggle" onclick="toggleTheme()" class="bg-white/20 text-white border border-white/30 px-3 py-2 rounded-full font-medium text-sm shadow-sm hover:bg-white/30 transition duration-300 backdrop-blur-sm" aria-label="Basculer vers le mode sombre">
+                    🌙 sombre
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative h-[85vh] md:h-screen flex items-center justify-center text-white overflow-hidden">
+    
+    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+        <source src="mixkit-Lac.mp4" type="video/mp4">
+        <br><br>
+    </video>
+
+    <div class="absolute inset-0 bg-black/50 z-10"></div>
+    
+    <div class="relative z-40 text-center px-6">
+        <span class="bg-blue-600/80 backdrop-blur-md px-4 py-1 rounded-full text-sm font-bold tracking-widest uppercase mb-4 inline-block">🚣 Paddle Score™</span>
+        <h2 class="text-6xl md:text-8xl font-black mb-6 leading-tight tracking-tighter">TROUVEZ VOS<br><span class="text-blue-400">MEILLEURS SPOTS</span></h2>
+        <p class="text-xl md:text-2xl max-w-2xl mx-auto mb-6 font-light text-slate-200">
+            Paddle Score™ en temps réel • Lacs proches • Conditions météo • Sécurité complète
+        </p>
+        <div class="flex flex-col md:flex-row gap-4 justify-center pb-12">
+            <button onclick="findNearestSpots()" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold text-base transition-all shadow-xl hover:scale-105">📍 Trouver mes 2 Spots</button>
+            <a href="#carte" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-bold text-base transition-all shadow-xl hover:scale-105">🗺️ Voir la Carte</a>
+            <a href="#securite" class="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white px-6 py-3 rounded-full font-bold text-base transition-all">⚖️ Sécurité</a>
+        </div>
+
+    </div>
+    
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce pb-10">
+        <span class="text-3xl">↓</span>
+    </div>
+</header>
+<br>
+    <section class="max-w-7xl mx-auto -mt-12 md:-mt-20 relative z-30 px-6 pb-4">
+        <div class="grid md:grid-cols-3 gap-6">
+            <a href="lac.html?lake=lac-des-piles" class="group bg-white rounded-3xl overflow-hidden shadow-2xl transition-transform hover:-translate-y-2 cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800" alt="Lac des Piles" class="h-48 w-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+                <div class="p-6">
+                    <h4 class="font-black text-xl mb-2">Lac des Piles</h4>
+                    <p class="text-slate-500 text-sm mb-4">Source d'eau potable. Visibilité 10m+. Eau exceptionnelle.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-blue-600 font-bold text-sm uppercase">Découvrir →</span>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-bold text-xs">🟢 88</span>
+                    </div>
+                </div>
+            </a>
+            <a href="lac.html?lake=parc-national-wapizagonke" class="group bg-white rounded-3xl overflow-hidden shadow-2xl transition-transform hover:-translate-y-2 cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800" alt="Parc National Wapizagonke" class="h-48 w-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+                <div class="p-6">
+                    <h4 class="font-black text-xl mb-2">Wapizagonke</h4>
+                    <p class="text-slate-500 text-sm mb-4">Falaises mythiques. Chutes accessibles. Nature sauvage.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-blue-600 font-bold text-sm uppercase">Découvrir →</span>
+                        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full font-bold text-xs">🟢 85</span>
+                    </div>
+                </div>
+            </a>
+            <a href="lac.html?lake=riviere-st-maurice" class="group bg-white rounded-3xl overflow-hidden shadow-2xl transition-transform hover:-translate-y-2 cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&w=800" alt="Rivière St-Maurice" class="h-48 w-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+                <div class="p-6">
+                    <h4 class="font-black text-xl mb-2">St-Maurice (TR)</h4>
+                    <p class="text-slate-500 text-sm mb-4">Île Saint-Quentin • Coucher de soleil • Circuits.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-blue-600 font-bold text-sm uppercase">Découvrir →</span>
+                        <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full font-bold text-xs">🟡 75</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section id="carte" class="max-w-6xl mx-auto py-12 px-6">
+        <div class="mb-6 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+            <div>
+                <h3 class="text-3xl font-bold text-slate-800 italic">Carte interactive des accès</h3>
+                <p class="text-slate-500">Cliquez sur un lac pour voir le vent et la température.</p>
+            </div>
+            <div class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-bold uppercase tracking-tighter">Données en direct 📡</div>
+        </div>
+    
+        <div class="relative">
+            <div id="map" class="shadow-xl border-4 border-white"></div>
+            <div class="absolute bottom-6 right-6 z-[1000] flex flex-col gap-3">
+                <button onclick="resetView()" 
+                    class="bg-white/90 dark:bg-slate-800 backdrop-blur-md p-3 rounded-full shadow-xl hover:bg-blue-50 dark:hover:bg-slate-700 transition-all border-2 border-blue-600 dark:border-blue-500 group" 
+                    title="Vue globale">
+                    <svg xmlns="http://www.w3.org/2000/svg" 
+                        class="w-6 h-6 text-blue-600 dark:text-blue-400 group-hover:rotate-180 transition-transform duration-500" 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke="currentColor" 
+                        stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                </button>
+                <button onclick="geolocaliser(event)" 
+                    class="bg-white/90 dark:bg-slate-800 backdrop-blur-md p-3 rounded-full shadow-xl hover:bg-blue-50 dark:hover:bg-slate-700 transition-all border-2 border-blue-600 dark:border-blue-500 group" 
+                    title="Me localiser">
+                    <span class="text-xl group-hover:scale-125 block transition-transform">📍</span>
+                </button>
+
+                </div>
+            <div id="filterPanel" class="absolute top-6 left-6 z-[1000] filter-panel shadow-2xl transition-all duration-300">
+
+                <!-- Bouton ⚙️ = titre ET bascule du panneau -->
+                <button id="filterToggleBtn" onclick="toggleFilterCollapse()"
+                    class="flex items-center gap-2 px-4 py-2 font-bold text-xs text-white bg-blue-600 hover:bg-blue-700 rounded-full transition-all duration-300"
+                    aria-label="Ouvrir / Fermer les filtres">
+                    <span>⚙️</span>
+                    <span>Filtres</span>
+                </button>
+
+                <!-- Contenu des filtres (caché par défaut) -->
+                <div id="filterContent" class="hidden px-5 pb-5 pt-4 space-y-4">
+
+                    <!-- Région -->
+                    <div class="space-y-1.5">
+                        <label for="regionFilter" class="block text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">Région</label>
+                        <select id="regionFilter" onchange="filterRegion(this.value)" class="w-full text-slate-700 bg-white/70 dark:bg-slate-800/70 dark:text-slate-200 border border-slate-200 dark:border-white/10 px-3 py-1.5 rounded-xl font-bold text-[10px] tracking-wide focus:outline-none focus:ring-2 focus:ring-blue-600/30">
+                            <option value="all">📍 Toutes les régions</option>
+                        </select>
+                    </div>
+
+                    <!-- Catégorie -->
+                    <div class="space-y-1.5">
+                        <span class="block text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">Catégorie</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <button onclick="filterSpots('all')" data-type="all" class="filter-type-btn px-3 py-1 rounded-full text-[10px] font-bold transition-all bg-blue-600 text-white shadow-sm scale-105" aria-label="Tous les types">Tous</button>
+                            <button onclick="filterSpots('lac')" data-type="lac" class="filter-type-btn px-3 py-1 rounded-full text-[10px] font-bold transition-all bg-white/70 text-slate-700 dark:bg-slate-800/70 dark:text-slate-200" aria-label="Lacs uniquement">Lacs</button>
+                            <button onclick="filterSpots('riviere')" data-type="riviere" class="filter-type-btn px-3 py-1 rounded-full text-[10px] font-bold transition-all bg-white/70 text-slate-700 dark:bg-slate-800/70 dark:text-slate-200" aria-label="Rivières uniquement">Rivières</button>
+                            <button onclick="filterSpots('parc')" data-type="parc" class="filter-type-btn px-3 py-1 rounded-full text-[10px] font-bold transition-all bg-white/70 text-slate-700 dark:bg-slate-800/70 dark:text-slate-200" aria-label="Parcs uniquement">Parcs</button>
+                        </div>
+                    </div>
+
+                    <!-- Difficulté -->
+                    <div class="space-y-1.5">
+                        <span class="block text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">Difficulté</span>
+                        <div class="flex flex-wrap gap-1.5">
+                            <button onclick="filterLevel('all')" data-level="all" class="filter-level-btn px-3 py-1 rounded-full text-[10px] font-bold transition-all bg-blue-600 text-white shadow-sm scale-105" aria-label="Toutes les difficultés">Tous</button>
+                            <button onclick="filterLevel('facile')" data-level="facile" class="filter-level-btn px-3 py-1 rounded-full text-[10px] font-bold transition-all bg-white/70 text-slate-700 dark:bg-slate-800/70 dark:text-slate-200" aria-label="Eaux calmes uniquement">🟢 Calme</button>
+                            <button onclick="filterLevel('sportif')" data-level="sportif" class="filter-level-btn px-3 py-1 rounded-full text-[10px] font-bold transition-all bg-white/70 text-slate-700 dark:bg-slate-800/70 dark:text-slate-200" aria-label="Sportif uniquement">🟡 Sportif</button>
+                        </div>
+                    </div>
+
+                    <!-- Bouton Réinitialiser -->
+                    <div class="pt-2">
+                        <button onclick="resetFilters()" class="w-full px-3 py-1.5 rounded-xl text-[10px] font-bold transition-all bg-gradient-to-r from-slate-300 to-slate-400 dark:from-slate-700 dark:to-slate-600 text-slate-700 dark:text-slate-100 hover:scale-105 shadow-sm" aria-label="Réinitialiser les filtres">
+                            🔄 Réinitialiser
+                        </button>
+                    </div>
+
+                    <!-- Option Gratuité -->
+                    <div class="flex items-center justify-between pt-3 border-t border-slate-200/50 dark:border-white/5">
+                        <span class="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">Accès 100% Gratuit</span>
+                        <label class="relative inline-flex items-center cursor-pointer" for="freeOnlyCheckbox">
+                            <input type="checkbox" id="freeOnlyCheckbox" onchange="toggleFreeFilter(this.checked)" class="sr-only peer" aria-label="Filtrer par accès gratuit">
+                            <div class="w-9 h-5 bg-slate-300 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
+                        </label>
+                    </div>
+
+                    <!-- Statistiques de la région -->
+                    <div id="regionStats" class="hidden pt-3 border-t border-slate-200/50 dark:border-white/5">
+                        <span class="block text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-2">📊 Statistiques</span>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="bg-blue-100 dark:bg-blue-900/30 px-2 py-1 rounded-lg text-center">
+                                <div class="text-[9px] font-bold text-blue-700 dark:text-blue-300">Total</div>
+                                <div id="statTotal" class="text-lg font-black text-blue-600 dark:text-blue-400">0</div>
+                            </div>
+                            <div class="bg-green-100 dark:bg-green-900/30 px-2 py-1 rounded-lg text-center">
+                                <div class="text-[9px] font-bold text-green-700 dark:text-green-300">Gratuit</div>
+                                <div id="statFree" class="text-lg font-black text-green-600 dark:text-green-400">0</div>
+                            </div>
+                            <div class="bg-yellow-100 dark:bg-yellow-900/30 px-2 py-1 rounded-lg text-center">
+                                <div class="text-[9px] font-bold text-yellow-700 dark:text-yellow-300">Calme</div>
+                                <div id="statEasy" class="text-lg font-black text-yellow-600 dark:text-yellow-400">0</div>
+                            </div>
+                            <div class="bg-orange-100 dark:bg-orange-900/30 px-2 py-1 rounded-lg text-center">
+                                <div class="text-[9px] font-bold text-orange-700 dark:text-orange-300">Sportif</div>
+                                <div id="statSport" class="text-lg font-black text-orange-600 dark:text-orange-400">0</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="securite" class="max-w-6xl mx-auto py-16 px-6">
+        <div class="text-center mb-12">
+            <h3 class="text-3xl font-bold text-slate-800 italic">Sécurité & Réglementation</h3>
+            <p class="text-slate-500 mt-2">L'essentiel pour naviguer l'esprit tranquille en Mauricie.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-2xl shadow-sm border-t-4 border-red-500 flex flex-col">
+                <div class="text-3xl mb-4">⚖️</div>
+                <h4 class="text-xl font-bold mb-6 text-slate-500">Légalement Obligatoire</h4>
+                <div class="space-y-4 text-sm text-slate-600">
+                    <p>✅ <b>VFI :</b> Un gilet de sauvetage à portée de main.</p>
+                    <p>✅ <b>Sifflet :</b> Un dispositif de signalisation sonore.</p>
+                    <p>✅ <b>Ligne de vie :</b> Une corde flottante (min. 15m).</p>
+                    <p>✅ <b>Lampe :</b> Étanche (obligatoire après le coucher du soleil).</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-sm border-t-4 border-blue-500 flex flex-col">
+                <div class="text-3xl mb-4">�</div>
+                <h4 class="text-xl font-bold mb-6 text-slate-500">Paddle Score™</h4>
+                <div class="space-y-4 text-sm text-slate-600">
+                    <p>📊 <b>Calcul en temps réel :</b> Vent, pluie, température, vagues.</p>
+                    <p>🎨 <b>Code couleur :</b> 🟢 Excellent (80+) • 🟡 Bon (60+) • 🟠 Modéré (40+) • 🔴 Mauvais (-40)</p>
+                    <p>✅ <b>Consulter avant chaque sortie :</b> Entre en compte vos conditions de paddle.</p>
+                    <p>🔗 <b>Pages détaillées :</b> Chaque lac a ses particularités et score propre.</p>
+                </div>
+            </div>
+
+            <div class="bg-blue-900 text-white p-8 rounded-2xl shadow-lg flex flex-col">
+                <div class="text-3xl mb-4">⭐</div>
+                <h4 class="text-xl font-bold mb-6">La Règle d'Or</h4>
+                <p class="text-blue-100 text-sm leading-relaxed mb-6 italic">
+                    "Si tu doutes, n'y va pas."
+                </p>
+                <p class="text-blue-100 text-sm mb-6">
+                    Vérifiez toujours le vent. En Mauricie, un vent d'Ouest peut vous éloigner très vite.
+                </p>
+                <div class="mt-auto bg-blue-800/50 p-4 rounded-xl border border-blue-700">
+                    <p class="text-xs">💡 <b>Astuce :</b> Portez toujours votre "leash" (cordon de cheville).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="overlay" onclick="fermerSidebar()" class="fixed inset-0 bg-black bg-opacity-50 hidden z-[999] transition-opacity"></div>
+
+    <div id="sidebar" class="fixed top-0 right-0 h-full w-full md:w-[450px] bg-white/90 backdrop-blur-xl shadow-2xl z-[9999] transform translate-x-full transition-transform duration-500 ease-in-out overflow-y-auto border-l border-white/20">    
+        <div class="bg-blue-900 text-white p-4 rounded-2xl flex items-center gap-4">
+            <span class="text-3xl">🌡️</span>
+            <div>
+                <h4 class="text-xs uppercase font-bold opacity-70">Conseil d'équipement</h4>
+                <p class="text-sm font-bold">L'eau est froide en mai. Le port d'une combinaison (wetsuit) est fortement recommandé.</p>
+            </div>
+        </div>
+    </div>
+<!--         <div class="space-y-6">
+            <div class="bg-blue-50 p-4 rounded-xl border border-blue-100">
+                <h3 class="font-bold text-blue-800 flex items-center mb-2 underline decoration-blue-200">📍 Accès & Stationnement</h3>
+                <p id="sidebar-parking" class="text-sm text-slate-700">Chargement...</p>
+            </div>
+            <div class="bg-green-50 p-4 rounded-xl border border-green-100">
+                <h3 class="font-bold text-green-800 flex items-center mb-2 underline decoration-green-200">💰 Tarification</h3>
+                <p id="sidebar-prix" class="text-sm text-slate-700">Chargement...</p>
+            </div>
+            <div class="bg-orange-50 p-4 rounded-xl border border-orange-100">
+                <h3 class="font-bold text-orange-800 flex items-center mb-2 underline decoration-orange-200">ℹ️ Informations utiles</h3>
+                <p id="sidebar-info" class="text-sm text-slate-700">Chargement...</p>
+            </div>
+            <div class="pt-6 border-t border-slate-200">
+                <p class="text-xs text-center text-slate-500 mb-2 font-medium">Bientôt disponible dans ta région</p>
+                <button class="w-full py-3 bg-slate-300 text-slate-500 rounded-lg font-bold cursor-not-allowed">
+                    🔒 Louer un paddle au casier
+                </button>
+            </div>
+        </div> -->
+    </div>
+
+    <!-- Sidebar pour les favoris -->
+    <div id="favoritesSidebar" class="fixed top-0 right-0 w-full md:w-96 h-full bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-[1000] p-6 overflow-y-auto border-l-4 border-yellow-500">
+        <button onclick="fermerFavoritesSidebar()" class="absolute top-4 right-4 text-slate-400 hover:text-red-500 text-3xl font-bold">&times;</button>
+        <h2 class="text-3xl font-extrabold text-yellow-900 mb-6 mt-4 italic">⭐ Mes Favoris</h2>
+        <div id="favoritesList" class="space-y-4">
+            <!-- Les favoris seront ajoutés ici dynamiquement -->
+        </div>
+        <div id="noFavorites" class="text-center text-slate-500 mt-8">
+            <p>Aucun favori pour le moment.</p>
+            <p class="text-sm">Cliquez sur ⭐ dans les popups pour ajouter des spots !</p>
+        </div>
+    </div>
+
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="text-xl font-bold mb-4">À propos</h4>
+                    <p class="text-slate-400 text-sm mb-4">
+                        Spot Paddle - Paddle Score™ pour les passionnés de paddle.
+                        Conditions en temps réel, lacs proches, sécurité et données complètes pour chaque spot.
+                    </p>
+                    <p class="text-slate-400 text-xs">Dernière mise à jour : Juin 2026 • Domaine : spotpaddle.ca</p>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Contact & Légal</h4>
+                    <p class="text-slate-400 text-sm mb-4 italic">Un projet né en Mauricie 🌲</p>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="bg-slate-800 p-2 rounded-full hover:bg-blue-600 transition" aria-label="Facebook" title="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 fill-current" aria-hidden="true"><path d="M22 12.07C22 6.48 17.52 2 12 2S2 6.48 2 12.07c0 5.02 3.66 9.17 8.44 9.93v-7.02H8.14v-2.9h2.3V9.41c0-2.28 1.36-3.55 3.44-3.55.99 0 2.03.18 2.03.18v2.23h-1.14c-1.12 0-1.47.7-1.47 1.42v1.7h2.5l-.4 2.9h-2.1v7.02C18.34 21.24 22 17.09 22 12.07z"/></svg>
+                        </a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="bg-slate-800 p-2 rounded-full hover:bg-pink-600 transition" aria-label="Instagram" title="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 fill-current" aria-hidden="true"><path d="M12 2.16c3.2 0 3.584.012 4.85.07 1.17.055 1.803.24 2.227.4.53.203.908.445 1.305.84.397.397.637.775.84 1.305.16.423.345 1.056.4 2.227.058 1.266.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.055 1.17-.24 1.803-.4 2.227-.203.53-.445.908-.84 1.305a3.86 3.86 0 0 1-1.305.84c-.423.16-1.056.345-2.227.4-1.266.058-1.65.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.055-1.803-.24-2.227-.4a3.88 3.88 0 0 1-1.305-.84 3.88 3.88 0 0 1-.84-1.305c-.16-.423-.345-1.056-.4-2.227C2.172 15.584 2.16 15.2 2.16 12s.012-3.584.07-4.85c.055-1.17.24-1.803.4-2.227.203-.53.445-.908.84-1.305.397-.397.775-.637 1.305-.84.423-.16 1.056-.345 2.227-.4C8.416 2.172 8.8 2.16 12 2.16zm0 1.8c-3.16 0-3.534.012-4.78.07-1.017.044-1.57.203-1.93.338a2.24 2.24 0 0 0-.81.5 2.24 2.24 0 0 0-.5.81c-.135.36-.294.913-.338 1.93-.058 1.246-.07 1.62-.07 4.78s.012 3.534.07 4.78c.044 1.017.203 1.57.338 1.93.12.313.28.58.5.81.23.23.497.38.81.5.36.135.913.294 1.93.338 1.246.058 1.62.07 4.78.07s3.534-.012 4.78-.07c1.017-.044 1.57-.203 1.93-.338a2.28 2.28 0 0 0 .81-.5 2.28 2.28 0 0 0 .5-.81c.135-.36.294-.913.338-1.93.058-1.246.07-1.62.07-4.78s-.012-3.534-.07-4.78c-.044-1.017-.203-1.57-.338-1.93a2.24 2.24 0 0 0-.5-.81 2.24 2.24 0 0 0-.81-.5c-.36-.135-.913-.294-1.93-.338-1.246-.058-1.62-.07-4.78-.07zm0 4.14a5.86 5.86 0 1 1 0 11.72 5.86 5.86 0 0 1 0-11.72zm0 1.8a4.06 4.06 0 1 0 0 8.12 4.06 4.06 0 0 0 0-8.12zm6.18-1.92a1.38 1.38 0 1 1 0 2.76 1.38 1.38 0 0 1 0-2.76z"/></svg>
+                        </a>
+                        <a href="mailto:info@destinationmauricie.com" class="bg-slate-800 p-2 rounded-full hover:bg-green-600 transition" aria-label="Envoyer un mail" title="Envoyer un mail">
+                            ✉️
+                        </a>
+                    </div>
+                    <p class="text-slate-400 text-xs">
+                        <a href="mentions-legales.html" class="hover:text-white underline">Mentions légales</a> | 
+                        <a href="politique-confidentialite.html" class="hover:text-white underline">Politique de confidentialité</a>
+                    </p>
+                </div>
+            </div>
+            <div class="max-w-6xl mx-auto px-6 mt-8 pt-8 border-t border-slate-700 text-center text-slate-500 text-xs">
+                © 2026 Spot Paddle (spotpaddle.ca) • Paddle Score™ • Tous droits réservés • Données météo : OpenWeatherMap • Cartes : OpenStreetMap
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
