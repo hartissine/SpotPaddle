@@ -575,17 +575,26 @@
 
     // 5. API Logic
     async function getMeteo(lat, lon, name, marker) {
-        if(!apiKey || apiKey === "VOTRE_CLE_API_ICI") {
-            marker.bindPopup(`<b>${name}</b><br>⚠️ Clé API manquante.`).openPopup();
-            return;
+        // 1. Détection de l'environnement (Local vs Serveur)
+        const isLocal = window.location.hostname === 'localhost' || 
+                        window.location.hostname === '127.0.0.1' || 
+                        window.location.protocol === 'file:';
+        
+        let url;
+        if (isLocal) {
+            // Mode Développement (sur ton ordi)
+            const apiKey = "b5d51e383a9219e83fa41ab4f6776e06"; 
+            url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=fr`;
+        } else {
+            // Mode Production (sur spotpaddle.ca)
+            url = `/meteo.php?lat=${lat}&lon=${lon}`;
         }
-
-        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=fr`;
 
         try {
             const response = await fetch(url);
+            if (!response.ok) throw new Error("Impossible de charger la météo");
             const data = await response.json();
-        
+            
             const temp = Math.round(data.main.temp);
             const vent = Math.round(data.wind.speed * 3.6); 
             const tempEau = temp - 4;   
@@ -603,61 +612,73 @@
                 statusText = "Prudence : Vent modéré 🟡";
             }
 
-                marker.bindPopup(`
-        <div class="text-sm p-1">
-            <h3 class="text-lg text-blue-800 font-bold italic mb-1 border-b border-blue-100 pb-1">${name}</h3>
-            
-            <div class="flex items-center mb-2 bg-blue-50 dark:bg-slate-800/50 p-2 rounded-lg border border-slate-200">
-                <span class="text-xl mr-2">${getWeatherEmoji(iconCode)}</span>
-                <span class="text-slate-900 dark:text-white capitalize text-[11px] font-bold leading-tight">
-                    ${desc}
-                </span>
-            </div>
-
-            <div class="mb-2 p-1.5 rounded-lg text-white text-center font-bold text-[10px] uppercase tracking-wider ${statusColor}">
-                ${statusText}
-            </div>
-
-            <div class="grid grid-cols-2 gap-2 text-center mb-2">
-                <div class="bg-slate-100 p-1 rounded-lg border border-slate-200">
-                    <span class="block text-[9px] text-slate-500 uppercase">Air</span>
-                    <b class="text-xs">${temp}°C</b>
-                </div>
-                <div class="bg-slate-100 p-1 rounded-lg border border-slate-200">
-                    <span class="block text-[9px] text-slate-500 uppercase">Vent</span>
-                    <b class="text-xs">${vent} km/h</b>
-                </div>
-            </div>
-
-            <div class="flex flex-col gap-1.5">
-                <button onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}', '_blank')" 
-                    class="w-full py-2 bg-slate-800 text-white rounded-md font-bold text-[10px] uppercase hover:bg-black transition-colors flex items-center justify-center gap-1">
-                    🚗 Itinéraire
-                </button>
+            // Création du panneau avec tes styles originaux
+            marker.bindPopup(`
+            <div class="text-sm p-1">
+                <h3 class="text-lg text-blue-800 font-bold italic mb-1 border-b border-blue-100 pb-1">${name}</h3>
                 
-                <div class="grid grid-cols-2 gap-1.5">
-                    <button onclick="ouvrirSidebar('${name}')" class="py-2 bg-blue-600 text-white rounded-md font-bold text-[10px] uppercase hover:bg-blue-700 transition-colors">
-                        📍 Infos
-                    </button>
-                    <button onclick="toggleFavorite('${name}')" class="py-2 border border-yellow-500 text-yellow-600 rounded-md font-bold text-[10px] uppercase hover:bg-yellow-50 transition-colors">
-                        ⭐ Favori
-                    </button>
+                <div class="flex items-center mb-2 bg-blue-50 dark:bg-slate-800/50 p-2 rounded-lg border border-slate-200">
+                    <span class="text-xl mr-2">${getWeatherEmoji(iconCode)}</span>
+                    <span class="text-slate-900 dark:text-white capitalize text-[11px] font-bold leading-tight">
+                        ${desc}
+                    </span>
                 </div>
-                <a href="lac.html?lake=${getLakePageSlug(name)}&v=20260615" class="block w-full py-2 bg-emerald-600 text-white rounded-md font-bold text-[10px] uppercase hover:bg-emerald-700 transition-colors text-center">
-                    📖 Page complète
-                </a>
+
+                <div class="mb-2 p-1.5 rounded-lg text-white text-center font-bold text-[10px] uppercase tracking-wider ${statusColor}">
+                    ${statusText}
+                </div>
+
+                <div class="grid grid-cols-2 gap-2 text-center mb-2">
+                    <div class="bg-slate-100 p-1 rounded-lg border border-slate-200">
+                        <span class="block text-[9px] text-slate-500 uppercase">Air</span>
+                        <b class="text-xs">${temp}°C</b>
+                    </div>
+                    <div class="bg-slate-100 p-1 rounded-lg border border-slate-200">
+                        <span class="block text-[9px] text-slate-500 uppercase">Vent</span>
+                        <b class="text-xs">${vent} km/h</b>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-1.5">
+                    <button onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}', '_blank')" 
+                        class="w-full py-2 bg-slate-800 text-white rounded-md font-bold text-[10px] uppercase hover:bg-black transition-colors flex items-center justify-center gap-1">
+                        🚗 Itinéraire
+                    </button>
+                    
+                    <div class="grid grid-cols-2 gap-1.5">
+                        <button onclick="ouvrirSidebar('${name}')" class="py-2 bg-blue-600 text-white rounded-md font-bold text-[10px] uppercase hover:bg-blue-700 transition-colors">
+                            📍 Infos
+                        </button>
+                        <button onclick="toggleFavorite('${name}')" class="py-2 border border-yellow-500 text-yellow-600 rounded-md font-bold text-[10px] uppercase hover:bg-yellow-50 transition-colors">
+                            ⭐ Favori
+                        </button>
+                    </div>
+                    <a href="lac.html?lake=${getLakePageSlug(name)}&v=20260615" class="block w-full py-2 bg-emerald-600 text-white rounded-md font-bold text-[10px] uppercase hover:bg-emerald-700 transition-colors text-center">
+                        📖 Page complète
+                    </a>
+                </div>
             </div>
-        </div>
-    `, { 
-        maxWidth: 260, 
-        minWidth: 220,
-        className: 'custom-popup' 
-    }).openPopup();
-            
-            // Forcer la mise à jour de la carte pour corriger l'affichage des tuiles et popups
+            `, { 
+                maxWidth: 260, 
+                minWidth: 220,
+                className: 'custom-popup' 
+            }).openPopup();
+                
             setTimeout(() => map.invalidateSize(), 100);
+
         } catch (error) {
-            console.error("Erreur:", error);
+            console.error("Erreur météo pour", name, ":", error);
+            
+            // 2. Fallback de secours si l'API ou le PHP plante
+            marker.bindPopup(`
+                <div class="text-sm p-2 text-center">
+                    <h3 class="text-lg text-blue-800 font-bold mb-2">${name}</h3>
+                    <p class="text-red-600 mb-3 text-xs">⚠️ Météo temporairement indisponible</p>
+                    <a href="lac.html?lake=${getLakePageSlug(name)}" class="block w-full py-2 bg-emerald-600 text-white rounded-md font-bold text-[10px] uppercase hover:bg-emerald-700 transition-colors">
+                        📖 Page complète
+                    </a>
+                </div>
+            `).openPopup();
         }
     }
 
