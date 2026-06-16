@@ -18,7 +18,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="style.css" />
-    <script src="data.js"></script>
+    <script src="data.js?v=20260615"></script>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans">
 
@@ -62,22 +62,22 @@
                     </a>
                 </div>
             </div>
-            <div class="hidden sm:flex items-center gap-3">
+            <div class="flex items-center gap-2 sm:gap-3">
                 <label for="spotSelect" class="sr-only">Choisir un spot</label>
-                <select id="spotSelect" onchange="selectSpot(this.value)" class="bg-white/20 text-white border border-white/30 px-3 py-2 rounded-full font-medium text-sm shadow-sm min-w-[180px] focus:outline-none focus:ring-2 focus:ring-white/50 backdrop-blur-sm">
+                <select id="spotSelect" onchange="selectSpot(this.value)" class="bg-white/20 text-white border border-white/30 px-3 py-2 rounded-full font-semibold text-sm shadow-sm w-44 sm:w-48 md:w-44 lg:w-52 focus:outline-none focus:ring-2 focus:ring-white/50 backdrop-blur-sm">
                     <option value="" selected class="text-slate-900">📍 Choisir un spot</option>
                 </select>
                 <!-- <button type="button" onclick="resetView()" class="bg-white/20 text-white border border-white/30 px-3 py-2 rounded-full font-medium text-sm shadow-sm hover:bg-white/30 transition duration-300 backdrop-blur-sm" aria-label="Vue globale">
                     🔄 Vue globale
                 </button> -->
-                <button id="themeToggle" onclick="toggleTheme()" class="bg-white/20 text-white border border-white/30 px-3 py-2 rounded-full font-medium text-sm shadow-sm hover:bg-white/30 transition duration-300 backdrop-blur-sm" aria-label="Basculer vers le mode sombre">
-                    🌙 sombre
+                <button id="themeToggle" onclick="toggleTheme()" class="bg-white/20 text-white border border-white/30 w-10 h-10 rounded-full font-medium text-sm shadow-sm hover:bg-white/30 transition duration-300 backdrop-blur-sm flex items-center justify-center" aria-label="Basculer vers le mode sombre">
+                    🌙
                 </button>
             </div>
         </div>
     </nav>
 
-    <header class="relative h-[85vh] md:h-screen flex items-center justify-center text-white overflow-hidden">
+    <header class="relative min-h-[85svh] md:h-screen flex items-center justify-center text-white overflow-hidden py-20 md:py-0">
     
     <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
         <source src="mixkit-Lac.mp4" type="video/mp4">
@@ -88,7 +88,7 @@
     
     <div class="relative z-40 text-center px-6">
         <span class="bg-blue-600/80 backdrop-blur-md px-4 py-1 rounded-full text-sm font-bold tracking-widest uppercase mb-4 inline-block">🚣 Paddle Score™</span>
-        <h2 class="text-6xl md:text-8xl font-black mb-6 leading-tight tracking-tighter">TROUVEZ VOS<br><span class="text-blue-400">MEILLEURS SPOTS</span></h2>
+        <h2 class="text-4xl sm:text-5xl md:text-8xl font-black mb-6 leading-tight tracking-tighter">TROUVEZ VOS <br><span class="text-blue-400">MEILLEURS SPOTS</span></h2>
         <p class="text-xl md:text-2xl max-w-2xl mx-auto mb-6 font-light text-slate-200">
             Paddle Score™ en temps réel • Lacs proches • Conditions météo • Sécurité complète
         </p>
@@ -107,7 +107,7 @@
 <br>
     <section class="max-w-7xl mx-auto -mt-12 md:-mt-20 relative z-30 px-6 pb-4">
         <div class="grid md:grid-cols-3 gap-6">
-            <a href="lac.html?lake=lac-des-piles" class="group bg-white rounded-3xl overflow-hidden shadow-2xl transition-transform hover:-translate-y-2 cursor-pointer">
+            <a href="lac.html?lake=lac-des-piles&v=20260615" class="group bg-white rounded-3xl overflow-hidden shadow-2xl transition-transform hover:-translate-y-2 cursor-pointer">
                 <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800" alt="Lac des Piles" class="h-48 w-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
                 <div class="p-6">
                     <h4 class="font-black text-xl mb-2">Lac des Piles</h4>
@@ -118,7 +118,7 @@
                     </div>
                 </div>
             </a>
-            <a href="lac.html?lake=parc-national-wapizagonke" class="group bg-white rounded-3xl overflow-hidden shadow-2xl transition-transform hover:-translate-y-2 cursor-pointer">
+            <a href="lac.html?lake=parc-national-wapizagonke&v=20260615" class="group bg-white rounded-3xl overflow-hidden shadow-2xl transition-transform hover:-translate-y-2 cursor-pointer">
                 <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800" alt="Parc National Wapizagonke" class="h-48 w-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
                 <div class="p-6">
                     <h4 class="font-black text-xl mb-2">Wapizagonke</h4>
@@ -129,7 +129,7 @@
                     </div>
                 </div>
             </a>
-            <a href="lac.html?lake=riviere-st-maurice" class="group bg-white rounded-3xl overflow-hidden shadow-2xl transition-transform hover:-translate-y-2 cursor-pointer">
+            <a href="lac.html?lake=riviere-st-maurice&v=20260615" class="group bg-white rounded-3xl overflow-hidden shadow-2xl transition-transform hover:-translate-y-2 cursor-pointer">
                 <img src="https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&w=800" alt="Rivière St-Maurice" class="h-48 w-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
                 <div class="p-6">
                     <h4 class="font-black text-xl mb-2">St-Maurice (TR)</h4>
@@ -305,7 +305,7 @@
         </div>
     </section>
 
-    <div id="overlay" onclick="fermerSidebar()" class="fixed inset-0 bg-black bg-opacity-50 hidden z-[999] transition-opacity"></div>
+    <div id="overlay" onclick="fermerSidebar(); fermerFavoritesSidebar()" class="fixed inset-0 bg-black bg-opacity-50 hidden z-[2500] transition-opacity"></div>
 
     <div id="sidebar" class="fixed top-0 right-0 h-full w-full md:w-[450px] bg-white/90 backdrop-blur-xl shadow-2xl z-[9999] transform translate-x-full transition-transform duration-500 ease-in-out overflow-y-auto border-l border-white/20">    
         <div class="bg-blue-900 text-white p-4 rounded-2xl flex items-center gap-4">
@@ -339,15 +339,20 @@
     </div>
 
     <!-- Sidebar pour les favoris -->
-    <div id="favoritesSidebar" class="fixed top-0 right-0 w-full md:w-96 h-full bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-[1000] p-6 overflow-y-auto border-l-4 border-yellow-500">
-        <button onclick="fermerFavoritesSidebar()" class="absolute top-4 right-4 text-slate-400 hover:text-red-500 text-3xl font-bold">&times;</button>
-        <h2 class="text-3xl font-extrabold text-yellow-900 mb-6 mt-4 italic">⭐ Mes Favoris</h2>
+    <div id="favoritesSidebar" class="fixed top-0 right-0 w-full md:w-96 h-full bg-white shadow-2xl transform translate-x-full transition-transform duration-300 z-[3000] p-6 pb-28 overflow-y-auto border-l-4 border-yellow-500">
+        <button onclick="fermerFavoritesSidebar()" class="sticky top-0 ml-auto mb-2 bg-white text-slate-400 hover:text-red-500 text-3xl font-bold w-10 h-10 rounded-full shadow-sm flex items-center justify-center z-10" aria-label="Fermer les favoris">&times;</button>
+        <h2 class="text-3xl font-extrabold text-yellow-900 mb-6 italic">⭐ Mes Favoris</h2>
         <div id="favoritesList" class="space-y-4">
             <!-- Les favoris seront ajoutés ici dynamiquement -->
         </div>
         <div id="noFavorites" class="text-center text-slate-500 mt-8">
             <p>Aucun favori pour le moment.</p>
             <p class="text-sm">Cliquez sur ⭐ dans les popups pour ajouter des spots !</p>
+        </div>
+        <div class="md:hidden fixed bottom-0 right-0 w-full bg-white/95 backdrop-blur-md border-t border-slate-200 p-4 shadow-2xl">
+            <button onclick="fermerFavoritesSidebar()" class="w-full bg-slate-900 text-white py-4 rounded-2xl font-bold text-base shadow-lg" aria-label="Fermer les favoris">
+                Fermer
+            </button>
         </div>
     </div>
 
@@ -390,6 +395,6 @@
     </footer>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js?v=20260615"></script>
 </body>
 </html>

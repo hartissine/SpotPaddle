@@ -75,9 +75,9 @@
         { 
             name: "Lac Sacacomie", 
             region: "Mauricie",
-            lat: 46.5285, lon: -73.2010, 
+            lat: 46.52743, lon: -73.20323, 
             image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800",
-            parking: "Stationnement accessible (accès plage).", 
+            parking: "Mise à l'eau OSM près du lac Sacacomie.", 
             prix: "Frais d'accès (Environ 15$).", 
             info: "Réputé pour son eau d'une clarté exceptionnelle et ses 42 km de rivage sauvage.",
             isFree: false,
@@ -86,9 +86,9 @@
         { 
             name: "Rivière St-Maurice (TR)", 
             region: "Mauricie",
-            lat: 46.3548, lon: -72.5342, 
+            lat: 46.35864, lon: -72.53472, 
             image: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&q=80&w=800",
-            parking: "Grand stationnement à l'Île Saint-Quentin.", 
+            parking: "Mise à l'eau de l'Île Saint-Quentin / Avenue des Draveurs.", 
             prix: "Frais d'accès au parc de l'île.", 
             info: "Parfait pour éviter les forts courants du centre de la rivière.",
             isFree: false,
@@ -97,9 +97,9 @@
         { 
             name: "Lac Saint-Pierre", 
             region: "Mauricie",
-            lat: 46.2295, lon: -72.9180, 
+            lat: 46.22455, lon: -72.92234, 
             image: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=800",
-            parking: "Accès via le Domaine du Lac St-Pierre à Louiseville.", 
+            parking: "Rampe de mise à l'eau près du Domaine du Lac Saint-Pierre.", 
             prix: "Frais de mise à l'eau applicables.", 
             info: "Réserve de biosphère. Très exposé au vent d'Ouest.",
             isFree: false,
@@ -108,9 +108,9 @@
         { 
             name: "Parc National - Wapizagonke", 
             region: "Mauricie",
-            lat: 46.6735, lon: -72.9805, 
+            lat: 46.66976, lon: -73.00577, 
             image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
-            parking: "Secteur Esker / Aire de pique-nique.", 
+            parking: "Mise à l'eau du secteur Wapizagonke.", 
             prix: "Entrée Parc National + Lavage obligatoire.", 
             info: "Naviguez au pied des falaises. Chutes Waber accessibles par ce lac.",
             isFree: false,
@@ -130,9 +130,9 @@
         { 
             name: "Lac Maskinongé (St-Gabriel)", 
             region: "Mauricie",
-            lat: 46.3330, lon: -73.3865, 
+            lat: 46.33623, lon: -73.39885, 
             image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
-            parking: "Plage municipale de Saint-Gabriel.", 
+            parking: "Plage / accès riverain de Saint-Gabriel.", 
             prix: "Stationnement payant en haute saison.", 
             info: "Grand lac peu profond par endroits, idéal pour les familles.",
             isFree: true,
@@ -152,9 +152,9 @@
         { 
             name: "Lac-aux-Sables", 
             region: "Mauricie",
-            lat: 46.8738, lon: -72.3942,
+            lat: 46.87022, lon: -72.39044,
             image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800",
-            parking: "Stationnement à la plage municipale.", 
+            parking: "Marina / accès riverain de Lac-aux-Sables.", 
             prix: "Accès public gratuit.",
             info: "Sable fin et eau claire. Très fréquenté durant l'été.",
             isFree: true,
@@ -196,9 +196,9 @@
         { 
             name: "Lac Stukely (Mont-Orford)", 
             region: "Estrie",
-            lat: 45.3795, lon: -72.2205,
+            lat: 45.36231, lon: -72.23190,
             image: "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&q=80&w=800",
-            parking: "Stationnement au Centre de services Le Cerisier.", 
+            parking: "Mise à l'eau du lac Stukely, parc du Mont-Orford.", 
             prix: "Entrée de parc de la SEPAQ obligatoire.", 
             info: "Eau calme et très propre au cœur du parc national. Navigation sauvage protégée du vent.",
             isFree: false,
@@ -229,9 +229,9 @@
         { 
             name: "Lac Saint-Jean (Alma)", 
             region: "Saguenay-Lac-Saint-Jean",
-            lat: 48.5695, lon: -71.6505,
+            lat: 48.47962, lon: -71.79344,
             image: "https://images.unsplash.com/photo-1439853949127-fa647821ebb0?auto=format&fit=crop&q=80&w=800",
-            parking: "Stationnement de la plage Dam-en-Terre à Alma.", 
+            parking: "Marina St-Gédéon, mise à l'eau OSM près de la plage.", 
             prix: "Accès public gratuit.", 
             info: "Une véritable mer intérieure. Vagues importantes par vent d'Est.",
             isFree: true,
@@ -295,9 +295,9 @@
         { 
             name: "Îles-de-Boucherville", 
             region: "Montréal",
-            lat: 45.6135, lon: -73.4735,
+            lat: 45.61196, lon: -73.45680,
             image: "https://images.unsplash.com/photo-1472214222541-d510753a4907?auto=format&fit=crop&q=80&w=800",
-            parking: "Grand stationnement au Centre de services de l'île.", 
+            parking: "Mise à l'eau du parc national des Îles-de-Boucherville.", 
             prix: "Frais d'accès quotidiens de la SEPAQ.", 
             info: "Naviguez dans des chenaux étroits et calmes du Saint-Laurent. Il est fréquent de croiser des cerfs !",
             isFree: false,
@@ -306,9 +306,9 @@
         { 
             name: "Canal de Lachine", 
             region: "Montréal",
-            lat: 45.4810, lon: -73.5765,
+            lat: 45.47895, lon: -73.57404,
             image: "https://images.unsplash.com/photo-1513829096960-ef048298497a?auto=format&fit=crop&q=80&w=800",
-            parking: "Stationnement près du Marché Atwater.", 
+            parking: "Centre Nautique du Canal.", 
             prix: "Navigation libre et gratuite (permis d'écluse optionnel).", 
             info: "Parcours urbain historique au cœur de Montréal. Eaux calmes sans aucun courant.",
             isFree: true,
@@ -350,7 +350,7 @@
         { 
             name: "Lac Mégantic", 
             region: "Estrie",
-            lat: 45.5585, lon: -71.1415,
+            lat: 45.51767, lon: -70.87950,
             image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
             parking: "Stationnement municipal à Mégantic.", 
             prix: "Accès gratuit (rampe de mise à l'eau).", 
@@ -359,22 +359,22 @@
             level: "facile"
         },
         { 
-            name: "Lac Aylmer (Val-Racine)", 
+            name: "Lac Aylmer (Stratford)",
             region: "Estrie",
-            lat: 45.3135, lon: -71.8865,
+            lat: 45.80647, lon: -71.32590,
             image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800",
-            parking: "Stationnement de la base de plein air.", 
+            parking: "Mise à l'eau Lac Aylmer, secteur Stratford.", 
             prix: "Accès payant (environ 8$).", 
             info: "Petit lac tranquille entouré de montagnes boisées. Excellente expérience de paddle.",
             isFree: false,
             level: "facile"
         },
         { 
-            name: "Lac Brome", 
+            name: "Lac Brome",
             region: "Estrie",
-            lat: 45.4185, lon: -72.3305,
+            lat: 45.25649, lon: -72.49532,
             image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800",
-            parking: "Stationnement public à Lac-Brome.", 
+            parking: "Mise à l'eau du Lac Brome.", 
             prix: "Gratuit ou petit frais selon l'endroit.", 
             info: "Réputé pour sa clarté exceptionnelle, communauté de paddlers très active.",
             isFree: true,
@@ -383,9 +383,9 @@
         { 
             name: "Rivière Chicoutimi", 
             region: "Saguenay-Lac-Saint-Jean",
-            lat: 48.4215, lon: -71.0605,
+            lat: 48.43030, lon: -71.05171,
             image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&q=80&w=800",
-            parking: "Accès gratuit au parc de la rivière.", 
+            parking: "Marina Saguenay / mise à l'eau.", 
             prix: "Accès public gratuit.", 
             info: "Rivière serpentant entre les montagnes, faible courant en amont.",
             isFree: true,
@@ -438,7 +438,7 @@
         { 
             name: "Rivière Cascapédia", 
             region: "Gaspésie",
-            lat: 48.0245, lon: -65.9165,
+            lat: 48.26484, lon: -65.90311,
             image: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&q=80&w=800",
             parking: "Accès public gratuit (plusieurs rampes).", 
             prix: "Gratuit pour la navigation autonome.", 
@@ -480,11 +480,11 @@
             level: "facile"
         },
         { 
-            name: "Lac Leamy (Gatineau)", 
+            name: "Lac Leamy (Gatineau)",
             region: "Outaouais",
-            lat: 45.4395, lon: -75.6765,
+            lat: 45.43198, lon: -75.70705,
             image: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=800",
-            parking: "Stationnement du parc de la Gatineau.", 
+            parking: "Mise à l'eau du Lac Leamy.", 
             prix: "Accès gratuit au parc (stationnement payant).", 
             info: "Lac tranquille au cœur du parc de la Gatineau, très populaire en week-end.",
             isFree: false,
@@ -493,31 +493,31 @@
         { 
             name: "Rivière des Outaouais (Chelsea)", 
             region: "Outaouais",
-            lat: 45.4655, lon: -75.7065,
+            lat: 45.46081, lon: -75.68523,
             image: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&q=80&w=800",
-            parking: "Stationnement à Chelsea.", 
+            parking: "Mise à l'eau sur la rivière des Outaouais, secteur Gatineau/Chelsea.", 
             prix: "Accès gratuit.", 
             info: "Section calme de la rivière majeure de la région, idéale pour débuter.",
             isFree: true,
             level: "facile"
         },
         { 
-            name: "Lac Pink (Outaouais)", 
+            name: "Lac la Pêche (Outaouais)", 
             region: "Outaouais",
-            lat: 45.3465, lon: -75.4105,
+            lat: 45.62240, lon: -76.17843,
             image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800",
-            parking: "Petit stationnement d'accès public.", 
-            prix: "Gratuit.", 
-            info: "Petit lac privé-ish mais accessible. Eau claire et calme, peu connu.",
+            parking: "Mise à l'eau du lac la Pêche.", 
+            prix: "Frais d'accès du parc.", 
+            info: "Lac du parc de la Gatineau avec activités de canotage; choix plus approprié que le lac Pink, protégé.",
             isFree: true,
             level: "facile"
         },
         { 
-            name: "Lac Philippe (Outaouais)", 
+            name: "Lac Philippe (Outaouais)",
             region: "Outaouais",
-            lat: 45.5795, lon: -75.5305,
+            lat: 45.60212, lon: -76.04355,
             image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800",
-            parking: "Stationnement du parc provinc.", 
+            parking: "Mise à l'eau du lac Philippe, parc de la Gatineau.", 
             prix: "Frais d'accès (environ 7$).", 
             info: "Lac de parc provincial avec plages aménagées et zones protégées.",
             isFree: false,
@@ -526,7 +526,7 @@
         { 
             name: "Bassin de Lachine (Montréal)", 
             region: "Montréal",
-            lat: 45.4665, lon: -73.5575,
+            lat: 45.48807, lon: -73.56237,
             image: "https://images.unsplash.com/photo-1513829096960-ef048298497a?auto=format&fit=crop&q=80&w=800",
             parking: "Stationnement du Centre Nautique.", 
             prix: "Navigation libre et gratuite.", 
@@ -537,22 +537,22 @@
         { 
             name: "Fleuve Saint-Laurent (Île Sainte-Hélène)", 
             region: "Montréal",
-            lat: 45.4980, lon: -73.5370,
+            lat: 45.50176, lon: -73.52360,
             image: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=800",
-            parking: "Stationnement près du circuit Gilles Villeneuve.", 
+            parking: "Mise à l'eau du parc Jean-Drapeau / Île Sainte-Hélène.", 
             prix: "Accès gratuit depuis la côte.", 
             info: "Fjord urbain magnifique, eaux un peu plus agitées (niveau intermédiaire).",
             isFree: true,
             level: "sportif"
         },
         { 
-            name: "Lac Masson (Montréal - Parc Jean Drapeau)", 
+            name: "Bassin olympique (Parc Jean-Drapeau)", 
             region: "Montréal",
-            lat: 45.5095, lon: -73.5410,
+            lat: 45.50176, lon: -73.52360,
             image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800",
-            parking: "Stationnement du parc Jean Drapeau.", 
+            parking: "Mise à l'eau du parc Jean-Drapeau.", 
             prix: "Frais d'accès au parc (environ 5$).", 
-            info: "Lac de parc urbain, calme et sécuritaire pour les débutants.",
+            info: "Bassin calme du parc Jean-Drapeau, mieux identifié que l'ancien libellé Lac Masson.",
             isFree: false,
             level: "facile"
         }
@@ -643,6 +643,9 @@
                         ⭐ Favori
                     </button>
                 </div>
+                <a href="lac.html?lake=${getLakePageSlug(name)}&v=20260615" class="block w-full py-2 bg-emerald-600 text-white rounded-md font-bold text-[10px] uppercase hover:bg-emerald-700 transition-colors text-center">
+                    📖 Page complète
+                </a>
             </div>
         </div>
     `, { 
@@ -831,9 +834,9 @@
         const button = document.getElementById('themeToggle');
         body.classList.toggle('dark');
         if (body.classList.contains('dark')) {
-            button.innerText = '☀️ clair';
+            button.innerText = '☀️';
         } else {
-            button.innerText = '🌙 sombre';
+            button.innerText = '🌙';
         }
     }
 
@@ -876,6 +879,12 @@
         localStorage.setItem('favorites', JSON.stringify(favorites));
     }
 
+    function removeFavorite(name) {
+        const favorites = JSON.parse(localStorage.getItem('favorites') || '[]').filter(fav => fav !== name);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        showFavorites();
+    }
+
     // Fonction pour afficher les favoris
     function showFavorites() {
         const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
@@ -893,21 +902,23 @@
         if (spot) {
             const item = document.createElement('div');
             // On garde les classes pour le style du rectangle
-            item.className = 'bg-yellow-50 p-4 rounded-xl border border-yellow-100 hover:bg-yellow-100 transition cursor-pointer mb-3';
+            item.className = 'bg-yellow-50 p-4 rounded-xl border border-yellow-100 hover:bg-yellow-100 transition mb-3';
             
-            // On enlève le bouton ici, on garde juste le texte
             item.innerHTML = `
-                <div class="flex items-center justify-between">
-                    <div>
+                <div class="flex items-start justify-between gap-3">
+                    <button type="button" class="favorite-open text-left flex-1 min-w-0">
                         <h4 class="font-bold text-yellow-800">${name}</h4>
                         <p class="text-sm text-slate-600">${spot.parking || 'Accès disponible'}</p>
-                    </div>
-                    <span class="text-yellow-500 text-xl">📍</span>
+                    </button>
+                    <button type="button" class="favorite-remove shrink-0 w-10 h-10 rounded-full bg-white text-red-500 hover:bg-red-50 border border-red-100 text-xl font-bold flex items-center justify-center" aria-label="Supprimer ${name} des favoris">&times;</button>
                 </div>
             `;
             
-            // C'est cette ligne qui rend tout le rectangle cliquable
-            item.onclick = () => goToFavorite(name);
+            item.querySelector('.favorite-open').onclick = () => goToFavorite(name);
+            item.querySelector('.favorite-remove').onclick = (event) => {
+                event.stopPropagation();
+                removeFavorite(name);
+            };
             list.appendChild(item);
         }
     });
@@ -1096,6 +1107,10 @@
                             <span>CAP SUR CE SPOT</span>
                         </button>
                     </div>
+                    <a href="lac.html?lake=${getLakePageSlug(lac.name)}&v=20260615"
+                       class="w-full py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl font-black text-xs transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/25 active:scale-95">
+                        <span>📖 VOIR LA PAGE COMPLÈTE</span>
+                    </a>
                 </div>
             `;
             
@@ -1271,6 +1286,14 @@
             .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // remove accents
             .replace(/[^a-z0-9]+/g, '-') // replace non-alphanumeric with -
             .replace(/^-+|-+$/g, ''); // trim -
+    }
+
+    function getLakePageSlug(name) {
+        if (typeof lacDatabase !== 'undefined') {
+            const lake = lacDatabase.find(lac => lac.name === name);
+            if (lake?.slug) return lake.slug;
+        }
+        return getSpotSlug(name);
     }
 
     async function partagerSpot(nom, lat, lon) {
@@ -1469,7 +1492,7 @@
                                 <h2 class="text-2xl font-bold mb-4">2 Spots les Plus Proches</h2>
                                 <div class="space-y-4 mb-6">
                                     ${nearestSpots.map((spot, idx) => `
-                                        <a href="lac.html?lake=${spot.slug}" class="block bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-900/50 p-4 rounded-lg hover:shadow-lg transition">
+                                        <a href="lac.html?lake=${spot.slug}&v=20260615" class="block bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-900/50 p-4 rounded-lg hover:shadow-lg transition">
                                             <div class="font-bold">${idx + 1}. ${spot.name}</div>
                                             <div class="text-sm text-slate-600 dark:text-slate-400">${spot.region}</div>
                                             <div class="text-sm font-bold text-blue-600 dark:text-blue-400">${spot.distance.toFixed(1)} km</div>
@@ -1506,3 +1529,5 @@
     window.initRegionFilter = initRegionFilter;
     window.resetFilters = resetFilters;
     window.findNearestSpots = findNearestSpots;
+    window.showFavorites = showFavorites;
+    window.fermerFavoritesSidebar = fermerFavoritesSidebar;

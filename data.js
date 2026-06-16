@@ -84,8 +84,8 @@ const lacDatabase = [
         slug: "lac-sacacomie",
         name: "Lac Sacacomie",
         region: "Mauricie",
-        lat: 46.5285,
-        lon: -73.2010,
+        lat: 46.52743,
+        lon: -73.20323,
         mainImage: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=1200",
         gallery: [
             "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800",
@@ -107,16 +107,16 @@ const lacDatabase = [
         maxLength: "42 km",
         season: "Mai à septembre",
         parking: {
-            location: "Stationnement à l'accès plage",
+            location: "Mise à l'eau OSM près du lac Sacacomie.",
             spots: 80,
             accessible: false,
             cost: "Inclus dans l'accès"
         },
         access: {
-            description: "Accès via le Centre Sacacomie",
-            type: "Plage privée",
+            description: "Mise à l'eau OSM près du lac Sacacomie.",
+            type: "Mise à l'eau",
             difficulty: "Accès modéré",
-            launchPoint: "Plage principale"
+            launchPoint: "Point OSM de mise à l'eau"
         },
         amenities: [
             "Centre d'interprétation",
@@ -155,8 +155,8 @@ const lacDatabase = [
         slug: "riviere-st-maurice",
         name: "Rivière St-Maurice (TR)",
         region: "Mauricie",
-        lat: 46.3548,
-        lon: -72.5342,
+        lat: 46.35864,
+        lon: -72.53472,
         mainImage: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&q=80&w=1200",
         gallery: [
             "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&q=80&w=800",
@@ -178,16 +178,16 @@ const lacDatabase = [
         maxLength: "Circuit 8 km",
         season: "Mai à octobre",
         parking: {
-            location: "Grand stationnement à l'Île Saint-Quentin",
+            location: "Mise à l'eau de l'Île Saint-Quentin / Avenue des Draveurs.",
             spots: 200,
             accessible: true,
             cost: "Inclus"
         },
         access: {
-            description: "Accès depuis le Parc de l'Île Saint-Quentin",
-            type: "Parc public",
+            description: "Mise à l'eau de l'Île Saint-Quentin / Avenue des Draveurs.",
+            type: "Mise à l'eau",
             difficulty: "Accès facile",
-            launchPoint: "Plage principale de l'île"
+            launchPoint: "Point OSM de mise à l'eau"
         },
         amenities: [
             "Centre d'information",
@@ -226,8 +226,8 @@ const lacDatabase = [
         slug: "lac-saint-pierre",
         name: "Lac Saint-Pierre",
         region: "Mauricie",
-        lat: 46.2295,
-        lon: -72.9180,
+        lat: 46.22455,
+        lon: -72.92234,
         mainImage: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=1200",
         gallery: [
             "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=800",
@@ -249,16 +249,16 @@ const lacDatabase = [
         maxLength: "Très grand (30+ km possible)",
         season: "Juin à septembre",
         parking: {
-            location: "Domaine du Lac St-Pierre à Louiseville",
+            location: "Rampe de mise à l'eau près du Domaine du Lac Saint-Pierre.",
             spots: 120,
             accessible: true,
             cost: "Gratuit"
         },
         access: {
-            description: "Accès via le Domaine du Lac St-Pierre",
-            type: "Aire publique",
+            description: "Rampe de mise à l'eau près du Domaine du Lac Saint-Pierre.",
+            type: "Rampe de mise à l'eau",
             difficulty: "Accès modéré",
-            launchPoint: "Quai principal"
+            launchPoint: "Point OSM de mise à l'eau"
         },
         amenities: [
             "Centre de nature",
@@ -297,8 +297,8 @@ const lacDatabase = [
         slug: "parc-national-wapizagonke",
         name: "Parc National - Wapizagonke",
         region: "Mauricie",
-        lat: 46.6735,
-        lon: -72.9805,
+        lat: 46.66976,
+        lon: -73.00577,
         mainImage: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200",
         gallery: [
             "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
@@ -320,16 +320,16 @@ const lacDatabase = [
         maxLength: "Circuit complet 12 km",
         season: "Mai à octobre",
         parking: {
-            location: "Secteur Esker / Aire de pique-nique",
+            location: "Mise à l'eau du secteur Wapizagonke.",
             spots: 80,
             accessible: false,
             cost: "Inclus dans l'entrée"
         },
         access: {
-            description: "Accès via le Parc National, secteur Esker",
-            type: "Parc aménagé",
+            description: "Mise à l'eau du secteur Wapizagonke.",
+            type: "Mise à l'eau",
             difficulty: "Modéré (peut nécessiter portage)",
-            launchPoint: "Aire de mise à l'eau"
+            launchPoint: "Point OSM de mise à l'eau"
         },
         amenities: [
             "Centre d'accueil",
@@ -436,8 +436,8 @@ const lacDatabase = [
         slug: "lac-maskinonge",
         name: "Lac Maskinongé (St-Gabriel)",
         region: "Mauricie",
-        lat: 46.3330,
-        lon: -73.3865,
+        lat: 46.33623,
+        lon: -73.39885,
         mainImage: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200",
         gallery: [
             "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
@@ -459,16 +459,16 @@ const lacDatabase = [
         maxLength: "15 km",
         season: "Mai à septembre",
         parking: {
-            location: "Plage municipale de Saint-Gabriel",
+            location: "Plage / accès riverain de Saint-Gabriel.",
             spots: 100,
             accessible: true,
             cost: "Payant en saison (gratuit hors-saison)"
         },
         access: {
-            description: "Accès via la Plage municipale",
-            type: "Plage publique",
+            description: "Plage / accès riverain de Saint-Gabriel.",
+            type: "Plage / accès riverain",
             difficulty: "Accès très facile",
-            launchPoint: "Plage principale"
+            launchPoint: "Point OSM de mise à l'eau"
         },
         amenities: [
             "Toilettes",
@@ -574,8 +574,8 @@ const lacDatabase = [
         slug: "lac-aux-sables",
         name: "Lac-aux-Sables",
         region: "Mauricie",
-        lat: 46.8738,
-        lon: -72.3942,
+        lat: 46.87022,
+        lon: -72.39044,
         mainImage: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=1200",
         gallery: [
             "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800",
@@ -597,16 +597,16 @@ const lacDatabase = [
         maxLength: "12 km",
         season: "Mai à septembre",
         parking: {
-            location: "Stationnement à la plage municipale",
+            location: "Marina / accès riverain de Lac-aux-Sables.",
             spots: 200,
             accessible: true,
             cost: "Gratuit (payant haute saison)"
         },
         access: {
-            description: "Accès facile via la plage publique",
-            type: "Plage publique",
+            description: "Marina / accès riverain de Lac-aux-Sables.",
+            type: "Marina / accès riverain",
             difficulty: "Très facile",
-            launchPoint: "Plage principale"
+            launchPoint: "Point OSM de mise à l'eau"
         },
         amenities: [
             "Sauveteurs",
@@ -704,6 +704,2399 @@ const lacDatabase = [
         ]
     }
 ];
+
+// Pages d?taill?es g?n?r?es depuis les spots de la carte.
+// Ces fiches donnent un accès complet ? lac.html pour tous les spots,
+// tout en conservant les fiches ?ditoriales plus riches d?j? pr?sentes ci-dessus.
+const supplementalSpotDetails = [
+    {
+        "id": "lac-tremblant",
+        "slug": "lac-tremblant",
+        "name": "Lac Tremblant",
+        "region": "Laurentides",
+        "lat": 46.1402,
+        "lon": -74.6172,
+        "mainImage": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Lac Tremblant est un spot de paddle de la région Laurentides. Naviguez sur un magnifique lac au pied de la célèbre montagne de ski. Paysage somptueux.",
+        "longDescription": "Lac Tremblant est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Laurentides. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Naviguez sur un magnifique lac au pied de la célèbre montagne de ski. Paysage somptueux.",
+        "difficulty": "facile",
+        "paddleScore": 76,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": false,
+        "cost": "Accès payant (frais journaliers pour non-résidents).",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Circuit local",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Stationnement au village piétonnier de Tremblant.",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Accès payant (frais journaliers pour non-résidents)."
+        },
+        "access": {
+            "description": "Stationnement au village piétonnier de Tremblant.",
+            "type": "Accès depuis stationnement",
+            "difficulty": "Facile",
+            "launchPoint": "Point indiqué sur la carte"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique: Accès payant (frais journaliers pour non-résidents)."
+            }
+        ],
+        "highlights": [
+            "Accès ou stationnement payant à prévoir",
+            "Spot généralement accessible",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "riviere-rouge-labelle",
+        "slug": "riviere-rouge-labelle",
+        "name": "Rivière Rouge (Labelle)",
+        "region": "Laurentides",
+        "lat": 46.2762,
+        "lon": -74.7298,
+        "mainImage": "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Rivière Rouge (Labelle) est un spot de paddle de la région Laurentides. Eaux calmes serpentant entre de magnifiques plages de sable fin, parfaites pour le pique-nique.",
+        "longDescription": "Rivière Rouge (Labelle) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Laurentides. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Eaux calmes serpentant entre de magnifiques plages de sable fin, parfaites pour le pique-nique.",
+        "difficulty": "sportif",
+        "paddleScore": 72,
+        "scoreFactors": {
+            "wind": 6,
+            "rain": 7,
+            "temperature": 7,
+            "waves": 6
+        },
+        "isFree": true,
+        "cost": "Accès public gratuit.",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Parcours variable",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Stationnement gratuit au Parc de la Gare de Labelle.",
+            "spots": "À vérifier",
+            "accessible": false,
+            "cost": "Gratuit"
+        },
+        "access": {
+            "description": "Stationnement gratuit au Parc de la Gare de Labelle.",
+            "type": "Accès depuis stationnement",
+            "difficulty": "Modéré à sportif",
+            "launchPoint": "Point indiqué sur la carte"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Conditions variables: vent, courant ou vagues possibles",
+            "Vérifiez les règles locales et l'accès exact avant de partir"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique un accès gratuit, mais certains stationnements peuvent devenir payants en haute saison."
+            }
+        ],
+        "highlights": [
+            "Accès indiqué gratuit dans la fiche",
+            "Spot à aborder avec prudence",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "lac-stukely-mont-orford",
+        "slug": "lac-stukely-mont-orford",
+        "name": "Lac Stukely (Mont-Orford)",
+        "region": "Estrie",
+        "lat": 45.36231,
+        "lon": -72.23190,
+        "mainImage": "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Lac Stukely (Mont-Orford) est un spot de paddle de la r?gion Estrie. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Mise à l'eau du lac Stukely, parc du Mont-Orford.",
+        "longDescription": "Lac Stukely (Mont-Orford) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Estrie. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Eau calme et très propre au cœur du parc national. Navigation sauvage protégée du vent.",
+        "difficulty": "facile",
+        "paddleScore": 72,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": false,
+        "cost": "Entrée de parc de la SEPAQ obligatoire.",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Circuit local",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Mise à l'eau du lac Stukely, parc du Mont-Orford.",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Entrée de parc de la SEPAQ obligatoire."
+        },
+        "access": {
+            "description": "Mise à l'eau du lac Stukely, parc du Mont-Orford.",
+            "type": "Mise à l'eau",
+            "difficulty": "Facile",
+            "launchPoint": "Point OSM de mise à l'eau"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique: Entrée de parc de la SEPAQ obligatoire."
+            }
+        ],
+        "highlights": [
+            "Accès ou stationnement payant à prévoir",
+            "Spot généralement accessible",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "lac-memphremagog-magog",
+        "slug": "lac-memphremagog-magog",
+        "name": "Lac Memphrémagog (Magog)",
+        "region": "Estrie",
+        "lat": 45.2648,
+        "lon": -72.1535,
+        "mainImage": "https://images.unsplash.com/photo-1475503572774-15a45e5d60b9?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1475503572774-15a45e5d60b9?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Lac Memphrémagog (Magog) est un spot de paddle de la région Estrie. Vue extraordinaire sur le Mont Orford. Attention au vent de face et aux bateaux à moteur.",
+        "longDescription": "Lac Memphrémagog (Magog) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Estrie. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Vue extraordinaire sur le Mont Orford. Attention au vent de face et aux bateaux à moteur.",
+        "difficulty": "sportif",
+        "paddleScore": 64,
+        "scoreFactors": {
+            "wind": 6,
+            "rain": 7,
+            "temperature": 7,
+            "waves": 6
+        },
+        "isFree": true,
+        "cost": "Accès public gratuit (stationnement payant en saison).",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Circuit local",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Stationnement à la plage des Cantons à Magog.",
+            "spots": "À vérifier",
+            "accessible": false,
+            "cost": "Gratuit"
+        },
+        "access": {
+            "description": "Stationnement à la plage des Cantons à Magog.",
+            "type": "Plage / accès riverain",
+            "difficulty": "Modéré à sportif",
+            "launchPoint": "Point indiqué sur la carte"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Conditions variables: vent, courant ou vagues possibles",
+            "Vérifiez les règles locales et l'accès exact avant de partir"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique un accès gratuit, mais certains stationnements peuvent devenir payants en haute saison."
+            }
+        ],
+        "highlights": [
+            "Accès indiqué gratuit dans la fiche",
+            "Spot à aborder avec prudence",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "fjord-du-saguenay-l-anse",
+        "slug": "fjord-du-saguenay-l-anse",
+        "name": "Fjord du Saguenay (L'Anse)",
+        "region": "Saguenay-Lac-Saint-Jean",
+        "lat": 48.245,
+        "lon": -70.2815,
+        "mainImage": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Fjord du Saguenay (L'Anse) est un spot de paddle de la région Saguenay-Lac-Saint-Jean. Naviguez au milieu de falaises géantes de 300m. Réservé aux experts (marées et vents forts).",
+        "longDescription": "Fjord du Saguenay (L'Anse) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Saguenay-Lac-Saint-Jean. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Naviguez au milieu de falaises géantes de 300m. Réservé aux experts (marées et vents forts).",
+        "difficulty": "sportif",
+        "paddleScore": 60,
+        "scoreFactors": {
+            "wind": 6,
+            "rain": 7,
+            "temperature": 7,
+            "waves": 6
+        },
+        "isFree": true,
+        "cost": "Accès libre et gratuit.",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Parcours variable",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Stationnement au quai municipal de L'Anse-Saint-Jean.",
+            "spots": "À vérifier",
+            "accessible": false,
+            "cost": "Gratuit"
+        },
+        "access": {
+            "description": "Stationnement au quai municipal de L'Anse-Saint-Jean.",
+            "type": "Quai / accès municipal",
+            "difficulty": "Modéré à sportif",
+            "launchPoint": "Point indiqué sur la carte"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Conditions variables: vent, courant ou vagues possibles",
+            "Vérifiez les règles locales et l'accès exact avant de partir"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique un accès gratuit, mais certains stationnements peuvent devenir payants en haute saison."
+            }
+        ],
+        "highlights": [
+            "Accès indiqué gratuit dans la fiche",
+            "Spot à aborder avec prudence",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "lac-saint-jean-alma",
+        "slug": "lac-saint-jean-alma",
+        "name": "Lac Saint-Jean (Alma)",
+        "region": "Saguenay-Lac-Saint-Jean",
+        "lat": 48.47962,
+        "lon": -71.79344,
+        "mainImage": "https://images.unsplash.com/photo-1439853949127-fa647821ebb0?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1439853949127-fa647821ebb0?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Lac Saint-Jean (Alma) est un spot de paddle de la r?gion Saguenay-Lac-Saint-Jean. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Marina St-Gédéon, mise à l'eau OSM près de la plage.",
+        "longDescription": "Lac Saint-Jean (Alma) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Saguenay-Lac-Saint-Jean. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Une véritable mer intérieure. Vagues importantes par vent d'Est.",
+        "difficulty": "facile",
+        "paddleScore": 74,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": true,
+        "cost": "Accès public gratuit.",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Grand plan d'eau",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Marina St-Gédéon, mise à l'eau OSM près de la plage.",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Gratuit"
+        },
+        "access": {
+            "description": "Marina St-Gédéon, mise à l'eau OSM près de la plage.",
+            "type": "Marina / mise à l'eau",
+            "difficulty": "Facile",
+            "launchPoint": "Point OSM de mise à l'eau"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique un accès gratuit, mais certains stationnements peuvent devenir payants en haute saison."
+            }
+        ],
+        "highlights": [
+            "Accès indiqué gratuit dans la fiche",
+            "Spot généralement accessible",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "riviere-bonaventure",
+        "slug": "riviere-bonaventure",
+        "name": "Rivière Bonaventure",
+        "region": "Gaspésie",
+        "lat": 48.0625,
+        "lon": -65.5165,
+        "mainImage": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Rivière Bonaventure est un spot de paddle de la région Gaspésie. Considérée comme l'une des rivières les plus limpides au monde. Sensation de léviter sur l'eau.",
+        "longDescription": "Rivière Bonaventure est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Gaspésie. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Considérée comme l'une des rivières les plus limpides au monde. Sensation de léviter sur l'eau.",
+        "difficulty": "sportif",
+        "paddleScore": 68,
+        "scoreFactors": {
+            "wind": 6,
+            "rain": 7,
+            "temperature": 7,
+            "waves": 6
+        },
+        "isFree": true,
+        "cost": "Gratuit pour navigation autonome.",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Parcours variable",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Accès public sous le pont de la route 132.",
+            "spots": "À vérifier",
+            "accessible": false,
+            "cost": "Gratuit"
+        },
+        "access": {
+            "description": "Accès public sous le pont de la route 132.",
+            "type": "Accès depuis stationnement",
+            "difficulty": "Modéré à sportif",
+            "launchPoint": "Point indiqué sur la carte"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Conditions variables: vent, courant ou vagues possibles",
+            "Vérifiez les règles locales et l'accès exact avant de partir"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique un accès gratuit, mais certains stationnements peuvent devenir payants en haute saison."
+            }
+        ],
+        "highlights": [
+            "Accès indiqué gratuit dans la fiche",
+            "Spot à aborder avec prudence",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "parc-national-forillon",
+        "slug": "parc-national-forillon",
+        "name": "Parc National Forillon",
+        "region": "Gaspésie",
+        "lat": 48.8305,
+        "lon": -64.2165,
+        "mainImage": "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Parc National Forillon est un spot de paddle de la région Gaspésie. Naviguez dans une baie magnifique avec possibilité d'observer des phoques et baleines au loin.",
+        "longDescription": "Parc National Forillon est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Gaspésie. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Naviguez dans une baie magnifique avec possibilité d'observer des phoques et baleines au loin.",
+        "difficulty": "sportif",
+        "paddleScore": 66,
+        "scoreFactors": {
+            "wind": 6,
+            "rain": 7,
+            "temperature": 7,
+            "waves": 6
+        },
+        "isFree": false,
+        "cost": "Tarification d'entrée de Parc Canada applicable.",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Circuit local",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Stationnement au Havre de Grande-Grave.",
+            "spots": "À vérifier",
+            "accessible": false,
+            "cost": "Tarification d'entrée de Parc Canada applicable."
+        },
+        "access": {
+            "description": "Stationnement au Havre de Grande-Grave.",
+            "type": "Accès depuis stationnement",
+            "difficulty": "Modéré à sportif",
+            "launchPoint": "Point indiqué sur la carte"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Conditions variables: vent, courant ou vagues possibles",
+            "Vérifiez les règles locales et l'accès exact avant de partir"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique: Tarification d'entrée de Parc Canada applicable."
+            }
+        ],
+        "highlights": [
+            "Accès ou stationnement payant à prévoir",
+            "Spot à aborder avec prudence",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "lac-beauport",
+        "slug": "lac-beauport",
+        "name": "Lac Beauport",
+        "region": "Québec",
+        "lat": 46.9435,
+        "lon": -71.2935,
+        "mainImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Lac Beauport est un spot de paddle de la région Québec. Le point de ralliement des paddlers de la région de Québec. Plan d'eau très calme et abrité.",
+        "longDescription": "Lac Beauport est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Québec. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Le point de ralliement des paddlers de la région de Québec. Plan d'eau très calme et abrité.",
+        "difficulty": "facile",
+        "paddleScore": 80,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": false,
+        "cost": "Frais d'accès journalier requis.",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Circuit local",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Stationnement au Club Nautique de Lac-Beauport.",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Frais d'accès journalier requis."
+        },
+        "access": {
+            "description": "Stationnement au Club Nautique de Lac-Beauport.",
+            "type": "Accès depuis stationnement",
+            "difficulty": "Facile",
+            "launchPoint": "Point indiqué sur la carte"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique: Frais d'accès journalier requis."
+            }
+        ],
+        "highlights": [
+            "Accès ou stationnement payant à prévoir",
+            "Spot généralement accessible",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "marais-du-nord-st-charles",
+        "slug": "marais-du-nord-st-charles",
+        "name": "Marais du Nord (St-Charles)",
+        "region": "Québec",
+        "lat": 46.958743932978464, 
+        "lon": -71.39128783083098,
+        "mainImage": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Marais du Nord (St-Charles) est un spot de paddle de la région Québec. Explorez un labyrinthe d'eau calme d'une biodiversité exceptionnelle. Calme absolu garanti.",
+        "longDescription": "Marais du Nord (St-Charles) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Québec. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Explorez un labyrinthe d'eau calme d'une biodiversité exceptionnelle. Calme absolu garanti.",
+        "difficulty": "facile",
+        "paddleScore": 80,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": false,
+        "cost": "Frais d'accès pour la conservation du site.",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Circuit local",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Stationnement principal du site d'interprétation.",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Frais d'accès pour la conservation du site."
+        },
+        "access": {
+            "description": "Stationnement principal du site d'interprétation.",
+            "type": "Accès depuis stationnement",
+            "difficulty": "Facile",
+            "launchPoint": "Point indiqué sur la carte"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique: Frais d'accès pour la conservation du site."
+            }
+        ],
+        "highlights": [
+            "Accès ou stationnement payant à prévoir",
+            "Spot généralement accessible",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "lac-meech-gatineau",
+        "slug": "lac-meech-gatineau",
+        "name": "Lac Meech (Gatineau)",
+        "region": "Outaouais",
+        "lat": 45.5305,
+        "lon": -75.8435,
+        "mainImage": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Lac Meech (Gatineau) est un spot de paddle de la région Outaouais. Plan d'eau très calme niché dans les collines de la Gatineau. Très populaire en été.",
+        "longDescription": "Lac Meech (Gatineau) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Outaouais. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Plan d'eau très calme niché dans les collines de la Gatineau. Très populaire en été.",
+        "difficulty": "facile",
+        "paddleScore": 82,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": true,
+        "cost": "Accès gratuit au lac (stationnement payant en été).",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Circuit local",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Stationnement P11 (Plage O'Brien).",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Gratuit"
+        },
+        "access": {
+            "description": "Stationnement P11 (Plage O'Brien).",
+            "type": "Plage / accès riverain",
+            "difficulty": "Facile",
+            "launchPoint": "Point indiqué sur la carte"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique un accès gratuit, mais certains stationnements peuvent devenir payants en haute saison."
+            }
+        ],
+        "highlights": [
+            "Accès indiqué gratuit dans la fiche",
+            "Spot généralement accessible",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "iles-de-boucherville",
+        "slug": "iles-de-boucherville",
+        "name": "Îles-de-Boucherville",
+        "region": "Montréal",
+        "lat": 45.61196,
+        "lon": -73.45680,
+        "mainImage": "https://images.unsplash.com/photo-1472214222541-d510753a4907?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1472214222541-d510753a4907?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Îles-de-Boucherville est un spot de paddle de la r?gion Montréal. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Mise à l'eau du parc national des Îles-de-Boucherville.",
+        "longDescription": "Îles-de-Boucherville est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Montréal. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Naviguez dans des chenaux étroits et calmes du Saint-Laurent. Il est fréquent de croiser des cerfs !",
+        "difficulty": "facile",
+        "paddleScore": 80,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": false,
+        "cost": "Frais d'accès quotidiens de la SEPAQ.",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Circuit local",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Mise à l'eau du parc national des Îles-de-Boucherville.",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Frais d'accès quotidiens de la SEPAQ."
+        },
+        "access": {
+            "description": "Mise à l'eau du parc national des Îles-de-Boucherville.",
+            "type": "Mise à l'eau",
+            "difficulty": "Facile",
+            "launchPoint": "Point OSM de mise à l'eau"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique: Frais d'accès quotidiens de la SEPAQ."
+            }
+        ],
+        "highlights": [
+            "Accès ou stationnement payant à prévoir",
+            "Spot généralement accessible",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "canal-de-lachine",
+        "slug": "canal-de-lachine",
+        "name": "Canal de Lachine",
+        "region": "Montréal",
+        "lat": 45.47895,
+        "lon": -73.57404,
+        "mainImage": "https://images.unsplash.com/photo-1513829096960-ef048298497a?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1513829096960-ef048298497a?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Canal de Lachine est un spot de paddle de la r?gion Montréal. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Centre Nautique du Canal.",
+        "longDescription": "Canal de Lachine est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Montréal. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Parcours urbain historique au cœur de Montréal. Eaux calmes sans aucun courant.",
+        "difficulty": "facile",
+        "paddleScore": 74,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": true,
+        "cost": "Navigation libre et gratuite (permis d'écluse optionnel).",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Parcours variable",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Centre Nautique du Canal.",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Gratuit"
+        },
+        "access": {
+            "description": "Centre Nautique du Canal.",
+            "type": "Centre nautique / marina",
+            "difficulty": "Facile",
+            "launchPoint": "Point OSM de mise à l'eau"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique un accès gratuit, mais certains stationnements peuvent devenir payants en haute saison."
+            }
+        ],
+        "highlights": [
+            "Accès indiqué gratuit dans la fiche",
+            "Spot généralement accessible",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "lac-tremblant-nord",
+        "slug": "lac-tremblant-nord",
+        "name": "Lac Tremblant Nord",
+        "region": "Laurentides",
+        "lat": 46.1535,
+        "lon": -74.6438,
+        "mainImage": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Lac Tremblant Nord est un spot de paddle de la région Laurentides. Extension nord du lac Tremblant, moins fréquentée mais tout aussi magnifique.",
+        "longDescription": "Lac Tremblant Nord est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Laurentides. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Extension nord du lac Tremblant, moins fréquentée mais tout aussi magnifique.",
+        "difficulty": "facile",
+        "paddleScore": 76,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": false,
+        "cost": "Accès payant (frais journaliers).",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Circuit local",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Stationnement au complexe touristique de Tremblant.",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Accès payant (frais journaliers)."
+        },
+        "access": {
+            "description": "Stationnement au complexe touristique de Tremblant.",
+            "type": "Accès depuis stationnement",
+            "difficulty": "Facile",
+            "launchPoint": "Point indiqué sur la carte"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique: Accès payant (frais journaliers)."
+            }
+        ],
+        "highlights": [
+            "Accès ou stationnement payant à prévoir",
+            "Spot généralement accessible",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "riviere-des-outaouais-arundel",
+        "slug": "riviere-des-outaouais-arundel",
+        "name": "Rivière des Outaouais (Arundel)",
+        "region": "Laurentides",
+        "lat": 46.0795,
+        "lon": -74.9218,
+        "mainImage": "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Rivière des Outaouais (Arundel) est un spot de paddle de la région Laurentides. Rivière paisible idéale pour débuter, paysages forestiers exceptionnels.",
+        "longDescription": "Rivière des Outaouais (Arundel) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Laurentides. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Rivière paisible idéale pour débuter, paysages forestiers exceptionnels.",
+        "difficulty": "facile",
+        "paddleScore": 82,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": true,
+        "cost": "Accès public gratuit.",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Parcours variable",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Accès gratuit au parc Arundel.",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Gratuit"
+        },
+        "access": {
+            "description": "Accès gratuit au parc Arundel.",
+            "type": "Accès depuis stationnement",
+            "difficulty": "Facile",
+            "launchPoint": "Point indiqué sur la carte"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique un accès gratuit, mais certains stationnements peuvent devenir payants en haute saison."
+            }
+        ],
+        "highlights": [
+            "Accès indiqué gratuit dans la fiche",
+            "Spot généralement accessible",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "lac-du-diable-laurentides",
+        "slug": "lac-du-diable-laurentides",
+        "name": "Lac du Diable (Laurentides)",
+        "region": "Laurentides",
+        "lat": 46.2295,
+        "lon": -74.5568,
+        "mainImage": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Lac du Diable (Laurentides) est un spot de paddle de la région Laurentides. Eau cristalline et faible fréquentation. Parfait pour les kayakistes qui cherchent la tranquillité.",
+        "longDescription": "Lac du Diable (Laurentides) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Laurentides. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Eau cristalline et faible fréquentation. Parfait pour les kayakistes qui cherchent la tranquillité.",
+        "difficulty": "sportif",
+        "paddleScore": 66,
+        "scoreFactors": {
+            "wind": 6,
+            "rain": 7,
+            "temperature": 7,
+            "waves": 6
+        },
+        "isFree": false,
+        "cost": "Forfait journalier (environ 10$).",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Circuit local",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Stationnement de la base de plein air.",
+            "spots": "À vérifier",
+            "accessible": false,
+            "cost": "Forfait journalier (environ 10$)."
+        },
+        "access": {
+            "description": "Stationnement de la base de plein air.",
+            "type": "Accès depuis stationnement",
+            "difficulty": "Modéré à sportif",
+            "launchPoint": "Point indiqué sur la carte"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Conditions variables: vent, courant ou vagues possibles",
+            "Vérifiez les règles locales et l'accès exact avant de partir"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique: Forfait journalier (environ 10$)."
+            }
+        ],
+        "highlights": [
+            "Accès ou stationnement payant à prévoir",
+            "Spot à aborder avec prudence",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "lac-megantic",
+        "slug": "lac-megantic",
+        "name": "Lac Mégantic",
+        "region": "Estrie",
+        "lat": 45.51767,
+        "lon": -70.8795,
+        "mainImage": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Lac Mégantic est un spot de paddle de la région Estrie. Grand lac pittoresque avec petites îles. Secteur très sécuritaire pour débuter.",
+        "longDescription": "Lac Mégantic est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Estrie. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Grand lac pittoresque avec petites îles. Secteur très sécuritaire pour débuter.",
+        "difficulty": "facile",
+        "paddleScore": 82,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": true,
+        "cost": "Accès gratuit (rampe de mise à l'eau).",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Grand plan d'eau",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Stationnement municipal à Mégantic.",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Gratuit"
+        },
+        "access": {
+            "description": "Stationnement municipal à Mégantic.",
+            "type": "Accès depuis stationnement",
+            "difficulty": "Facile",
+            "launchPoint": "Point indiqué sur la carte"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique un accès gratuit, mais certains stationnements peuvent devenir payants en haute saison."
+            }
+        ],
+        "highlights": [
+            "Accès indiqué gratuit dans la fiche",
+            "Spot généralement accessible",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "lac-aylmer-stratford",
+        "slug": "lac-aylmer-stratford",
+        "name": "Lac Aylmer (Stratford)",
+        "region": "Estrie",
+        "lat": 45.80647,
+        "lon": -71.32590,
+        "mainImage": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Lac Aylmer (Stratford) est un spot de paddle de la r?gion Estrie. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Mise à l'eau Lac Aylmer, secteur Stratford.",
+        "longDescription": "Lac Aylmer (Stratford) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Estrie. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Petit lac tranquille entouré de montagnes boisées. Excellente expérience de paddle.",
+        "difficulty": "facile",
+        "paddleScore": 76,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": false,
+        "cost": "Accès payant (environ 8$).",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Circuit local",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Mise à l'eau Lac Aylmer, secteur Stratford.",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Accès payant (environ 8$)."
+        },
+        "access": {
+            "description": "Mise à l'eau Lac Aylmer, secteur Stratford.",
+            "type": "Mise à l'eau",
+            "difficulty": "Facile",
+            "launchPoint": "Point OSM de mise à l'eau"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique: Accès payant (environ 8$)."
+            }
+        ],
+        "highlights": [
+            "Accès ou stationnement payant à prévoir",
+            "Spot généralement accessible",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "lac-brome",
+        "slug": "lac-brome",
+        "name": "Lac Brome",
+        "region": "Estrie",
+        "lat": 45.25649,
+        "lon": -72.49532,
+        "mainImage": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Lac Brome est un spot de paddle de la r?gion Estrie. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Mise à l'eau du Lac Brome.",
+        "longDescription": "Lac Brome est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Estrie. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Réputé pour sa clarté exceptionnelle, communauté de paddlers très active.",
+        "difficulty": "facile",
+        "paddleScore": 78,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": true,
+        "cost": "Gratuit ou petit frais selon l'endroit.",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Circuit local",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Mise à l'eau du Lac Brome.",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Gratuit"
+        },
+        "access": {
+            "description": "Mise à l'eau du Lac Brome.",
+            "type": "Mise à l'eau",
+            "difficulty": "Facile",
+            "launchPoint": "Point OSM de mise à l'eau"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique un accès gratuit, mais certains stationnements peuvent devenir payants en haute saison."
+            }
+        ],
+        "highlights": [
+            "Accès indiqué gratuit dans la fiche",
+            "Spot généralement accessible",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "riviere-chicoutimi",
+        "slug": "riviere-chicoutimi",
+        "name": "Rivière Chicoutimi",
+        "region": "Saguenay-Lac-Saint-Jean",
+        "lat": 48.43030,
+        "lon": -71.05171,
+        "mainImage": "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Rivière Chicoutimi est un spot de paddle de la r?gion Saguenay-Lac-Saint-Jean. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Marina Saguenay / mise à l'eau.",
+        "longDescription": "Rivière Chicoutimi est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Saguenay-Lac-Saint-Jean. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Rivière serpentant entre les montagnes, faible courant en amont.",
+        "difficulty": "facile",
+        "paddleScore": 70,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": true,
+        "cost": "Accès public gratuit.",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Parcours variable",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Marina Saguenay / mise à l'eau.",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Gratuit"
+        },
+        "access": {
+            "description": "Marina Saguenay / mise à l'eau.",
+            "type": "Marina / mise à l'eau",
+            "difficulty": "Facile",
+            "launchPoint": "Point OSM de mise à l'eau"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique un accès gratuit, mais certains stationnements peuvent devenir payants en haute saison."
+            }
+        ],
+        "highlights": [
+            "Accès indiqué gratuit dans la fiche",
+            "Spot généralement accessible",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "lac-kenogami",
+        "slug": "lac-kenogami",
+        "name": "Lac Kénogami",
+        "region": "Saguenay-Lac-Saint-Jean",
+        "lat": 48.3865,
+        "lon": -71.2365,
+        "mainImage": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Lac Kénogami est un spot de paddle de la région Saguenay-Lac-Saint-Jean. Lac magnifique avec cascades accessibles. Eau très claire et froide.",
+        "longDescription": "Lac Kénogami est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Saguenay-Lac-Saint-Jean. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Lac magnifique avec cascades accessibles. Eau très claire et froide.",
+        "difficulty": "facile",
+        "paddleScore": 78,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": true,
+        "cost": "Accès gratuit.",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Circuit local",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Stationnement aux chutes Kénogami.",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Gratuit"
+        },
+        "access": {
+            "description": "Stationnement aux chutes Kénogami.",
+            "type": "Accès depuis stationnement",
+            "difficulty": "Facile",
+            "launchPoint": "Point indiqué sur la carte"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique un accès gratuit, mais certains stationnements peuvent devenir payants en haute saison."
+            }
+        ],
+        "highlights": [
+            "Accès indiqué gratuit dans la fiche",
+            "Spot généralement accessible",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "riviere-ashuapmushuan",
+        "slug": "riviere-ashuapmushuan",
+        "name": "Rivière Ashuapmushuan",
+        "region": "Saguenay-Lac-Saint-Jean",
+        "lat": 48.6415,
+        "lon": -72.6875,
+        "mainImage": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Rivière Ashuapmushuan est un spot de paddle de la région Saguenay-Lac-Saint-Jean. Rivière de classe mondiale, sections calmes accessibles aux débutants.",
+        "longDescription": "Rivière Ashuapmushuan est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Saguenay-Lac-Saint-Jean. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Rivière de classe mondiale, sections calmes accessibles aux débutants.",
+        "difficulty": "sportif",
+        "paddleScore": 70,
+        "scoreFactors": {
+            "wind": 6,
+            "rain": 7,
+            "temperature": 7,
+            "waves": 6
+        },
+        "isFree": false,
+        "cost": "Frais d'accès minimaux.",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Parcours variable",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Accès à partir du parc Ashuapmushuan.",
+            "spots": "À vérifier",
+            "accessible": false,
+            "cost": "Frais d'accès minimaux."
+        },
+        "access": {
+            "description": "Accès à partir du parc Ashuapmushuan.",
+            "type": "Accès depuis stationnement",
+            "difficulty": "Modéré à sportif",
+            "launchPoint": "Point indiqué sur la carte"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Conditions variables: vent, courant ou vagues possibles",
+            "Vérifiez les règles locales et l'accès exact avant de partir"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique: Frais d'accès minimaux."
+            }
+        ],
+        "highlights": [
+            "Accès ou stationnement payant à prévoir",
+            "Spot à aborder avec prudence",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "baie-de-perce",
+        "slug": "baie-de-perce",
+        "name": "Baie de Percé",
+        "region": "Gaspésie",
+        "lat": 48.7525,
+        "lon": -64.2135,
+        "mainImage": "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Baie de Percé est un spot de paddle de la région Gaspésie. Baie abritée avec vue sur le rocher Percé. Observation de phoques possible.",
+        "longDescription": "Baie de Percé est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Gaspésie. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Baie abritée avec vue sur le rocher Percé. Observation de phoques possible.",
+        "difficulty": "facile",
+        "paddleScore": 78,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": true,
+        "cost": "À proximité du fameux rocher percé (gratuit).",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Circuit local",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Stationnement en centre-ville de Percé.",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Gratuit"
+        },
+        "access": {
+            "description": "Stationnement en centre-ville de Percé.",
+            "type": "Accès depuis stationnement",
+            "difficulty": "Facile",
+            "launchPoint": "Point indiqué sur la carte"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique un accès gratuit, mais certains stationnements peuvent devenir payants en haute saison."
+            }
+        ],
+        "highlights": [
+            "Accès indiqué gratuit dans la fiche",
+            "Spot généralement accessible",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "lac-du-cap-aux-os",
+        "slug": "lac-du-cap-aux-os",
+        "name": "Lac du Cap-aux-Os",
+        "region": "Gaspésie",
+        "lat": 48.3795,
+        "lon": -64.8905,
+        "mainImage": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Lac du Cap-aux-Os est un spot de paddle de la région Gaspésie. Petit lac côtier avec faible fréquentation, eau froide mais cristalline.",
+        "longDescription": "Lac du Cap-aux-Os est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Gaspésie. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Petit lac côtier avec faible fréquentation, eau froide mais cristalline.",
+        "difficulty": "facile",
+        "paddleScore": 76,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": false,
+        "cost": "Environ 5$ pour le stationnement.",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Circuit local",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Stationnement municipal (stationnement payant en été).",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Environ 5$ pour le stationnement."
+        },
+        "access": {
+            "description": "Stationnement municipal (stationnement payant en été).",
+            "type": "Accès depuis stationnement",
+            "difficulty": "Facile",
+            "launchPoint": "Point indiqué sur la carte"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique: Environ 5$ pour le stationnement."
+            }
+        ],
+        "highlights": [
+            "Accès ou stationnement payant à prévoir",
+            "Spot généralement accessible",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "riviere-cascapedia",
+        "slug": "riviere-cascapedia",
+        "name": "Rivière Cascapédia",
+        "region": "Gaspésie",
+        "lat": 48.26484,
+        "lon": -65.90311,
+        "mainImage": "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Rivière Cascapédia est un spot de paddle de la région Gaspésie. Rivière réputée pour sa grande clarté et ses courants modérés.",
+        "longDescription": "Rivière Cascapédia est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Gaspésie. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Rivière réputée pour sa grande clarté et ses courants modérés.",
+        "difficulty": "sportif",
+        "paddleScore": 60,
+        "scoreFactors": {
+            "wind": 6,
+            "rain": 7,
+            "temperature": 7,
+            "waves": 6
+        },
+        "isFree": true,
+        "cost": "Gratuit pour la navigation autonome.",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Parcours variable",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Accès public gratuit (plusieurs rampes).",
+            "spots": "À vérifier",
+            "accessible": false,
+            "cost": "Gratuit"
+        },
+        "access": {
+            "description": "Accès public gratuit (plusieurs rampes).",
+            "type": "Rampe de mise à l'eau",
+            "difficulty": "Modéré à sportif",
+            "launchPoint": "Point indiqué sur la carte"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Conditions variables: vent, courant ou vagues possibles",
+            "Vérifiez les règles locales et l'accès exact avant de partir"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique un accès gratuit, mais certains stationnements peuvent devenir payants en haute saison."
+            }
+        ],
+        "highlights": [
+            "Accès indiqué gratuit dans la fiche",
+            "Spot à aborder avec prudence",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "lac-des-iles-quebec",
+        "slug": "lac-des-iles-quebec",
+        "name": "Lac des Îles (Québec)",
+        "region": "Québec",
+        "lat": 46.8865,
+        "lon": -71.3105,
+        "mainImage": "https://images.unsplash.com/photo-1470070459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1470070459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Lac des Îles (Québec) est un spot de paddle de la région Québec. Petit lac urbain avec îles, parfait pour sortie courte depuis Québec.",
+        "longDescription": "Lac des Îles (Québec) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Québec. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Petit lac urbain avec îles, parfait pour sortie courte depuis Québec.",
+        "difficulty": "facile",
+        "paddleScore": 78,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": true,
+        "cost": "Accès public gratuit.",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Circuit local",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Stationnement gratuit  à proximité du lac.",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Gratuit"
+        },
+        "access": {
+            "description": "Stationnement gratuit  à proximité du lac.",
+            "type": "Accès depuis stationnement",
+            "difficulty": "Facile",
+            "launchPoint": "Point indiqué sur la carte"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique un accès gratuit, mais certains stationnements peuvent devenir payants en haute saison."
+            }
+        ],
+        "highlights": [
+            "Accès indiqué gratuit dans la fiche",
+            "Spot généralement accessible",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "marais-de-l-ile-madame",
+        "slug": "marais-de-l-ile-madame",
+        "name": "Marais de l'Île-Madame",
+        "region": "Québec",
+        "lat": 46.9465,
+        "lon": -71.2665,
+        "mainImage": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Marais de l'Île-Madame est un spot de paddle de la région Québec. Marais protégé avec une biodiversité exceptionnelle, observation d'oiseaux.",
+        "longDescription": "Marais de l'Île-Madame est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Québec. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Marais protégé avec une biodiversité exceptionnelle, observation d'oiseaux.",
+        "difficulty": "facile",
+        "paddleScore": 80,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": false,
+        "cost": "Frais d'accès minimaux (environ 3$).",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Circuit local",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Stationnement du site de conservation.",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Frais d'accès minimaux (environ 3$)."
+        },
+        "access": {
+            "description": "Stationnement du site de conservation.",
+            "type": "Accès depuis stationnement",
+            "difficulty": "Facile",
+            "launchPoint": "Point indiqué sur la carte"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique: Frais d'accès minimaux (environ 3$)."
+            }
+        ],
+        "highlights": [
+            "Accès ou stationnement payant à prévoir",
+            "Spot généralement accessible",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "riviere-sainte-anne-quebec",
+        "slug": "riviere-sainte-anne-quebec",
+        "name": "Rivière Sainte-Anne (Québec)",
+        "region": "Québec",
+        "lat": 46.9495,
+        "lon": -71.0865,
+        "mainImage": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Rivière Sainte-Anne (Québec) est un spot de paddle de la région Québec. Rivière pittoresque avec sections très calmes, prairies et forêts alentour.",
+        "longDescription": "Rivière Sainte-Anne (Québec) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Québec. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Rivière pittoresque avec sections très calmes, prairies et forêts alentour.",
+        "difficulty": "facile",
+        "paddleScore": 82,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": true,
+        "cost": "Accès public gratuit.",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Parcours variable",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Stationnement gratuit du parc. ",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Gratuit"
+        },
+        "access": {
+            "description": "Stationnement gratuit du parc. ",
+            "type": "Accès depuis stationnement",
+            "difficulty": "Facile",
+            "launchPoint": "Point indiqué sur la carte"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique un accès gratuit, mais certains stationnements peuvent devenir payants en haute saison."
+            }
+        ],
+        "highlights": [
+            "Accès indiqué gratuit dans la fiche",
+            "Spot généralement accessible",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "lac-leamy-gatineau",
+        "slug": "lac-leamy-gatineau",
+        "name": "Lac Leamy (Gatineau)",
+        "region": "Outaouais",
+        "lat": 45.43198,
+        "lon": -75.70705,
+        "mainImage": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Lac Leamy (Gatineau) est un spot de paddle de la r?gion Outaouais. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Mise à l'eau du Lac Leamy.",
+        "longDescription": "Lac Leamy (Gatineau) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Outaouais. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Lac tranquille au cœur du parc de la Gatineau, très populaire en week-end.",
+        "difficulty": "facile",
+        "paddleScore": 76,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": false,
+        "cost": "Accès gratuit au parc (stationnement payant).",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Circuit local",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Mise à l'eau du Lac Leamy.",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Accès gratuit au parc (stationnement payant)."
+        },
+        "access": {
+            "description": "Mise à l'eau du Lac Leamy.",
+            "type": "Mise à l'eau",
+            "difficulty": "Facile",
+            "launchPoint": "Point OSM de mise à l'eau"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique: Accès gratuit au parc (stationnement payant)."
+            }
+        ],
+        "highlights": [
+            "Accès ou stationnement payant à prévoir",
+            "Spot généralement accessible",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "riviere-des-outaouais-chelsea",
+        "slug": "riviere-des-outaouais-chelsea",
+        "name": "Rivière des Outaouais (Chelsea)",
+        "region": "Outaouais",
+        "lat": 45.46081,
+        "lon": -75.68523,
+        "mainImage": "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Rivière des Outaouais (Chelsea) est un spot de paddle de la r?gion Outaouais. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Mise à l'eau sur la rivière des Outaouais, secteur Gatineau/Chelsea.",
+        "longDescription": "Rivière des Outaouais (Chelsea) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Outaouais. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Section calme de la rivière majeure de la région, idéale pour débuter.",
+        "difficulty": "facile",
+        "paddleScore": 82,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": true,
+        "cost": "Accès gratuit.",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Parcours variable",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Mise à l'eau sur la rivière des Outaouais, secteur Gatineau/Chelsea.",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Gratuit"
+        },
+        "access": {
+            "description": "Mise à l'eau sur la rivière des Outaouais, secteur Gatineau/Chelsea.",
+            "type": "Mise à l'eau",
+            "difficulty": "Facile",
+            "launchPoint": "Point OSM de mise à l'eau"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique un accès gratuit, mais certains stationnements peuvent devenir payants en haute saison."
+            }
+        ],
+        "highlights": [
+            "Accès indiqué gratuit dans la fiche",
+            "Spot généralement accessible",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "lac-la-peche-outaouais",
+        "slug": "lac-la-peche-outaouais",
+        "name": "Lac la Pêche (Outaouais)",
+        "region": "Outaouais",
+        "lat": 45.62240,
+        "lon": -76.17843,
+        "mainImage": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Lac la Pêche (Outaouais) est un spot de paddle de la r?gion Outaouais. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Mise à l'eau du lac la Pêche.",
+        "longDescription": "Lac la Pêche (Outaouais) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Outaouais. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Lac du parc de la Gatineau avec activités de canotage; choix plus approprié que le lac Pink, protégé.",
+        "difficulty": "facile",
+        "paddleScore": 82,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": true,
+        "cost": "Frais d'accès du parc.",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Circuit local",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Mise à l'eau du lac la Pêche.",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Gratuit"
+        },
+        "access": {
+            "description": "Mise à l'eau du lac la Pêche.",
+            "type": "Mise à l'eau",
+            "difficulty": "Facile",
+            "launchPoint": "Point OSM de mise à l'eau"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique un accès gratuit, mais certains stationnements peuvent devenir payants en haute saison."
+            }
+        ],
+        "highlights": [
+            "Accès indiqué gratuit dans la fiche",
+            "Spot généralement accessible",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "lac-philippe-outaouais",
+        "slug": "lac-philippe-outaouais",
+        "name": "Lac Philippe (Outaouais)",
+        "region": "Outaouais",
+        "lat": 45.60212,
+        "lon": -76.04355,
+        "mainImage": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Lac Philippe (Outaouais) est un spot de paddle de la r?gion Outaouais. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Mise à l'eau du lac Philippe, parc de la Gatineau.",
+        "longDescription": "Lac Philippe (Outaouais) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Outaouais. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Lac de parc provincial avec plages aménagées et zones protégées.",
+        "difficulty": "facile",
+        "paddleScore": 80,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": false,
+        "cost": "Frais d'accès (environ 7$).",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Circuit local",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Mise à l'eau du lac Philippe, parc de la Gatineau.",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Frais d'accès (environ 7$)."
+        },
+        "access": {
+            "description": "Mise à l'eau du lac Philippe, parc de la Gatineau.",
+            "type": "Mise à l'eau",
+            "difficulty": "Facile",
+            "launchPoint": "Point OSM de mise à l'eau"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique: Frais d'accès (environ 7$)."
+            }
+        ],
+        "highlights": [
+            "Accès ou stationnement payant à prévoir",
+            "Spot généralement accessible",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "bassin-de-lachine-montreal",
+        "slug": "bassin-de-lachine-montreal",
+        "name": "Bassin de Lachine (Montréal)",
+        "region": "Montréal",
+        "lat": 45.48807,
+        "lon": -73.56237,
+        "mainImage": "https://images.unsplash.com/photo-1513829096960-ef048298497a?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1513829096960-ef048298497a?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Bassin de Lachine (Montréal) est un spot de paddle de la région Montréal. Plan d'eau urbain parfait pour les sorties courtes, bien développé.",
+        "longDescription": "Bassin de Lachine (Montréal) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Montréal. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Plan d'eau urbain parfait pour les sorties courtes, bien développé.",
+        "difficulty": "facile",
+        "paddleScore": 78,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": true,
+        "cost": "Navigation libre et gratuite.",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Parcours variable",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Stationnement du Centre Nautique.",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Gratuit"
+        },
+        "access": {
+            "description": "Stationnement du Centre Nautique.",
+            "type": "Accès depuis stationnement",
+            "difficulty": "Facile",
+            "launchPoint": "Point indiqué sur la carte"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique un accès gratuit, mais certains stationnements peuvent devenir payants en haute saison."
+            }
+        ],
+        "highlights": [
+            "Accès indiqué gratuit dans la fiche",
+            "Spot généralement accessible",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "fleuve-saint-laurent-ile-sainte-helene",
+        "slug": "fleuve-saint-laurent-ile-sainte-helene",
+        "name": "Fleuve Saint-Laurent (Île Sainte-Hélène)",
+        "region": "Montréal",
+        "lat": 45.50176,
+        "lon": -73.52360,
+        "mainImage": "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Fleuve Saint-Laurent (Île Sainte-Hélène) est un spot de paddle de la r?gion Montréal. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Mise à l'eau du parc Jean-Drapeau / Île Sainte-Hélène.",
+        "longDescription": "Fleuve Saint-Laurent (Île Sainte-Hélène) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Montréal. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Fjord urbain magnifique, eaux un peu plus agitées (niveau intermédiaire).",
+        "difficulty": "sportif",
+        "paddleScore": 60,
+        "scoreFactors": {
+            "wind": 6,
+            "rain": 7,
+            "temperature": 7,
+            "waves": 6
+        },
+        "isFree": true,
+        "cost": "Accès gratuit depuis la côte.",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Parcours variable",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Mise à l'eau du parc Jean-Drapeau / Île Sainte-Hélène.",
+            "spots": "À vérifier",
+            "accessible": false,
+            "cost": "Gratuit"
+        },
+        "access": {
+            "description": "Mise à l'eau du parc Jean-Drapeau / Île Sainte-Hélène.",
+            "type": "Mise à l'eau",
+            "difficulty": "Modéré à sportif",
+            "launchPoint": "Point OSM de mise à l'eau"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Conditions variables: vent, courant ou vagues possibles",
+            "Vérifiez les règles locales et l'accès exact avant de partir"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique un accès gratuit, mais certains stationnements peuvent devenir payants en haute saison."
+            }
+        ],
+        "highlights": [
+            "Accès indiqué gratuit dans la fiche",
+            "Spot à aborder avec prudence",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "bassin-olympique-parc-jean-drapeau",
+        "slug": "bassin-olympique-parc-jean-drapeau",
+        "name": "Bassin olympique (Parc Jean-Drapeau)",
+        "region": "Montréal",
+        "lat": 45.50176,
+        "lon": -73.52360,
+        "mainImage": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Bassin olympique (Parc Jean-Drapeau) est un spot de paddle de la r?gion Montréal. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Mise à l'eau du parc Jean-Drapeau.",
+        "longDescription": "Bassin olympique (Parc Jean-Drapeau) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Montréal. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Bassin calme du parc Jean-Drapeau, mieux identifié que l'ancien libellé Lac Masson.",
+        "difficulty": "facile",
+        "paddleScore": 80,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": false,
+        "cost": "Frais d'accès au parc (environ 5$).",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Parcours variable",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Mise à l'eau du parc Jean-Drapeau.",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Frais d'accès au parc (environ 5$)."
+        },
+        "access": {
+            "description": "Mise à l'eau du parc Jean-Drapeau.",
+            "type": "Mise à l'eau",
+            "difficulty": "Facile",
+            "launchPoint": "Point OSM de mise à l'eau"
+        },
+        "amenities": [
+            "Stationnement ou accès à proximité selon la fiche",
+            "Mise à l'eau à confirmer sur place",
+            "Consultez la météo et le vent avant le départ"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
+                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "La fiche indique: Frais d'accès au parc (environ 5$)."
+            }
+        ],
+        "highlights": [
+            "Accès ou stationnement payant à prévoir",
+            "Spot généralement accessible",
+            "Page générée depuis les données de la carte",
+            "Point d'accès à valider avant la sortie"
+        ]
+    }
+];
+
+supplementalSpotDetails.forEach(spot => {
+    if (!lacDatabase.some(lac => lac.name === spot.name || lac.slug === spot.slug)) {
+        lacDatabase.push(spot);
+    }
+});
+
 
 /**
  * Calcule le Paddle Score™ en temps réel basé sur les conditions météo
