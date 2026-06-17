@@ -587,7 +587,7 @@
             url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=fr`;
         } else {
             // Mode Production (sur spotpaddle.ca)
-            url = `/meteo.php?lat=${lat}&lon=${lon}`;
+            url = `https://meteo.spotpaddle.ca/meteo.php?lat=${lat}&lon=${lon}`;
         }
 
         try {
