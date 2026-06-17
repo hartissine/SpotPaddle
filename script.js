@@ -1144,8 +1144,7 @@
     }
 
     async function chargerPrevisions(lat, lon) {
-        const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=fr`;
-        const container = document.getElementById('sidebar-forecast');
+        const forecastUrl = `https://meteo.spotpaddle.ca/meteo.php?lat=${lat}&lon=${lon}`;          const container = document.getElementById('sidebar-forecast');
         if (!container) return;
 
         try {
