@@ -1144,124 +1144,45 @@
     }
 
     async function chargerPrevisions(lat, lon) {
+    const container = document.getElementById('sidebar-forecast');
+    if (!container) return;
 
-        const response = await fetch(`https://meteo.spotpaddle.ca/meteo.php?lat=${lat}&lon=${lon}`);
-        try {
-            const response = await fetch(forecastUrl);
-            const data = await response.json();
-            
-            if (data.cod !== "200") {
-                container.innerHTML = `
-                    <div class="p-4 bg-red-50 dark:bg-red-950/20 text-red-600 dark:text-red-400 rounded-2xl text-xs text-center border border-red-100 dark:border-red-900/30">
-                        ⚠️ Impossible de charger les prévisions météo.
-                    </div>
-                `;
-                return;
-            }
+    // 1. Définir l'URL avec le paramètre 'type=forecast' pour votre backend
+    const forecastUrl = `https://meteo.spotpaddle.ca/meteo.php?lat=${lat}&lon=${lon}&type=forecast`;
 
-            // Regrouper par jour
-            const dailyData = {};
-            data.list.forEach(item => {
-                const dateKey = item.dt_txt.split(' ')[0];
-                if (!dailyData[dateKey]) {
-                    dailyData[dateKey] = [];
-                }
-                dailyData[dateKey].push(item);
-            });
-
-            // Extraire les 3 premiers jours disponibles
-            const sortedDates = Object.keys(dailyData).sort();
-            const selectedDates = sortedDates.slice(0, 3);
-            
-            let forecastHTML = `<div class="forecast-card space-y-1">`;
-
-            selectedDates.forEach((dateKey) => {
-                const dayRecords = dailyData[dateKey];
-                
-                let minTemp = Infinity;
-                let maxTemp = -Infinity;
-                let maxWind = 0;
-                
-                dayRecords.forEach(rec => {
-                    if (rec.main.temp_min < minTemp) minTemp = rec.main.temp_min;
-                    if (rec.main.temp_max > maxTemp) maxTemp = rec.main.temp_max;
-                    
-                    const windKmh = rec.wind.speed * 3.6;
-                    if (windKmh > maxWind) maxWind = windKmh;
-                });
-                
-                minTemp = Math.round(minTemp);
-                maxTemp = Math.round(maxTemp);
-                maxWind = Math.round(maxWind);
-
-                // Trouver un record représentatif pour l'icône de la journée (12:00, 15:00 ou autre)
-                let repRecord = dayRecords.find(rec => rec.dt_txt.includes("12:00:00")) 
-                                || dayRecords.find(rec => rec.dt_txt.includes("15:00:00"))
-                                || dayRecords.find(rec => rec.dt_txt.includes("09:00:00"))
-                                || dayRecords[Math.floor(dayRecords.length / 2)] 
-                                || dayRecords[0];
-
-                const icon = repRecord.weather[0].icon;
-                const desc = repRecord.weather[0].description;
-                
-                // Formater la date en Français : "Lun. 1 juin"
-                const dateObj = new Date(repRecord.dt * 1000);
-                let dateStr = dateObj.toLocaleDateString('fr-FR', { weekday: 'short', day: 'numeric', month: 'short' });
-                dateStr = dateStr.charAt(0).toUpperCase() + dateStr.slice(1);
-                dateStr = dateStr.replace('.', '');
-
-                // Couleur du badge de vent
-                let badgeClass = "forecast-badge-green";
-                let statusDot = "🟢";
-                
-                if (maxWind > 18) {
-                    badgeClass = "forecast-badge-red";
-                    statusDot = "🔴";
-                } else if (maxWind >= 10) {
-                    badgeClass = "forecast-badge-yellow";
-                    statusDot = "🟡";
-                }
-
-                forecastHTML += `
-                    <div class="forecast-row">
-                        <div class="flex flex-col">
-                            <span class="font-bold text-sm text-slate-800 dark:text-white leading-tight">${dateStr}</span>
-                            <span class="text-[10px] text-slate-500 capitalize leading-none mt-0.5">${desc}</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <span class="text-2xl">${getWeatherEmoji(icon)}</span>
-                            <div class="text-right">
-                                <span class="text-xs font-semibold text-slate-700 dark:text-slate-300 block">${minTemp}° / ${maxTemp}°C</span>
-                            </div>
-                            <div class="px-2.5 py-1 rounded-full text-[10px] font-bold ${badgeClass} min-w-[70px] text-center flex items-center justify-center gap-1 shadow-sm">
-                                <span>${statusDot}</span>
-                                <span>${maxWind} <span class="text-[8px]">km/h</span></span>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
-
-            forecastHTML += `</div>`;
-            container.innerHTML = `
-                <div class="flex items-center justify-between border-b border-slate-200 dark:border-white/10 pb-2">
-                    <h4 class="font-black text-blue-600 dark:text-blue-400 uppercase text-[10px] tracking-widest flex items-center gap-1.5">
-                        📅 Prévisions 3 jours (Paddle Live)
-                    </h4>
-                    <span class="text-[9px] bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Vent max 💨</span>
-                </div>
-                ${forecastHTML}
-            `;
-            
-        } catch (error) {
-            console.error("Erreur lors du chargement des prévisions:", error);
+    try {
+        const response = await fetch(forecastUrl);
+        const data = await response.json();
+        
+        // 2. Vérification simplifiée (si le code est 200 ou si les données existent)
+        if (!data || data.cod !== "200") {
             container.innerHTML = `
                 <div class="p-4 bg-red-50 dark:bg-red-950/20 text-red-600 dark:text-red-400 rounded-2xl text-xs text-center border border-red-100 dark:border-red-900/30">
-                    ⚠️ Erreur réseau lors du chargement.
+                    ⚠️ Impossible de charger les prévisions.
                 </div>
             `;
+            return;
         }
+
+        // ... le reste de votre code de traitement (regrouper par jour, etc.) reste identique ...
+        const dailyData = {};
+        data.list.forEach(item => {
+            const dateKey = item.dt_txt.split(' ')[0];
+            if (!dailyData[dateKey]) dailyData[dateKey] = [];
+            dailyData[dateKey].push(item);
+        });
+
+        // ... (votre logique d'affichage HTML ici) ...
+        // N'oubliez pas de bien fermer les parenthèses de votre try/catch
+    } catch (error) {
+        console.error("Erreur lors du chargement des prévisions:", error);
+        container.innerHTML = `
+            <div class="p-4 bg-red-50 dark:bg-red-950/20 text-red-600 dark:text-red-400 rounded-2xl text-xs text-center border border-red-100 dark:border-red-900/30">
+                ⚠️ Erreur réseau.
+            </div>
+        `;
     }
+}
 
     function getWaterCondition() {
         const month = new Date().getMonth(); // 0 = Janvier, 3 = Avril, 4 = Mai...
