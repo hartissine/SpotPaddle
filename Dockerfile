@@ -1,8 +1,10 @@
-# Utilise une image PHP officielle avec Apache
 FROM php:8.2-apache
 
-# Copie votre fichier meteo.php dans le dossier web du serveur
-COPY meteo.php /var/www/html/meteo.php
+# Active le module rewrite d'Apache (souvent utile)
+RUN a2enmod rewrite
 
-# Donne les bonnes permissions
+# Copie tous vos fichiers dans le dossier web d'Apache
+COPY . /var/www/html/
+
+# S'assure que les droits sont corrects pour l'utilisateur www-data (Apache)
 RUN chown -R www-data:www-data /var/www/html
