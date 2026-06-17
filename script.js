@@ -1144,9 +1144,8 @@
     }
 
     async function chargerPrevisions(lat, lon) {
-        const forecastUrl = `https://meteo.spotpaddle.ca/meteo.php?lat=${lat}&lon=${lon}`;          const container = document.getElementById('sidebar-forecast');
-        if (!container) return;
 
+        const response = await fetch(`https://meteo.spotpaddle.ca/meteo.php?lat=${lat}&lon=${lon}`);
         try {
             const response = await fetch(forecastUrl);
             const data = await response.json();
