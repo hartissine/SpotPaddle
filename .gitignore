@@ -1,0 +1,12 @@
+# Secrets et configuration locale
+.env
+.env.*
+!.env.example
+config.local.php
+*.key
+*.pem
+
+# Fichiers de travail locaux
+.tools/
+.local-server.pid
+.osm-water-access-audit.json

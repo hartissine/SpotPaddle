@@ -86,7 +86,9 @@ npx http-server -p 8000
 **Problème:** L'API OpenWeatherMap ne charge pas  
 **Solution:** 
 - Vérifier la connexion Internet
-- Vérifier la clé API dans `script.js`: `const apiKey = "b5d51e383a9219e83fa41ab4f6776e06"`
+- Vérifier que `https://meteo.spotpaddle.ca/meteo.php` répond
+- Vérifier que la variable serveur `OPENWEATHER_API_KEY` est configurée sur l'hébergement PHP
+- Ne jamais placer la clé OpenWeather dans `script.js`, `lac.html`, GitHub ou un fichier public
 
 ### Géolocalisation ne fonctionne pas
 **Problème:** Permission refusée ou navigateur sans geolocation  
@@ -201,10 +203,29 @@ console.table(lacDatabase.map(l => ({
 - Pointer A record vers votre hébergement
 - HTTPS automatique recommandé
 
+### Configuration sécurisée de la météo
+
+Le site public appelle uniquement `https://meteo.spotpaddle.ca/meteo.php`. La clé OpenWeather doit rester sur ce serveur PHP et être fournie par une variable d'environnement:
+
+```text
+OPENWEATHER_API_KEY=votre_nouvelle_cle
+```
+
+- Configurez cette variable dans le panneau de l'hébergeur, Apache, PHP-FPM ou le conteneur.
+- Avec Docker: transmettez-la au démarrage avec `--env OPENWEATHER_API_KEY=...`; ne l'inscrivez pas dans l'image.
+- Le relais accepte `spotpaddle.ca`, `www.spotpaddle.ca`, `hartissine.github.io`, `localhost` et `127.0.0.1`.
+- Si le domaine change, mettez à jour la liste `allowedOrigins` dans `meteo.php`.
+- Le relais reconnaît l'adresse réelle des visiteurs transmise par Cloudflare. Pour empêcher l'usurpation de cet en-tête, limitez idéalement l'accès direct au serveur d'origine aux adresses IP de Cloudflare.
+- Comme l'ancienne clé a déjà été publiée dans Git, créez une nouvelle clé, configurez-la sur l'hébergement, déployez et testez le relais sécurisé, puis désactivez l'ancienne clé. Cet ordre évite une interruption météo.
+
+GitHub Pages ne peut pas exécuter PHP. Le sous-domaine `meteo.spotpaddle.ca` doit donc rester sur un hébergement PHP séparé.
+
 ### Checklist Déploiement
 - [ ] Retirer console.log() de debug
 - [ ] Tester tous les liens
 - [ ] Vérifier HTTPS
+- [ ] Configurer `OPENWEATHER_API_KEY` sur le serveur météo
+- [ ] Vérifier que la clé OpenWeather n'apparaît dans aucun fichier suivi par Git
 - [ ] Analytics (Google Analytics, Fathom)
 - [ ] Sitemaps XML pour SEO
 - [ ] robots.txt

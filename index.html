@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Guide paddle & météo live en Mauricie : carte interactive, conditions de vent, sécurité et accès aux meilleurs lacs." />
+    <meta name="description" content="Guide paddle au Québec : carte interactive, météo live, points d'accès GPS, stationnement et sécurité pour trouver un spot fiable." />
 
     <!-- Open Graph / Social preview -->
-    <meta property="og:title" content="Destination Mauricie | Plein Air & Temps Réel" />
-    <meta property="og:description" content="Carte interactive, météo live et conseils sécurité pour naviguer en Mauricie." />
+    <meta property="og:title" content="Spot Paddle Québec | Accès GPS, météo et sécurité" />
+    <meta property="og:description" content="Carte interactive, météo live et points d'accès vérifiés pour partir en paddle au Québec." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200" />
-    <meta property="og:image:alt" content="Vue d'un lac en Mauricie" />
+    <meta property="og:image:alt" content="Vue d'un lac du Québec" />
     <meta property="og:locale" content="fr_FR" />
     <meta name="referrer" content="no-referrer-when-downgrade">
 
-    <title>Spot Paddle - Paddle Score™ & Conditions en Temps Réel</title>
+    <title>Spot Paddle Québec - Accès GPS, météo & Paddle Score™</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class' };</script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="data.js?v=20260615"></script>
+    <link rel="stylesheet" href="style.css?v=20260617-2" />
+    <script src="data.js?v=20260617-2"></script>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans">
 
@@ -30,7 +31,7 @@
             <div class="hidden md:flex space-x-8">
 
                 <a href="#carte" class="text-white hover:text-blue-200 transition duration-300 font-medium flex items-center gap-1 font-semibold">
-                    <span>🗺️</span> Carte des Lacs
+                    <span>🗺️</span> Carte des accès
                 </a>
                 <a href="#securite" class="text-white hover:text-blue-200 transition duration-300 font-medium flex items-center gap-1">
                     <span>🛡️</span> Sécurité
@@ -49,7 +50,7 @@
             <div id="mobileMenu" class="hidden md:hidden absolute top-full left-0 w-full bg-blue-700 shadow-lg z-[2000] border-t-2 border-blue-500">
                 <div class="flex flex-col space-y-2 p-4">
                     <a href="#carte" class="text-white hover:text-blue-200 transition font-medium flex items-center gap-2 py-2 font-semibold">
-                        <span>🗺️</span> Carte des Lacs
+                        <span>🗺️</span> Carte des accès
                     </a>
                     <a href="#securite" class="text-white hover:text-blue-200 transition font-medium flex items-center gap-2 py-2">
                         <span>🛡️</span> Sécurité
@@ -90,8 +91,13 @@
         <span class="bg-blue-600/80 backdrop-blur-md px-4 py-1 rounded-full text-sm font-bold tracking-widest uppercase mb-4 inline-block">🚣 Paddle Score™</span>
         <h2 class="text-4xl sm:text-5xl md:text-8xl font-black mb-6 leading-tight tracking-tighter">TROUVEZ VOS <br><span class="text-blue-400">MEILLEURS SPOTS</span></h2>
         <p class="text-xl md:text-2xl max-w-2xl mx-auto mb-6 font-light text-slate-200">
-            Paddle Score™ en temps réel • Lacs proches • Conditions météo • Sécurité complète
+            Points d'accès GPS • Météo live • Stationnement • Sécurité avant la mise à l'eau
         </p>
+        <div class="flex flex-wrap justify-center gap-2 mb-6 text-xs font-black uppercase tracking-wider">
+            <span class="bg-white/15 border border-white/20 backdrop-blur px-3 py-2 rounded-full"><span id="heroSpotCount">50</span> spots Québec</span>
+            <span class="bg-white/15 border border-white/20 backdrop-blur px-3 py-2 rounded-full"><span id="heroGpsCount">22</span> GPS validés</span>
+            <span class="bg-white/15 border border-white/20 backdrop-blur px-3 py-2 rounded-full">Itinéraires vers l'accès</span>
+        </div>
         <div class="flex flex-col md:flex-row gap-4 justify-center pb-12">
             <button onclick="findNearestSpots()" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold text-base transition-all shadow-xl hover:scale-105">📍 Trouver mes 2 Spots</button>
             <a href="#carte" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-bold text-base transition-all shadow-xl hover:scale-105">🗺️ Voir la Carte</a>
@@ -107,7 +113,7 @@
 <br>
     <section class="max-w-7xl mx-auto -mt-12 md:-mt-20 relative z-30 px-6 pb-4">
         <div class="grid md:grid-cols-3 gap-6">
-            <a href="lac.html?lake=lac-des-piles&v=20260615" class="group bg-white rounded-3xl overflow-hidden shadow-2xl transition-transform hover:-translate-y-2 cursor-pointer">
+            <a href="lac.html?lake=lac-des-piles&v=20260617" class="group bg-white rounded-3xl overflow-hidden shadow-2xl transition-transform hover:-translate-y-2 cursor-pointer">
                 <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800" alt="Lac des Piles" class="h-48 w-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
                 <div class="p-6">
                     <h4 class="font-black text-xl mb-2">Lac des Piles</h4>
@@ -118,7 +124,7 @@
                     </div>
                 </div>
             </a>
-            <a href="lac.html?lake=parc-national-wapizagonke&v=20260615" class="group bg-white rounded-3xl overflow-hidden shadow-2xl transition-transform hover:-translate-y-2 cursor-pointer">
+            <a href="lac.html?lake=parc-national-wapizagonke&v=20260617" class="group bg-white rounded-3xl overflow-hidden shadow-2xl transition-transform hover:-translate-y-2 cursor-pointer">
                 <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=800" alt="Parc National Wapizagonke" class="h-48 w-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
                 <div class="p-6">
                     <h4 class="font-black text-xl mb-2">Wapizagonke</h4>
@@ -129,7 +135,7 @@
                     </div>
                 </div>
             </a>
-            <a href="lac.html?lake=riviere-st-maurice&v=20260615" class="group bg-white rounded-3xl overflow-hidden shadow-2xl transition-transform hover:-translate-y-2 cursor-pointer">
+            <a href="lac.html?lake=riviere-st-maurice&v=20260617" class="group bg-white rounded-3xl overflow-hidden shadow-2xl transition-transform hover:-translate-y-2 cursor-pointer">
                 <img src="https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&w=800" alt="Rivière St-Maurice" class="h-48 w-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
                 <div class="p-6">
                     <h4 class="font-black text-xl mb-2">St-Maurice (TR)</h4>
@@ -143,18 +149,70 @@
         </div>
     </section>
 
+    <section class="max-w-7xl mx-auto px-6 py-12">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
+            <div>
+                <p class="text-xs font-black uppercase tracking-widest text-blue-600 mb-2">Nouveaux incontournables</p>
+                <h3 class="text-3xl font-bold text-slate-800 italic">Spots populaires au Québec</h3>
+                <p class="text-slate-500 mt-2 max-w-2xl">Des destinations connues et fréquentées, ajoutées avec un statut GPS clair quand le point exact doit encore être raffiné.</p>
+            </div>
+            <a href="#carte" class="inline-flex items-center justify-center bg-slate-900 hover:bg-blue-700 text-white px-5 py-3 rounded-full font-bold text-sm transition">
+                Voir sur la carte
+            </a>
+        </div>
+        <div id="popularQuebecGrid" class="grid sm:grid-cols-2 lg:grid-cols-5 gap-4"></div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-6 pb-8">
+        <div class="grid md:grid-cols-4 gap-4">
+            <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+                <p class="text-xs font-black uppercase tracking-widest text-slate-400">Catalogue</p>
+                <p class="text-3xl font-black text-slate-900 mt-1"><span id="trustSpotCount">50</span></p>
+                <p class="text-sm text-slate-500">spots et accès</p>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+                <p class="text-xs font-black uppercase tracking-widest text-slate-400">GPS</p>
+                <p class="text-3xl font-black text-emerald-600 mt-1"><span id="trustGpsHigh">22</span></p>
+                <p class="text-sm text-slate-500">points validés</p>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+                <p class="text-xs font-black uppercase tracking-widest text-slate-400">Transparence</p>
+                <p class="text-3xl font-black text-amber-600 mt-1"><span id="trustGpsMedium">8</span></p>
+                <p class="text-sm text-slate-500">points probables</p>
+            </div>
+            <div class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+                <p class="text-xs font-black uppercase tracking-widest text-slate-400">À raffiner</p>
+                <p class="text-3xl font-black text-slate-700 mt-1"><span id="trustGpsNeeds">20</span></p>
+                <p class="text-sm text-slate-500">points à vérifier</p>
+            </div>
+        </div>
+        <p class="text-center text-sm text-slate-500 mt-4">Méthode : l'accès GPS est séparé du centre du lac. Les itinéraires visent plage, quai, rampe ou stationnement.</p>
+    </section>
+
     <section id="carte" class="max-w-6xl mx-auto py-12 px-6">
         <div class="mb-6 flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
             <div>
                 <h3 class="text-3xl font-bold text-slate-800 italic">Carte interactive des accès</h3>
-                <p class="text-slate-500">Cliquez sur un lac pour voir le vent et la température.</p>
+                <p class="text-slate-500">Cliquez sur un marqueur d'accès pour voir la météo, le stationnement et l'itinéraire.</p>
             </div>
             <div class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-bold uppercase tracking-tighter">Données en direct 📡</div>
         </div>
     
         <div class="relative">
             <div id="map" class="shadow-xl border-4 border-white"></div>
+            <div id="mapModeControl" class="absolute bottom-6 left-6 z-[1000] inline-flex items-center rounded-lg border border-slate-200 bg-white/95 p-1 shadow-xl backdrop-blur-md" role="group" aria-label="Type de carte">
+                <button id="mapModeStreet" type="button" onclick="setMapMode('street')" aria-pressed="true" class="min-h-9 rounded-md bg-blue-600 px-2.5 text-[10px] font-bold text-white transition-colors sm:px-3 sm:text-xs">
+                    Carte
+                </button>
+                <button id="mapModeSatellite" type="button" onclick="setMapMode('satellite')" aria-pressed="false" class="min-h-9 rounded-md px-2.5 text-[10px] font-bold text-slate-600 transition-colors hover:bg-slate-100 sm:px-3 sm:text-xs">
+                    Satellite
+                </button>
+            </div>
             <div class="absolute bottom-6 right-6 z-[1000] flex flex-col gap-3">
+                <div class="overflow-hidden rounded-lg border-2 border-blue-600 bg-white/95 shadow-xl backdrop-blur-md dark:border-blue-500 dark:bg-slate-800" role="group" aria-label="Contrôles du zoom">
+                    <button type="button" onclick="zoomMap(1)" class="flex h-11 w-11 items-center justify-center text-2xl font-bold text-blue-600 transition-colors hover:bg-blue-50 dark:text-blue-400 dark:hover:bg-slate-700" title="Zoom avant" aria-label="Zoom avant">+</button>
+                    <button type="button" onclick="zoomMap(-1)" class="flex h-11 w-11 items-center justify-center border-t border-slate-200 text-2xl font-bold text-blue-600 transition-colors hover:bg-blue-50 dark:border-slate-700 dark:text-blue-400 dark:hover:bg-slate-700" title="Zoom arrière" aria-label="Zoom arrière">−</button>
+                </div>
                 <button onclick="resetView()" 
                     class="bg-white/90 dark:bg-slate-800 backdrop-blur-md p-3 rounded-full shadow-xl hover:bg-blue-50 dark:hover:bg-slate-700 transition-all border-2 border-blue-600 dark:border-blue-500 group" 
                     title="Vue globale">
@@ -263,7 +321,7 @@
     <section id="securite" class="max-w-6xl mx-auto py-16 px-6">
         <div class="text-center mb-12">
             <h3 class="text-3xl font-bold text-slate-800 italic">Sécurité & Réglementation</h3>
-            <p class="text-slate-500 mt-2">L'essentiel pour naviguer l'esprit tranquille en Mauricie.</p>
+            <p class="text-slate-500 mt-2">L'essentiel pour naviguer l'esprit tranquille au Québec.</p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-8">
@@ -296,7 +354,7 @@
                     "Si tu doutes, n'y va pas."
                 </p>
                 <p class="text-blue-100 text-sm mb-6">
-                    Vérifiez toujours le vent. En Mauricie, un vent d'Ouest peut vous éloigner très vite.
+                    Vérifiez toujours le vent. Sur un grand lac ou le fleuve, une brise peut rendre le retour difficile très vite.
                 </p>
                 <div class="mt-auto bg-blue-800/50 p-4 rounded-xl border border-blue-700">
                     <p class="text-xs">💡 <b>Astuce :</b> Portez toujours votre "leash" (cordon de cheville).</p>
@@ -362,15 +420,15 @@
                 <div>
                     <h4 class="text-xl font-bold mb-4">À propos</h4>
                     <p class="text-slate-400 text-sm mb-4">
-                        Spot Paddle - Paddle Score™ pour les passionnés de paddle.
-                        Conditions en temps réel, lacs proches, sécurité et données complètes pour chaque spot.
+                        Spot Paddle - Paddle Score™ pour les passionnés de paddle au Québec.
+                        Conditions en temps réel, accès GPS, stationnement, sécurité et données complètes pour chaque spot.
                     </p>
                     <p class="text-slate-400 text-xs">Dernière mise à jour : Juin 2026 • Domaine : spotpaddle.ca</p>
                 </div>
 
                 <div>
                     <h4 class="text-xl font-bold mb-4">Contact & Légal</h4>
-                    <p class="text-slate-400 text-sm mb-4 italic">Un projet né en Mauricie 🌲</p>
+                    <p class="text-slate-400 text-sm mb-4 italic">Un projet né en Mauricie, maintenant élargi aux spots du Québec 🌲</p>
                     <div class="flex space-x-4 mb-4">
                         <a href="#" target="_blank" rel="noopener noreferrer" class="bg-slate-800 p-2 rounded-full hover:bg-blue-600 transition" aria-label="Facebook" title="Facebook">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 fill-current" aria-hidden="true"><path d="M22 12.07C22 6.48 17.52 2 12 2S2 6.48 2 12.07c0 5.02 3.66 9.17 8.44 9.93v-7.02H8.14v-2.9h2.3V9.41c0-2.28 1.36-3.55 3.44-3.55.99 0 2.03.18 2.03.18v2.23h-1.14c-1.12 0-1.47.7-1.47 1.42v1.7h2.5l-.4 2.9h-2.1v7.02C18.34 21.24 22 17.09 22 12.07z"/></svg>
@@ -389,12 +447,12 @@
                 </div>
             </div>
             <div class="max-w-6xl mx-auto px-6 mt-8 pt-8 border-t border-slate-700 text-center text-slate-500 text-xs">
-                © 2026 Spot Paddle (spotpaddle.ca) • Paddle Score™ • Tous droits réservés • Données météo : OpenWeatherMap • Cartes : OpenStreetMap
+                © 2026 Spot Paddle (spotpaddle.ca) • Paddle Score™ • Tous droits réservés • Données météo : OpenWeatherMap • Cartes : OpenStreetMap • Satellite : Esri
             </div>
         </div>
     </footer>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="script.js?v=20260615"></script>
+    <script src="script.js?v=20260617-7"></script>
 </body>
 </html>

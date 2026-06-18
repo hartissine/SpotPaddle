@@ -235,6 +235,75 @@ html {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+#sidebar .forecast-date {
+    color: #1e293b !important;
+}
+
+#sidebar .forecast-description {
+    color: #475569 !important;
+}
+
+#sidebar .forecast-temperature {
+    color: #334155 !important;
+}
+
+.dark #sidebar .forecast-date {
+    color: #f8fafc !important;
+}
+
+.dark #sidebar .forecast-description {
+    color: #cbd5e1 !important;
+}
+
+.dark #sidebar .forecast-temperature {
+    color: #e2e8f0 !important;
+}
+
+@media (max-width: 480px) {
+    #sidebar .forecast-card {
+        padding: 1rem;
+        border-radius: 1rem;
+    }
+
+    #sidebar .forecast-heading {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    #sidebar .forecast-heading-badge {
+        flex-shrink: 0;
+    }
+
+    #sidebar .forecast-row {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+    }
+
+    #sidebar .forecast-date-group,
+    #sidebar .forecast-metrics {
+        width: 100%;
+        min-width: 0;
+    }
+
+    #sidebar .forecast-metrics {
+        display: grid;
+        grid-template-columns: 2rem minmax(0, 1fr) minmax(4.75rem, auto);
+        gap: 0.5rem;
+    }
+
+    #sidebar .forecast-temperature {
+        text-align: left;
+        white-space: nowrap;
+    }
+
+    #sidebar .forecast-wind {
+        min-width: 4.75rem;
+        white-space: nowrap;
+    }
+}
+
 .forecast-badge-green {
     background-color: #dcfce7;
     color: #15803d;

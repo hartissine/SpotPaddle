@@ -434,8 +434,8 @@ const lacDatabase = [
     {
         id: "lac-maskinonge",
         slug: "lac-maskinonge",
-        name: "Lac Maskinongé (St-Gabriel)",
-        region: "Mauricie",
+        name: "Lac Maskinongé (Saint-Gabriel-de-Brandon)",
+        region: "Lanaudière",
         lat: 46.33623,
         lon: -73.39885,
         mainImage: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200",
@@ -443,8 +443,8 @@ const lacDatabase = [
             "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
             "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800"
         ],
-        description: "Grand lac peu profond, idéal pour les familles et les débutants. Accès facile et ambiance décontractée.",
-        longDescription: "Lac Maskinongé est parfait pour une première expérience de paddle. Le lac peu profond offre une sécurité rassurante, et l'infrastructure à Saint-Gabriel est fiable.",
+        description: "Grand lac accessible depuis la plage de Saint-Gabriel, au 333 rue du Parc. L'accès par la plage facilite l'arrivée avec une embarcation légère.",
+        longDescription: "Le lac Maskinongé est accessible depuis la plage de Saint-Gabriel à Saint-Gabriel-de-Brandon. L'itinéraire mène au 333 rue du Parc, près de la plage, plutôt qu'au centre du lac. Le plan d'eau peut être exposé au vent et à la circulation nautique; vérifiez les conditions et les règles locales avant la mise à l'eau.",
         difficulty: "facile",
         paddleScore: 76,
         scoreFactors: {
@@ -453,22 +453,22 @@ const lacDatabase = [
             temperature: 8,
             waves: 8
         },
-        isFree: true,
-        cost: "Stationnement : payant en haute saison (5$-8$)",
+        isFree: false,
+        cost: "Tarifs de plage et de stationnement à vérifier avant le départ",
         waterQuality: "Acceptable",
         maxLength: "15 km",
         season: "Mai à septembre",
         parking: {
-            location: "Plage / accès riverain de Saint-Gabriel.",
+            location: "Plage de Saint-Gabriel, 333 rue du Parc, Saint-Gabriel-de-Brandon, QC J0K 2N0.",
             spots: 100,
             accessible: true,
-            cost: "Payant en saison (gratuit hors-saison)"
+            cost: "Peut être payant en saison; tarif à vérifier"
         },
         access: {
-            description: "Plage / accès riverain de Saint-Gabriel.",
-            type: "Plage / accès riverain",
-            difficulty: "Accès très facile",
-            launchPoint: "Point OSM de mise à l'eau"
+            description: "Accès par la plage de Saint-Gabriel, au bout de la rue du Parc.",
+            type: "Plage",
+            difficulty: "Accès facile avec une embarcation légère",
+            launchPoint: "Plage de Saint-Gabriel, 333 rue du Parc"
         },
         amenities: [
             "Toilettes",
@@ -479,7 +479,8 @@ const lacDatabase = [
         warnings: [
             "⚠️ Peu profond par endroits",
             "⚠️ Fond vaseux - Chaussures recommandées",
-            "⚠️ Très fréquenté en été"
+            "⚠️ Très fréquenté en été",
+            "⚠️ Vérifier les règles locales de mise à l'eau à la plage"
         ],
         faq: [
             {
@@ -701,6 +702,282 @@ const lacDatabase = [
             "🟢 Eau super calme",
             "🚓 Bien surveillé",
             "⭐ Parc national premium"
+        ]
+    },
+    {
+        "id": "parc-national-oka",
+        "slug": "parc-national-oka",
+        "name": "Parc national d'Oka",
+        "region": "Laurentides",
+        "lat": 45.468056,
+        "lon": -74.030556,
+        "mainImage": "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&q=80&w=1200",
+        "gallery": [
+            "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&q=80&w=800",
+            "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Grand classique proche de Montréal, le parc national d'Oka donne accès au lac des Deux Montagnes avec plage, location nautique et secteurs adaptés au kayak et au surf à pagaie.",
+        "longDescription": "Le parc national d'Oka est un des spots nautiques les plus fréquentés près de Montréal. La Sépaq y indique la location de kayak et de surf à pagaie, avec mise à l'eau possible à la Crête ou à la plage principale selon l'embarcation et la saison. Le plan d'eau est vaste: vérifiez le vent avant de partir.",
+        "difficulty": "facile",
+        "paddleScore": 78,
+        "scoreFactors": { "wind": 7, "rain": 7, "temperature": 8, "waves": 7 },
+        "isFree": false,
+        "cost": "Droit d'accès Sépaq et stationnement de plage en saison.",
+        "waterQuality": "À vérifier selon avis de plage",
+        "maxLength": "Parcours variable sur le lac des Deux Montagnes",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Stationnement de la plage / secteur Le Littoral.",
+            "spots": "Grand stationnement en saison",
+            "accessible": true,
+            "cost": "Stationnement payant en saison."
+        },
+        "access": {
+            "description": "Mise à l'eau à la Crête ou à la plage principale selon les consignes Sépaq.",
+            "type": "Plage / rampe de mise à l'eau",
+            "difficulty": "Facile",
+            "launchPoint": "Point à confirmer précisément sur plan du parc"
+        },
+        "amenities": [
+            "Plage surveillée en saison",
+            "Location de kayak et surf à pagaie",
+            "Toilettes et services Sépaq",
+            "Aires de pique-nique"
+        ],
+        "warnings": [
+            "Le lac des Deux Montagnes peut devenir venteux rapidement",
+            "Stationnement très achalandé les fins de semaine d'été",
+            "Respectez les zones de baignade et les consignes Sépaq"
+        ],
+        "faq": [
+            { "q": "Peut-on louer sur place ?", "a": "Oui, la Sépaq indique de la location de kayak et de surf à pagaie au parc national d'Oka en saison." },
+            { "q": "Le point GPS est-il définitif ?", "a": "Il pointe vers le secteur de plage/accès connu du parc, mais il doit encore être validé précisément sur carte de terrain." }
+        ],
+        "highlights": [
+            "Spot très fréquenté près de Montréal",
+            "Location nautique sur place",
+            "Plage et services complets",
+            "GPS accès probable à confirmer"
+        ]
+    },
+    {
+        "id": "reservoir-choiniere-yamaska",
+        "slug": "reservoir-choiniere-yamaska",
+        "name": "Réservoir Choinière (Yamaska)",
+        "region": "Estrie",
+        "lat": 45.429722,
+        "lon": -72.616944,
+        "mainImage": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200",
+        "gallery": [
+            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Le réservoir Choinière, au parc national de la Yamaska, est un plan d'eau populaire pour le canot, le kayak, le pédalo et le surf à pagaie.",
+        "longDescription": "Le parc national de la Yamaska entoure le réservoir Choinière, un vaste plan d'eau utilisé pour les activités nautiques. La Sépaq y mentionne le canot, le kayak, le surf à pagaie, le pédalo et la baignade surveillée en saison. C'est un bon choix pour une sortie encadrée et familiale en Estrie.",
+        "difficulty": "facile",
+        "paddleScore": 80,
+        "scoreFactors": { "wind": 8, "rain": 7, "temperature": 8, "waves": 8 },
+        "isFree": false,
+        "cost": "Droit d'accès Sépaq et stationnement de plage en saison.",
+        "waterQuality": "À vérifier selon avis du parc",
+        "maxLength": "Réservoir d'environ 4,5 km²",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Centre de découverte et de services / plage du parc national de la Yamaska.",
+            "spots": "Stationnement de parc",
+            "accessible": true,
+            "cost": "Payant selon tarification Sépaq."
+        },
+        "access": {
+            "description": "Accès nautique au secteur de la plage et du centre de location du réservoir Choinière.",
+            "type": "Plage / centre de location",
+            "difficulty": "Facile",
+            "launchPoint": "Centre de location Sépaq"
+        },
+        "amenities": [
+            "Location de canot, kayak et surf à pagaie",
+            "Plage surveillée en saison",
+            "Toilettes et services Sépaq",
+            "Pistes cyclables et aires de pique-nique"
+        ],
+        "warnings": [
+            "Stationnement de plage payant et achalandé en été",
+            "Dernières locations avant la fermeture du centre de location",
+            "Consultez les avis de qualité d'eau et de météo"
+        ],
+        "faq": [
+            { "q": "Est-ce un bon spot pour débuter ?", "a": "Oui, c'est un plan d'eau de parc avec services, location et plage, mais il faut toujours surveiller le vent." },
+            { "q": "Le GPS pointe où ?", "a": "Vers le secteur du centre de services/plage; le point exact de mise à l'eau reste à confirmer sur place." }
+        ],
+        "highlights": [
+            "Spot familial très connu en Estrie",
+            "Services Sépaq complets",
+            "Location nautique disponible",
+            "GPS accès probable à confirmer"
+        ]
+    },
+    {
+        "id": "reservoir-poisson-blanc",
+        "slug": "reservoir-poisson-blanc",
+        "name": "Réservoir Poisson-Blanc",
+        "region": "Laurentides",
+        "lat": 46.095,
+        "lon": -75.67389,
+        "mainImage": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=1200",
+        "gallery": [
+            "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Le Poisson-Blanc est un incontournable des Laurentides pour les sorties de canot, kayak, SUP et camping sur les îles.",
+        "longDescription": "Le parc régional du Poisson-Blanc est reconnu pour le canot, le kayak, le SUP-camping et les plages sauvages du réservoir. Le pavillon d'accueil Le Bastion à Notre-Dame-du-Laus offre des services et de la location nautique. C'est un spot magnifique, mais plus aventure que plage urbaine.",
+        "difficulty": "sportif",
+        "paddleScore": 84,
+        "scoreFactors": { "wind": 7, "rain": 8, "temperature": 8, "waves": 7 },
+        "isFree": false,
+        "cost": "Frais de parc, stationnement ou location selon activité.",
+        "waterQuality": "Généralement très bonne",
+        "maxLength": "Grand réservoir, parcours variable",
+        "season": "Mai à octobre",
+        "parking": {
+            "location": "Pavillon d'accueil Le Bastion, secteur Notre-Dame-du-Laus.",
+            "spots": "Stationnement du parc",
+            "accessible": true,
+            "cost": "Selon tarification du parc."
+        },
+        "access": {
+            "description": "Accès au réservoir via le pavillon Le Bastion et services du parc.",
+            "type": "Pavillon d'accueil / mise à l'eau",
+            "difficulty": "Modéré",
+            "launchPoint": "Le Bastion"
+        },
+        "amenities": [
+            "Location de canot, kayak et planche à pagaie",
+            "Camping sur les îles",
+            "Arrêts pique-nique",
+            "Accueil et informations du parc"
+        ],
+        "warnings": [
+            "Grand plan d'eau: prévoir vent, distance et autonomie",
+            "Réservation recommandée pour camping et location",
+            "Plus adapté aux sorties préparées qu'aux sorties improvisées"
+        ],
+        "faq": [
+            { "q": "Est-ce bon pour une première sortie ?", "a": "Oui pour une courte sortie près de l'accueil par météo calme, mais le réservoir devient vite une sortie d'aventure." },
+            { "q": "Peut-on louer sur place ?", "a": "Oui, le parc régional indique un service de location de canot, kayak et planche à pagaie au pavillon d'accueil." }
+        ],
+        "highlights": [
+            "Un des grands classiques SUP/kayak des Laurentides",
+            "Îles et plages sauvages",
+            "Camping nautique très populaire",
+            "GPS accès probable à confirmer"
+        ]
+    },
+    {
+        "id": "baie-de-beauport-quebec",
+        "slug": "baie-de-beauport-quebec",
+        "name": "Baie de Beauport",
+        "region": "Québec",
+        "lat": 46.84386285760057,
+        "lon": -71.17843386608614,
+        "mainImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
+        "gallery": [
+            "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "La Baie de Beauport est une destination estivale très fréquentée à Québec, avec grande plage, sports nautiques et stationnement sur place.",
+        "longDescription": "La Baie de Beauport du Port de Québec propose une grande plage de sable, des activités nautiques et sportives, ainsi qu'un accès près du centre-ville de Québec. Le site est pratique pour une sortie urbaine, mais il faut tenir compte du vent et du caractère exposé du fleuve.",
+        "difficulty": "sportif",
+        "paddleScore": 74,
+        "scoreFactors": { "wind": 6, "rain": 7, "temperature": 8, "waves": 6 },
+        "isFree": true,
+        "cost": "Accès au site gratuit; stationnement payant.",
+        "waterQuality": "Variable selon conditions du fleuve",
+        "maxLength": "Parcours côtier local",
+        "season": "Mai à octobre",
+        "parking": {
+            "location": "1 chemin de la Baie-de-Beauport, Québec.",
+            "spots": "Stationnement du site",
+            "accessible": true,
+            "cost": "Stationnement payant."
+        },
+        "access": {
+            "description": "Accès par la plage de la Baie de Beauport.",
+            "type": "Plage urbaine / activités nautiques",
+            "difficulty": "Facile à modéré selon le vent",
+            "launchPoint": "Plage de la Baie de Beauport"
+        },
+        "amenities": [
+            "Grande plage",
+            "Activités nautiques",
+            "Stationnement sur place",
+            "Services saisonniers"
+        ],
+        "warnings": [
+            "Plan d'eau exposé au vent et aux conditions du fleuve",
+            "Surveiller les avis de baignade et la qualité de l'eau",
+            "Rester dans les zones autorisées"
+        ],
+        "faq": [
+            { "q": "Est-ce gratuit ?", "a": "Le site indique un accès gratuit, mais le stationnement est payant." },
+            { "q": "Est-ce adapté aux débutants ?", "a": "Oui par météo calme et dans les zones encadrées, mais le vent du fleuve peut rendre la sortie sportive." }
+        ],
+        "highlights": [
+            "Spot très fréquenté à Québec",
+            "Grande plage urbaine",
+            "Activités nautiques sur place",
+            "Stationnement payant"
+        ]
+    },
+    {
+        "id": "parc-national-plaisance",
+        "slug": "parc-national-plaisance",
+        "name": "Parc national de Plaisance",
+        "region": "Outaouais",
+        "lat": 45.6,
+        "lon": -75.133333,
+        "mainImage": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=1200",
+        "gallery": [
+            "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Le parc national de Plaisance est un spot d'Outaouais reconnu pour les sorties calmes en canot, kayak et surf à pagaie dans les baies et marais.",
+        "longDescription": "La Sépaq décrit le parc national de Plaisance comme un paysage de baies, d'étangs et de marécages en bordure de la rivière des Outaouais. Le parc offre canot, kayak, surf à pagaie et plusieurs débarcadères, notamment au centre de découverte et de services du secteur des Presqu'îles.",
+        "difficulty": "facile",
+        "paddleScore": 79,
+        "scoreFactors": { "wind": 7, "rain": 7, "temperature": 8, "waves": 8 },
+        "isFree": false,
+        "cost": "Droit d'accès Sépaq.",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Baies et parcours variables",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Centre de découverte et de services, 1001 chemin des Presqu'îles, Plaisance.",
+            "spots": "Stationnement du parc",
+            "accessible": true,
+            "cost": "Payant selon tarification Sépaq."
+        },
+        "access": {
+            "description": "Débarcadère du centre de découverte et de services, secteur des Presqu'îles.",
+            "type": "Débarcadère",
+            "difficulty": "Facile",
+            "launchPoint": "Centre de découverte et de services"
+        },
+        "amenities": [
+            "Location de canot, kayak et SUP",
+            "Débarcadères aménagés",
+            "Toilettes et services Sépaq",
+            "Observation de la faune"
+        ],
+        "warnings": [
+            "Zones de marais: rester dans les parcours autorisés",
+            "Insectes possibles en saison",
+            "Respecter les habitats sensibles"
+        ],
+        "faq": [
+            { "q": "Peut-on mettre son propre kayak à l'eau ?", "a": "Oui, la Sépaq indique des débarcadères au centre de découverte, au camping et dans certains secteurs du parc." },
+            { "q": "Pourquoi le GPS est probable seulement ?", "a": "Le secteur est identifié, mais le point précis du débarcadère doit encore être confirmé finement." }
+        ],
+        "highlights": [
+            "Parcours calme dans les baies et marais",
+            "Location nautique Sépaq",
+            "Très bon pour observation de la faune",
+            "GPS accès probable à confirmer"
         ]
     }
 ];
@@ -3097,6 +3374,79 @@ supplementalSpotDetails.forEach(spot => {
     }
 });
 
+const accessPointOverrides = {
+    "lac-a-la-tortue": { lat: 46.6104797, lon: -72.6269128, name: "Plage du parc municipal du Lac à la Tortue", type: "Plage", confidence: "high", source: "OpenStreetMap natural=beach way 487542775" },
+    "lac-sacacomie": { lat: 46.5274337, lon: -73.2032333, name: "Mise à l'eau du lac Sacacomie", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
+    "riviere-st-maurice": { lat: 46.3586419, lon: -72.5347227, name: "Mise à l'eau de l'Île Saint-Quentin / Avenue des Draveurs", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
+    "lac-saint-pierre": { lat: 46.2245511, lon: -72.9223353, name: "Rampe de mise à l'eau près du Domaine du Lac Saint-Pierre", type: "Rampe de mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
+    "parc-national-wapizagonke": { lat: 46.6697644, lon: -73.0057686, name: "Mise à l'eau du secteur Wapizagonke", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
+    "lac-maskinonge": { lat: 46.301840, lon: -73.388597, name: "Plage de Saint-Gabriel, 333 rue du Parc", type: "Plage", confidence: "high", source: "Coordonnées et lien Google Maps fournis par l'utilisateur le 17 juin 2026" },
+    "lac-aux-sables": { lat: 46.8702159, lon: -72.3904413, name: "Marina / accès riverain de Lac-aux-Sables", type: "Marina", confidence: "high", source: "OpenStreetMap leisure=marina" },
+    "lac-stukely-mont-orford": { lat: 45.3623117, lon: -72.2318963, name: "Mise à l'eau du lac Stukely", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
+    "lac-memphremagog-magog": { lat: 45.264195, lon: -72.15304, name: "Rampe publique près de la baie de Magog", type: "Rampe de mise à l'eau", confidence: "medium", source: "OpenStreetMap leisure=slipway" },
+    "lac-saint-jean-alma": { lat: 48.4796193, lon: -71.7934448, name: "Marina St-Gédéon", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
+    "fjord-du-saguenay-l-anse": { lat: 48.2444772, lon: -70.1794917, name: "Quai / mise à l'eau de L'Anse-Saint-Jean", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway name=Anse-Saint-Jean" },
+    "riviere-bonaventure": { lat: 48.058761, lon: -65.51748, name: "Plage de la Piouke / accès Bonaventure", type: "Plage", confidence: "medium", source: "OpenStreetMap natural=beach" },
+    "iles-de-boucherville": { lat: 45.611956, lon: -73.4568017, name: "Mise à l'eau du parc national des Îles-de-Boucherville", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
+    "canal-de-lachine": { lat: 45.4789452, lon: -73.5740394, name: "Centre Nautique du Canal", type: "Marina", confidence: "high", source: "OpenStreetMap leisure=marina" },
+    "lac-aylmer-stratford": { lat: 45.8064658, lon: -71.3258953, name: "Mise à l'eau Lac Aylmer, secteur Stratford", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
+    "lac-brome": { lat: 45.2564916, lon: -72.4953189, name: "Mise à l'eau du Lac Brome", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
+    "riviere-chicoutimi": { lat: 48.4303002, lon: -71.0517127, name: "Marina Saguenay / mise à l'eau", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
+    "lac-leamy-gatineau": { lat: 45.4319796, lon: -75.7070505, name: "Mise à l'eau du Lac Leamy", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
+    "lac-meech-gatineau": { lat: 45.5269139, lon: -75.8686212, name: "Plage O'Brien / stationnement P11", type: "Plage", confidence: "medium", source: "OpenStreetMap natural=beach name=O'Brien Beach" },
+    "riviere-des-outaouais-chelsea": { lat: 45.4608066, lon: -75.6852272, name: "Mise à l'eau sur la rivière des Outaouais, secteur Gatineau/Chelsea", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
+    "lac-la-peche-outaouais": { lat: 45.6224025, lon: -76.1784341, name: "Mise à l'eau du lac la Pêche", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
+    "lac-philippe-outaouais": { lat: 45.6021161, lon: -76.0435501, name: "Mise à l'eau du lac Philippe", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
+    "bassin-de-lachine-montreal": { lat: 45.4789452, lon: -73.5740394, name: "Centre Nautique du Canal", type: "Marina", confidence: "high", source: "OpenStreetMap leisure=marina name=Centre Nautique du Canal" },
+    "parc-national-oka": { lat: 45.468056, lon: -74.030556, name: "Plage principale / secteur Le Littoral", type: "Plage / mise à l'eau", confidence: "medium", source: "Sépaq: kayak, surf à pagaie et mise à l'eau à la Crête ou plage principale; coordonnées générales du parc" },
+    "reservoir-choiniere-yamaska": { lat: 45.429722, lon: -72.616944, name: "Centre de découverte et plage du parc national de la Yamaska", type: "Plage / centre de location", confidence: "medium", source: "Sépaq: canot, kayak, surf à pagaie et plage au réservoir Choinière; coordonnées générales du parc" },
+    "reservoir-poisson-blanc": { lat: 46.095, lon: -75.67389, name: "Pavillon d'accueil Le Bastion", type: "Pavillon d'accueil / mise à l'eau", confidence: "medium", source: "Parc régional du Poisson-Blanc: location canot, kayak et planche à pagaie au pavillon d'accueil; coordonnées générales du parc" },
+    "baie-de-beauport-quebec": { lat: 46.84386285760057, lon: -71.17843386608614, name: "Plage de la Baie de Beauport", type: "Plage / activités nautiques", confidence: "medium", source: "Site officiel: 1 chemin de la Baie-de-Beauport; coordonnées de la baie" },
+    "parc-national-plaisance": { lat: 45.6, lon: -75.133333, name: "Centre de découverte et de services, secteur des Presqu'îles", type: "Débarcadère", confidence: "medium", source: "Sépaq: débarcadère du centre de découverte et de services; coordonnées générales du parc" },
+    "fleuve-saint-laurent-ile-sainte-helene": { lat: 45.50176, lon: -73.5235966, name: "Mise à l'eau du parc Jean-Drapeau / Île Sainte-Hélène", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
+    "bassin-olympique-parc-jean-drapeau": { lat: 45.50176, lon: -73.5235966, name: "Mise à l'eau du parc Jean-Drapeau", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" }
+};
+
+function normalizeGpsPoint(point, fallback) {
+    const lat = Number(point?.lat ?? fallback?.lat);
+    const lon = Number(point?.lon ?? fallback?.lon);
+    if (!Number.isFinite(lat) || !Number.isFinite(lon)) return null;
+
+    return {
+        lat,
+        lon,
+        name: point?.name || fallback?.parking?.location || fallback?.access?.description || fallback?.name || "Point d'accès",
+        type: point?.type || fallback?.access?.type || "Point d'accès",
+        confidence: point?.confidence || "needs_verification",
+        source: point?.source || "Coordonnées Spot Paddle existantes",
+        note: point?.note || ""
+    };
+}
+
+lacDatabase.forEach(lac => {
+    const override = accessPointOverrides[lac.slug];
+    lac.accessPoint = normalizeGpsPoint(override, lac);
+
+    if (lac.accessPoint && lac.access) {
+        lac.access.coordinates = {
+            lat: lac.accessPoint.lat,
+            lon: lac.accessPoint.lon
+        };
+        lac.access.gpsConfidence = lac.accessPoint.confidence;
+        lac.access.gpsSource = lac.accessPoint.source;
+    }
+});
+
+function getLakeAccessPoint(lake) {
+    return normalizeGpsPoint(lake?.accessPoint, lake);
+}
+
+function getLakeDirectionsUrl(lake) {
+    const point = getLakeAccessPoint(lake);
+    if (!point) return "";
+    return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(point.lat)},${encodeURIComponent(point.lon)}`;
+}
+
 
 /**
  * Calcule le Paddle Score™ en temps réel basé sur les conditions météo
@@ -3163,10 +3513,16 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
  * @returns {Array} 2 lacs les plus proches avec distances
  */
 function getNearestLakes(userLat, userLon) {
-    const lacsWithDistance = lacDatabase.map(lac => ({
-        ...lac,
-        distance: calculateDistance(userLat, userLon, lac.lat, lac.lon)
-    }));
+    const lacsWithDistance = lacDatabase.map(lac => {
+        const accessPoint = typeof getLakeAccessPoint === 'function'
+            ? getLakeAccessPoint(lac)
+            : { lat: lac.lat, lon: lac.lon };
+
+        return {
+            ...lac,
+            distance: calculateDistance(userLat, userLon, accessPoint.lat, accessPoint.lon)
+        };
+    });
     
     return lacsWithDistance.sort((a, b) => a.distance - b.distance).slice(0, 2);
 }

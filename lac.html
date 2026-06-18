@@ -13,8 +13,9 @@
 
     <title>Spot Paddle - Détails Lac</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class' };</script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css?v=20260617-2" />
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans dark:bg-slate-900 dark:text-slate-100 transition-colors">
 
@@ -53,7 +54,7 @@
     </div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="data.js?v=20260615"></script>
+    <script src="data.js?v=20260617-2"></script>
     <script>
         // ========== GESTION DU THÈME ==========
         function toggleTheme() {
@@ -91,27 +92,30 @@
         async function fetchWeatherForLake(lat, lon) {
             try {
                 const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 3000); // 3 secondes max
-                
-                const response = await fetch(
-                    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=b5d51e383a9219e83fa41ab4f6776e06&units=metric`,
-                    { signal: controller.signal }
-                );
+                const timeoutId = setTimeout(() => controller.abort(), 4500);
+                const params = new URLSearchParams({ lat: String(lat), lon: String(lon) });
+                const response = await fetch(`https://meteo.spotpaddle.ca/meteo.php?${params.toString()}`, {
+                    signal: controller.signal
+                });
                 
                 clearTimeout(timeoutId);
                 
                 if (!response.ok) throw new Error('API status: ' + response.status);
                 
                 const data = await response.json();
+                if (!data?.main || !data?.wind || !data?.clouds) {
+                    throw new Error('Réponse météo incomplète');
+                }
                 return {
+                    available: true,
                     temp: data.main.temp,
                     wind: data.wind.speed * 3.6, // m/s à km/h
                     rain: data.clouds.all,
                     waves: (data.wind.speed * 3.6) / 10
                 };
             } catch (e) {
-                console.warn('Météo indisponible, utilisation des valeurs par défaut:', e.message);
-                return { temp: 21, wind: 8, rain: 20, waves: 0.2 }; // Valeurs par défaut réalistes pour l'été
+                console.warn('Météo indisponible:', e.message);
+                return { available: false, temp: null, wind: null, rain: null, waves: null };
             }
         }
 
@@ -148,6 +152,21 @@
         async function renderLakePage(currentLake) {
             try {
                 const weatherData = await fetchWeatherForLake(currentLake.lat, currentLake.lon);
+                const formatWeather = (value, digits, suffix) => Number.isFinite(value)
+                    ? `${value.toFixed(digits)}${suffix}`
+                    : 'Indisponible';
+                const accessPoint = typeof getLakeAccessPoint === 'function'
+                    ? getLakeAccessPoint(currentLake)
+                    : { lat: currentLake.lat, lon: currentLake.lon, name: currentLake.access?.description || currentLake.name, confidence: 'needs_verification' };
+                const directionsUrl = typeof getLakeDirectionsUrl === 'function'
+                    ? getLakeDirectionsUrl(currentLake)
+                    : `https://www.google.com/maps/dir/?api=1&destination=${accessPoint.lat},${accessPoint.lon}`;
+                const gpsStatus = accessPoint?.confidence === 'high'
+                    ? 'GPS accès validé'
+                    : accessPoint?.confidence === 'medium'
+                        ? 'GPS accès probable'
+                        : 'GPS accès à vérifier';
+                const gpsSource = accessPoint?.source || 'Coordonnées Spot Paddle existantes';
                 
                 // Sauvegarde globale de la galerie pour éviter les soucis d'échappement de chaînes HTML inline
                 window.currentLakeGallery = currentLake.gallery || [];
@@ -211,7 +230,13 @@
                                 </section>` : ''}
 
                                 <section>
-                                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">🗺️ Localisation</h2>
+                                    <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
+                                        <h2 class="text-2xl font-bold flex items-center gap-2">🗺️ Localisation</h2>
+                                        <div id="detailMapModeControl" class="inline-flex items-center rounded-lg border border-slate-200 bg-white p-1 shadow-sm dark:border-slate-700 dark:bg-slate-900" role="group" aria-label="Type de carte">
+                                            <button id="detailMapModeStreet" type="button" onclick="setDetailMapMode('street')" aria-pressed="true" class="min-h-9 rounded-md bg-blue-600 px-3 text-xs font-bold text-white transition-colors">Carte</button>
+                                            <button id="detailMapModeSatellite" type="button" onclick="setDetailMapMode('satellite')" aria-pressed="false" class="min-h-9 rounded-md px-3 text-xs font-bold text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">Satellite</button>
+                                        </div>
+                                    </div>
                                     <div id="map" class="shadow-xl rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden" style="height: 350px;"></div>
                                 </section>
 
@@ -222,6 +247,9 @@
                                             <h3 class="text-lg font-bold mb-2 text-blue-600 dark:text-blue-400">📍 Point d'accès</h3>
                                             <p class="font-semibold text-sm text-slate-700 dark:text-slate-300 mb-2">${currentLake.access?.type || "Mise à l'eau publique"}</p>
                                             <p class="text-sm text-slate-600 dark:text-slate-400">${currentLake.access?.description || 'Accès direct via la plage principale.'}</p>
+                                            <p class="text-xs text-slate-500 mt-3">${accessPoint?.name || 'Point GPS actuel'} (${gpsStatus})</p>
+                                            <p class="text-xs text-slate-500 mt-2">Source GPS: ${gpsSource}</p>
+                                            <p class="text-xs text-slate-500 mt-2">Le bouton d'itinéraire vise l'accès utilisable, pas le centre du plan d'eau.</p>
                                             <p class="text-xs text-slate-500 mt-3">Difficulté d'accès: <span class="font-bold">${currentLake.access?.difficulty || 'Facile'}</span></p>
                                         </div>
                                         <div class="bg-slate-100 dark:bg-slate-800/60 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
@@ -236,26 +264,31 @@
                                 <section>
                                     <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">🌤️ Conditions Météo Live</h2>
                                     <div class="bg-gradient-to-br from-blue-50 to-sky-100 dark:from-slate-800 dark:to-slate-800/40 border border-blue-200 dark:border-slate-700 p-6 rounded-2xl shadow-sm">
+                                        ${weatherData.available ? '' : `
+                                            <div class="mb-4 rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm font-semibold text-amber-800 dark:border-amber-900/50 dark:bg-amber-950/30 dark:text-amber-200">
+                                                Météo temporairement indisponible. Vérifiez les conditions avant votre départ.
+                                            </div>
+                                        `}
                                         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                                             <div class="text-center bg-white dark:bg-slate-900/60 p-3 rounded-xl shadow-sm">
                                                 <div class="text-2xl mb-1">🌡️</div>
                                                 <p class="text-xs text-slate-500">Température</p>
-                                                <p class="text-xl font-black">${weatherData.temp.toFixed(1)}°C</p>
+                                                <p class="text-xl font-black">${formatWeather(weatherData.temp, 1, '°C')}</p>
                                             </div>
                                             <div class="text-center bg-white dark:bg-slate-900/60 p-3 rounded-xl shadow-sm">
                                                 <div class="text-2xl mb-1">💨</div>
                                                 <p class="text-xs text-slate-500">Vent</p>
-                                                <p class="text-xl font-black">${weatherData.wind.toFixed(1)} km/h</p>
+                                                <p class="text-xl font-black">${formatWeather(weatherData.wind, 1, ' km/h')}</p>
                                             </div>
                                             <div class="text-center bg-white dark:bg-slate-900/60 p-3 rounded-xl shadow-sm">
                                                 <div class="text-2xl mb-1">☁️</div>
                                                 <p class="text-xs text-slate-500">Nuages</p>
-                                                <p class="text-xl font-black">${weatherData.rain}%</p>
+                                                <p class="text-xl font-black">${formatWeather(weatherData.rain, 0, '%')}</p>
                                             </div>
                                             <div class="text-center bg-white dark:bg-slate-900/60 p-3 rounded-xl shadow-sm">
                                                 <div class="text-2xl mb-1">🌊</div>
                                                 <p class="text-xs text-slate-500">Vagues (Est.)</p>
-                                                <p class="text-xl font-black">${weatherData.waves.toFixed(2)}m</p>
+                                                <p class="text-xl font-black">${formatWeather(weatherData.waves, 2, ' m')}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -319,7 +352,7 @@
                                     </div>` : ''}
 
                                     <div class="space-y-2 pt-2">
-                                        <button onclick="shareLocation(${currentLake.lat}, ${currentLake.lon})" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-xl shadow-md hover:shadow-lg transition flex justify-center items-center gap-2">
+                                        <button onclick="window.open('${directionsUrl}', '_blank')" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-xl shadow-md hover:shadow-lg transition flex justify-center items-center gap-2">
                                             📍 Me diriger ici
                                         </button>
                                         <button onclick="sharePage()" class="w-full bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-800 dark:text-white font-bold py-3 px-4 rounded-xl transition flex justify-center items-center gap-2">
@@ -349,12 +382,94 @@
         }
 
         // ========== FONCTIONS CARTES & MODALES ==========
-        function initMap(lake) {
+        let detailMap = null;
+        let detailStreetLayer = null;
+        let detailSatelliteLayer = null;
+
+        function getStoredMapMode() {
             try {
-                const map = L.map('map', { scrollWheelZoom: false }).setView([lake.lat, lake.lon], 13);
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    attribution: '© OpenStreetMap'
-                }).addTo(map);
+                return localStorage.getItem('spotPaddleMapMode') === 'satellite' ? 'satellite' : 'street';
+            } catch (error) {
+                return 'street';
+            }
+        }
+
+        function updateDetailMapModeControl(mode) {
+            const buttons = {
+                street: document.getElementById('detailMapModeStreet'),
+                satellite: document.getElementById('detailMapModeSatellite')
+            };
+
+            Object.entries(buttons).forEach(([buttonMode, button]) => {
+                if (!button) return;
+                const isActive = buttonMode === mode;
+                button.setAttribute('aria-pressed', String(isActive));
+                button.classList.toggle('bg-blue-600', isActive);
+                button.classList.toggle('text-white', isActive);
+                button.classList.toggle('text-slate-600', !isActive);
+                button.classList.toggle('dark:text-slate-300', !isActive);
+                button.classList.toggle('hover:bg-slate-100', !isActive);
+                button.classList.toggle('dark:hover:bg-slate-800', !isActive);
+            });
+        }
+
+        function setDetailMapMode(mode, persist = true) {
+            const selectedMode = mode === 'satellite' ? 'satellite' : 'street';
+            const selectedLayer = selectedMode === 'satellite' ? detailSatelliteLayer : detailStreetLayer;
+            const otherLayer = selectedMode === 'satellite' ? detailStreetLayer : detailSatelliteLayer;
+
+            if (!detailMap || !selectedLayer) return;
+            if (otherLayer && detailMap.hasLayer(otherLayer)) detailMap.removeLayer(otherLayer);
+            if (!detailMap.hasLayer(selectedLayer)) selectedLayer.addTo(detailMap);
+            updateDetailMapModeControl(selectedMode);
+
+            if (persist) {
+                try {
+                    localStorage.setItem('spotPaddleMapMode', selectedMode);
+                } catch (error) {
+                    // La carte reste fonctionnelle même si le stockage local est désactivé.
+                }
+            }
+        }
+
+        function initMap(lake) {
+            const mapTarget = document.getElementById('map');
+            const accessPoint = typeof getLakeAccessPoint === 'function'
+                ? getLakeAccessPoint(lake)
+                : { lat: lake.lat, lon: lake.lon, name: lake.name };
+
+            if (!mapTarget) return;
+
+            if (typeof L === 'undefined') {
+                const mapModeControl = document.getElementById('detailMapModeControl');
+                if (mapModeControl) mapModeControl.classList.add('hidden');
+                mapTarget.innerHTML = `
+                    <div class="h-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-center p-6">
+                        <div>
+                            <div class="text-3xl mb-3">🗺️</div>
+                            <p class="font-bold text-slate-800 dark:text-white">Carte temporairement indisponible</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-300 mt-2">${accessPoint.name || lake.name}</p>
+                            <a href="${typeof getLakeDirectionsUrl === 'function' ? getLakeDirectionsUrl(lake) : `https://www.google.com/maps/dir/?api=1&destination=${accessPoint.lat},${accessPoint.lon}`}" target="_blank" rel="noopener" class="inline-block mt-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-xs font-bold uppercase">Ouvrir l'itinéraire</a>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+
+            try {
+                detailMap = L.map('map', { scrollWheelZoom: false }).setView([accessPoint.lat, accessPoint.lon], 13);
+                detailStreetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap',
+                    maxZoom: 19
+                });
+                detailSatelliteLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                    attribution: 'Source: Esri, Vantor, Earthstar Geographics, and the GIS User Community',
+                    maxZoom: 23
+                });
+                setDetailMapMode(getStoredMapMode(), false);
+
+                L.marker([accessPoint.lat, accessPoint.lon]).addTo(detailMap)
+                    .bindPopup(`<strong>${accessPoint.name || lake.name}</strong><br>Point d'accès`).openPopup();
 
                 L.circleMarker([lake.lat, lake.lon], {
                     radius: 12,
@@ -363,9 +478,18 @@
                     weight: 3,
                     opacity: 1,
                     fillOpacity: 0.9
-                }).addTo(map).bindPopup(`<strong>${lake.name}</strong><br>${lake.region}`).openPopup();
+                }).addTo(detailMap).bindPopup(`<strong>${lake.name}</strong><br>${lake.region}`);
             } catch(e) {
                 console.warn("Erreur d'initialisation de la carte Leaflet:", e.message);
+                mapTarget.innerHTML = `
+                    <div class="h-full flex items-center justify-center bg-slate-100 dark:bg-slate-800 text-center p-6">
+                        <div>
+                            <div class="text-3xl mb-3">🗺️</div>
+                            <p class="font-bold text-slate-800 dark:text-white">Carte non chargée</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-300 mt-2">Le point d'accès et l'itinéraire restent disponibles dans la fiche.</p>
+                        </div>
+                    </div>
+                `;
             }
         }
 
@@ -413,7 +537,7 @@
                         if (filtered.length > 0) {
                             document.getElementById('nearbyLakesSection').classList.remove('hidden');
                             const html = filtered.map(lac => `
-                                <a href="?lake=${lac.slug}&v=20260615" class="block bg-slate-50 dark:bg-slate-700/50 p-3 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-blue-500 transition">
+                                <a href="?lake=${lac.slug}&v=20260617" class="block bg-slate-50 dark:bg-slate-700/50 p-3 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-blue-500 transition">
                                     <div class="font-bold text-xs text-slate-800 dark:text-white">${lac.name}</div>
                                     <div class="text-[11px] text-slate-500 dark:text-slate-400">À environ ${(lac.distance || 0).toFixed(1)} km</div>
                                 </a>

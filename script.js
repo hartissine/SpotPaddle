@@ -1,9 +1,7 @@
-    // 1. Config
-    const apiKey = "b5d51e383a9219e83fa41ab4f6776e06";
-
     // Système de couleurs et zones géographiques par région
     const regionConfig = {
         "Mauricie": { color: "#3b82f6", zone: "Centre", emoji: "🌲" },
+        "Lanaudière": { color: "#0f766e", zone: "Centre", emoji: "🌲" },
         "Laurentides": { color: "#8b5cf6", zone: "Nord", emoji: "⛰️" },
         "Estrie": { color: "#ec4899", zone: "Sud-Est", emoji: "🏔️" },
         "Saguenay-Lac-Saint-Jean": { color: "#06b6d4", zone: "Nord-Est", emoji: "❄️" },
@@ -49,18 +47,97 @@
 
     // 2. Map Setup
     const initialView = { lat: 46.8, lon: -71.5, zoom: 6 };
-    var map = L.map('map').setView([initialView.lat, initialView.lon], initialView.zoom);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap'
-    }).addTo(map);
+    const mapElement = document.getElementById('map');
+    const leafletAvailable = typeof L !== 'undefined' && mapElement;
+    var map = null;
+    var streetMapLayer = null;
+    var satelliteMapLayer = null;
 
-    // Close popup when clicking on map
-    map.on('click', function() {
-        map.closePopup();
-    });
+    function getStoredMapMode() {
+        try {
+            return localStorage.getItem('spotPaddleMapMode') === 'satellite' ? 'satellite' : 'street';
+        } catch (error) {
+            return 'street';
+        }
+    }
+
+    function updateMapModeControl(mode) {
+        const buttons = {
+            street: document.getElementById('mapModeStreet'),
+            satellite: document.getElementById('mapModeSatellite')
+        };
+
+        Object.entries(buttons).forEach(([buttonMode, button]) => {
+            if (!button) return;
+            const isActive = buttonMode === mode;
+            button.setAttribute('aria-pressed', String(isActive));
+            button.classList.toggle('bg-blue-600', isActive);
+            button.classList.toggle('text-white', isActive);
+            button.classList.toggle('text-slate-600', !isActive);
+            button.classList.toggle('hover:bg-slate-100', !isActive);
+        });
+    }
+
+    function setMapMode(mode, persist = true) {
+        const selectedMode = mode === 'satellite' ? 'satellite' : 'street';
+        const selectedLayer = selectedMode === 'satellite' ? satelliteMapLayer : streetMapLayer;
+        const otherLayer = selectedMode === 'satellite' ? streetMapLayer : satelliteMapLayer;
+
+        if (!map || !selectedLayer) return;
+        if (otherLayer && map.hasLayer(otherLayer)) map.removeLayer(otherLayer);
+        if (!map.hasLayer(selectedLayer)) selectedLayer.addTo(map);
+        updateMapModeControl(selectedMode);
+
+        if (persist) {
+            try {
+                localStorage.setItem('spotPaddleMapMode', selectedMode);
+            } catch (error) {
+                // La carte reste fonctionnelle même si le stockage local est désactivé.
+            }
+        }
+    }
+
+    if (leafletAvailable) {
+        map = L.map('map', { zoomControl: false }).setView([initialView.lat, initialView.lon], initialView.zoom);
+        streetMapLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap',
+            maxZoom: 19
+        });
+        satelliteMapLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Source: Esri, Vantor, Earthstar Geographics, and the GIS User Community',
+            maxZoom: 23
+        });
+        setMapMode(getStoredMapMode(), false);
+
+        // Close popup when clicking on map
+        map.on('click', function() {
+            map.closePopup();
+        });
+    } else if (mapElement) {
+        const mapModeControl = document.getElementById('mapModeControl');
+        if (mapModeControl) mapModeControl.classList.add('hidden');
+        mapElement.innerHTML = `
+            <div class="h-full min-h-[420px] flex items-center justify-center bg-slate-100 text-slate-600 text-center p-8 rounded-3xl">
+                <div>
+                    <div class="text-3xl mb-3">🗺️</div>
+                    <p class="font-bold">Carte temporairement indisponible</p>
+                    <p class="text-sm mt-2">Les fiches, points GPS et pages de spots restent accessibles.</p>
+                </div>
+            </div>
+        `;
+    }
+
+    function zoomMap(direction) {
+        if (!map) return;
+        if (direction > 0) {
+            map.zoomIn();
+        } else {
+            map.zoomOut();
+        }
+    }
 
     // 3. Spots Data
-    const spots = [
+    const fallbackSpots = [
         { 
             name: "Lac à la Tortue (Plage)",
             region: "Mauricie",
@@ -128,14 +205,14 @@
             level: "sportif"
         },
         { 
-            name: "Lac Maskinongé (St-Gabriel)", 
-            region: "Mauricie",
-            lat: 46.33623, lon: -73.39885, 
+            name: "Lac Maskinongé (Saint-Gabriel-de-Brandon)",
+            region: "Lanaudière",
+            lat: 46.301840, lon: -73.388597,
             image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
-            parking: "Plage / accès riverain de Saint-Gabriel.", 
-            prix: "Stationnement payant en haute saison.", 
-            info: "Grand lac peu profond par endroits, idéal pour les familles.",
-            isFree: true,
+            parking: "Plage de Saint-Gabriel, 333 rue du Parc, Saint-Gabriel-de-Brandon, QC J0K 2N0.",
+            prix: "Tarifs de plage et de stationnement à vérifier avant le départ.",
+            info: "Accès par la plage pour les embarcations légères; lac exposé au vent et à la circulation nautique.",
+            isFree: false,
             level: "facile"
         },
         { 
@@ -557,6 +634,156 @@
             level: "facile"
         }
     ];
+
+    function buildSpotFromLake(lake) {
+        const accessPoint = typeof getLakeAccessPoint === 'function'
+            ? getLakeAccessPoint(lake)
+            : null;
+
+        return {
+            name: lake.name,
+            region: lake.region || "Mauricie",
+            lat: Number(lake.lat),
+            lon: Number(lake.lon),
+            accessLat: Number(accessPoint?.lat ?? lake.lat),
+            accessLon: Number(accessPoint?.lon ?? lake.lon),
+            accessName: accessPoint?.name || lake.parking?.location || lake.access?.description || lake.name,
+            accessType: accessPoint?.type || lake.access?.type || "Point d'accès",
+            accessConfidence: accessPoint?.confidence || "needs_verification",
+            accessSource: accessPoint?.source || "",
+            image: lake.mainImage || lake.gallery?.[0] || "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
+            parking: lake.parking?.location || lake.access?.description || "Accès à vérifier",
+            prix: lake.cost || lake.parking?.cost || (lake.isFree ? "Accès public gratuit." : "Frais à vérifier."),
+            info: lake.description || lake.longDescription || "Vérifiez les conditions locales avant de partir.",
+            isFree: Boolean(lake.isFree),
+            level: lake.difficulty || "facile",
+            paddleScore: Number(lake.paddleScore || 75),
+            slug: lake.slug
+        };
+    }
+
+    const spots = (typeof lacDatabase !== 'undefined' && Array.isArray(lacDatabase) && lacDatabase.length > 0)
+        ? lacDatabase.map(buildSpotFromLake)
+        : fallbackSpots.map(spot => ({
+            ...spot,
+            accessLat: Number(spot.accessLat ?? spot.lat),
+            accessLon: Number(spot.accessLon ?? spot.lon),
+            accessName: spot.accessName || spot.parking || spot.name,
+            accessType: spot.accessType || "Point d'accès",
+            accessConfidence: spot.accessConfidence || "legacy",
+            accessSource: spot.accessSource || "Liste locale de secours"
+        }));
+
+    function getSpotAccessCoords(spot) {
+        const lat = Number(spot?.accessLat ?? spot?.lat);
+        const lon = Number(spot?.accessLon ?? spot?.lon);
+        return {
+            lat: Number.isFinite(lat) ? lat : 0,
+            lon: Number.isFinite(lon) ? lon : 0
+        };
+    }
+
+    function getSpotDirectionsUrl(spot) {
+        const access = getSpotAccessCoords(spot);
+        return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(access.lat)},${encodeURIComponent(access.lon)}`;
+    }
+
+    function getGpsStatusLabel(spot) {
+        if (spot?.accessConfidence === 'high') return "GPS accès validé";
+        if (spot?.accessConfidence === 'medium') return "GPS accès probable";
+        if (spot?.accessConfidence === 'legacy') return "GPS accès existant";
+        return "GPS accès à vérifier";
+    }
+
+    function getGpsStatusClass(spot) {
+        if (spot?.accessConfidence === 'high') return "bg-emerald-100 text-emerald-700 border-emerald-200";
+        if (spot?.accessConfidence === 'medium') return "bg-amber-100 text-amber-700 border-amber-200";
+        return "bg-slate-100 text-slate-600 border-slate-200";
+    }
+
+    const popularQuebecSpotSlugs = [
+        'parc-national-oka',
+        'reservoir-choiniere-yamaska',
+        'reservoir-poisson-blanc',
+        'baie-de-beauport-quebec',
+        'parc-national-plaisance'
+    ];
+
+    function escapeHtml(value) {
+        return String(value ?? '')
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
+    function getScoreBadgeClass(score) {
+        if (score >= 80) return 'bg-emerald-100 text-emerald-700 border-emerald-200';
+        if (score >= 60) return 'bg-amber-100 text-amber-700 border-amber-200';
+        return 'bg-red-100 text-red-700 border-red-200';
+    }
+
+    function getShortSpotCopy(spot) {
+        const text = spot.info || spot.parking || '';
+        return text.length > 105 ? `${text.slice(0, 102).trim()}...` : text;
+    }
+
+    function renderPopularQuebecSpots() {
+        const grid = document.getElementById('popularQuebecGrid');
+        if (!grid) return;
+
+        const cards = popularQuebecSpotSlugs
+            .map(slug => spots.find(spot => spot.slug === slug))
+            .filter(Boolean);
+
+        grid.innerHTML = cards.map(spot => {
+            const score = Number(spot.paddleScore || spot.score || 75);
+            return `
+                <a href="lac.html?lake=${encodeURIComponent(spot.slug)}&v=20260617" class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:border-blue-400 transition-all">
+                    <div class="relative h-36 overflow-hidden">
+                        <img src="${escapeHtml(spot.image)}" alt="${escapeHtml(spot.name)}" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+                        <div class="absolute top-3 left-3 rounded-full border px-2 py-1 text-[9px] font-black uppercase tracking-wider ${getGpsStatusClass(spot)}">
+                            ${escapeHtml(getGpsStatusLabel(spot))}
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-start justify-between gap-2 mb-2">
+                            <h4 class="font-black text-base leading-tight text-slate-900">${escapeHtml(spot.name)}</h4>
+                            <span class="shrink-0 rounded-full border px-2 py-1 text-[10px] font-black ${getScoreBadgeClass(score)}">${score}</span>
+                        </div>
+                        <p class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-2">${escapeHtml(spot.region)}</p>
+                        <p class="text-sm text-slate-500 leading-snug min-h-[58px]">${escapeHtml(getShortSpotCopy(spot))}</p>
+                        <div class="mt-4 flex items-center justify-between text-xs font-black uppercase">
+                            <span class="text-slate-500">${spot.isFree ? 'Accès gratuit' : 'Accès payant'}</span>
+                            <span class="text-blue-600">Page →</span>
+                        </div>
+                    </div>
+                </a>
+            `;
+        }).join('');
+    }
+
+    function updateTrustStats() {
+        const counts = spots.reduce((acc, spot) => {
+            acc.total += 1;
+            acc[spot.accessConfidence] = (acc[spot.accessConfidence] || 0) + 1;
+            return acc;
+        }, { total: 0, high: 0, medium: 0, needs_verification: 0, legacy: 0 });
+
+        const setText = (id, value) => {
+            const el = document.getElementById(id);
+            if (el) el.textContent = value;
+        };
+
+        setText('heroSpotCount', counts.total);
+        setText('heroGpsCount', counts.high);
+        setText('trustSpotCount', counts.total);
+        setText('trustGpsHigh', counts.high);
+        setText('trustGpsMedium', counts.medium);
+        setText('trustGpsNeeds', counts.needs_verification);
+    }
+
     // 4. Weather Emoji Function
     function getWeatherEmoji(iconCode) {
         const emojiMap = {
@@ -573,27 +800,69 @@
         return emojiMap[iconCode] || '❓';
     }
 
-    // 5. API Logic
-    async function getMeteo(lat, lon, name, marker) {
-        // 1. Détection de l'environnement (Local vs Serveur)
-        const isLocal = window.location.hostname === 'localhost' || 
-                        window.location.hostname === '127.0.0.1' || 
-                        window.location.protocol === 'file:';
-        
-        let url;
-        if (isLocal) {
-            // Mode Développement (sur ton ordi)
-            const apiKey = "b5d51e383a9219e83fa41ab4f6776e06"; 
-            url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=fr`;
-        } else {
-            // Mode Production (sur spotpaddle.ca)
-            url = `https://meteo.spotpaddle.ca/meteo.php?lat=${lat}&lon=${lon}`;
-        }
+    const WEATHER_TIMEOUT_MS = 4500;
+    const WEATHER_CACHE_TTL_MS = 10 * 60 * 1000;
+    const weatherResponseCache = new Map();
+
+    function getWeatherUrl(lat, lon, type = 'weather') {
+        const params = new URLSearchParams({
+            lat: String(lat),
+            lon: String(lon)
+        });
+        if (type === 'forecast') params.set('type', 'forecast');
+        return `https://meteo.spotpaddle.ca/meteo.php?${params.toString()}`;
+    }
+
+    async function fetchJsonWithTimeout(url, timeoutMs = WEATHER_TIMEOUT_MS) {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
 
         try {
-            const response = await fetch(url);
-            if (!response.ok) throw new Error("Impossible de charger la météo");
-            const data = await response.json();
+            const response = await fetch(url, { signal: controller.signal });
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            return await response.json();
+        } finally {
+            clearTimeout(timeoutId);
+        }
+    }
+
+    async function fetchWeatherJson(lat, lon, type = 'weather') {
+        const cacheKey = `${type}:${Number(lat).toFixed(4)}:${Number(lon).toFixed(4)}`;
+        const now = Date.now();
+        const cached = weatherResponseCache.get(cacheKey);
+
+        if (cached?.data && cached.expiresAt > now) {
+            return cached.data;
+        }
+
+        if (cached?.promise) {
+            return cached.promise;
+        }
+
+        const promise = fetchJsonWithTimeout(getWeatherUrl(lat, lon, type))
+            .then(data => {
+                weatherResponseCache.set(cacheKey, {
+                    data,
+                    expiresAt: Date.now() + WEATHER_CACHE_TTL_MS
+                });
+                return data;
+            })
+            .catch(error => {
+                weatherResponseCache.delete(cacheKey);
+                throw error;
+            });
+
+        weatherResponseCache.set(cacheKey, { promise, expiresAt: now + WEATHER_TIMEOUT_MS });
+        return promise;
+    }
+
+    // 5. API Logic
+    async function getMeteo(lat, lon, name, marker, spotInfo = null) {
+        try {
+            const access = getSpotAccessCoords(spotInfo || { lat, lon });
+            const gpsStatus = getGpsStatusLabel(spotInfo);
+            const gpsStatusClass = getGpsStatusClass(spotInfo);
+            const data = await fetchWeatherJson(lat, lon);
             
             const temp = Math.round(data.main.temp);
             const vent = Math.round(data.wind.speed * 3.6); 
@@ -639,8 +908,14 @@
                     </div>
                 </div>
 
+                <div class="mb-2 text-center">
+                    <span class="inline-flex items-center justify-center rounded-full border px-2 py-1 text-[9px] font-black uppercase tracking-wider ${gpsStatusClass}">
+                        ${gpsStatus}
+                    </span>
+                </div>
+
                 <div class="flex flex-col gap-1.5">
-                    <button onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=${lat},${lon}', '_blank')" 
+                    <button onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=${access.lat},${access.lon}', '_blank')"
                         class="w-full py-2 bg-slate-800 text-white rounded-md font-bold text-[10px] uppercase hover:bg-black transition-colors flex items-center justify-center gap-1">
                         🚗 Itinéraire
                     </button>
@@ -653,7 +928,7 @@
                             ⭐ Favori
                         </button>
                     </div>
-                    <a href="lac.html?lake=${getLakePageSlug(name)}&v=20260615" class="block w-full py-2 bg-emerald-600 text-white rounded-md font-bold text-[10px] uppercase hover:bg-emerald-700 transition-colors text-center">
+                    <a href="lac.html?lake=${getLakePageSlug(name)}&v=20260617" class="block w-full py-2 bg-emerald-600 text-white rounded-md font-bold text-[10px] uppercase hover:bg-emerald-700 transition-colors text-center">
                         📖 Page complète
                     </a>
                 </div>
@@ -664,7 +939,9 @@
                 className: 'custom-popup' 
             }).openPopup();
                 
-            setTimeout(() => map.invalidateSize(), 100);
+            setTimeout(() => {
+                if (map) map.invalidateSize();
+            }, 100);
 
         } catch (error) {
             console.error("Erreur météo pour", name, ":", error);
@@ -685,6 +962,11 @@
     function geolocaliser(event) {
     if (!navigator.geolocation) {
         alert("La géolocalisation n'est pas supportée par votre navigateur.");
+        return;
+    }
+
+    if (!map || typeof L === 'undefined') {
+        alert("La carte n'est pas disponible pour le moment, mais les fiches de spots restent accessibles.");
         return;
     }
 
@@ -721,35 +1003,38 @@
 
     // 5. Markers init
     let markers = [];
-    spots.forEach(spot => {
-        const regionColor = getRegionColor(spot.region);
-        let marker = L.marker([spot.lat, spot.lon], {
-            icon: L.icon({
-                iconUrl: createRegionMarkerIcon(regionColor),
-                shadowUrl: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAASCAYAAACiyhI2AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA6klEQVR4nO2VQQrCMBBF/0VsxZNexB4qXkWt4tGbCIJY3URD2BmSDknJZpbFggfee97LhE2WJXEymUwmu1HXdaIoSjKZTCb/yXa71Xg81uVySZvNRpfLRafTSYfDQZfLRe73u+73u06nk+73u+73e1UUheq6riqKQsfjUYvFQo/HQ9frVY/HQ7vdTpvNRl3XVUURRZGO44jiONbhcFDXdaqqimq1mqpoGo31el3lcpn1+12n00nH41Hz+VzHcbTb7dRsNlOpVKqqqkql0kRRRHEcT1VVlRZFoZOTE63Xa+32e9V13Ylms5nG47GWy6X2+71Op5OqVCoajUay7dt2u5Xjn5hMJpv/x9fX1z/B4uO7fX/i2bS+/wPO0HX9PXV9P9P3cZwwjuMatrP8pBv8BrMCcbqf0wAAAABJRU5ErkJggg==',
-                iconSize: [32, 40],
-                shadowSize: [41, 16],
-                iconAnchor: [16, 40],
-                shadowAnchor: [12, 16],
-                popupAnchor: [0, -30],
-                className: 'marker-' + (spot.region?.toLowerCase().replace(/[ -]/g, '_') || 'mauricie')
-            })
-        }).addTo(map);
-        
-        marker.spotType = getSpotType(spot.name);
-        marker.isFree = spot.isFree;
-        marker.level = spot.level;
-        marker.region = spot.region || "Mauricie";
-        marker.regionColor = regionColor;
-        markers.push(marker);
-        marker.on('click', function() {
-            getMeteo(spot.lat, spot.lon, spot.name, marker);
+    if (map && typeof L !== 'undefined') {
+        spots.forEach(spot => {
+            const regionColor = getRegionColor(spot.region);
+            const accessCoords = getSpotAccessCoords(spot);
+            let marker = L.marker([accessCoords.lat, accessCoords.lon], {
+                icon: L.icon({
+                    iconUrl: createRegionMarkerIcon(regionColor),
+                    iconSize: [32, 40],
+                    iconAnchor: [16, 40],
+                    popupAnchor: [0, -30],
+                    className: 'marker-' + (spot.region?.toLowerCase().replace(/[ -]/g, '_') || 'mauricie')
+                })
+            }).addTo(map);
+
+            marker.spotType = getSpotType(spot.name);
+            marker.isFree = spot.isFree;
+            marker.level = spot.level;
+            marker.region = spot.region || "Mauricie";
+            marker.regionColor = regionColor;
+            marker.spotName = spot.name;
+            markers.push(marker);
+            marker.on('click', function() {
+                getMeteo(spot.lat, spot.lon, spot.name, marker, spot);
+            });
         });
-    });
+    }
 
     // Initialiser dynamiquement le sélecteur de spot et le filtre de région
     initSpotSelect();
     initRegionFilter();
+    renderPopularQuebecSpots();
+    updateTrustStats();
 
     // Fonction pour déterminer le type de spot
     function getSpotType(name) {
@@ -769,6 +1054,8 @@
 
     // Fonction de filtrage multi-critères
     function appliquerFiltres() {
+        if (!map) return;
+
         markers.forEach(marker => {
             const matchesRegion = currentFilters.region === 'all' || marker.region === currentFilters.region;
             const matchesType = currentFilters.type === 'all' || marker.spotType === currentFilters.type;
@@ -789,11 +1076,11 @@
         // Afficher/masquer les stats selon la sélection
         const statsDiv = document.getElementById('regionStats');
         if (region === 'all') {
-            statsDiv.classList.add('hidden');
+            if (statsDiv) statsDiv.classList.add('hidden');
             // Revenir à la vue initiale
-            map.setView([initialView.lat, initialView.lon], initialView.zoom);
+            if (map) map.setView([initialView.lat, initialView.lon], initialView.zoom);
         } else {
-            statsDiv.classList.remove('hidden');
+            if (statsDiv) statsDiv.classList.remove('hidden');
             const stats = getRegionStats(region);
             document.getElementById('statTotal').textContent = stats.total;
             document.getElementById('statFree').textContent = stats.free;
@@ -802,7 +1089,7 @@
             
             // Centrer la map sur la région sélectionnée
             const regionMarkers = markers.filter(m => m.region === region);
-            if (regionMarkers.length > 0) {
+            if (map && typeof L !== 'undefined' && regionMarkers.length > 0) {
                 const bounds = L.latLngBounds(regionMarkers.map(m => m.getLatLng()));
                 map.fitBounds(bounds, { padding: [50, 50], maxZoom: 10 });
             }
@@ -954,6 +1241,7 @@
     function goToFavorite(name) {
         const spot = spots.find(s => s.name === name);
         if (spot) {
+            const accessCoords = getSpotAccessCoords(spot);
             // 1. Fermer la sidebar des favoris et l'overlay
             fermerFavoritesSidebar();
 
@@ -964,7 +1252,9 @@
             }
 
             // 3. Centrer la carte sur le spot
-            map.setView([spot.lat, spot.lon], 13);
+            if (map) {
+                map.setView([accessCoords.lat, accessCoords.lon], 13);
+            }
 
             // 4. OUVRIR LA PAGE D'INFORMATION (la sidebar de gauche/droite selon ton code)
             // On utilise ta fonction existante ouvrirSidebar
@@ -972,15 +1262,17 @@
 
             // 5. Simuler un clic pour ouvrir le popup météo sur la carte
             // On cherche le marqueur correspondant aux coordonnées
-            map.eachLayer(layer => {
-                if (layer instanceof L.Marker) {
-                    const latLng = layer.getLatLng();
-                    // On vérifie si les coordonnées correspondent (avec une petite marge pour la précision)
-                    if (Math.abs(latLng.lat - spot.lat) < 0.001 && Math.abs(latLng.lng - spot.lon) < 0.001) {
-                        layer.fire('click');
+            if (map && typeof L !== 'undefined') {
+                map.eachLayer(layer => {
+                    if (layer instanceof L.Marker) {
+                        const latLng = layer.getLatLng();
+                        // On vérifie si les coordonnées correspondent (avec une petite marge pour la précision)
+                        if (Math.abs(latLng.lat - accessCoords.lat) < 0.001 && Math.abs(latLng.lng - accessCoords.lon) < 0.001) {
+                            layer.fire('click');
+                        }
                     }
-                }
-            });
+                });
+            }
         }
     }
 
@@ -1034,6 +1326,9 @@
 
         if(lac) {
             const sidebar = document.getElementById('sidebar');
+            const accessCoords = getSpotAccessCoords(lac);
+            const gpsStatus = getGpsStatusLabel(lac);
+            const gpsStatusClass = getGpsStatusClass(lac);
             
             sidebar.innerHTML = `
                 <div class="relative h-64 w-full">
@@ -1049,6 +1344,9 @@
                         <div>
                             <h4 class="font-bold text-slate-900 dark:text-white">Accès & Parking</h4>
                             <p class="text-slate-600 dark:text-slate-400 text-sm">${lac.parking}</p>
+                            <p class="text-slate-500 dark:text-slate-400 text-xs mt-2">${lac.accessName}</p>
+                            <span class="inline-flex mt-2 rounded-full border px-2 py-1 text-[9px] font-black uppercase tracking-wider ${gpsStatusClass}">${gpsStatus}</span>
+                            <p class="text-slate-500 dark:text-slate-400 text-[11px] mt-2">Itinéraire vers l'accès utilisable, pas vers le centre du lac.</p>
                         </div>
                     </div>
 
@@ -1070,11 +1368,11 @@
 
                     <!-- Section Prévisions Live 3 Jours -->
                     <div id="sidebar-forecast" class="space-y-3">
-                        <div class="flex items-center justify-between border-b border-slate-200 dark:border-white/10 pb-2">
+                        <div class="forecast-heading flex items-center justify-between border-b border-slate-200 dark:border-white/10 pb-2">
                             <h4 class="font-black text-blue-600 dark:text-blue-400 uppercase text-[10px] tracking-widest flex items-center gap-1.5">
                                 📅 Prévisions 3 jours (Paddle Live)
                             </h4>
-                            <span class="text-[9px] bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Vent max 💨</span>
+                            <span class="forecast-heading-badge text-[9px] bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Vent max 💨</span>
                         </div>
                         
                         <!-- Skeleton Loader -->
@@ -1107,7 +1405,7 @@
                     </div>
 
                     <div class="flex gap-3">
-                        <button onclick="partagerSpot('${lac.name.replace(/'/g, "\\'")}', ${lac.lat}, ${lac.lon})" 
+                        <button onclick="partagerSpot('${lac.name.replace(/'/g, "\\'")}', ${accessCoords.lat}, ${accessCoords.lon})"
                                 class="flex-1 py-4 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-white rounded-2xl font-bold text-xs transition-all flex items-center justify-center gap-2 border border-slate-200 dark:border-white/10 active:scale-95"
                                 title="Partager ce spot">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1119,7 +1417,7 @@
                             </svg>
                             <span>PARTAGER</span>
                         </button>
-                        <button onclick="window.open('https://www.google.com/maps?q=${lac.lat},${lac.lon}', '_blank')" 
+                        <button onclick="window.open('${getSpotDirectionsUrl(lac)}', '_blank')"
                                 class="flex-[1.4] py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-black text-xs transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-600/25 active:scale-95">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="22" y1="2" x2="11" y2="13"></line>
@@ -1128,7 +1426,7 @@
                             <span>CAP SUR CE SPOT</span>
                         </button>
                     </div>
-                    <a href="lac.html?lake=${getLakePageSlug(lac.name)}&v=20260615"
+                    <a href="lac.html?lake=${getLakePageSlug(lac.name)}&v=20260617"
                        class="w-full py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl font-black text-xs transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/25 active:scale-95">
                         <span>📖 VOIR LA PAGE COMPLÈTE</span>
                     </a>
@@ -1144,45 +1442,115 @@
     }
 
     async function chargerPrevisions(lat, lon) {
-    const container = document.getElementById('sidebar-forecast');
-    if (!container) return;
+        const container = document.getElementById('sidebar-forecast');
+        if (!container) return;
 
-    // 1. Définir l'URL avec le paramètre 'type=forecast' pour votre backend
-    const forecastUrl = `https://meteo.spotpaddle.ca/meteo.php?lat=${lat}&lon=${lon}&type=forecast`;
+        try {
+            const data = await fetchWeatherJson(lat, lon, 'forecast');
 
-    try {
-        const response = await fetch(forecastUrl);
-        const data = await response.json();
-        
-        // 2. Vérification simplifiée (si le code est 200 ou si les données existent)
-        if (!data || data.cod !== "200") {
+            if (!data || data.cod !== "200" || !Array.isArray(data.list)) {
+                container.innerHTML = `
+                    <div class="p-4 bg-red-50 dark:bg-red-950/20 text-red-600 dark:text-red-400 rounded-2xl text-xs text-center border border-red-100 dark:border-red-900/30">
+                        ⚠️ Impossible de charger les prévisions.
+                    </div>
+                `;
+                return;
+            }
+
+            const dailyData = {};
+            data.list.forEach(item => {
+                const dateKey = item.dt_txt.split(' ')[0];
+                if (!dailyData[dateKey]) dailyData[dateKey] = [];
+                dailyData[dateKey].push(item);
+            });
+
+            const selectedDates = Object.keys(dailyData).sort().slice(0, 3);
+            if (selectedDates.length === 0) {
+                container.innerHTML = `
+                    <div class="p-4 bg-slate-50 dark:bg-slate-900/30 text-slate-600 dark:text-slate-300 rounded-2xl text-xs text-center border border-slate-100 dark:border-white/10">
+                        Prévisions indisponibles pour ce spot.
+                    </div>
+                `;
+                return;
+            }
+
+            let forecastHTML = `<div class="forecast-card space-y-1">`;
+
+            selectedDates.forEach((dateKey) => {
+                const dayRecords = dailyData[dateKey];
+                let minTemp = Infinity;
+                let maxTemp = -Infinity;
+                let maxWind = 0;
+
+                dayRecords.forEach(rec => {
+                    minTemp = Math.min(minTemp, rec.main.temp_min);
+                    maxTemp = Math.max(maxTemp, rec.main.temp_max);
+                    maxWind = Math.max(maxWind, rec.wind.speed * 3.6);
+                });
+
+                const repRecord = dayRecords.find(rec => rec.dt_txt.includes("12:00:00")) ||
+                                  dayRecords.find(rec => rec.dt_txt.includes("15:00:00")) ||
+                                  dayRecords.find(rec => rec.dt_txt.includes("09:00:00")) ||
+                                  dayRecords[Math.floor(dayRecords.length / 2)] ||
+                                  dayRecords[0];
+
+                const icon = repRecord.weather[0].icon;
+                const desc = repRecord.weather[0].description;
+                const dateObj = new Date(repRecord.dt * 1000);
+                let dateStr = dateObj.toLocaleDateString('fr-FR', { weekday: 'short', day: 'numeric', month: 'short' });
+                dateStr = dateStr.charAt(0).toUpperCase() + dateStr.slice(1).replace('.', '');
+
+                let badgeClass = "forecast-badge-green";
+                let statusDot = "🟢";
+                const roundedWind = Math.round(maxWind);
+
+                if (roundedWind > 18) {
+                    badgeClass = "forecast-badge-red";
+                    statusDot = "🔴";
+                } else if (roundedWind >= 10) {
+                    badgeClass = "forecast-badge-yellow";
+                    statusDot = "🟡";
+                }
+
+                forecastHTML += `
+                    <div class="forecast-row">
+                        <div class="forecast-date-group flex flex-col">
+                            <span class="forecast-date font-bold text-sm leading-tight">${dateStr}</span>
+                            <span class="forecast-description text-[10px] capitalize leading-none mt-0.5">${desc}</span>
+                        </div>
+                        <div class="forecast-metrics flex items-center gap-3">
+                            <span class="text-2xl">${getWeatherEmoji(icon)}</span>
+                            <div class="forecast-temperature text-right">
+                                <span class="text-xs font-semibold block">${Math.round(minTemp)}° / ${Math.round(maxTemp)}°C</span>
+                            </div>
+                            <div class="forecast-wind px-2.5 py-1 rounded-full text-[10px] font-bold ${badgeClass} min-w-[70px] text-center flex items-center justify-center gap-1 shadow-sm">
+                                <span>${statusDot}</span>
+                                <span>${roundedWind} <span class="text-[8px]">km/h</span></span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            forecastHTML += `</div>`;
+            container.innerHTML = `
+                <div class="forecast-heading flex items-center justify-between border-b border-slate-200 dark:border-white/10 pb-2">
+                    <h4 class="font-black text-blue-600 dark:text-blue-400 uppercase text-[10px] tracking-widest flex items-center gap-1.5">
+                        📅 Prévisions 3 jours (Paddle Live)
+                    </h4>
+                    <span class="forecast-heading-badge text-[9px] bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-200 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Vent max 💨</span>
+                </div>
+                ${forecastHTML}
+            `;
+        } catch (error) {
+            console.error("Erreur lors du chargement des prévisions:", error);
             container.innerHTML = `
                 <div class="p-4 bg-red-50 dark:bg-red-950/20 text-red-600 dark:text-red-400 rounded-2xl text-xs text-center border border-red-100 dark:border-red-900/30">
-                    ⚠️ Impossible de charger les prévisions.
+                    ⚠️ Erreur réseau.
                 </div>
             `;
-            return;
         }
-
-        // ... le reste de votre code de traitement (regrouper par jour, etc.) reste identique ...
-        const dailyData = {};
-        data.list.forEach(item => {
-            const dateKey = item.dt_txt.split(' ')[0];
-            if (!dailyData[dateKey]) dailyData[dateKey] = [];
-            dailyData[dateKey].push(item);
-        });
-
-        // ... (votre logique d'affichage HTML ici) ...
-        // N'oubliez pas de bien fermer les parenthèses de votre try/catch
-    } catch (error) {
-        console.error("Erreur lors du chargement des prévisions:", error);
-        container.innerHTML = `
-            <div class="p-4 bg-red-50 dark:bg-red-950/20 text-red-600 dark:text-red-400 rounded-2xl text-xs text-center border border-red-100 dark:border-red-900/30">
-                ⚠️ Erreur réseau.
-            </div>
-        `;
     }
-}
 
     function getWaterCondition() {
         const month = new Date().getMonth(); // 0 = Janvier, 3 = Avril, 4 = Mai...
@@ -1204,14 +1572,21 @@
         if (!name) return;
         const lac = spots.find(s => s.name === name);
         if (!lac) return;
+        const accessCoords = getSpotAccessCoords(lac);
 
-        map.setView([lac.lat, lac.lon], 12);
-        document.getElementById('carte').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (map) {
+            map.setView([accessCoords.lat, accessCoords.lon], 12);
+        }
+        const carteElement = document.getElementById('carte');
+        if (carteElement) {
+            carteElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
         ouvrirSidebar(name);
         document.getElementById('spotSelect').value = "";
     }
 
     function resetView() {
+        if (!map) return;
         map.closePopup(); // Fermer tout popup ouvert
         map.setView([initialView.lat, initialView.lon], initialView.zoom);
     }
@@ -1239,7 +1614,7 @@
     async function partagerSpot(nom, lat, lon) {
         const slug = getSpotSlug(nom);
         const shareUrl = window.location.href.split('#')[0] + '#spot-' + slug;
-        const textMessage = `Découvrez le spot de paddle "${nom}" en Mauricie ! Météo en direct, vent et conseils :`;
+        const textMessage = `Découvrez le spot de paddle "${nom}" au Québec ! Météo en direct, vent et conseils :`;
         
         // Détecter si on est sur mobile pour utiliser Web Share, sinon copier le lien directement sur desktop
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -1432,7 +1807,7 @@
                                 <h2 class="text-2xl font-bold mb-4">2 Spots les Plus Proches</h2>
                                 <div class="space-y-4 mb-6">
                                     ${nearestSpots.map((spot, idx) => `
-                                        <a href="lac.html?lake=${spot.slug}&v=20260615" class="block bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-900/50 p-4 rounded-lg hover:shadow-lg transition">
+                                        <a href="lac.html?lake=${spot.slug}&v=20260617" class="block bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-900/50 p-4 rounded-lg hover:shadow-lg transition">
                                             <div class="font-bold">${idx + 1}. ${spot.name}</div>
                                             <div class="text-sm text-slate-600 dark:text-slate-400">${spot.region}</div>
                                             <div class="text-sm font-bold text-blue-600 dark:text-blue-400">${spot.distance.toFixed(1)} km</div>

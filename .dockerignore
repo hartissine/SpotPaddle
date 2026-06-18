@@ -1,0 +1,8 @@
+.git
+.gitignore
+.env
+.env.*
+*.key
+*.pem
+.local-server.pid
+.osm-water-access-audit.json
