@@ -504,15 +504,15 @@ const lacDatabase = [
         slug: "lac-des-piles",
         name: "Lac des Piles (Baie-Martin)",
         region: "Mauricie",
-        lat: 46.5925,
-        lon: -72.8235,
+        lat: 46.6518317,
+        lon: -72.7986336,
         mainImage: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200",
         gallery: [
             "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
             "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800"
         ],
-        description: "Eau cristalline exceptionnelle - source d'eau potable de la ville de Trois-Rivières ! Une expérience unique de transparence aquatique.",
-        longDescription: "Lac des Piles est une merveille hydrique. L'eau est tellement pure qu'elle approvisionne la ville de Trois-Rivières. Vous verrez clairement le fond du lac à plusieurs mètres de profondeur.",
+        description: "Grand lac de la Mauricie accessible par le Camping Plage Baie Martin, qui propose une plage ainsi que des activités de canot et de kayak.",
+        longDescription: "Le lac des Piles offre un vaste plan d'eau entouré de relief boisé. L'accès présenté ici passe par le Camping Plage Baie Martin, au 1801 chemin de la Baie-Martin. Les conditions d'accès de jour et les tarifs doivent être confirmés auprès du camping avant le départ.",
         difficulty: "facile",
         paddleScore: 88,
         scoreFactors: {
@@ -522,15 +522,15 @@ const lacDatabase = [
             waves: 8
         },
         isFree: false,
-        cost: "Accès payant selon la saison (15$-20$)",
-        waterQuality: "Exceptionnelle (eau potable)",
+        cost: "Accès et tarif à confirmer auprès du camping",
+        waterQuality: "À vérifier avant la sortie",
         maxLength: "Circuit 10 km",
         season: "Mai à septembre",
         parking: {
-            location: "Camping Baie-Martin",
-            spots: 60,
+            location: "Camping Plage Baie Martin, 1801 chemin de la Baie-Martin",
+            spots: null,
             accessible: false,
-            cost: "Payant"
+            cost: "À confirmer"
         },
         access: {
             description: "Accès via le Camping Baie-Martin",
@@ -539,35 +539,35 @@ const lacDatabase = [
             launchPoint: "Plage du camping"
         },
         amenities: [
-            "Camping de luxe",
-            "Restaurant",
-            "Toilettes chic",
-            "Cabanes"
+            "Plage du camping",
+            "Emplacements pour tentes et caravanes",
+            "Canot et kayak sur place",
+            "Pêche"
         ],
         warnings: [
-            "⚠️ Zone protégée - Respect de l'environnement essentiel",
-            "⚠️ Limite de bateaux/paddleurs par jour",
-            "⚠️ Pas de gaz, essence ou pollution d'aucune sorte"
+            "⚠️ Accès situé sur un terrain de camping privé",
+            "⚠️ Confirmer l'accès de jour, les heures et le tarif avant le départ",
+            "⚠️ Partage du lac avec des embarcations motorisées"
         ],
         faq: [
             {
-                q: "Pourquoi est-il si protégé ?",
-                a: "C'est une source d'eau potable pour Trois-Rivières. Zéro pollution tolérée."
+                q: "L'accès au lac est-il public ?",
+                a: "Le point présenté se trouve au Camping Plage Baie Martin. Communiquez avec le camping pour confirmer l'accès de jour et le tarif."
             },
             {
                 q: "Puis-je rester la nuit ?",
-                a: "Via le camping Baie-Martin. Réservation obligatoire."
+                a: "Le Camping Plage Baie Martin offre des emplacements pour tentes et caravanes. Vérifiez les disponibilités directement auprès du camping."
             },
             {
-                q: "C'est vraiment transparent ?",
-                a: "Oui ! Vous verrez 10+ mètres de profondeur. C'est magique en journée ensoleillée."
+                q: "Peut-on y faire du kayak ?",
+                a: "Oui. Tourisme Shawinigan mentionne le canot et le kayak parmi les activités offertes sur les lieux."
             }
         ],
         highlights: [
-            "✨ Eau exceptionnellement claire",
-            "🌍 Source d'eau potable",
-            "🟢 Très beau pour photos",
-            "⭐ Total must-see"
+            "Plage au bord du lac",
+            "Canot et kayak",
+            "Camping pour tentes et caravanes",
+            "Accès routier confirmé"
         ]
     },
     {
@@ -3380,9 +3380,10 @@ const accessPointOverrides = {
     "riviere-st-maurice": { lat: 46.3586419, lon: -72.5347227, name: "Mise à l'eau de l'Île Saint-Quentin / Avenue des Draveurs", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
     "lac-saint-pierre": { lat: 46.2245511, lon: -72.9223353, name: "Rampe de mise à l'eau près du Domaine du Lac Saint-Pierre", type: "Rampe de mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
     "parc-national-wapizagonke": { lat: 46.6697644, lon: -73.0057686, name: "Mise à l'eau du secteur Wapizagonke", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
-    "lac-maskinonge": { lat: 46.301840, lon: -73.388597, name: "Plage de Saint-Gabriel, 333 rue du Parc", type: "Plage", confidence: "high", source: "Coordonnées et lien Google Maps fournis par l'utilisateur le 17 juin 2026" },
-    "lac-aux-sables": { lat: 46.8702159, lon: -72.3904413, name: "Marina / accès riverain de Lac-aux-Sables", type: "Marina", confidence: "high", source: "OpenStreetMap leisure=marina" },
-    "lac-stukely-mont-orford": { lat: 45.3623117, lon: -72.2318963, name: "Mise à l'eau du lac Stukely", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
+    "lac-maskinonge": { lat: 46.3023266, lon: -73.3889688, name: "Accès public Saint-Gabriel", type: "Mise à l'eau manuelle", confidence: "high", source: "Canot Kayak Québec, Carte interactive: accès public Saint-Gabriel, qualité B, validé" },
+    "lac-des-piles": { lat: 46.6642000, lon: -72.7893500, name: "Plage du Camping Baie Martin", type: "Plage de camping", confidence: "medium", source: "Tourisme Shawinigan confirme la plage, le canot et le kayak; rive repérée sur l'imagerie satellite Esri" },
+    "lac-aux-sables": { lat: 46.8674872, lon: -72.3865210, name: "Mise à l'eau de la Ville de Lac-aux-Sables", type: "Mise à l'eau", confidence: "medium", source: "Canot Kayak Québec, Carte interactive: accès public; stationnement voisin à confirmer sur place" },
+    "lac-stukely-mont-orford": { lat: 45.3631631, lon: -72.2331165, name: "Accès Orford au lac Stukely", type: "Mise à l'eau", confidence: "high", source: "Canot Kayak Québec, Carte interactive: accès public GPS, qualité B; recoupé avec OpenStreetMap" },
     "lac-memphremagog-magog": { lat: 45.264195, lon: -72.15304, name: "Rampe publique près de la baie de Magog", type: "Rampe de mise à l'eau", confidence: "medium", source: "OpenStreetMap leisure=slipway" },
     "lac-saint-jean-alma": { lat: 48.4796193, lon: -71.7934448, name: "Marina St-Gédéon", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
     "fjord-du-saguenay-l-anse": { lat: 48.2444772, lon: -70.1794917, name: "Quai / mise à l'eau de L'Anse-Saint-Jean", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway name=Anse-Saint-Jean" },
@@ -3398,13 +3399,41 @@ const accessPointOverrides = {
     "lac-la-peche-outaouais": { lat: 45.6224025, lon: -76.1784341, name: "Mise à l'eau du lac la Pêche", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
     "lac-philippe-outaouais": { lat: 45.6021161, lon: -76.0435501, name: "Mise à l'eau du lac Philippe", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
     "bassin-de-lachine-montreal": { lat: 45.4789452, lon: -73.5740394, name: "Centre Nautique du Canal", type: "Marina", confidence: "high", source: "OpenStreetMap leisure=marina name=Centre Nautique du Canal" },
-    "parc-national-oka": { lat: 45.468056, lon: -74.030556, name: "Plage principale / secteur Le Littoral", type: "Plage / mise à l'eau", confidence: "medium", source: "Sépaq: kayak, surf à pagaie et mise à l'eau à la Crête ou plage principale; coordonnées générales du parc" },
-    "reservoir-choiniere-yamaska": { lat: 45.429722, lon: -72.616944, name: "Centre de découverte et plage du parc national de la Yamaska", type: "Plage / centre de location", confidence: "medium", source: "Sépaq: canot, kayak, surf à pagaie et plage au réservoir Choinière; coordonnées générales du parc" },
-    "reservoir-poisson-blanc": { lat: 46.095, lon: -75.67389, name: "Pavillon d'accueil Le Bastion", type: "Pavillon d'accueil / mise à l'eau", confidence: "medium", source: "Parc régional du Poisson-Blanc: location canot, kayak et planche à pagaie au pavillon d'accueil; coordonnées générales du parc" },
-    "baie-de-beauport-quebec": { lat: 46.84386285760057, lon: -71.17843386608614, name: "Plage de la Baie de Beauport", type: "Plage / activités nautiques", confidence: "medium", source: "Site officiel: 1 chemin de la Baie-de-Beauport; coordonnées de la baie" },
-    "parc-national-plaisance": { lat: 45.6, lon: -75.133333, name: "Centre de découverte et de services, secteur des Presqu'îles", type: "Débarcadère", confidence: "medium", source: "Sépaq: débarcadère du centre de découverte et de services; coordonnées générales du parc" },
+    "parc-national-oka": { lat: 45.4636861, lon: -74.0426822, name: "Accès de la Grande Plage d'Oka", type: "Plage / mise à l'eau manuelle", confidence: "medium", source: "Canot Kayak Québec, Carte interactive: accès public Plage Oka; recoupé avec Sépaq" },
+    "reservoir-choiniere-yamaska": { lat: 45.4296396, lon: -72.6136892, name: "Accès du parc national de la Yamaska", type: "Mise à l'eau manuelle", confidence: "medium", source: "Canot Kayak Québec, Carte interactive: accès public; recoupé avec Sépaq et OpenStreetMap" },
+    "reservoir-poisson-blanc": { lat: 46.0939877, lon: -75.6730562, name: "Accès du parc régional du Poisson-Blanc", type: "Mise à l'eau manuelle", confidence: "high", source: "Canot Kayak Québec, Carte interactive: accès public GPS, qualité B; recoupé avec le site du parc" },
+    "baie-de-beauport-quebec": { lat: 46.8378694, lon: -71.1945722, name: "Accès nautique de la Baie de Beauport", type: "Plage / mise à l'eau manuelle", confidence: "high", source: "Canot Kayak Québec, Carte interactive: accès et stationnement GPS; recoupé avec SIT Québec" },
+    "parc-national-plaisance": { lat: 45.5989056, lon: -75.1097501, name: "Mise à l'eau du parc national de Plaisance", type: "Mise à l'eau", confidence: "high", source: "Canot Kayak Québec, Carte interactive: accès public qualité A, validé; recoupé avec Sépaq" },
     "fleuve-saint-laurent-ile-sainte-helene": { lat: 45.50176, lon: -73.5235966, name: "Mise à l'eau du parc Jean-Drapeau / Île Sainte-Hélène", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
     "bassin-olympique-parc-jean-drapeau": { lat: 45.50176, lon: -73.5235966, name: "Mise à l'eau du parc Jean-Drapeau", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" }
+};
+
+// Le point d'accès et le stationnement sont volontairement séparés. Les itinéraires
+// visent le stationnement afin d'éviter d'envoyer un véhicule directement sur la rive.
+const parkingPointOverrides = {
+    "lac-sacacomie": { lat: 46.5272924, lon: -73.2028248, name: "Stationnement du quai municipal", confidence: "high", source: "OpenStreetMap parking access=yes; confirmé par Canot Kayak Québec (GPS GNSS, qualité B)", distanceToAccessMeters: 35, fee: "Payant" },
+    "riviere-st-maurice": { lat: 46.3598371, lon: -72.5338420, name: "Stationnement près de la mise à l'eau", confidence: "medium", source: "OpenStreetMap amenity=parking", distanceToAccessMeters: 149, fee: "À vérifier" },
+    "parc-national-wapizagonke": { lat: 46.6707117, lon: -73.0046871, name: "Stationnement du secteur Wapizagonke", confidence: "medium", source: "OpenStreetMap amenity=parking; secteur recoupé avec Sépaq", distanceToAccessMeters: 134, fee: "Droit d'accès au parc" },
+    "lac-maskinonge": { lat: 46.3018400, lon: -73.3885970, name: "Stationnement de la plage municipale, 333 rue du Parc", confidence: "high", source: "Coordonnées fournies par l'utilisateur; stationnement public confirmé à 11 m par Canot Kayak Québec et recoupé avec OpenStreetMap", distanceToAccessMeters: 71, fee: "Gratuit" },
+    "lac-des-piles": { lat: 46.6653731, lon: -72.7901009, name: "Camping Plage Baie Martin, 1801 chemin de la Baie-Martin", confidence: "high", source: "Adresse et carte du site officiel Camping Plage Baie Martin; activité confirmée par Tourisme Shawinigan", distanceToAccessMeters: 143, fee: "Accès et tarif à confirmer auprès du camping" },
+    "lac-aux-sables": { lat: 46.8670340, lon: -72.3870136, name: "Stationnement de la mise à l'eau de Lac-aux-Sables", confidence: "medium", source: "Canot Kayak Québec, Carte interactive: stationnement qualité B observé par imagerie satellite", distanceToAccessMeters: 63, fee: "Gratuit" },
+    "parc-national-oka": { lat: 45.4646954, lon: -74.0424846, name: "Stationnement de la Grande Plage d'Oka", confidence: "medium", source: "Canot Kayak Québec, Carte interactive; recoupé avec Sépaq", distanceToAccessMeters: 113, fee: "Droit d'accès au parc" },
+    "reservoir-choiniere-yamaska": { lat: 45.4301875, lon: -72.6172951, name: "Stationnement P2 du parc national de la Yamaska", confidence: "high", source: "OpenStreetMap: stationnement P2 réservé aux visiteurs, gratuit; recoupé avec Sépaq et Canot Kayak Québec", distanceToAccessMeters: 285, fee: "Stationnement gratuit; droit d'accès au parc" },
+    "reservoir-poisson-blanc": { lat: 46.0951093, lon: -75.6742184, name: "Stationnement P3 du pavillon Le Bastion", confidence: "high", source: "OpenStreetMap: stationnement P3; accès voisin confirmé par Canot Kayak Québec", distanceToAccessMeters: 153, fee: "À vérifier" },
+    "baie-de-beauport-quebec": { lat: 46.8378537, lon: -71.1974402, name: "Stationnement de la plage de la Baie de Beauport", confidence: "high", source: "Canot Kayak Québec, Carte interactive: GPS, qualité B, validé", distanceToAccessMeters: 221, fee: "À vérifier" },
+    "parc-national-plaisance": { lat: 45.5992347, lon: -75.1094637, name: "Stationnement de l'accueil du parc national de Plaisance", confidence: "high", source: "Canot Kayak Québec, Carte interactive: stationnement public qualité A, validé", distanceToAccessMeters: 43, fee: "Stationnement gratuit; droit d'accès au parc" },
+    "lac-stukely-mont-orford": { lat: 45.3623465, lon: -72.2339001, name: "Stationnement de la plage Stukely", confidence: "high", source: "Canot Kayak Québec, Carte interactive: GPS GNSS, qualité B, validé; recoupé avec OpenStreetMap P2", distanceToAccessMeters: 110, fee: "Payant / permis requis" },
+    "lac-memphremagog-magog": { lat: 45.2641104, lon: -72.1533591, name: "Stationnement voisin de la rampe de Magog", confidence: "medium", source: "OpenStreetMap amenity=parking, accès réservé aux clients à confirmer", distanceToAccessMeters: 27, fee: "À vérifier" },
+    "fjord-du-saguenay-l-anse": { lat: 48.2439047, lon: -70.1800943, name: "Stationnement du quai de L'Anse-Saint-Jean", confidence: "high", source: "OpenStreetMap amenity=parking, access=yes, fee=yes", distanceToAccessMeters: 78, fee: "Payant" },
+    "lac-saint-jean-alma": { lat: 48.4802148, lon: -71.7960512, name: "Stationnement Pointe Picard / Marina St-Gédéon", confidence: "high", source: "Canot Kayak Québec, Carte interactive: qualité B; recoupé avec OpenStreetMap", distanceToAccessMeters: 203, fee: "Payant" },
+    "riviere-bonaventure": { lat: 48.0589625, lon: -65.5172142, name: "Stationnement de la Piouke", confidence: "high", source: "OpenStreetMap amenity=parking, surface asphaltée", distanceToAccessMeters: 30, fee: "À vérifier" },
+    "iles-de-boucherville": { lat: 45.6117779, lon: -73.4566016, name: "Stationnement près de la mise à l'eau", confidence: "high", source: "OpenStreetMap amenity=parking; stationnement public GPS confirmé par Canot Kayak Québec", distanceToAccessMeters: 25, fee: "Droit d'accès au parc" },
+    "lac-brome": { lat: 45.2559768, lon: -72.4948600, name: "Stationnement de la mise à l'eau du lac Brome", confidence: "high", source: "OpenStreetMap amenity=parking, access=yes, fee=yes", distanceToAccessMeters: 68, fee: "Payant" },
+    "riviere-chicoutimi": { lat: 48.4304405, lon: -71.0528561, name: "Stationnement de la Marina Saguenay", confidence: "medium", source: "OpenStreetMap amenity=parking", distanceToAccessMeters: 86, fee: "À vérifier" },
+    "lac-leamy-gatineau": { lat: 45.4320283, lon: -75.7084310, name: "Stationnement du port de plaisance Jacques-Cartier", confidence: "high", source: "OpenStreetMap amenity=parking, fee=yes; recoupé avec Canot Kayak Québec", distanceToAccessMeters: 108, fee: "Payant" },
+    "lac-la-peche-outaouais": { lat: 45.6221030, lon: -76.1779938, name: "Stationnement du lac la Pêche", confidence: "high", source: "OpenStreetMap amenity=parking, access=yes; recoupé avec Canot Kayak Québec", distanceToAccessMeters: 48, fee: "Payant" },
+    "fleuve-saint-laurent-ile-sainte-helene": { lat: 45.5018993, lon: -73.5234971, name: "Stationnement P3 du parc Jean-Drapeau", confidence: "high", source: "OpenStreetMap amenity=parking, access=yes, fee=yes", distanceToAccessMeters: 17, fee: "Payant" },
+    "bassin-olympique-parc-jean-drapeau": { lat: 45.5018993, lon: -73.5234971, name: "Stationnement P3 du parc Jean-Drapeau", confidence: "high", source: "OpenStreetMap amenity=parking, access=yes, fee=yes", distanceToAccessMeters: 17, fee: "Payant" }
 };
 
 function normalizeGpsPoint(point, fallback) {
@@ -3423,9 +3452,24 @@ function normalizeGpsPoint(point, fallback) {
     };
 }
 
+function normalizeParkingPoint(point) {
+    if (!point) return null;
+    const normalized = normalizeGpsPoint({ ...point, type: "Stationnement" }, null);
+    if (!normalized) return null;
+
+    return {
+        ...normalized,
+        distanceToAccessMeters: Number.isFinite(Number(point.distanceToAccessMeters))
+            ? Number(point.distanceToAccessMeters)
+            : null,
+        fee: point.fee || "À vérifier"
+    };
+}
+
 lacDatabase.forEach(lac => {
     const override = accessPointOverrides[lac.slug];
     lac.accessPoint = normalizeGpsPoint(override, lac);
+    lac.parkingPoint = normalizeParkingPoint(parkingPointOverrides[lac.slug]);
 
     if (lac.accessPoint && lac.access) {
         lac.access.coordinates = {
@@ -3441,8 +3485,16 @@ function getLakeAccessPoint(lake) {
     return normalizeGpsPoint(lake?.accessPoint, lake);
 }
 
+function getLakeParkingPoint(lake) {
+    return normalizeParkingPoint(lake?.parkingPoint);
+}
+
+function getLakeDirectionsPoint(lake) {
+    return getLakeParkingPoint(lake) || getLakeAccessPoint(lake);
+}
+
 function getLakeDirectionsUrl(lake) {
-    const point = getLakeAccessPoint(lake);
+    const point = getLakeDirectionsPoint(lake);
     if (!point) return "";
     return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(point.lat)},${encodeURIComponent(point.lon)}`;
 }
@@ -3514,13 +3566,13 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
  */
 function getNearestLakes(userLat, userLon) {
     const lacsWithDistance = lacDatabase.map(lac => {
-        const accessPoint = typeof getLakeAccessPoint === 'function'
-            ? getLakeAccessPoint(lac)
+        const directionsPoint = typeof getLakeDirectionsPoint === 'function'
+            ? getLakeDirectionsPoint(lac)
             : { lat: lac.lat, lon: lac.lon };
 
         return {
             ...lac,
-            distance: calculateDistance(userLat, userLon, accessPoint.lat, accessPoint.lon)
+            distance: calculateDistance(userLat, userLon, directionsPoint.lat, directionsPoint.lon)
         };
     });
     

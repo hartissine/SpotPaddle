@@ -218,11 +218,11 @@
         { 
             name: "Lac des Piles (Baie-Martin)", 
             region: "Mauricie",
-            lat: 46.5925, lon: -72.8235,
+            lat: 46.6518317, lon: -72.7986336,
             image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
             parking: "Accès payant via le Camping Baie-Martin.", 
             prix: "Accès payant selon la saison.",
-            info: "Eau cristalline exceptionnelle (source d'eau potable de la ville).",
+            info: "Plage de camping avec canot et kayak; accès de jour et tarif à confirmer.",
             isFree: false,
             level: "facile"
         },
@@ -639,18 +639,28 @@
         const accessPoint = typeof getLakeAccessPoint === 'function'
             ? getLakeAccessPoint(lake)
             : null;
+        const parkingPoint = typeof getLakeParkingPoint === 'function'
+            ? getLakeParkingPoint(lake)
+            : null;
+        const directionsPoint = typeof getLakeDirectionsPoint === 'function'
+            ? getLakeDirectionsPoint(lake)
+            : (parkingPoint || accessPoint);
 
         return {
             name: lake.name,
             region: lake.region || "Mauricie",
             lat: Number(lake.lat),
             lon: Number(lake.lon),
-            accessLat: Number(accessPoint?.lat ?? lake.lat),
-            accessLon: Number(accessPoint?.lon ?? lake.lon),
-            accessName: accessPoint?.name || lake.parking?.location || lake.access?.description || lake.name,
-            accessType: accessPoint?.type || lake.access?.type || "Point d'accès",
-            accessConfidence: accessPoint?.confidence || "needs_verification",
-            accessSource: accessPoint?.source || "",
+            accessLat: Number(directionsPoint?.lat ?? lake.lat),
+            accessLon: Number(directionsPoint?.lon ?? lake.lon),
+            accessName: directionsPoint?.name || lake.parking?.location || lake.access?.description || lake.name,
+            accessType: directionsPoint?.type || lake.access?.type || "Point d'accès",
+            accessConfidence: directionsPoint?.confidence || "needs_verification",
+            accessSource: directionsPoint?.source || "",
+            launchLat: Number(accessPoint?.lat ?? lake.lat),
+            launchLon: Number(accessPoint?.lon ?? lake.lon),
+            hasParkingPoint: Boolean(parkingPoint),
+            parkingDistanceMeters: parkingPoint?.distanceToAccessMeters ?? null,
             image: lake.mainImage || lake.gallery?.[0] || "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
             parking: lake.parking?.location || lake.access?.description || "Accès à vérifier",
             prix: lake.cost || lake.parking?.cost || (lake.isFree ? "Accès public gratuit." : "Frais à vérifier."),
@@ -671,7 +681,8 @@
             accessName: spot.accessName || spot.parking || spot.name,
             accessType: spot.accessType || "Point d'accès",
             accessConfidence: spot.accessConfidence || "legacy",
-            accessSource: spot.accessSource || "Liste locale de secours"
+            accessSource: spot.accessSource || "Liste locale de secours",
+            hasParkingPoint: false
         }));
 
     function getSpotAccessCoords(spot) {
@@ -689,13 +700,15 @@
     }
 
     function getGpsStatusLabel(spot) {
-        if (spot?.accessConfidence === 'high') return "GPS accès validé";
-        if (spot?.accessConfidence === 'medium') return "GPS accès probable";
-        if (spot?.accessConfidence === 'legacy') return "GPS accès existant";
-        return "GPS accès à vérifier";
+        if (!spot?.hasParkingPoint) return "Stationnement à vérifier";
+        if (spot?.accessConfidence === 'high') return "GPS stationnement validé";
+        if (spot?.accessConfidence === 'medium') return "GPS stationnement probable";
+        if (spot?.accessConfidence === 'legacy') return "GPS existant";
+        return "GPS stationnement à vérifier";
     }
 
     function getGpsStatusClass(spot) {
+        if (!spot?.hasParkingPoint) return "bg-amber-100 text-amber-700 border-amber-200";
         if (spot?.accessConfidence === 'high') return "bg-emerald-100 text-emerald-700 border-emerald-200";
         if (spot?.accessConfidence === 'medium') return "bg-amber-100 text-amber-700 border-amber-200";
         return "bg-slate-100 text-slate-600 border-slate-200";
