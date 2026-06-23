@@ -813,7 +813,7 @@
         return emojiMap[iconCode] || '❓';
     }
 
-    const WEATHER_TIMEOUT_MS = 4500;
+    const WEATHER_TIMEOUT_MS = 8000;
     const WEATHER_CACHE_TTL_MS = 10 * 60 * 1000;
     const weatherResponseCache = new Map();
 
@@ -869,13 +869,50 @@
         return promise;
     }
 
+    let latestWeatherPopupRequestId = 0;
+
+    function setMarkerPopupContent(marker, content, options, shouldOpen = true) {
+        if (marker.getPopup && marker.getPopup()) {
+            marker.setPopupContent(content);
+        } else {
+            marker.bindPopup(content, options);
+        }
+
+        if (shouldOpen) {
+            marker.openPopup();
+        }
+    }
+
     // 5. API Logic
     async function getMeteo(lat, lon, name, marker, spotInfo = null) {
+        const popupRequestId = ++latestWeatherPopupRequestId;
+        const popupOptions = {
+            maxWidth: 260,
+            minWidth: 220,
+            className: 'custom-popup'
+        };
+        const pageUrl = `lac.html?lake=${getLakePageSlug(name)}&v=20260617`;
+
+        setMarkerPopupContent(marker, `
+            <div class="text-sm p-2 text-center">
+                <h3 class="text-lg text-blue-800 font-bold mb-2">${name}</h3>
+                <div class="flex items-center justify-center gap-2 rounded-lg bg-blue-50 p-3 text-slate-700">
+                    <span class="inline-block h-4 w-4 animate-spin rounded-full border-2 border-blue-200 border-t-blue-600"></span>
+                    <span class="text-xs font-semibold">Chargement de la météo...</span>
+                </div>
+                <a href="${pageUrl}" class="mt-3 block w-full py-2 bg-emerald-600 text-white rounded-md font-bold text-[10px] uppercase hover:bg-emerald-700 transition-colors">
+                    📖 Page complète
+                </a>
+            </div>
+        `, popupOptions);
+
         try {
             const access = getSpotAccessCoords(spotInfo || { lat, lon });
             const gpsStatus = getGpsStatusLabel(spotInfo);
             const gpsStatusClass = getGpsStatusClass(spotInfo);
             const data = await fetchWeatherJson(lat, lon);
+
+            if (popupRequestId !== latestWeatherPopupRequestId) return;
             
             const temp = Math.round(data.main.temp);
             const vent = Math.round(data.wind.speed * 3.6); 
@@ -895,7 +932,8 @@
             }
 
             // Création du panneau avec tes styles originaux
-            marker.bindPopup(`
+            const shouldKeepPopupOpen = !marker.isPopupOpen || marker.isPopupOpen();
+            setMarkerPopupContent(marker, `
             <div class="text-sm p-1">
                 <h3 class="text-lg text-blue-800 font-bold italic mb-1 border-b border-blue-100 pb-1">${name}</h3>
                 
@@ -941,16 +979,12 @@
                             ⭐ Favori
                         </button>
                     </div>
-                    <a href="lac.html?lake=${getLakePageSlug(name)}&v=20260617" class="block w-full py-2 bg-emerald-600 text-white rounded-md font-bold text-[10px] uppercase hover:bg-emerald-700 transition-colors text-center">
+                    <a href="${pageUrl}" class="block w-full py-2 bg-emerald-600 text-white rounded-md font-bold text-[10px] uppercase hover:bg-emerald-700 transition-colors text-center">
                         📖 Page complète
                     </a>
                 </div>
             </div>
-            `, { 
-                maxWidth: 260, 
-                minWidth: 220,
-                className: 'custom-popup' 
-            }).openPopup();
+            `, popupOptions, shouldKeepPopupOpen);
                 
             setTimeout(() => {
                 if (map) map.invalidateSize();
@@ -958,17 +992,21 @@
 
         } catch (error) {
             console.error("Erreur météo pour", name, ":", error);
+
+            if (popupRequestId !== latestWeatherPopupRequestId) return;
             
             // 2. Fallback de secours si l'API ou le PHP plante
-            marker.bindPopup(`
+            const shouldKeepPopupOpen = !marker.isPopupOpen || marker.isPopupOpen();
+            setMarkerPopupContent(marker, `
                 <div class="text-sm p-2 text-center">
                     <h3 class="text-lg text-blue-800 font-bold mb-2">${name}</h3>
-                    <p class="text-red-600 mb-3 text-xs">⚠️ Météo temporairement indisponible</p>
-                    <a href="lac.html?lake=${getLakePageSlug(name)}" class="block w-full py-2 bg-emerald-600 text-white rounded-md font-bold text-[10px] uppercase hover:bg-emerald-700 transition-colors">
+                    <p class="text-red-600 mb-2 text-xs font-semibold">⚠️ La météo prend trop de temps à répondre</p>
+                    <p class="text-slate-500 mb-3 text-[11px]">Réessaie dans quelques secondes ou ouvre la page complète.</p>
+                    <a href="${pageUrl}" class="block w-full py-2 bg-emerald-600 text-white rounded-md font-bold text-[10px] uppercase hover:bg-emerald-700 transition-colors">
                         📖 Page complète
                     </a>
                 </div>
-            `).openPopup();
+            `, popupOptions, shouldKeepPopupOpen);
         }
     }
 
