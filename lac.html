@@ -278,7 +278,7 @@
                                             <p class="font-semibold text-sm text-slate-700 dark:text-slate-300 mb-2">${currentLake.access?.type || "Mise à l'eau publique"}</p>
                                             <p class="text-sm text-slate-600 dark:text-slate-400">${currentLake.access?.description || 'Accès direct via la plage principale.'}</p>
                                             <p class="text-xs text-slate-500 mt-3">${accessPoint?.name || 'Point GPS actuel'} (${gpsStatus})</p>
-                                            <p class="text-xs text-slate-500 mt-2">Source GPS: ${gpsSource}</p>
+                                            ${accessPoint?.hideSource ? '' : `<p class="text-xs text-slate-500 mt-2">Source GPS: ${gpsSource}</p>`}
                                             <p class="text-xs text-slate-500 mt-2">La carte distingue la mise à l'eau du stationnement lorsqu'ils sont tous deux confirmés.</p>
                                             <p class="text-xs text-slate-500 mt-3">Difficulté d'accès: <span class="font-bold">${currentLake.access?.difficulty || 'Facile'}</span></p>
                                         </div>
@@ -288,7 +288,7 @@
                                             <p class="text-sm text-slate-600 dark:text-slate-400">${parkingStatus}</p>
                                             ${parkingPoint?.distanceToAccessMeters ? `<p class="text-xs text-slate-500 mt-3">Transport jusqu'à l'eau : environ <span class="font-bold">${parkingPoint.distanceToAccessMeters} m</span></p>` : '<p class="text-xs text-amber-700 dark:text-amber-300 mt-3">La proximité du stationnement avec l’eau reste à confirmer.</p>'}
                                             <p class="text-xs text-slate-500 mt-2">Tarif : <span class="font-bold">${parkingPoint?.fee || currentLake.parking?.cost || 'À vérifier'}</span></p>
-                                            ${parkingPoint?.source ? `<p class="text-xs text-slate-500 mt-2">Source GPS : ${parkingPoint.source}</p>` : ''}
+                                            ${parkingPoint?.source && !parkingPoint?.hideSource ? `<p class="text-xs text-slate-500 mt-2">Source GPS : ${parkingPoint.source}</p>` : ''}
                                         </div>
                                     </div>
                                 </section>

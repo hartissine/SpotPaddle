@@ -715,6 +715,7 @@
     }
 
     const popularQuebecSpotSlugs = [
+        'baie-de-shawinigan-parc-de-la-baie',
         'parc-national-oka',
         'reservoir-choiniere-yamaska',
         'reservoir-poisson-blanc',
@@ -753,21 +754,21 @@
         grid.innerHTML = cards.map(spot => {
             const score = Number(spot.paddleScore || spot.score || 75);
             return `
-                <a href="lac.html?lake=${encodeURIComponent(spot.slug)}&v=20260617" class="group bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:border-blue-400 transition-all">
-                    <div class="relative h-36 overflow-hidden">
+                <a href="lac.html?lake=${encodeURIComponent(spot.slug)}&v=20260617" class="popular-spot-card group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:border-blue-400 transition-all">
+                    <div class="relative h-44 overflow-hidden md:h-52">
                         <img src="${escapeHtml(spot.image)}" alt="${escapeHtml(spot.name)}" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
                         <div class="absolute top-3 left-3 rounded-full border px-2 py-1 text-[9px] font-black uppercase tracking-wider ${getGpsStatusClass(spot)}">
                             ${escapeHtml(getGpsStatusLabel(spot))}
                         </div>
                     </div>
-                    <div class="p-4">
+                    <div class="flex flex-1 flex-col p-4">
                         <div class="flex items-start justify-between gap-2 mb-2">
                             <h4 class="font-black text-base leading-tight text-slate-900">${escapeHtml(spot.name)}</h4>
                             <span class="shrink-0 rounded-full border px-2 py-1 text-[10px] font-black ${getScoreBadgeClass(score)}">${score}</span>
                         </div>
                         <p class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-2">${escapeHtml(spot.region)}</p>
                         <p class="text-sm text-slate-500 leading-snug min-h-[58px]">${escapeHtml(getShortSpotCopy(spot))}</p>
-                        <div class="mt-4 flex items-center justify-between text-xs font-black uppercase">
+                        <div class="mt-auto flex items-center justify-between pt-4 text-xs font-black uppercase">
                             <span class="text-slate-500">${spot.isFree ? 'Accès gratuit' : 'Accès payant'}</span>
                             <span class="text-blue-600">Page →</span>
                         </div>
@@ -775,6 +776,129 @@
                 </a>
             `;
         }).join('');
+
+        initPopularSpotsCarousel(grid);
+    }
+
+    function initPopularSpotsCarousel(grid) {
+        const previousButton = document.getElementById('popularSpotsPrev');
+        const nextButton = document.getElementById('popularSpotsNext');
+        if (!previousButton || !nextButton) return;
+
+        const autoplayDelay = 3000;
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        let autoplayTimer = null;
+        let carouselIsVisible = true;
+        let carouselIsPaused = false;
+        let touchResumeTimer = null;
+
+        const getStep = () => {
+            const card = grid.querySelector('.popular-spot-card');
+            if (!card) return grid.clientWidth * 0.85;
+            const gap = Number.parseFloat(getComputedStyle(grid).gap) || 20;
+            const singleCardStep = card.getBoundingClientRect().width + gap;
+            return window.matchMedia('(min-width: 640px)').matches
+                ? singleCardStep * 2
+                : singleCardStep;
+        };
+
+        const updateButtons = () => {
+            const maxScroll = Math.max(0, grid.scrollWidth - grid.clientWidth);
+            previousButton.disabled = grid.scrollLeft <= 4;
+            nextButton.disabled = grid.scrollLeft >= maxScroll - 4;
+        };
+
+        const stopAutoplay = () => {
+            if (autoplayTimer !== null) {
+                window.clearInterval(autoplayTimer);
+                autoplayTimer = null;
+            }
+        };
+
+        const startAutoplay = () => {
+            stopAutoplay();
+            const hasOverflow = grid.scrollWidth - grid.clientWidth > 4;
+            if (reducedMotion.matches || !hasOverflow || !carouselIsVisible || carouselIsPaused || document.hidden) return;
+
+            autoplayTimer = window.setInterval(() => {
+                const maxScroll = Math.max(0, grid.scrollWidth - grid.clientWidth);
+                const reachedEnd = grid.scrollLeft >= maxScroll - 4;
+                if (reachedEnd) {
+                    grid.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    grid.scrollBy({ left: getStep(), behavior: 'smooth' });
+                }
+            }, autoplayDelay);
+        };
+
+        const restartAutoplay = () => {
+            if (!carouselIsPaused) startAutoplay();
+        };
+
+        const pauseCarousel = () => {
+            carouselIsPaused = true;
+            stopAutoplay();
+        };
+
+        const resumeCarousel = () => {
+            carouselIsPaused = false;
+            startAutoplay();
+        };
+
+        if (grid.dataset.carouselReady !== 'true') {
+            previousButton.addEventListener('click', () => {
+                grid.scrollBy({ left: -getStep(), behavior: 'smooth' });
+                restartAutoplay();
+            });
+            nextButton.addEventListener('click', () => {
+                grid.scrollBy({ left: getStep(), behavior: 'smooth' });
+                restartAutoplay();
+            });
+            grid.addEventListener('keydown', event => {
+                if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+                event.preventDefault();
+                grid.scrollBy({
+                    left: event.key === 'ArrowRight' ? getStep() : -getStep(),
+                    behavior: 'smooth'
+                });
+                restartAutoplay();
+            });
+            grid.addEventListener('scroll', () => requestAnimationFrame(updateButtons), { passive: true });
+            grid.addEventListener('mouseenter', pauseCarousel);
+            grid.addEventListener('mouseleave', resumeCarousel);
+            grid.addEventListener('focusin', pauseCarousel);
+            grid.addEventListener('focusout', event => {
+                if (!grid.contains(event.relatedTarget)) resumeCarousel();
+            });
+            grid.addEventListener('touchstart', () => {
+                if (touchResumeTimer !== null) window.clearTimeout(touchResumeTimer);
+                pauseCarousel();
+            }, { passive: true });
+            grid.addEventListener('touchend', () => {
+                touchResumeTimer = window.setTimeout(resumeCarousel, 1800);
+            }, { passive: true });
+            window.addEventListener('resize', () => {
+                updateButtons();
+                restartAutoplay();
+            });
+            document.addEventListener('visibilitychange', restartAutoplay);
+            reducedMotion.addEventListener?.('change', restartAutoplay);
+
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver(entries => {
+                    carouselIsVisible = entries[0]?.isIntersecting ?? true;
+                    restartAutoplay();
+                }, { threshold: 0.2 });
+                observer.observe(grid);
+            }
+
+            grid.dataset.carouselReady = 'true';
+        }
+
+        requestAnimationFrame(() => {
+            updateButtons();
+            startAutoplay();
+        });
     }
 
     function updateTrustStats() {

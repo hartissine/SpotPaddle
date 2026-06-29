@@ -84,8 +84,8 @@ const lacDatabase = [
         slug: "lac-sacacomie",
         name: "Lac Sacacomie",
         region: "Mauricie",
-        lat: 46.52743,
-        lon: -73.20323,
+        lat: 46.527974024663074,
+        lon: -73.19878614418161,
         mainImage: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=1200",
         gallery: [
             "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800",
@@ -155,8 +155,8 @@ const lacDatabase = [
         slug: "riviere-st-maurice",
         name: "Rivière St-Maurice (TR)",
         region: "Mauricie",
-        lat: 46.35864,
-        lon: -72.53472,
+        lat: 46.35147138297579,
+        lon: -72.52938180436846,
         mainImage: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&q=80&w=1200",
         gallery: [
             "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&q=80&w=800",
@@ -218,7 +218,8 @@ const lacDatabase = [
             "🌅 Paysage magique au coucher du soleil",
             "🏝️ Circuit pédestre de découverte",
             "🚣 Bonne introduction au paddle de rivière",
-            "⭐ Histoire industrielle unique"
+            "⭐ Histoire industrielle unique",
+            "📍 GPS accès et stationnement validés"
         ]
     },
     {
@@ -369,8 +370,8 @@ const lacDatabase = [
         slug: "lac-taureau",
         name: "Lac Taureau (Plage Pointe-Fine)",
         region: "Mauricie",
-        lat: 46.7468,
-        lon: -73.6505,
+        lat: 46.6890634,
+        lon: -73.9001922,
         mainImage: "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&q=80&w=1200",
         gallery: [
             "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&q=80&w=800",
@@ -392,16 +393,16 @@ const lacDatabase = [
         maxLength: "25 km possible",
         season: "Mai à septembre",
         parking: {
-            location: "Stationnement au Parc régional (Pointe-Fine)",
-            spots: 150,
+            location: "Stationnement de la descente de bateaux du Réservoir Taureau",
+            spots: "À vérifier",
             accessible: true,
-            cost: "Inclus"
+            cost: "Gratuit"
         },
         access: {
-            description: "Accès principale à la Plage Pointe-Fine",
-            type: "Parc régional",
+            description: "Accès par la descente de bateaux du Réservoir Taureau",
+            type: "Rampe de mise à l'eau",
             difficulty: "Accès facile",
-            launchPoint: "Plage principal"
+            launchPoint: "Descente de bateaux du Réservoir Taureau"
         },
         amenities: [
             "Plage de sable",
@@ -567,7 +568,7 @@ const lacDatabase = [
             "Plage au bord du lac",
             "Canot et kayak",
             "Camping pour tentes et caravanes",
-            "Accès routier confirmé"
+            "GPS accès et stationnement validés"
         ]
     },
     {
@@ -727,8 +728,8 @@ const lacDatabase = [
         "maxLength": "Parcours variable sur le lac des Deux Montagnes",
         "season": "Mai à septembre",
         "parking": {
-            "location": "Stationnement de la plage / secteur Le Littoral.",
-            "spots": "Grand stationnement en saison",
+            "location": "Stationnement confirmé de la plage / secteur Le Littoral.",
+            "spots": "Grand stationnement confirmé en saison",
             "accessible": true,
             "cost": "Stationnement payant en saison."
         },
@@ -736,7 +737,7 @@ const lacDatabase = [
             "description": "Mise à l'eau à la Crête ou à la plage principale selon les consignes Sépaq.",
             "type": "Plage / rampe de mise à l'eau",
             "difficulty": "Facile",
-            "launchPoint": "Point à confirmer précisément sur plan du parc"
+            "launchPoint": "Rampe de la Crête ou extrémités de la plage principale"
         },
         "amenities": [
             "Plage surveillée en saison",
@@ -751,13 +752,13 @@ const lacDatabase = [
         ],
         "faq": [
             { "q": "Peut-on louer sur place ?", "a": "Oui, la Sépaq indique de la location de kayak et de surf à pagaie au parc national d'Oka en saison." },
-            { "q": "Le point GPS est-il définitif ?", "a": "Il pointe vers le secteur de plage/accès connu du parc, mais il doit encore être validé précisément sur carte de terrain." }
+            { "q": "Le stationnement GPS est-il confirmé ?", "a": "Oui. Le point GPS mène au stationnement de la plage. La mise à l'eau se fait ensuite à la rampe de la Crête ou aux extrémités de la plage principale selon les consignes Sépaq." }
         ],
         "highlights": [
             "Spot très fréquenté près de Montréal",
             "Location nautique sur place",
             "Plage et services complets",
-            "GPS accès probable à confirmer"
+            "GPS du stationnement confirmé"
         ]
     },
     {
@@ -765,8 +766,8 @@ const lacDatabase = [
         "slug": "reservoir-choiniere-yamaska",
         "name": "Réservoir Choinière (Yamaska)",
         "region": "Estrie",
-        "lat": 45.429722,
-        "lon": -72.616944,
+        "lat": 45.42747602604209,
+        "lon": -72.61460047840362,
         "mainImage": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200",
         "gallery": [
             "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800"
@@ -806,13 +807,13 @@ const lacDatabase = [
         ],
         "faq": [
             { "q": "Est-ce un bon spot pour débuter ?", "a": "Oui, c'est un plan d'eau de parc avec services, location et plage, mais il faut toujours surveiller le vent." },
-            { "q": "Le GPS pointe où ?", "a": "Vers le secteur du centre de services/plage; le point exact de mise à l'eau reste à confirmer sur place." }
+            { "q": "Le GPS pointe où ?", "a": "Le GPS distingue l'accès nautique du secteur plage et le stationnement du parc, tous deux validés." }
         ],
         "highlights": [
             "Spot familial très connu en Estrie",
             "Services Sépaq complets",
             "Location nautique disponible",
-            "GPS accès probable à confirmer"
+            "GPS accès et stationnement validés"
         ]
     },
     {
@@ -867,7 +868,7 @@ const lacDatabase = [
             "Un des grands classiques SUP/kayak des Laurentides",
             "Îles et plages sauvages",
             "Camping nautique très populaire",
-            "GPS accès probable à confirmer"
+            "GPS accès et stationnement validés"
         ]
     },
     {
@@ -971,13 +972,13 @@ const lacDatabase = [
         ],
         "faq": [
             { "q": "Peut-on mettre son propre kayak à l'eau ?", "a": "Oui, la Sépaq indique des débarcadères au centre de découverte, au camping et dans certains secteurs du parc." },
-            { "q": "Pourquoi le GPS est probable seulement ?", "a": "Le secteur est identifié, mais le point précis du débarcadère doit encore être confirmé finement." }
+            { "q": "Le GPS pointe où ?", "a": "Le GPS distingue le débarcadère du centre de découverte et son stationnement, tous deux validés." }
         ],
         "highlights": [
             "Parcours calme dans les baies et marais",
             "Location nautique Sépaq",
             "Très bon pour observation de la faune",
-            "GPS accès probable à confirmer"
+            "GPS accès et stationnement validés"
         ]
     }
 ];
@@ -986,6 +987,76 @@ const lacDatabase = [
 // Ces fiches donnent un accès complet ? lac.html pour tous les spots,
 // tout en conservant les fiches ?ditoriales plus riches d?j? pr?sentes ci-dessus.
 const supplementalSpotDetails = [
+    {
+        "id": "baie-de-shawinigan-parc-de-la-baie",
+        "slug": "baie-de-shawinigan-parc-de-la-baie",
+        "name": "Baie de Shawinigan (Parc de la Baie)",
+        "region": "Mauricie",
+        "lat": 46.528479,
+        "lon": -72.7818462,
+        "mainImage": "assets/spots/baie-de-shawinigan/panorama-principal.jpg",
+        "gallery": [
+            "assets/spots/baie-de-shawinigan/panorama-principal.jpg",
+            "assets/spots/baie-de-shawinigan/acces-rive.jpg",
+            "assets/spots/baie-de-shawinigan/mise-a-eau.jpg",
+            "assets/spots/baie-de-shawinigan/paddle-sur-la-baie.jpg",
+            "assets/spots/baie-de-shawinigan/paddle-au-coucher-du-soleil.jpg"
+        ],
+        "description": "Accès direct à la baie de Shawinigan depuis le stationnement du Parc de la Baie. Le chemin de la Baie mène à une mise à l'eau en gravier pratique pour le SUP, le kayak et le canot.",
+        "longDescription": "Le Parc de la Baie donne accès à la baie de Shawinigan et à la rivière Saint-Maurice. Le point GPS mène directement au stationnement; la mise à l'eau en gravier se trouve à environ 21 mètres. Le départ est simple, mais il faut surveiller le vent, le courant et les embarcations motorisées une fois sur l'eau.",
+        "difficulty": "sportif",
+        "paddleScore": 76,
+        "scoreFactors": {
+            "wind": 7,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 7
+        },
+        "isFree": true,
+        "cost": "Accès public; aucun frais indiqué (à confirmer sur place).",
+        "waterQuality": "Bonne",
+        "maxLength": "Parcours variable sur le Saint-Maurice",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Stationnement du Parc de la Baie, chemin de la Baie, Shawinigan.",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Aucun frais indiqué (à confirmer sur place)."
+        },
+        "access": {
+            "description": "Accès à l'eau du Parc de la Baie, au bout du stationnement.",
+            "type": "Mise à l'eau en gravier",
+            "difficulty": "Facile depuis le stationnement",
+            "launchPoint": "Chemin de la Baie"
+        },
+        "amenities": [
+            "Stationnement directement à l'accès",
+            "Mise à l'eau en gravier",
+            "Accès adapté aux embarcations légères"
+        ],
+        "warnings": [
+            "Courant possible sur la rivière Saint-Maurice",
+            "Présence possible d'embarcations motorisées",
+            "Le vent peut lever des vagues dans la baie"
+        ],
+        "faq": [
+            {
+                "q": "Où mène le point GPS ?",
+                "a": "Directement au stationnement du Parc de la Baie. La mise à l'eau est à environ 21 mètres."
+            },
+            {
+                "q": "Peut-on mettre un SUP ou un kayak à l'eau ?",
+                "a": "Oui. Une mise à l'eau en gravier est répertoriée au chemin de la Baie."
+            }
+        ],
+        "highlights": [
+            "Point GPS du stationnement validé",
+            "Qualité de l'eau vérifiée sur place",
+            "Mise à l'eau à environ 21 mètres",
+            "Accès direct à la baie de Shawinigan",
+            "Bon départ pour SUP, kayak et canot"
+        ]
+    },
     {
         "id": "lac-tremblant",
         "slug": "lac-tremblant",
@@ -3375,13 +3446,15 @@ supplementalSpotDetails.forEach(spot => {
 });
 
 const accessPointOverrides = {
+    "baie-de-shawinigan-parc-de-la-baie": { lat: 46.5285141, lon: -72.7815819, name: "Mise à l'eau du Parc de la Baie", type: "Mise à l'eau en gravier", confidence: "high", hideSource: true },
     "lac-a-la-tortue": { lat: 46.6104797, lon: -72.6269128, name: "Plage du parc municipal du Lac à la Tortue", type: "Plage", confidence: "high", source: "OpenStreetMap natural=beach way 487542775" },
     "lac-sacacomie": { lat: 46.5274337, lon: -73.2032333, name: "Mise à l'eau du lac Sacacomie", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
-    "riviere-st-maurice": { lat: 46.3586419, lon: -72.5347227, name: "Mise à l'eau de l'Île Saint-Quentin / Avenue des Draveurs", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
+    "riviere-st-maurice": { lat: 46.35126835324924, lon: -72.52643053695992,  name: "Mise à l'eau de l'Île Saint-Quentin / Avenue des Draveurs", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
     "lac-saint-pierre": { lat: 46.2245511, lon: -72.9223353, name: "Rampe de mise à l'eau près du Domaine du Lac Saint-Pierre", type: "Rampe de mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
     "parc-national-wapizagonke": { lat: 46.6697644, lon: -73.0057686, name: "Mise à l'eau du secteur Wapizagonke", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
+    "lac-taureau": { lat: 46.6890634, lon: -73.9001922, name: "Descente de bateaux du Réservoir Taureau", type: "Rampe de mise à l'eau", confidence: "high", hideSource: true },
     "lac-maskinonge": { lat: 46.3023266, lon: -73.3889688, name: "Accès public Saint-Gabriel", type: "Mise à l'eau manuelle", confidence: "high", source: "Canot Kayak Québec, Carte interactive: accès public Saint-Gabriel, qualité B, validé" },
-    "lac-des-piles": { lat: 46.6642000, lon: -72.7893500, name: "Plage du Camping Baie Martin", type: "Plage de camping", confidence: "medium", source: "Tourisme Shawinigan confirme la plage, le canot et le kayak; rive repérée sur l'imagerie satellite Esri" },
+    "lac-des-piles": { lat: 46.6649705864116, lon: -72.789898034606, name: "Plage du Camping Baie Martin", type: "Plage de camping", confidence: "high", source: "Accès de la plage Baie Martin validé; activités recoupées avec Tourisme Shawinigan" },
     "lac-aux-sables": { lat: 46.8674872, lon: -72.3865210, name: "Mise à l'eau de la Ville de Lac-aux-Sables", type: "Mise à l'eau", confidence: "medium", source: "Canot Kayak Québec, Carte interactive: accès public; stationnement voisin à confirmer sur place" },
     "lac-stukely-mont-orford": { lat: 45.3631631, lon: -72.2331165, name: "Accès Orford au lac Stukely", type: "Mise à l'eau", confidence: "high", source: "Canot Kayak Québec, Carte interactive: accès public GPS, qualité B; recoupé avec OpenStreetMap" },
     "lac-memphremagog-magog": { lat: 45.264195, lon: -72.15304, name: "Rampe publique près de la baie de Magog", type: "Rampe de mise à l'eau", confidence: "medium", source: "OpenStreetMap leisure=slipway" },
@@ -3400,7 +3473,7 @@ const accessPointOverrides = {
     "lac-philippe-outaouais": { lat: 45.6021161, lon: -76.0435501, name: "Mise à l'eau du lac Philippe", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
     "bassin-de-lachine-montreal": { lat: 45.4789452, lon: -73.5740394, name: "Centre Nautique du Canal", type: "Marina", confidence: "high", source: "OpenStreetMap leisure=marina name=Centre Nautique du Canal" },
     "parc-national-oka": { lat: 45.4636861, lon: -74.0426822, name: "Accès de la Grande Plage d'Oka", type: "Plage / mise à l'eau manuelle", confidence: "medium", source: "Canot Kayak Québec, Carte interactive: accès public Plage Oka; recoupé avec Sépaq" },
-    "reservoir-choiniere-yamaska": { lat: 45.4296396, lon: -72.6136892, name: "Accès du parc national de la Yamaska", type: "Mise à l'eau manuelle", confidence: "medium", source: "Canot Kayak Québec, Carte interactive: accès public; recoupé avec Sépaq et OpenStreetMap" },
+    "reservoir-choiniere-yamaska": { lat: 45.42803795286092, lon: -72.61468546146959, name: "Accès du parc national de la Yamaska", type: "Mise à l'eau manuelle", confidence: "high", source: "Accès nautique validé et recoupé avec la Sépaq" },
     "reservoir-poisson-blanc": { lat: 46.0939877, lon: -75.6730562, name: "Accès du parc régional du Poisson-Blanc", type: "Mise à l'eau manuelle", confidence: "high", source: "Canot Kayak Québec, Carte interactive: accès public GPS, qualité B; recoupé avec le site du parc" },
     "baie-de-beauport-quebec": { lat: 46.8378694, lon: -71.1945722, name: "Accès nautique de la Baie de Beauport", type: "Plage / mise à l'eau manuelle", confidence: "high", source: "Canot Kayak Québec, Carte interactive: accès et stationnement GPS; recoupé avec SIT Québec" },
     "parc-national-plaisance": { lat: 45.5989056, lon: -75.1097501, name: "Mise à l'eau du parc national de Plaisance", type: "Mise à l'eau", confidence: "high", source: "Canot Kayak Québec, Carte interactive: accès public qualité A, validé; recoupé avec Sépaq" },
@@ -3411,14 +3484,16 @@ const accessPointOverrides = {
 // Le point d'accès et le stationnement sont volontairement séparés. Les itinéraires
 // visent le stationnement afin d'éviter d'envoyer un véhicule directement sur la rive.
 const parkingPointOverrides = {
+    "baie-de-shawinigan-parc-de-la-baie": { lat: 46.528479, lon: -72.7818462, name: "Stationnement du Parc de la Baie", confidence: "high", hideSource: true, distanceToAccessMeters: 21, fee: "Aucun frais indiqué (à confirmer sur place)" },
     "lac-sacacomie": { lat: 46.5272924, lon: -73.2028248, name: "Stationnement du quai municipal", confidence: "high", source: "OpenStreetMap parking access=yes; confirmé par Canot Kayak Québec (GPS GNSS, qualité B)", distanceToAccessMeters: 35, fee: "Payant" },
-    "riviere-st-maurice": { lat: 46.3598371, lon: -72.5338420, name: "Stationnement près de la mise à l'eau", confidence: "medium", source: "OpenStreetMap amenity=parking", distanceToAccessMeters: 149, fee: "À vérifier" },
+    "riviere-st-maurice": { lat: 46.35318320931242, lon: -72.52670564986391, name: "Stationnement près de la mise à l'eau", confidence: "high", source: "Stationnement GPS validé", distanceToAccessMeters: 214, fee: "À vérifier" },
     "parc-national-wapizagonke": { lat: 46.6707117, lon: -73.0046871, name: "Stationnement du secteur Wapizagonke", confidence: "medium", source: "OpenStreetMap amenity=parking; secteur recoupé avec Sépaq", distanceToAccessMeters: 134, fee: "Droit d'accès au parc" },
+    "lac-taureau": { lat: 46.6887256, lon: -73.9000209, name: "Stationnement de la descente de bateaux du Réservoir Taureau", confidence: "high", hideSource: true, distanceToAccessMeters: 40, fee: "Gratuit" },
     "lac-maskinonge": { lat: 46.3018400, lon: -73.3885970, name: "Stationnement de la plage municipale, 333 rue du Parc", confidence: "high", source: "Coordonnées fournies par l'utilisateur; stationnement public confirmé à 11 m par Canot Kayak Québec et recoupé avec OpenStreetMap", distanceToAccessMeters: 71, fee: "Gratuit" },
-    "lac-des-piles": { lat: 46.6653731, lon: -72.7901009, name: "Camping Plage Baie Martin, 1801 chemin de la Baie-Martin", confidence: "high", source: "Adresse et carte du site officiel Camping Plage Baie Martin; activité confirmée par Tourisme Shawinigan", distanceToAccessMeters: 143, fee: "Accès et tarif à confirmer auprès du camping" },
+    "lac-des-piles": { lat: 46.6653731, lon: -72.7901009, name: "Camping Plage Baie Martin, 1801 chemin de la Baie-Martin", confidence: "high", source: "Stationnement et accès routier validés", distanceToAccessMeters: 47, fee: "Accès et tarif à confirmer auprès du camping" },
     "lac-aux-sables": { lat: 46.8670340, lon: -72.3870136, name: "Stationnement de la mise à l'eau de Lac-aux-Sables", confidence: "medium", source: "Canot Kayak Québec, Carte interactive: stationnement qualité B observé par imagerie satellite", distanceToAccessMeters: 63, fee: "Gratuit" },
-    "parc-national-oka": { lat: 45.4646954, lon: -74.0424846, name: "Stationnement de la Grande Plage d'Oka", confidence: "medium", source: "Canot Kayak Québec, Carte interactive; recoupé avec Sépaq", distanceToAccessMeters: 113, fee: "Droit d'accès au parc" },
-    "reservoir-choiniere-yamaska": { lat: 45.4301875, lon: -72.6172951, name: "Stationnement P2 du parc national de la Yamaska", confidence: "high", source: "OpenStreetMap: stationnement P2 réservé aux visiteurs, gratuit; recoupé avec Sépaq et Canot Kayak Québec", distanceToAccessMeters: 285, fee: "Stationnement gratuit; droit d'accès au parc" },
+    "parc-national-oka": { lat: 45.4646954, lon: -74.0424846, name: "Stationnement de la Grande Plage d'Oka", confidence: "high", source: "Stationnement de la plage confirmé et recoupé avec la Sépaq", distanceToAccessMeters: 113, fee: "Stationnement payant en saison; droit d'accès au parc" },
+    "reservoir-choiniere-yamaska": { lat: 45.427711468827454, lon: -72.61706242460583, name: "Stationnement du parc national de la Yamaska", confidence: "high", source: "Stationnement GPS validé et recoupé avec la Sépaq", distanceToAccessMeters: 189, fee: "Stationnement gratuit; droit d'accès au parc" },
     "reservoir-poisson-blanc": { lat: 46.0951093, lon: -75.6742184, name: "Stationnement P3 du pavillon Le Bastion", confidence: "high", source: "OpenStreetMap: stationnement P3; accès voisin confirmé par Canot Kayak Québec", distanceToAccessMeters: 153, fee: "À vérifier" },
     "baie-de-beauport-quebec": { lat: 46.8378537, lon: -71.1974402, name: "Stationnement de la plage de la Baie de Beauport", confidence: "high", source: "Canot Kayak Québec, Carte interactive: GPS, qualité B, validé", distanceToAccessMeters: 221, fee: "À vérifier" },
     "parc-national-plaisance": { lat: 45.5992347, lon: -75.1094637, name: "Stationnement de l'accueil du parc national de Plaisance", confidence: "high", source: "Canot Kayak Québec, Carte interactive: stationnement public qualité A, validé", distanceToAccessMeters: 43, fee: "Stationnement gratuit; droit d'accès au parc" },
@@ -3448,6 +3523,7 @@ function normalizeGpsPoint(point, fallback) {
         type: point?.type || fallback?.access?.type || "Point d'accès",
         confidence: point?.confidence || "needs_verification",
         source: point?.source || "Coordonnées Spot Paddle existantes",
+        hideSource: Boolean(point?.hideSource),
         note: point?.note || ""
     };
 }
@@ -3466,6 +3542,48 @@ function normalizeParkingPoint(point) {
     };
 }
 
+function syncGpsValidationCopy(lake) {
+    const accessIsValidated = lake.accessPoint?.confidence === "high";
+    const parkingIsValidated = lake.parkingPoint?.confidence === "high";
+    const hasParkingPoint = Boolean(lake.parkingPoint);
+
+    if (accessIsValidated && Array.isArray(lake.amenities)) {
+        lake.amenities = lake.amenities.map(item =>
+            item === "Mise à l'eau à confirmer sur place"
+                ? "Point de mise à l'eau GPS validé"
+                : item
+        );
+    }
+
+    if (Array.isArray(lake.highlights)) {
+        const gpsSummary = accessIsValidated && parkingIsValidated
+            ? "GPS accès et stationnement validés"
+            : accessIsValidated && hasParkingPoint
+                ? "GPS accès validé; stationnement probable"
+                : accessIsValidated
+                    ? "GPS de l'accès validé; stationnement à vérifier"
+                    : parkingIsValidated
+                        ? "GPS stationnement validé; accès à préciser"
+                        : null;
+
+        if (gpsSummary) {
+            lake.highlights = lake.highlights.map(item =>
+                item === "Point d'accès à valider avant la sortie" ? gpsSummary : item
+            );
+        }
+    }
+
+    if (accessIsValidated && Array.isArray(lake.faq)) {
+        lake.faq = lake.faq.map(item => {
+            if (item?.q !== "Le point indiqué correspond-il à une mise à l'eau officielle ?") return item;
+            return {
+                ...item,
+                a: "Le point GPS correspond à l'accès nautique validé pour ce spot. Vérifiez toujours les règles locales et l'état du site avant le départ."
+            };
+        });
+    }
+}
+
 lacDatabase.forEach(lac => {
     const override = accessPointOverrides[lac.slug];
     lac.accessPoint = normalizeGpsPoint(override, lac);
@@ -3479,6 +3597,8 @@ lacDatabase.forEach(lac => {
         lac.access.gpsConfidence = lac.accessPoint.confidence;
         lac.access.gpsSource = lac.accessPoint.source;
     }
+
+    syncGpsValidationCopy(lac);
 });
 
 function getLakeAccessPoint(lake) {

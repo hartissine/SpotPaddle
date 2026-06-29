@@ -674,3 +674,37 @@ details[open] > summary::before {
         font-size: 16px;
     }
 }
+/* Carrousel des spots populaires : grandes cartes, glissement tactile et arrêt net. */
+.popular-spots-carousel {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    padding: 0.15rem 0.1rem 1rem;
+    scroll-behavior: smooth;
+    scroll-padding-inline: 0.1rem;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.popular-spots-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.popular-spot-card {
+    flex: 0 0 min(86vw, 21.5rem);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+@media (min-width: 640px) {
+    .popular-spot-card {
+        flex-basis: calc((100% - 1.25rem) / 2);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .popular-spots-carousel {
+        scroll-behavior: auto;
+    }
+}
