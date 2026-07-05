@@ -1,13 +1,23 @@
 # Validation GPS des accès et stationnements
 
-Dernière passe: 2026-06-18
+Dernière passe: 2026-07-05
 
 ## État actuel
 
-- 50 spots sont publiés.
-- 23 spots possèdent maintenant un point de stationnement distinct du point de mise à l'eau.
-- 17 stationnements sont classés `high` et 6 sont classés `medium`.
-- Les 27 autres spots conservent leur accès actuel, mais l'itinéraire de stationnement reste à vérifier.
+- 51 spots sont publiés.
+- 27 spots possèdent maintenant un point de stationnement distinct du point de mise à l'eau.
+- 21 stationnements sont classés `high` et 6 sont classés `medium`.
+- Les 24 autres spots conservent leur accès actuel, mais l'itinéraire de stationnement reste à vérifier.
+
+## Recoupement La Vie SUP du 5 juillet 2026
+
+- Source: export HAR de la carte publique La Vie SUP, contenant 247 destinations « Itinéraire ».
+- Lac-aux-Sables: le débarcadère municipal La Vie SUP est à 16 m du point d'accès actuel. L'accès passe de `medium` à `high`; le stationnement demeure `medium`.
+- Rivière Bonaventure: la Plage de la Piouke La Vie SUP est à 37 m du point actuel. L'accès passe de `medium` à `high`.
+- Lac Saint-Pierre: ajout du Domaine du Lac Saint-Pierre comme destination routière `medium`, à environ 430 m de la mise à l'eau actuelle.
+- Marais du Nord: ajout du stationnement principal au 1100 chemin de la Grande Ligne comme destination routière `medium`, à environ 334 m du point actuel.
+- Correspondances conservées sans promotion: Memphrémagog/Magog (accès différent à 390 m), Wapizagonke (même secteur à 320 m), Lac Meech (P12 différent de la plage O'Brien/P11), Lac Philippe (plage Parent différente de la mise à l'eau actuelle).
+- Aucun point n'est promu quand le nom correspond seulement au plan d'eau, que l'accès est sur une autre rive ou que la destination La Vie SUP représente une entreprise de location.
 
 ## Règle de publication
 
@@ -69,4 +79,4 @@ Entre 250 et 500 m, le point est généralement classé `medium`. Au-delà de 50
 
 ## Prochaine passe manuelle
 
-Priorité aux 27 spots sans stationnement GPS distinct. Il faut d'abord traiter les endroits marqués `needs_verification`, puis vérifier les changements saisonniers avant chaque début d'été.
+Priorité aux 24 spots sans stationnement GPS distinct. Il faut d'abord traiter les endroits marqués `needs_verification`, puis vérifier les changements saisonniers avant chaque début d'été.

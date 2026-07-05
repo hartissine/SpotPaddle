@@ -752,13 +752,13 @@ const lacDatabase = [
         ],
         "faq": [
             { "q": "Peut-on louer sur place ?", "a": "Oui, la Sépaq indique de la location de kayak et de surf à pagaie au parc national d'Oka en saison." },
-            { "q": "Le stationnement GPS est-il confirmé ?", "a": "Oui. Le point GPS mène au stationnement de la plage. La mise à l'eau se fait ensuite à la rampe de la Crête ou aux extrémités de la plage principale selon les consignes Sépaq." }
+            { "q": "Les points GPS sont-ils confirmés ?", "a": "Oui. Le stationnement et l'accès à l'eau de la Grande Plage sont validés. La rampe de la Crête demeure une autre option selon les consignes Sépaq." }
         ],
         "highlights": [
             "Spot très fréquenté près de Montréal",
             "Location nautique sur place",
             "Plage et services complets",
-            "GPS du stationnement confirmé"
+            "GPS accès et stationnement validés"
         ]
     },
     {
@@ -3455,12 +3455,12 @@ const accessPointOverrides = {
     "lac-taureau": { lat: 46.6890634, lon: -73.9001922, name: "Descente de bateaux du Réservoir Taureau", type: "Rampe de mise à l'eau", confidence: "high", hideSource: true },
     "lac-maskinonge": { lat: 46.3023266, lon: -73.3889688, name: "Accès public Saint-Gabriel", type: "Mise à l'eau manuelle", confidence: "high", source: "Canot Kayak Québec, Carte interactive: accès public Saint-Gabriel, qualité B, validé" },
     "lac-des-piles": { lat: 46.6649705864116, lon: -72.789898034606, name: "Plage du Camping Baie Martin", type: "Plage de camping", confidence: "high", source: "Accès de la plage Baie Martin validé; activités recoupées avec Tourisme Shawinigan" },
-    "lac-aux-sables": { lat: 46.8674872, lon: -72.3865210, name: "Mise à l'eau de la Ville de Lac-aux-Sables", type: "Mise à l'eau", confidence: "medium", source: "Canot Kayak Québec, Carte interactive: accès public; stationnement voisin à confirmer sur place" },
+    "lac-aux-sables": { lat: 46.8674872, lon: -72.3865210, name: "Mise à l'eau de la Ville de Lac-aux-Sables", type: "Mise à l'eau", confidence: "high", source: "Canot Kayak Québec, Carte interactive: accès public; recoupé avec La Vie SUP, Lac-aux-Sables B / débarcadère municipal (écart 16 m)" },
     "lac-stukely-mont-orford": { lat: 45.3631631, lon: -72.2331165, name: "Accès Orford au lac Stukely", type: "Mise à l'eau", confidence: "high", source: "Canot Kayak Québec, Carte interactive: accès public GPS, qualité B; recoupé avec OpenStreetMap" },
     "lac-memphremagog-magog": { lat: 45.264195, lon: -72.15304, name: "Rampe publique près de la baie de Magog", type: "Rampe de mise à l'eau", confidence: "medium", source: "OpenStreetMap leisure=slipway" },
     "lac-saint-jean-alma": { lat: 48.4796193, lon: -71.7934448, name: "Marina St-Gédéon", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
     "fjord-du-saguenay-l-anse": { lat: 48.2444772, lon: -70.1794917, name: "Quai / mise à l'eau de L'Anse-Saint-Jean", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway name=Anse-Saint-Jean" },
-    "riviere-bonaventure": { lat: 48.058761, lon: -65.51748, name: "Plage de la Piouke / accès Bonaventure", type: "Plage", confidence: "medium", source: "OpenStreetMap natural=beach" },
+    "riviere-bonaventure": { lat: 48.058761, lon: -65.51748, name: "Plage de la Piouke / accès Bonaventure", type: "Plage", confidence: "high", source: "OpenStreetMap natural=beach; recoupé avec La Vie SUP, Baie-des-Chaleurs (Bonaventure A) / Plage de la Piouke (écart 37 m)" },
     "iles-de-boucherville": { lat: 45.611956, lon: -73.4568017, name: "Mise à l'eau du parc national des Îles-de-Boucherville", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
     "canal-de-lachine": { lat: 45.4789452, lon: -73.5740394, name: "Centre Nautique du Canal", type: "Marina", confidence: "high", source: "OpenStreetMap leisure=marina" },
     "lac-aylmer-stratford": { lat: 45.8064658, lon: -71.3258953, name: "Mise à l'eau Lac Aylmer, secteur Stratford", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
@@ -3472,7 +3472,7 @@ const accessPointOverrides = {
     "lac-la-peche-outaouais": { lat: 45.6224025, lon: -76.1784341, name: "Mise à l'eau du lac la Pêche", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
     "lac-philippe-outaouais": { lat: 45.6021161, lon: -76.0435501, name: "Mise à l'eau du lac Philippe", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
     "bassin-de-lachine-montreal": { lat: 45.4789452, lon: -73.5740394, name: "Centre Nautique du Canal", type: "Marina", confidence: "high", source: "OpenStreetMap leisure=marina name=Centre Nautique du Canal" },
-    "parc-national-oka": { lat: 45.4636861, lon: -74.0426822, name: "Accès de la Grande Plage d'Oka", type: "Plage / mise à l'eau manuelle", confidence: "medium", source: "Canot Kayak Québec, Carte interactive: accès public Plage Oka; recoupé avec Sépaq" },
+    "parc-national-oka": { lat: 45.4636861, lon: -74.0426822, name: "Accès de la Grande Plage d'Oka", type: "Plage / mise à l'eau manuelle", confidence: "high", source: "Accès à l'eau de la Grande Plage validé et recoupé avec la Sépaq" },
     "reservoir-choiniere-yamaska": { lat: 45.42803795286092, lon: -72.61468546146959, name: "Accès du parc national de la Yamaska", type: "Mise à l'eau manuelle", confidence: "high", source: "Accès nautique validé et recoupé avec la Sépaq" },
     "reservoir-poisson-blanc": { lat: 46.0939877, lon: -75.6730562, name: "Accès du parc régional du Poisson-Blanc", type: "Mise à l'eau manuelle", confidence: "high", source: "Canot Kayak Québec, Carte interactive: accès public GPS, qualité B; recoupé avec le site du parc" },
     "baie-de-beauport-quebec": { lat: 46.8378694, lon: -71.1945722, name: "Accès nautique de la Baie de Beauport", type: "Plage / mise à l'eau manuelle", confidence: "high", source: "Canot Kayak Québec, Carte interactive: accès et stationnement GPS; recoupé avec SIT Québec" },
@@ -3492,6 +3492,7 @@ const parkingPointOverrides = {
     "lac-maskinonge": { lat: 46.3018400, lon: -73.3885970, name: "Stationnement de la plage municipale, 333 rue du Parc", confidence: "high", source: "Coordonnées fournies par l'utilisateur; stationnement public confirmé à 11 m par Canot Kayak Québec et recoupé avec OpenStreetMap", distanceToAccessMeters: 71, fee: "Gratuit" },
     "lac-des-piles": { lat: 46.6653731, lon: -72.7901009, name: "Camping Plage Baie Martin, 1801 chemin de la Baie-Martin", confidence: "high", source: "Stationnement et accès routier validés", distanceToAccessMeters: 47, fee: "Accès et tarif à confirmer auprès du camping" },
     "lac-aux-sables": { lat: 46.8670340, lon: -72.3870136, name: "Stationnement de la mise à l'eau de Lac-aux-Sables", confidence: "medium", source: "Canot Kayak Québec, Carte interactive: stationnement qualité B observé par imagerie satellite", distanceToAccessMeters: 63, fee: "Gratuit" },
+    "lac-saint-pierre": { lat: 46.22080543335617, lon: -72.92372854163526, name: "Domaine du Lac Saint-Pierre", confidence: "medium", source: "La Vie SUP, Louiseville (Fleuve) / Domaine du Lac Saint-Pierre; destination d'itinéraire publique", distanceToAccessMeters: 430, fee: "À vérifier" },
     "parc-national-oka": { lat: 45.4646954, lon: -74.0424846, name: "Stationnement de la Grande Plage d'Oka", confidence: "high", source: "Stationnement de la plage confirmé et recoupé avec la Sépaq", distanceToAccessMeters: 113, fee: "Stationnement payant en saison; droit d'accès au parc" },
     "reservoir-choiniere-yamaska": { lat: 45.427711468827454, lon: -72.61706242460583, name: "Stationnement du parc national de la Yamaska", confidence: "high", source: "Stationnement GPS validé et recoupé avec la Sépaq", distanceToAccessMeters: 189, fee: "Stationnement gratuit; droit d'accès au parc" },
     "reservoir-poisson-blanc": { lat: 46.0951093, lon: -75.6742184, name: "Stationnement P3 du pavillon Le Bastion", confidence: "high", source: "OpenStreetMap: stationnement P3; accès voisin confirmé par Canot Kayak Québec", distanceToAccessMeters: 153, fee: "À vérifier" },
@@ -3502,6 +3503,7 @@ const parkingPointOverrides = {
     "fjord-du-saguenay-l-anse": { lat: 48.2439047, lon: -70.1800943, name: "Stationnement du quai de L'Anse-Saint-Jean", confidence: "high", source: "OpenStreetMap amenity=parking, access=yes, fee=yes", distanceToAccessMeters: 78, fee: "Payant" },
     "lac-saint-jean-alma": { lat: 48.4802148, lon: -71.7960512, name: "Stationnement Pointe Picard / Marina St-Gédéon", confidence: "high", source: "Canot Kayak Québec, Carte interactive: qualité B; recoupé avec OpenStreetMap", distanceToAccessMeters: 203, fee: "Payant" },
     "riviere-bonaventure": { lat: 48.0589625, lon: -65.5172142, name: "Stationnement de la Piouke", confidence: "high", source: "OpenStreetMap amenity=parking, surface asphaltée", distanceToAccessMeters: 30, fee: "À vérifier" },
+    "marais-du-nord-st-charles": { lat: 46.961562, lon: -71.392812, name: "Stationnement principal du Marais du Nord", confidence: "medium", source: "La Vie SUP, Marais du Nord / Stoneham-et-Tewkesbury, 1100 chemin de la Grande Ligne; destination d'itinéraire publique", distanceToAccessMeters: 334, fee: "Frais d'accès au site" },
     "iles-de-boucherville": { lat: 45.6117779, lon: -73.4566016, name: "Stationnement près de la mise à l'eau", confidence: "high", source: "OpenStreetMap amenity=parking; stationnement public GPS confirmé par Canot Kayak Québec", distanceToAccessMeters: 25, fee: "Droit d'accès au parc" },
     "lac-brome": { lat: 45.2559768, lon: -72.4948600, name: "Stationnement de la mise à l'eau du lac Brome", confidence: "high", source: "OpenStreetMap amenity=parking, access=yes, fee=yes", distanceToAccessMeters: 68, fee: "Payant" },
     "riviere-chicoutimi": { lat: 48.4304405, lon: -71.0528561, name: "Stationnement de la Marina Saguenay", confidence: "medium", source: "OpenStreetMap amenity=parking", distanceToAccessMeters: 86, fee: "À vérifier" },

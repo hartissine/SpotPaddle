@@ -12,6 +12,42 @@ html {
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
+.map-interaction-toggle {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    z-index: 1001;
+    min-height: 2.75rem;
+    transform: translateX(-50%);
+    border: 2px solid #2563eb;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.96);
+    padding: 0.6rem 1rem;
+    color: #1d4ed8;
+    font-size: 0.75rem;
+    font-weight: 800;
+    white-space: nowrap;
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.2);
+    backdrop-filter: blur(8px);
+}
+
+.map-interaction-toggle.is-active {
+    border-color: #0f172a;
+    background: rgba(15, 23, 42, 0.94);
+    color: #fff;
+}
+
+#map.map-touch-locked {
+    touch-action: pan-y !important;
+}
+
+@media (max-width: 767px) {
+    #map {
+        height: 380px;
+        border-radius: 1.25rem;
+    }
+}
+
 /* --- ANIMATIONS DES CARTES (Les 3 spots du haut) --- */
 .group {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -189,6 +225,16 @@ html {
 .leaflet-popup-content::-webkit-scrollbar-thumb {
     background: #3b82f6;
     border-radius: 10px;
+}
+
+.map-zoom-control--locked {
+    opacity: 0.55;
+}
+
+.map-zoom-control--locked button,
+.map-zoom-control--locked button:disabled {
+    cursor: not-allowed;
+    pointer-events: none;
 }
 
 /* --- ANIMATION DE CHARGEMENT & PRÉVISIONS --- */
@@ -706,5 +752,32 @@ details[open] > summary::before {
 @media (prefers-reduced-motion: reduce) {
     .popular-spots-carousel {
         scroll-behavior: auto;
+    }
+}
+
+/* La fiche rapide reste dans le flux sur mobile et sur les écrans peu hauts. */
+.quick-info-panel {
+    position: static;
+}
+
+/* Sur un grand écran, elle peut suivre le défilement sans jamais être coupée. */
+@media (min-width: 1024px) and (min-height: 860px) {
+    .quick-info-panel {
+        position: sticky;
+        top: 6rem;
+        max-height: calc(100dvh - 7.5rem);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(100, 116, 139, 0.55) transparent;
+    }
+
+    .quick-info-panel::-webkit-scrollbar {
+        width: 0.45rem;
+    }
+
+    .quick-info-panel::-webkit-scrollbar-thumb {
+        border-radius: 999px;
+        background: rgba(100, 116, 139, 0.55);
     }
 }

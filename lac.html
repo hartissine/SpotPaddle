@@ -17,7 +17,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>tailwind.config = { darkMode: 'class' };</script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="stylesheet" href="style.css?v=20260617-2" />
+    <link rel="stylesheet" href="style.css?v=20260629-1" />
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans dark:bg-slate-900 dark:text-slate-100 transition-colors">
 
@@ -67,7 +67,7 @@
     </div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="data.js?v=20260617-2"></script>
+    <script src="data.js?v=20260629-1"></script>
     <script>
         // ========== GESTION DU THÈME ==========
         function toggleTheme() {
@@ -103,15 +103,15 @@
 
         // ========== FETCH MÉTÉO AVEC TIMEOUT ==========
         async function fetchWeatherForLake(lat, lon) {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 6000);
+
             try {
-                const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 8000);
                 const params = new URLSearchParams({ lat: String(lat), lon: String(lon) });
                 const response = await fetch(`https://meteo.spotpaddle.ca/meteo.php?${params.toString()}`, {
-                    signal: controller.signal
+                    signal: controller.signal,
+                    cache: 'default'
                 });
-                
-                clearTimeout(timeoutId);
                 
                 if (!response.ok) throw new Error('API status: ' + response.status);
                 
@@ -129,7 +129,41 @@
             } catch (e) {
                 console.warn('Météo indisponible:', e.message);
                 return { available: false, temp: null, wind: null, rain: null, waves: null };
+            } finally {
+                clearTimeout(timeoutId);
             }
+        }
+
+        function formatLakeWeather(value, digits, suffix) {
+            return Number.isFinite(value) ? `${value.toFixed(digits)}${suffix}` : 'Indisponible';
+        }
+
+        function updateLakeWeatherWidget(weatherData) {
+            const status = document.getElementById('lakeWeatherStatus');
+            const temperature = document.getElementById('lakeWeatherTemp');
+            const wind = document.getElementById('lakeWeatherWind');
+            const clouds = document.getElementById('lakeWeatherClouds');
+            const waves = document.getElementById('lakeWeatherWaves');
+
+            if (!status || !temperature || !wind || !clouds || !waves) return;
+
+            if (weatherData.available) {
+                status.className = 'mb-4 rounded-xl border border-emerald-200 bg-emerald-50 p-3 text-sm font-semibold text-emerald-800 dark:border-emerald-900/50 dark:bg-emerald-950/30 dark:text-emerald-200';
+                status.textContent = 'Conditions météo mises à jour.';
+            } else {
+                status.className = 'mb-4 rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm font-semibold text-amber-800 dark:border-amber-900/50 dark:bg-amber-950/30 dark:text-amber-200';
+                status.textContent = 'Météo temporairement indisponible. La fiche du spot reste accessible.';
+            }
+
+            temperature.textContent = formatLakeWeather(weatherData.temp, 1, '°C');
+            wind.textContent = formatLakeWeather(weatherData.wind, 1, ' km/h');
+            clouds.textContent = formatLakeWeather(weatherData.rain, 0, '%');
+            waves.textContent = formatLakeWeather(weatherData.waves, 2, ' m');
+        }
+
+        async function loadLakeWeather(currentLake) {
+            const weatherData = await fetchWeatherForLake(currentLake.lat, currentLake.lon);
+            updateLakeWeatherWidget(weatherData);
         }
 
         // ========== INITIALISATION PAGE ==========
@@ -162,12 +196,8 @@
         }
 
         // ========== RENDU PRINCIPAL ==========
-        async function renderLakePage(currentLake) {
+        function renderLakePage(currentLake) {
             try {
-                const weatherData = await fetchWeatherForLake(currentLake.lat, currentLake.lon);
-                const formatWeather = (value, digits, suffix) => Number.isFinite(value)
-                    ? `${value.toFixed(digits)}${suffix}`
-                    : 'Indisponible';
                 const accessPoint = typeof getLakeAccessPoint === 'function'
                     ? getLakeAccessPoint(currentLake)
                     : { lat: currentLake.lat, lon: currentLake.lon, name: currentLake.access?.description || currentLake.name, confidence: 'needs_verification' };
@@ -263,6 +293,9 @@
                                     </div>
                                     <div class="relative">
                                         <div id="map" class="shadow-xl rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden" style="height: 350px;"></div>
+                                        <button id="detailMapInteractionToggle" type="button" onclick="toggleDetailMapInteraction()" class="map-interaction-toggle" aria-pressed="false" hidden>
+                                            🗺️ Explorer la carte
+                                        </button>
                                         <div id="detailMapZoomControl" class="absolute bottom-4 right-4 z-[1000] overflow-hidden rounded-lg border-2 border-blue-600 bg-white/95 shadow-xl backdrop-blur-md dark:border-blue-500 dark:bg-slate-800" role="group" aria-label="Contrôles du zoom">
                                             <button type="button" onclick="zoomDetailMap(1)" class="flex h-11 w-11 items-center justify-center text-2xl font-bold text-blue-600 transition-colors hover:bg-blue-50 dark:text-blue-400 dark:hover:bg-slate-700" title="Zoom avant" aria-label="Zoom avant">+</button>
                                             <button type="button" onclick="zoomDetailMap(-1)" class="flex h-11 w-11 items-center justify-center border-t border-slate-200 text-2xl font-bold text-blue-600 transition-colors hover:bg-blue-50 dark:border-slate-700 dark:text-blue-400 dark:hover:bg-slate-700" title="Zoom arrière" aria-label="Zoom arrière">−</button>
@@ -296,31 +329,30 @@
                                 <section>
                                     <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">🌤️ Conditions Météo Live</h2>
                                     <div class="bg-gradient-to-br from-blue-50 to-sky-100 dark:from-slate-800 dark:to-slate-800/40 border border-blue-200 dark:border-slate-700 p-6 rounded-2xl shadow-sm">
-                                        ${weatherData.available ? '' : `
-                                            <div class="mb-4 rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm font-semibold text-amber-800 dark:border-amber-900/50 dark:bg-amber-950/30 dark:text-amber-200">
-                                                Météo temporairement indisponible. Vérifiez les conditions avant votre départ.
-                                            </div>
-                                        `}
+                                        <div id="lakeWeatherStatus" class="mb-4 flex items-center gap-2 rounded-xl border border-blue-200 bg-blue-50 p-3 text-sm font-semibold text-blue-800 dark:border-blue-900/50 dark:bg-blue-950/30 dark:text-blue-200" role="status" aria-live="polite">
+                                            <span class="inline-block h-4 w-4 animate-spin rounded-full border-2 border-blue-500 border-t-transparent" aria-hidden="true"></span>
+                                            Chargement de la météo en arrière-plan…
+                                        </div>
                                         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                                             <div class="text-center bg-white dark:bg-slate-900/60 p-3 rounded-xl shadow-sm">
                                                 <div class="text-2xl mb-1">🌡️</div>
                                                 <p class="text-xs text-slate-500">Température</p>
-                                                <p class="text-xl font-black">${formatWeather(weatherData.temp, 1, '°C')}</p>
+                                                <p id="lakeWeatherTemp" class="text-xl font-black">—</p>
                                             </div>
                                             <div class="text-center bg-white dark:bg-slate-900/60 p-3 rounded-xl shadow-sm">
                                                 <div class="text-2xl mb-1">💨</div>
                                                 <p class="text-xs text-slate-500">Vent</p>
-                                                <p class="text-xl font-black">${formatWeather(weatherData.wind, 1, ' km/h')}</p>
+                                                <p id="lakeWeatherWind" class="text-xl font-black">—</p>
                                             </div>
                                             <div class="text-center bg-white dark:bg-slate-900/60 p-3 rounded-xl shadow-sm">
                                                 <div class="text-2xl mb-1">☁️</div>
                                                 <p class="text-xs text-slate-500">Nuages</p>
-                                                <p class="text-xl font-black">${formatWeather(weatherData.rain, 0, '%')}</p>
+                                                <p id="lakeWeatherClouds" class="text-xl font-black">—</p>
                                             </div>
                                             <div class="text-center bg-white dark:bg-slate-900/60 p-3 rounded-xl shadow-sm">
                                                 <div class="text-2xl mb-1">🌊</div>
                                                 <p class="text-xs text-slate-500">Vagues (Est.)</p>
-                                                <p class="text-xl font-black">${formatWeather(weatherData.waves, 2, ' m')}</p>
+                                                <p id="lakeWeatherWaves" class="text-xl font-black">—</p>
                                             </div>
                                         </div>
                                     </div>
@@ -353,8 +385,8 @@
                                 </section>` : ''}
                             </div>
 
-                            <div class="space-y-6">
-                                <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm sticky top-24 space-y-6">
+                            <div class="space-y-6 self-start">
+                                <div class="quick-info-panel bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 shadow-sm space-y-6">
                                     <h3 class="font-bold text-lg border-b pb-2">ℹ️ Infos Rapides</h3>
                                     <div class="space-y-3 text-sm">
                                         <div class="flex justify-between pb-2 border-b border-slate-100 dark:border-slate-700">
@@ -402,11 +434,16 @@
                 const loadingEl = document.getElementById('loading');
                 if (loadingEl) loadingEl.style.display = 'none';
 
-                // Initialisations Leaflet & Lacs proches
-                initMap(currentLake);
-                if (typeof getNearestLakes === 'function') {
-                    loadNearbyLakes(currentLake);
-                }
+                // La météo ne bloque plus l'affichage de la fiche.
+                void loadLakeWeather(currentLake);
+
+                // Laisser le navigateur peindre le contenu avant d'initialiser la carte.
+                requestAnimationFrame(() => {
+                    initMap(currentLake);
+                    if (typeof getNearestLakes === 'function') {
+                        loadNearbyLakes(currentLake);
+                    }
+                });
             } catch (error) {
                 console.error('❌ Erreur lors du rendu final:', error);
                 showErrorMessage("Erreur d'affichage", error.message);
@@ -417,6 +454,43 @@
         let detailMap = null;
         let detailStreetLayer = null;
         let detailSatelliteLayer = null;
+        let detailSatelliteLabelsLayer = null;
+        let isDetailMapInteractionEnabled = true;
+
+        function isMobileDetailMapViewport() {
+            return window.matchMedia('(max-width: 767px)').matches;
+        }
+
+        function setDetailMapInteractionEnabled(enabled) {
+            const mapTarget = document.getElementById('map');
+            if (!detailMap || !mapTarget) return;
+
+            const isMobile = isMobileDetailMapViewport();
+            const locked = isMobile && !enabled;
+            const toggle = document.getElementById('detailMapInteractionToggle');
+            isDetailMapInteractionEnabled = !locked;
+
+            ['dragging', 'touchZoom', 'doubleClickZoom'].forEach(handlerName => {
+                const handler = detailMap[handlerName];
+                if (!handler) return;
+                if (locked) handler.disable();
+                else handler.enable();
+            });
+
+            if (detailMap.scrollWheelZoom) detailMap.scrollWheelZoom.disable();
+            mapTarget.classList.toggle('map-touch-locked', locked);
+
+            if (toggle) {
+                toggle.hidden = !isMobile;
+                toggle.setAttribute('aria-pressed', String(!locked));
+                toggle.classList.toggle('is-active', !locked);
+                toggle.textContent = locked ? '🗺️ Explorer la carte' : '↕ Reprendre le défilement';
+            }
+        }
+
+        function toggleDetailMapInteraction() {
+            setDetailMapInteractionEnabled(!isDetailMapInteractionEnabled);
+        }
 
         function zoomDetailMap(delta) {
             if (!detailMap) return;
@@ -452,12 +526,22 @@
 
         function setDetailMapMode(mode, persist = true) {
             const selectedMode = mode === 'satellite' ? 'satellite' : 'street';
-            const selectedLayer = selectedMode === 'satellite' ? detailSatelliteLayer : detailStreetLayer;
-            const otherLayer = selectedMode === 'satellite' ? detailStreetLayer : detailSatelliteLayer;
+            if (!detailMap || !detailStreetLayer || !detailSatelliteLayer) return;
 
-            if (!detailMap || !selectedLayer) return;
-            if (otherLayer && detailMap.hasLayer(otherLayer)) detailMap.removeLayer(otherLayer);
-            if (!detailMap.hasLayer(selectedLayer)) selectedLayer.addTo(detailMap);
+            if (selectedMode === 'satellite') {
+                if (detailMap.hasLayer(detailStreetLayer)) detailMap.removeLayer(detailStreetLayer);
+                if (!detailMap.hasLayer(detailSatelliteLayer)) detailSatelliteLayer.addTo(detailMap);
+                if (detailSatelliteLabelsLayer && !detailMap.hasLayer(detailSatelliteLabelsLayer)) {
+                    detailSatelliteLabelsLayer.addTo(detailMap);
+                }
+            } else {
+                if (detailMap.hasLayer(detailSatelliteLayer)) detailMap.removeLayer(detailSatelliteLayer);
+                if (detailSatelliteLabelsLayer && detailMap.hasLayer(detailSatelliteLabelsLayer)) {
+                    detailMap.removeLayer(detailSatelliteLabelsLayer);
+                }
+                if (!detailMap.hasLayer(detailStreetLayer)) detailStreetLayer.addTo(detailMap);
+            }
+
             updateDetailMapModeControl(selectedMode);
 
             if (persist) {
@@ -503,6 +587,10 @@
 
             try {
                 detailMap = L.map('map', { scrollWheelZoom: false, zoomControl: false }).setView([directionsPoint.lat, directionsPoint.lon], 15);
+                detailMap.createPane('detailSatelliteLabelsPane');
+                detailMap.getPane('detailSatelliteLabelsPane').style.zIndex = 350;
+                detailMap.getPane('detailSatelliteLabelsPane').style.pointerEvents = 'none';
+
                 detailStreetLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '© OpenStreetMap',
                     maxZoom: 19
@@ -511,7 +599,14 @@
                     attribution: 'Source: Esri, Vantor, Earthstar Geographics, and the GIS User Community',
                     maxZoom: 23
                 });
+                detailSatelliteLabelsLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {
+                    attribution: 'Labels: Esri, HERE, Garmin, OpenStreetMap contributors',
+                    pane: 'detailSatelliteLabelsPane',
+                    maxNativeZoom: 19,
+                    maxZoom: 23
+                });
                 setDetailMapMode(getStoredMapMode(), false);
+                setDetailMapInteractionEnabled(!isMobileDetailMapViewport());
 
                 L.circleMarker([accessPoint.lat, accessPoint.lon], {
                     radius: 9,
@@ -611,7 +706,7 @@
                         
                         if (filtered.length > 0) {
                             const html = filtered.map(lac => `
-                                <a href="?lake=${lac.slug}&v=20260617" class="block bg-slate-50 dark:bg-slate-700/50 p-3 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-blue-500 transition">
+                                <a href="?lake=${lac.slug}&v=20260703" class="block bg-slate-50 dark:bg-slate-700/50 p-3 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-blue-500 transition">
                                     <div class="font-bold text-xs text-slate-800 dark:text-white">${lac.name}</div>
                                     <div class="text-[11px] text-slate-500 dark:text-slate-400">À environ ${(lac.distance || 0).toFixed(1)} km</div>
                                 </a>
@@ -668,13 +763,13 @@
             }
         }
 
-        // Sécurité chargement long (5 secondes)
+        // Filet de sécurité : ne jamais laisser le voile bloquer toute la page.
         setTimeout(() => {
             const loadingEl = document.getElementById('loading');
             if (loadingEl && loadingEl.style.display !== 'none') {
-                showErrorMessage('Chargement ralenti', 'La connexion prend plus de temps que prévu, ou une donnée est manquante.');
+                loadingEl.style.display = 'none';
             }
-        }, 5000);
+        }, 3000);
     </script>
 </body>
 </html>

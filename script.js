@@ -52,6 +52,43 @@
     var map = null;
     var streetMapLayer = null;
     var satelliteMapLayer = null;
+    var satelliteLabelsLayer = null;
+    var isMapZoomLocked = false;
+    var isMainMapInteractionEnabled = true;
+
+    function isMobileMapViewport() {
+        return window.matchMedia('(max-width: 767px)').matches;
+    }
+
+    function setMainMapInteractionEnabled(enabled) {
+        if (!map || !mapElement) return;
+
+        const isMobile = isMobileMapViewport();
+        const locked = isMobile && !enabled;
+        const toggle = document.getElementById('mapInteractionToggle');
+        isMainMapInteractionEnabled = !locked;
+
+        ['dragging', 'touchZoom', 'doubleClickZoom'].forEach(handlerName => {
+            const handler = map[handlerName];
+            if (!handler) return;
+            if (locked) handler.disable();
+            else handler.enable();
+        });
+
+        if (isMobile && map.scrollWheelZoom) map.scrollWheelZoom.disable();
+        mapElement.classList.toggle('map-touch-locked', locked);
+
+        if (toggle) {
+            toggle.hidden = !isMobile;
+            toggle.setAttribute('aria-pressed', String(!locked));
+            toggle.classList.toggle('is-active', !locked);
+            toggle.textContent = locked ? '🗺️ Explorer la carte' : '↕ Reprendre le défilement';
+        }
+    }
+
+    function toggleMainMapInteraction() {
+        setMainMapInteractionEnabled(!isMainMapInteractionEnabled);
+    }
 
     function getStoredMapMode() {
         try {
@@ -80,12 +117,22 @@
 
     function setMapMode(mode, persist = true) {
         const selectedMode = mode === 'satellite' ? 'satellite' : 'street';
-        const selectedLayer = selectedMode === 'satellite' ? satelliteMapLayer : streetMapLayer;
-        const otherLayer = selectedMode === 'satellite' ? streetMapLayer : satelliteMapLayer;
+        if (!map || !streetMapLayer || !satelliteMapLayer) return;
 
-        if (!map || !selectedLayer) return;
-        if (otherLayer && map.hasLayer(otherLayer)) map.removeLayer(otherLayer);
-        if (!map.hasLayer(selectedLayer)) selectedLayer.addTo(map);
+        if (selectedMode === 'satellite') {
+            if (map.hasLayer(streetMapLayer)) map.removeLayer(streetMapLayer);
+            if (!map.hasLayer(satelliteMapLayer)) satelliteMapLayer.addTo(map);
+            if (satelliteLabelsLayer && !map.hasLayer(satelliteLabelsLayer)) {
+                satelliteLabelsLayer.addTo(map);
+            }
+        } else {
+            if (map.hasLayer(satelliteMapLayer)) map.removeLayer(satelliteMapLayer);
+            if (satelliteLabelsLayer && map.hasLayer(satelliteLabelsLayer)) {
+                map.removeLayer(satelliteLabelsLayer);
+            }
+            if (!map.hasLayer(streetMapLayer)) streetMapLayer.addTo(map);
+        }
+
         updateMapModeControl(selectedMode);
 
         if (persist) {
@@ -97,8 +144,33 @@
         }
     }
 
+    function getMainMapZoomButtons() {
+        return Array.from(document.querySelectorAll('button[onclick^="zoomMap("]'));
+    }
+
+    function setMainMapZoomLocked(locked) {
+        isMapZoomLocked = locked;
+
+        const buttons = getMainMapZoomButtons();
+        if (!buttons.length) return;
+
+        buttons.forEach(button => {
+            button.disabled = locked;
+            button.setAttribute('aria-disabled', String(locked));
+        });
+
+        const zoomGroup = buttons[0].closest('[role="group"]');
+        if (zoomGroup) {
+            zoomGroup.classList.toggle('map-zoom-control--locked', locked);
+        }
+    }
+
     if (leafletAvailable) {
         map = L.map('map', { zoomControl: false }).setView([initialView.lat, initialView.lon], initialView.zoom);
+        map.createPane('satelliteLabelsPane');
+        map.getPane('satelliteLabelsPane').style.zIndex = 350;
+        map.getPane('satelliteLabelsPane').style.pointerEvents = 'none';
+
         streetMapLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap',
             maxZoom: 19
@@ -107,11 +179,24 @@
             attribution: 'Source: Esri, Vantor, Earthstar Geographics, and the GIS User Community',
             maxZoom: 23
         });
+        satelliteLabelsLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Labels: Esri, HERE, Garmin, OpenStreetMap contributors',
+            pane: 'satelliteLabelsPane',
+            maxNativeZoom: 19,
+            maxZoom: 23
+        });
         setMapMode(getStoredMapMode(), false);
+        setMainMapInteractionEnabled(!isMobileMapViewport());
 
         // Close popup when clicking on map
         map.on('click', function() {
             map.closePopup();
+        });
+        map.on('popupopen', function() {
+            setMainMapZoomLocked(true);
+        });
+        map.on('popupclose', function() {
+            setMainMapZoomLocked(false);
         });
     } else if (mapElement) {
         const mapModeControl = document.getElementById('mapModeControl');
@@ -128,7 +213,7 @@
     }
 
     function zoomMap(direction) {
-        if (!map) return;
+        if (!map || isMapZoomLocked) return;
         if (direction > 0) {
             map.zoomIn();
         } else {
@@ -754,7 +839,7 @@
         grid.innerHTML = cards.map(spot => {
             const score = Number(spot.paddleScore || spot.score || 75);
             return `
-                <a href="lac.html?lake=${encodeURIComponent(spot.slug)}&v=20260617" class="popular-spot-card group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:border-blue-400 transition-all">
+                <a href="lac.html?lake=${encodeURIComponent(spot.slug)}&v=20260703" class="popular-spot-card group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:border-blue-400 transition-all">
                     <div class="relative h-44 overflow-hidden md:h-52">
                         <img src="${escapeHtml(spot.image)}" alt="${escapeHtml(spot.name)}" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
                         <div class="absolute top-3 left-3 rounded-full border px-2 py-1 text-[9px] font-black uppercase tracking-wider ${getGpsStatusClass(spot)}">
@@ -937,7 +1022,7 @@
         return emojiMap[iconCode] || '❓';
     }
 
-    const WEATHER_TIMEOUT_MS = 8000;
+    const WEATHER_TIMEOUT_MS = 6000;
     const WEATHER_CACHE_TTL_MS = 10 * 60 * 1000;
     const weatherResponseCache = new Map();
 
@@ -955,7 +1040,7 @@
         const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
 
         try {
-            const response = await fetch(url, { signal: controller.signal });
+            const response = await fetch(url, { signal: controller.signal, cache: 'default' });
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
             return await response.json();
         } finally {
@@ -1007,6 +1092,46 @@
         }
     }
 
+    function escapeInlineJsString(value) {
+        return String(value ?? '')
+            .replace(/\\/g, '\\\\')
+            .replace(/'/g, "\\'")
+            .replace(/\r/g, '')
+            .replace(/\n/g, '\\n');
+    }
+
+    function buildSpotPopupActions(name, pageUrl, spotInfo, lat, lon) {
+        const access = getSpotAccessCoords(spotInfo || { lat, lon });
+        const gpsStatus = getGpsStatusLabel(spotInfo);
+        const gpsStatusClass = getGpsStatusClass(spotInfo);
+        const safeName = escapeInlineJsString(name);
+
+        return `
+            <div class="mb-2 text-center">
+                <span class="inline-flex items-center justify-center rounded-full border px-2 py-1 text-[9px] font-black uppercase tracking-wider ${gpsStatusClass}">
+                    ${escapeHtml(gpsStatus)}
+                </span>
+            </div>
+            <div class="flex flex-col gap-1.5">
+                <button onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=${access.lat},${access.lon}', '_blank')"
+                    class="w-full py-2 bg-slate-800 text-white rounded-md font-bold text-[10px] uppercase hover:bg-black transition-colors flex items-center justify-center gap-1">
+                    🚗 Itinéraire
+                </button>
+                <div class="grid grid-cols-2 gap-1.5">
+                    <button onclick="ouvrirSidebar('${safeName}')" class="py-2 bg-blue-600 text-white rounded-md font-bold text-[10px] uppercase hover:bg-blue-700 transition-colors">
+                        📍 Infos
+                    </button>
+                    <button onclick="toggleFavorite('${safeName}')" class="py-2 border border-yellow-500 text-yellow-600 rounded-md font-bold text-[10px] uppercase hover:bg-yellow-50 transition-colors">
+                        ⭐ Favori
+                    </button>
+                </div>
+                <a href="${pageUrl}" class="block w-full py-2 bg-emerald-600 text-white rounded-md font-bold text-[10px] uppercase hover:bg-emerald-700 transition-colors text-center">
+                    📖 Page complète
+                </a>
+            </div>
+        `;
+    }
+
     // 5. API Logic
     async function getMeteo(lat, lon, name, marker, spotInfo = null) {
         const popupRequestId = ++latestWeatherPopupRequestId;
@@ -1015,25 +1140,22 @@
             minWidth: 220,
             className: 'custom-popup'
         };
-        const pageUrl = `lac.html?lake=${getLakePageSlug(name)}&v=20260617`;
+        const pageUrl = `lac.html?lake=${getLakePageSlug(name)}&v=20260703`;
+        const safeDisplayName = escapeHtml(name);
+        const popupActions = buildSpotPopupActions(name, pageUrl, spotInfo, lat, lon);
 
         setMarkerPopupContent(marker, `
-            <div class="text-sm p-2 text-center">
-                <h3 class="text-lg text-blue-800 font-bold mb-2">${name}</h3>
+            <div class="text-sm p-2">
+                <h3 class="text-lg text-blue-800 font-bold mb-2 text-center">${safeDisplayName}</h3>
                 <div class="flex items-center justify-center gap-2 rounded-lg bg-blue-50 p-3 text-slate-700">
                     <span class="inline-block h-4 w-4 animate-spin rounded-full border-2 border-blue-200 border-t-blue-600"></span>
-                    <span class="text-xs font-semibold">Chargement de la météo...</span>
+                    <span class="text-xs font-semibold">Météo en chargement…</span>
                 </div>
-                <a href="${pageUrl}" class="mt-3 block w-full py-2 bg-emerald-600 text-white rounded-md font-bold text-[10px] uppercase hover:bg-emerald-700 transition-colors">
-                    📖 Page complète
-                </a>
+                <div class="mt-3">${popupActions}</div>
             </div>
         `, popupOptions);
 
         try {
-            const access = getSpotAccessCoords(spotInfo || { lat, lon });
-            const gpsStatus = getGpsStatusLabel(spotInfo);
-            const gpsStatusClass = getGpsStatusClass(spotInfo);
             const data = await fetchWeatherJson(lat, lon);
 
             if (popupRequestId !== latestWeatherPopupRequestId) return;
@@ -1059,7 +1181,7 @@
             const shouldKeepPopupOpen = !marker.isPopupOpen || marker.isPopupOpen();
             setMarkerPopupContent(marker, `
             <div class="text-sm p-1">
-                <h3 class="text-lg text-blue-800 font-bold italic mb-1 border-b border-blue-100 pb-1">${name}</h3>
+                <h3 class="text-lg text-blue-800 font-bold italic mb-1 border-b border-blue-100 pb-1">${safeDisplayName}</h3>
                 
                 <div class="flex items-center mb-2 bg-blue-50 dark:bg-slate-800/50 p-2 rounded-lg border border-slate-200">
                     <span class="text-xl mr-2">${getWeatherEmoji(iconCode)}</span>
@@ -1083,30 +1205,7 @@
                     </div>
                 </div>
 
-                <div class="mb-2 text-center">
-                    <span class="inline-flex items-center justify-center rounded-full border px-2 py-1 text-[9px] font-black uppercase tracking-wider ${gpsStatusClass}">
-                        ${gpsStatus}
-                    </span>
-                </div>
-
-                <div class="flex flex-col gap-1.5">
-                    <button onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=${access.lat},${access.lon}', '_blank')"
-                        class="w-full py-2 bg-slate-800 text-white rounded-md font-bold text-[10px] uppercase hover:bg-black transition-colors flex items-center justify-center gap-1">
-                        🚗 Itinéraire
-                    </button>
-                    
-                    <div class="grid grid-cols-2 gap-1.5">
-                        <button onclick="ouvrirSidebar('${name}')" class="py-2 bg-blue-600 text-white rounded-md font-bold text-[10px] uppercase hover:bg-blue-700 transition-colors">
-                            📍 Infos
-                        </button>
-                        <button onclick="toggleFavorite('${name}')" class="py-2 border border-yellow-500 text-yellow-600 rounded-md font-bold text-[10px] uppercase hover:bg-yellow-50 transition-colors">
-                            ⭐ Favori
-                        </button>
-                    </div>
-                    <a href="${pageUrl}" class="block w-full py-2 bg-emerald-600 text-white rounded-md font-bold text-[10px] uppercase hover:bg-emerald-700 transition-colors text-center">
-                        📖 Page complète
-                    </a>
-                </div>
+                ${popupActions}
             </div>
             `, popupOptions, shouldKeepPopupOpen);
                 
@@ -1122,13 +1221,13 @@
             // 2. Fallback de secours si l'API ou le PHP plante
             const shouldKeepPopupOpen = !marker.isPopupOpen || marker.isPopupOpen();
             setMarkerPopupContent(marker, `
-                <div class="text-sm p-2 text-center">
-                    <h3 class="text-lg text-blue-800 font-bold mb-2">${name}</h3>
-                    <p class="text-red-600 mb-2 text-xs font-semibold">⚠️ La météo prend trop de temps à répondre</p>
-                    <p class="text-slate-500 mb-3 text-[11px]">Réessaie dans quelques secondes ou ouvre la page complète.</p>
-                    <a href="${pageUrl}" class="block w-full py-2 bg-emerald-600 text-white rounded-md font-bold text-[10px] uppercase hover:bg-emerald-700 transition-colors">
-                        📖 Page complète
-                    </a>
+                <div class="text-sm p-2">
+                    <h3 class="text-lg text-blue-800 font-bold mb-2 text-center">${safeDisplayName}</h3>
+                    <div class="mb-3 rounded-lg border border-amber-200 bg-amber-50 p-2 text-center">
+                        <p class="text-amber-800 text-xs font-semibold">⚠️ Météo temporairement indisponible</p>
+                        <p class="text-slate-500 mt-1 text-[10px]">Les informations et l’itinéraire du spot restent disponibles.</p>
+                    </div>
+                    ${popupActions}
                 </div>
             `, popupOptions, shouldKeepPopupOpen);
         }
@@ -1601,7 +1700,7 @@
                             <span>CAP SUR CE SPOT</span>
                         </button>
                     </div>
-                    <a href="lac.html?lake=${getLakePageSlug(lac.name)}&v=20260617"
+                    <a href="lac.html?lake=${getLakePageSlug(lac.name)}&v=20260703"
                        class="w-full py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl font-black text-xs transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/25 active:scale-95">
                         <span>📖 VOIR LA PAGE COMPLÈTE</span>
                     </a>
@@ -1982,7 +2081,7 @@
                                 <h2 class="text-2xl font-bold mb-4">2 Spots les Plus Proches</h2>
                                 <div class="space-y-4 mb-6">
                                     ${nearestSpots.map((spot, idx) => `
-                                        <a href="lac.html?lake=${spot.slug}&v=20260617" class="block bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-900/50 p-4 rounded-lg hover:shadow-lg transition">
+                                        <a href="lac.html?lake=${spot.slug}&v=20260703" class="block bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-900/50 p-4 rounded-lg hover:shadow-lg transition">
                                             <div class="font-bold">${idx + 1}. ${spot.name}</div>
                                             <div class="text-sm text-slate-600 dark:text-slate-400">${spot.region}</div>
                                             <div class="text-sm font-bold text-blue-600 dark:text-blue-400">${spot.distance.toFixed(1)} km</div>
