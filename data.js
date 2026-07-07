@@ -1544,8 +1544,8 @@ const supplementalSpotDetails = [
         "gallery": [
             "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=800"
         ],
-        "description": "Parc National Forillon est un spot de paddle de la région Gaspésie. Naviguez dans une baie magnifique avec possibilité d'observer des phoques et baleines au loin.",
-        "longDescription": "Parc National Forillon est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Gaspésie. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Naviguez dans une baie magnifique avec possibilité d'observer des phoques et baleines au loin.",
+        "description": "Le point GPS de la plage du parc national Forillon est confirmé. Le stationnement se trouve de l'autre côté de la rue.",
+        "longDescription": "Le point GPS confirmé mène à la plage du parc national Forillon. Le stationnement se trouve directement de l'autre côté de la rue. Avant une sortie, vérifiez les droits d'entrée de Parcs Canada, la météo marine, le vent, les vagues et les restrictions locales.",
         "difficulty": "sportif",
         "paddleScore": 66,
         "scoreFactors": {
@@ -1560,20 +1560,20 @@ const supplementalSpotDetails = [
         "maxLength": "Circuit local",
         "season": "Mai à septembre",
         "parking": {
-            "location": "Stationnement au Havre de Grande-Grave.",
+            "location": "Stationnement du sentier du mont Saint-Alban, route 132",
             "spots": "À vérifier",
             "accessible": false,
             "cost": "Tarification d'entrée de Parc Canada applicable."
         },
         "access": {
-            "description": "Stationnement au Havre de Grande-Grave.",
-            "type": "Accès depuis stationnement",
+            "description": "Plage confirmée du parc national Forillon",
+            "type": "Plage / accès nautique côtier",
             "difficulty": "Modéré à sportif",
-            "launchPoint": "Point indiqué sur la carte"
+            "launchPoint": "Coordonnées confirmées par l'utilisateur"
         },
         "amenities": [
-            "Stationnement ou accès à proximité selon la fiche",
-            "Mise à l'eau à confirmer sur place",
+            "GPS de plage confirmé",
+            "Stationnement confirmé à environ 41 m, de l'autre côté de la rue",
             "Consultez la météo et le vent avant le départ"
         ],
         "warnings": [
@@ -1583,7 +1583,7 @@ const supplementalSpotDetails = [
         "faq": [
             {
                 "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
-                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+                "a": "Oui. Le point de plage est confirmé et le stationnement du sentier du mont Saint-Alban se trouve à environ 41 m, de l'autre côté de la rue."
             },
             {
                 "q": "Puis-je apporter mon propre paddle ?",
@@ -1595,10 +1595,10 @@ const supplementalSpotDetails = [
             }
         ],
         "highlights": [
-            "Accès ou stationnement payant à prévoir",
-            "Spot à aborder avec prudence",
-            "Page générée depuis les données de la carte",
-            "Point d'accès à valider avant la sortie"
+            "GPS de plage confirmé",
+            "Stationnement exact à environ 41 m",
+            "Droits d'entrée de Parcs Canada à prévoir",
+            "Conditions maritimes à surveiller"
         ]
     },
     {
@@ -2156,8 +2156,8 @@ const supplementalSpotDetails = [
         "gallery": [
             "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800"
         ],
-        "description": "Lac Mégantic est un spot de paddle de la région Estrie. Grand lac pittoresque avec petites îles. Secteur très sécuritaire pour débuter.",
-        "longDescription": "Lac Mégantic est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Estrie. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Grand lac pittoresque avec petites îles. Secteur très sécuritaire pour débuter.",
+        "description": "La Station touristique Baie-des-Sables donne accès au lac Mégantic par une plage aménagée avec location nautique, descente de bateaux et quais visiteurs.",
+        "longDescription": "Le point GPS confirmé mène à la Station touristique Baie-des-Sables, sur le lac Mégantic. Le site officiel confirme une plage aménagée, de la location nautique, une descente de bateaux, des quais visiteurs, des espaces de pique-nique et un bâtiment sanitaire. Le départ en paddle doit se faire depuis le secteur nautique autorisé, à l'extérieur de la zone réservée à la baignade.",
         "difficulty": "facile",
         "paddleScore": 82,
         "scoreFactors": {
@@ -2166,51 +2166,52 @@ const supplementalSpotDetails = [
             "temperature": 8,
             "waves": 8
         },
-        "isFree": true,
-        "cost": "Accès gratuit (rampe de mise à l'eau).",
+        "isFree": false,
+        "cost": "Tarification de la Station touristique Baie-des-Sables à vérifier",
         "waterQuality": "À vérifier localement",
         "maxLength": "Grand plan d'eau",
         "season": "Mai à septembre",
         "parking": {
-            "location": "Stationnement municipal à Mégantic.",
+            "location": "Station touristique Baie-des-Sables",
             "spots": "À vérifier",
             "accessible": true,
-            "cost": "Gratuit"
+            "cost": "À vérifier"
         },
         "access": {
-            "description": "Stationnement municipal à Mégantic.",
-            "type": "Accès depuis stationnement",
+            "description": "Plage aménagée et secteur nautique de Baie-des-Sables",
+            "type": "Plage aménagée / descente de bateaux",
             "difficulty": "Facile",
-            "launchPoint": "Point indiqué sur la carte"
+            "launchPoint": "Secteur nautique autorisé, hors de la zone de baignade"
         },
         "amenities": [
-            "Stationnement ou accès à proximité selon la fiche",
-            "Mise à l'eau à confirmer sur place",
-            "Consultez la météo et le vent avant le départ"
+            "Plage aménagée",
+            "Location nautique et descente de bateaux",
+            "Quais visiteurs, pique-nique et bâtiment sanitaire"
         ],
         "warnings": [
-            "Vérifiez les règles locales et l'accès exact avant de partir",
-            "Les conditions peuvent changer rapidement selon le vent"
+            "Objets flottants interdits dans la zone de baignade, sauf VFI",
+            "Il est interdit de stationner un véhicule sur la plage",
+            "Présence interdite sur la plage entre 23 h et 6 h"
         ],
         "faq": [
             {
                 "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
-                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+                "a": "Oui. Le GPS mène à la Station touristique Baie-des-Sables, dont la page officielle confirme la plage, la descente de bateaux et les quais visiteurs."
             },
             {
                 "q": "Puis-je apporter mon propre paddle ?",
-                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+                "a": "Utilisez le secteur nautique ou la descente de bateaux et évitez la zone de baignade, où les objets flottants sont interdits sauf les VFI."
             },
             {
                 "q": "Le stationnement est-il gratuit ?",
-                "a": "La fiche indique un accès gratuit, mais certains stationnements peuvent devenir payants en haute saison."
+                "a": "La page officielle consultée ne confirme pas la gratuité. Vérifiez la tarification en vigueur avant le déplacement."
             }
         ],
         "highlights": [
-            "Accès indiqué gratuit dans la fiche",
-            "Spot généralement accessible",
-            "Page générée depuis les données de la carte",
-            "Point d'accès à valider avant la sortie"
+            "GPS confirmé à Baie-des-Sables",
+            "Plage et services nautiques officiels",
+            "Descente de bateaux et quais visiteurs",
+            "Règlements de la zone de baignade à respecter"
         ]
     },
     {
@@ -2564,8 +2565,8 @@ const supplementalSpotDetails = [
         "gallery": [
             "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=800"
         ],
-        "description": "Baie de Percé est un spot de paddle de la région Gaspésie. Baie abritée avec vue sur le rocher Percé. Observation de phoques possible.",
-        "longDescription": "Baie de Percé est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Gaspésie. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Baie abritée avec vue sur le rocher Percé. Observation de phoques possible.",
+        "description": "La Baie de Percé est un spot côtier de la Gaspésie. Le point GPS d'accès a été confirmé directement pour remplacer l'ancien point générique.",
+        "longDescription": "Le point GPS confirmé mène au secteur d'accès fourni pour la Baie de Percé. Avant une sortie, vérifiez le stationnement, les droits d'accès, les marées, le vent et les conditions maritimes. Le secteur offre un décor côtier remarquable, mais exige une préparation adaptée au fleuve et à la météo gaspésienne.",
         "difficulty": "facile",
         "paddleScore": 78,
         "scoreFactors": {
@@ -2574,27 +2575,27 @@ const supplementalSpotDetails = [
             "temperature": 8,
             "waves": 8
         },
-        "isFree": true,
-        "cost": "À proximité du fameux rocher percé (gratuit).",
+        "isFree": false,
+        "cost": "Tarif et conditions d'accès à vérifier",
         "waterQuality": "À vérifier localement",
         "maxLength": "Circuit local",
         "season": "Mai à septembre",
         "parking": {
-            "location": "Stationnement en centre-ville de Percé.",
+            "location": "Destination GPS confirmée de la Baie de Percé",
             "spots": "À vérifier",
             "accessible": true,
-            "cost": "Gratuit"
+            "cost": "À vérifier"
         },
         "access": {
-            "description": "Stationnement en centre-ville de Percé.",
-            "type": "Accès depuis stationnement",
+            "description": "Point d'accès confirmé de la Baie de Percé",
+            "type": "Accès nautique côtier",
             "difficulty": "Facile",
-            "launchPoint": "Point indiqué sur la carte"
+            "launchPoint": "Coordonnées confirmées par l'utilisateur"
         },
         "amenities": [
-            "Stationnement ou accès à proximité selon la fiche",
-            "Mise à l'eau à confirmer sur place",
-            "Consultez la météo et le vent avant le départ"
+            "GPS d'accès confirmé",
+            "Stationnement et services à vérifier",
+            "Consultez le vent, les marées et la météo avant le départ"
         ],
         "warnings": [
             "Vérifiez les règles locales et l'accès exact avant de partir",
@@ -2603,7 +2604,7 @@ const supplementalSpotDetails = [
         "faq": [
             {
                 "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
-                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+                "a": "Oui. Les coordonnées du point d'accès ont été confirmées directement pour la Baie de Percé."
             },
             {
                 "q": "Puis-je apporter mon propre paddle ?",
@@ -2611,14 +2612,14 @@ const supplementalSpotDetails = [
             },
             {
                 "q": "Le stationnement est-il gratuit ?",
-                "a": "La fiche indique un accès gratuit, mais certains stationnements peuvent devenir payants en haute saison."
+                "a": "La gratuité n'est pas confirmée. Vérifiez les règles et la tarification locale avant le déplacement."
             }
         ],
         "highlights": [
-            "Accès indiqué gratuit dans la fiche",
-            "Spot généralement accessible",
-            "Page générée depuis les données de la carte",
-            "Point d'accès à valider avant la sortie"
+            "GPS d'accès confirmé",
+            "Paysage côtier gaspésien",
+            "Conditions maritimes à surveiller",
+            "Stationnement et tarif à vérifier"
         ]
     },
     {
@@ -2632,8 +2633,8 @@ const supplementalSpotDetails = [
         "gallery": [
             "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800"
         ],
-        "description": "Lac du Cap-aux-Os est un spot de paddle de la région Gaspésie. Petit lac côtier avec faible fréquentation, eau froide mais cristalline.",
-        "longDescription": "Lac du Cap-aux-Os est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Gaspésie. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Petit lac côtier avec faible fréquentation, eau froide mais cristalline.",
+        "description": "Le point GPS du Lac du Cap-aux-Os a été confirmé directement. Un stationnement se trouve juste à côté de l'accès, sur la route 132.",
+        "longDescription": "Le point GPS confirmé mène à l'accès du Lac du Cap-aux-Os. Le stationnement adjacent se trouve sur la route 132. Avant une sortie, vérifiez les conditions locales, le vent, la température de l'eau et les éventuelles restrictions saisonnières.",
         "difficulty": "facile",
         "paddleScore": 76,
         "scoreFactors": {
@@ -2643,25 +2644,25 @@ const supplementalSpotDetails = [
             "waves": 8
         },
         "isFree": false,
-        "cost": "Environ 5$ pour le stationnement.",
+        "cost": "Tarification à vérifier",
         "waterQuality": "À vérifier localement",
         "maxLength": "Circuit local",
         "season": "Mai à septembre",
         "parking": {
-            "location": "Stationnement municipal (stationnement payant en été).",
+            "location": "Stationnement adjacent à l'accès sur la route 132",
             "spots": "À vérifier",
             "accessible": true,
-            "cost": "Environ 5$ pour le stationnement."
+            "cost": "À vérifier"
         },
         "access": {
-            "description": "Stationnement municipal (stationnement payant en été).",
-            "type": "Accès depuis stationnement",
+            "description": "Accès confirmé près du stationnement de la route 132",
+            "type": "Accès nautique",
             "difficulty": "Facile",
-            "launchPoint": "Point indiqué sur la carte"
+            "launchPoint": "Coordonnées confirmées par l'utilisateur"
         },
         "amenities": [
-            "Stationnement ou accès à proximité selon la fiche",
-            "Mise à l'eau à confirmer sur place",
+            "GPS d'accès confirmé",
+            "Stationnement adjacent sur la route 132",
             "Consultez la météo et le vent avant le départ"
         ],
         "warnings": [
@@ -2671,7 +2672,7 @@ const supplementalSpotDetails = [
         "faq": [
             {
                 "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
-                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+                "a": "Oui. Les coordonnées de l'accès ont été confirmées directement et le stationnement se trouve juste à côté sur la route 132."
             },
             {
                 "q": "Puis-je apporter mon propre paddle ?",
@@ -2679,14 +2680,14 @@ const supplementalSpotDetails = [
             },
             {
                 "q": "Le stationnement est-il gratuit ?",
-                "a": "La fiche indique: Environ 5$ pour le stationnement."
+                "a": "La tarification n'est pas confirmée. Vérifiez les indications sur place."
             }
         ],
         "highlights": [
-            "Accès ou stationnement payant à prévoir",
-            "Spot généralement accessible",
-            "Page générée depuis les données de la carte",
-            "Point d'accès à valider avant la sortie"
+            "GPS d'accès confirmé",
+            "Stationnement adjacent sur la route 132",
+            "Accès généralement simple",
+            "Tarification à vérifier"
         ]
     },
     {
@@ -3439,7 +3440,96 @@ const supplementalSpotDetails = [
     }
 ];
 
-supplementalSpotDetails.forEach(spot => {
+// Destinations populaires supplémentaires extraites de la carte publique La Vie SUP.
+// Le HAR fourni par l'utilisateur fait foi pour confirmer les destinations GPS.
+// Il ne fournit toutefois aucune mesure permettant de classer leur fréquentation.
+const laVieSupPopularSpotSeeds = [
+    { slug: "riviere-bras-du-nord", name: "Rivière Bras-du-Nord", region: "Québec", lat: 47.075670956977106, lon: -71.89465673117994, accessName: "Vallée Bras-du-Nord", score: 82 },
+    { slug: "saint-laurent-ile-orleans", name: "Saint-Laurent-de-l'Île-d'Orléans", region: "Québec", lat: 46.86012576891334, lon: -71.00394669345651, accessName: "Accès au fleuve de Saint-Laurent-de-l'Île-d'Orléans", score: 78 },
+    { slug: "anse-cap-rouge-parc-jean-dery", name: "Anse de Cap-Rouge (Parc Jean-Déry)", region: "Québec", lat: 46.7478181, lon: -71.343989, accessName: "Parc Jean-Déry", score: 80 },
+    { slug: "lac-delage", name: "Lac Delage", region: "Québec", lat: 46.96853569873607, lon: -71.4026251968102, accessName: "Manoir du Lac Delage", score: 78 },
+    { slug: "lac-saint-charles-centre-agiro", name: "Lac Saint-Charles (Centre Agiro)", region: "Québec", lat: 46.91136225783032, lon: -71.37185683996404, accessName: "Centre Agiro", score: 80 },
+    { slug: "riviere-jacques-cartier-grand-heron", name: "Rivière Jacques-Cartier (Grand Héron)", region: "Québec", lat: 46.846126478496146, lon: -71.62536305388318, accessName: "Parc de glisse du Grand Héron", score: 81 },
+    { slug: "lac-saint-augustin", name: "Lac Saint-Augustin", region: "Québec", lat: 46.74343047963627, lon: -71.3951573802442, accessName: "Parc riverain du Lac Saint-Augustin", score: 79 },
+    { slug: "lac-saint-joseph-duchesnay", name: "Lac Saint-Joseph (Duchesnay)", region: "Québec", lat: 46.87058677113481, lon: -71.63576502200156, accessName: "Station touristique Duchesnay", score: 83 },
+    { slug: "riviere-sainte-anne-portneuf", name: "Rivière Sainte-Anne (Portneuf)", region: "Québec", lat: 46.71183084326505, lon: -72.07568348873885, accessName: "Parc régional de Portneuf", score: 80 },
+    { slug: "lac-sept-iles-portneuf", name: "Lac Sept-Îles (Portneuf)", region: "Québec", lat: 46.92257165399806, lon: -71.74192057534863, accessName: "Camp Portneuf", score: 78 },
+    { slug: "lac-temiscouata-parc-national", name: "Lac Témiscouata", region: "Bas-Saint-Laurent", lat: 47.695356166249674, lon: -68.84342753014776, accessName: "Parc national du Lac-Témiscouata", score: 85 },
+    { slug: "lac-long-portneuf", name: "Lac Long (Portneuf)", region: "Québec", lat: 46.83427797469136, lon: -72.14731880866188, accessName: "Parc régional de Portneuf", score: 80 },
+    { slug: "lac-etchemin", name: "Lac Etchemin", region: "Chaudière-Appalaches", lat: 46.39506950939851, lon: -70.50892871733326, accessName: "Éco-Parc des Etchemins", score: 79 },
+    { slug: "plage-berthier-sur-mer", name: "Berthier-sur-Mer", region: "Chaudière-Appalaches", lat: 46.93488222317522, lon: -70.71557591691129, accessName: "Plage de Berthier-sur-Mer", score: 78 },
+    { slug: "lac-simon-portneuf", name: "Lac Simon (Portneuf)", region: "Québec", lat: 46.89838628655255, lon: -72.01959501428937, accessName: "Plage Eau Claire", score: 78 },
+    { slug: "anse-a-l-orme", name: "L'Anse-à-l'Orme", region: "Montréal", lat: 45.45359666837751, lon: -73.93795110678688, accessName: "Parc-nature de l'Anse-à-l'Orme", score: 80 },
+    { slug: "ile-bizard-parc-nature", name: "Île-Bizard (Parc-nature)", region: "Montréal", lat: 45.517164085182586, lon: -73.89966301735798, accessName: "Parc-nature du Bois-de-l'Île-Bizard", score: 81 },
+    { slug: "plage-de-l-est-montreal", name: "Plage de l'Est", region: "Montréal", lat: 45.69801448232836, lon: -73.47954440684374, accessName: "Plage de l'Est", score: 76 },
+    { slug: "riviere-des-prairies-beausejour", name: "Rivière des Prairies (Beauséjour)", region: "Montréal", lat: 45.52859657679447, lon: -73.7340093701714, accessName: "Parc du Beauséjour", score: 78 },
+    { slug: "riviere-mille-iles-rosemere", name: "Rivière des Mille Îles (Rosemère)", region: "Laurentides", lat: 45.61628409314794, lon: -73.71368772274728, accessName: "Parc de la Rivière-des-Mille-Îles", score: 82 },
+    { slug: "riviere-mille-iles-laval", name: "Rivière des Mille Îles (Laval)", region: "Laval", lat: 45.61003613757706, lon: -73.79642886099386, accessName: "Parc de la Rivière-des-Mille-Îles", score: 82 },
+    { slug: "riviere-mille-iles-saint-eustache", name: "Rivière des Mille Îles (Saint-Eustache)", region: "Laurentides", lat: 45.5684655394164, lon: -73.86933586811523, accessName: "Parc de la Rivière-des-Mille-Îles", score: 79 },
+    { slug: "ile-des-soeurs-pointe-nord", name: "Île des Sœurs (Pointe Nord)", region: "Montréal", lat: 45.47359826542235, lon: -73.53672596130842, accessName: "Parc de l'Esplanade de la Pointe-Nord", score: 79 },
+    { slug: "verdun-parc-george-oreilly", name: "Verdun (Parc George-O'Reilly)", region: "Montréal", lat: 45.44281162584198, lon: -73.57448716079948, accessName: "Parc de l'Honorable-George-O'Reilly", score: 81 },
+    { slug: "recreoparc-sainte-catherine", name: "Récréoparc de Sainte-Catherine", region: "Montérégie", lat: 45.409097533068895, lon: -73.55948067512136, accessName: "Récréoparc", score: 82 },
+    { slug: "riviere-chateauguay-pointe-nautique", name: "Rivière Châteauguay (Pointe nautique)", region: "Montérégie", lat: 45.36898953256263, lon: -73.75210847546604, accessName: "Pointe nautique de Châteauguay", score: 80 },
+    { slug: "lac-saint-louis-chateauguay", name: "Lac Saint-Louis (Châteauguay)", region: "Montérégie", lat: 45.38095677197638, lon: -73.7692669525504, accessName: "Centre nautique de Châteauguay", score: 80 },
+    { slug: "riviere-malbaie-hautes-gorges", name: "Rivière Malbaie (Hautes-Gorges)", region: "Charlevoix", lat: 47.8927742855333, lon: -70.47639862807804, accessName: "Parc national des Hautes-Gorges-de-la-Rivière-Malbaie", score: 86 },
+    { slug: "lac-trois-lacs", name: "Lac Trois-Lacs", region: "Estrie", lat: 45.79701592892924, lon: -71.88945331364174, accessName: "Plage municipale de Val-des-Sources", score: 78 },
+    { slug: "lac-brompton-racine", name: "Lac Brompton (Racine)", region: "Estrie", lat: 45.473382433570194, lon: -72.14062493448105, accessName: "Camping Plage McKenzie", score: 80 },
+    { slug: "riviere-du-gouffre-baie-saint-paul", name: "Rivière du Gouffre", region: "Charlevoix", lat: 47.43170772518342, lon: -70.49178160618612, accessName: "Quai de Baie-Saint-Paul", score: 80 },
+    { slug: "baie-des-rochers-charlevoix", name: "Baie-des-Rochers", region: "Charlevoix", lat: 47.953452992851034, lon: -69.81140329280224, accessName: "Parc municipal de Baie-des-Rochers", score: 84 },
+    { slug: "lac-arthabaska-grands-jardins", name: "Lac Arthabaska", region: "Charlevoix", lat: 47.66183716631818, lon: -70.77873970552157, accessName: "Parc national des Grands-Jardins", score: 83 },
+    { slug: "lac-raymond-val-morin", name: "Lac Raymond", region: "Laurentides", lat: 46.009136770288805, lon: -74.16941338584282, accessName: "Plage municipale du Lac Raymond", score: 80 },
+    { slug: "riviere-du-nord-val-david", name: "Rivière du Nord (Val-David)", region: "Laurentides", lat: 46.02572166074477, lon: -74.21344151982926, accessName: "À l'Abordage", score: 81 },
+    { slug: "lac-lyster", name: "Lac Lyster", region: "Estrie", lat: 45.03352885462321, lon: -71.91903414048815, accessName: "Plage du lac Lyster", score: 80 },
+    { slug: "lac-31-milles-sainte-therese", name: "Lac des Trente et Un Milles", region: "Outaouais", lat: 46.29687390470017, lon: -75.80001853448552, accessName: "Secteur Sainte-Thérèse-de-la-Gatineau", score: 84 },
+    { slug: "quai-kamouraska", name: "Kamouraska", region: "Bas-Saint-Laurent", lat: 47.56252208364726, lon: -69.87411031976998, accessName: "Quai de Kamouraska", score: 82 },
+    { slug: "riviere-jacques-cartier-parc-national", name: "Rivière Jacques-Cartier (Parc national)", region: "Québec", lat: 47.17442453834519, lon: -71.36829576336933, accessName: "Parc national de la Jacques-Cartier", score: 87 },
+    { slug: "riviere-batiscan-sainte-genevieve", name: "Rivière Batiscan (Sainte-Geneviève)", region: "Mauricie", lat: 46.52819240725861, lon: -72.33872004246305, accessName: "Halte Desjardins", score: 79 },
+    { slug: "fleuve-trois-rivieres-antoine-gauthier", name: "Fleuve à Trois-Rivières (Parc Antoine-Gauthier)", region: "Mauricie", lat: 46.28023990822192, lon: -72.65812546866448, accessName: "Parc Antoine-Gauthier", score: 77 },
+    { slug: "lac-clair-grandes-piles", name: "Lac Clair (Grandes-Piles)", region: "Mauricie", lat: 46.759828377610134, lon: -72.71054862611861, accessName: "Aire Nature Grandes-Piles", score: 82 },
+    { slug: "lac-sainte-emelie", name: "Lac Sainte-Émélie", region: "Lanaudière", lat: 46.32564521127613, lon: -73.64207236742668, accessName: "Plage municipale de Sainte-Émélie-de-l'Énergie", score: 80 },
+    { slug: "lac-trois-saumons", name: "Lac Trois-Saumons", region: "Chaudière-Appalaches", lat: 47.12111244585895, lon: -70.19077482737445, accessName: "Parc municipal du lac Trois-Saumons", score: 81 },
+    { slug: "lac-masson-plage-municipale", name: "Lac Masson (Plage municipale)", region: "Laurentides", lat: 46.03409660740623, lon: -74.03833768126533, accessName: "Plage municipale du Lac Masson", score: 81 },
+    { slug: "lac-matapedia-sayabec", name: "Lac Matapédia (Sayabec)", region: "Bas-Saint-Laurent", lat: 48.56689755521141, lon: -67.66337166148647, accessName: "Parc Pierre-Brochu", score: 82 },
+    { slug: "lac-saint-jean-saint-prime", name: "Lac Saint-Jean (Saint-Prime)", region: "Saguenay-Lac-Saint-Jean", lat: 48.60054103706304, lon: -72.32507726060467, accessName: "Plage municipale de Saint-Prime", score: 83 },
+    { slug: "lac-saint-jean-roberval", name: "Lac Saint-Jean (Roberval)", region: "Saguenay-Lac-Saint-Jean", lat: 48.533296015177186, lon: -72.2186771128563, accessName: "Plage de la Pointe-Scott", score: 83 },
+    { slug: "rimouski-rocher-blanc", name: "Rimouski (Rocher-Blanc)", region: "Bas-Saint-Laurent", lat: 48.43355849755616, lon: -68.59287749732535, accessName: "Plage du Rocher-Blanc", score: 79 },
+    { slug: "lac-boivin-granby", name: "Lac Boivin", region: "Estrie", lat: 45.400375338658016, lon: -72.70787023663209, accessName: "Parc Daniel-Johnson", score: 80 }
+];
+
+const laVieSupPopularSpotDetails = laVieSupPopularSpotSeeds.map(seed => {
+    const image = "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800";
+    return {
+        id: seed.slug,
+        slug: seed.slug,
+        name: seed.name,
+        region: seed.region,
+        lat: seed.lat,
+        lon: seed.lon,
+        mainImage: image,
+        gallery: [image],
+        description: `${seed.name} est une destination de paddle populaire référencée par la carte publique La Vie SUP. Le point GPS mène à ${seed.accessName}.`,
+        longDescription: `${seed.name} est ajouté au catalogue Spot Paddle à partir d'une destination d'itinéraire confirmée dans le HAR de la carte publique La Vie SUP. Le GPS est confirmé; les frais, services et restrictions saisonnières doivent néanmoins être vérifiés auprès du gestionnaire local avant chaque sortie.`,
+        difficulty: "facile",
+        paddleScore: seed.score,
+        scoreFactors: { wind: 7, rain: 7, temperature: 8, waves: 7 },
+        isFree: false,
+        cost: "Tarif et droits d'accès à vérifier",
+        waterQuality: "À vérifier localement",
+        maxLength: "Parcours variable",
+        season: "Mai à septembre",
+        parking: { location: seed.accessName, spots: "Capacité à vérifier", accessible: true, cost: "À vérifier" },
+        access: { description: seed.accessName, type: "Accès nautique confirmé par le HAR", difficulty: "À vérifier", launchPoint: "Destination Itinéraire La Vie SUP" },
+        amenities: ["GPS d'itinéraire confirmé par le HAR La Vie SUP", "Services et capacité du stationnement à vérifier", "Consultez la météo avant le départ"],
+        warnings: ["Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire", "Les conditions locales peuvent changer après la capture du HAR"],
+        faq: [
+            { q: "Le GPS est-il confirmé ?", a: "Oui. Le point correspond à une destination Itinéraire présente dans le HAR La Vie SUP fourni pour la validation du catalogue." },
+            { q: "Puis-je apporter mon propre paddle ?", a: "Vérifiez les règles du gestionnaire, les frais, les permis et les restrictions avant le déplacement." }
+        ],
+        highlights: ["Destination populaire au Québec", "GPS d'itinéraire confirmé par le HAR", "Conditions locales à vérifier"]
+    };
+});
+
+[...supplementalSpotDetails, ...laVieSupPopularSpotDetails].forEach(spot => {
     if (!lacDatabase.some(lac => lac.name === spot.name || lac.slug === spot.slug)) {
         lacDatabase.push(spot);
     }
@@ -3457,7 +3547,7 @@ const accessPointOverrides = {
     "lac-des-piles": { lat: 46.6649705864116, lon: -72.789898034606, name: "Plage du Camping Baie Martin", type: "Plage de camping", confidence: "high", source: "Accès de la plage Baie Martin validé; activités recoupées avec Tourisme Shawinigan" },
     "lac-aux-sables": { lat: 46.8674872, lon: -72.3865210, name: "Mise à l'eau de la Ville de Lac-aux-Sables", type: "Mise à l'eau", confidence: "high", source: "Canot Kayak Québec, Carte interactive: accès public; recoupé avec La Vie SUP, Lac-aux-Sables B / débarcadère municipal (écart 16 m)" },
     "lac-stukely-mont-orford": { lat: 45.3631631, lon: -72.2331165, name: "Accès Orford au lac Stukely", type: "Mise à l'eau", confidence: "high", source: "Canot Kayak Québec, Carte interactive: accès public GPS, qualité B; recoupé avec OpenStreetMap" },
-    "lac-memphremagog-magog": { lat: 45.264195, lon: -72.15304, name: "Rampe publique près de la baie de Magog", type: "Rampe de mise à l'eau", confidence: "medium", source: "OpenStreetMap leisure=slipway" },
+    "lac-memphremagog-magog": { lat: 45.26341338502138, lon: -72.1481427151007, name: "Capitainerie de la rivière Magog", type: "Quai / accès nautique", confidence: "high", source: "HAR La Vie SUP confirmé: Rivière Magog / Capitainerie" },
     "lac-saint-jean-alma": { lat: 48.4796193, lon: -71.7934448, name: "Marina St-Gédéon", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
     "fjord-du-saguenay-l-anse": { lat: 48.2444772, lon: -70.1794917, name: "Quai / mise à l'eau de L'Anse-Saint-Jean", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway name=Anse-Saint-Jean" },
     "riviere-bonaventure": { lat: 48.058761, lon: -65.51748, name: "Plage de la Piouke / accès Bonaventure", type: "Plage", confidence: "high", source: "OpenStreetMap natural=beach; recoupé avec La Vie SUP, Baie-des-Chaleurs (Bonaventure A) / Plage de la Piouke (écart 37 m)" },
@@ -3467,7 +3557,7 @@ const accessPointOverrides = {
     "lac-brome": { lat: 45.2564916, lon: -72.4953189, name: "Mise à l'eau du Lac Brome", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
     "riviere-chicoutimi": { lat: 48.4303002, lon: -71.0517127, name: "Marina Saguenay / mise à l'eau", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
     "lac-leamy-gatineau": { lat: 45.4319796, lon: -75.7070505, name: "Mise à l'eau du Lac Leamy", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
-    "lac-meech-gatineau": { lat: 45.5269139, lon: -75.8686212, name: "Plage O'Brien / stationnement P11", type: "Plage", confidence: "medium", source: "OpenStreetMap natural=beach name=O'Brien Beach" },
+    "lac-meech-gatineau": { lat: 45.53778005904513, lon: -75.89963841809043, name: "Lac Meech — stationnement P12", type: "Accès nautique", confidence: "high", source: "HAR La Vie SUP confirmé: Lac Meech (P12) / Parc de la Gatineau" },
     "riviere-des-outaouais-chelsea": { lat: 45.4608066, lon: -75.6852272, name: "Mise à l'eau sur la rivière des Outaouais, secteur Gatineau/Chelsea", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
     "lac-la-peche-outaouais": { lat: 45.6224025, lon: -76.1784341, name: "Mise à l'eau du lac la Pêche", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
     "lac-philippe-outaouais": { lat: 45.6021161, lon: -76.0435501, name: "Mise à l'eau du lac Philippe", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
@@ -3478,7 +3568,14 @@ const accessPointOverrides = {
     "baie-de-beauport-quebec": { lat: 46.8378694, lon: -71.1945722, name: "Accès nautique de la Baie de Beauport", type: "Plage / mise à l'eau manuelle", confidence: "high", source: "Canot Kayak Québec, Carte interactive: accès et stationnement GPS; recoupé avec SIT Québec" },
     "parc-national-plaisance": { lat: 45.5989056, lon: -75.1097501, name: "Mise à l'eau du parc national de Plaisance", type: "Mise à l'eau", confidence: "high", source: "Canot Kayak Québec, Carte interactive: accès public qualité A, validé; recoupé avec Sépaq" },
     "fleuve-saint-laurent-ile-sainte-helene": { lat: 45.50176, lon: -73.5235966, name: "Mise à l'eau du parc Jean-Drapeau / Île Sainte-Hélène", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
-    "bassin-olympique-parc-jean-drapeau": { lat: 45.50176, lon: -73.5235966, name: "Mise à l'eau du parc Jean-Drapeau", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" }
+    "bassin-olympique-parc-jean-drapeau": { lat: 45.50176, lon: -73.5235966, name: "Mise à l'eau du parc Jean-Drapeau", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
+    "lac-beauport": { lat: 46.954839, lon: -71.2702358, name: "Club nautique du Lac-Beauport", type: "Accès nautique confirmé par le HAR", confidence: "high", source: "HAR La Vie SUP confirmé: Lac-Beauport / Club nautique du Lac-Beauport" },
+    "lac-kenogami": { lat: 48.33177878849501, lon: -71.43463046043273, name: "Centre touristique du Lac-Kénogami", type: "Accès nautique confirmé par le HAR", confidence: "high", source: "HAR La Vie SUP confirmé: Lac-Kénogami / Centre touristique du Lac-Kénogami (Sépaq)" },
+    "riviere-ashuapmushuan": { lat: 48.65068862453191, lon: -72.44201167148547, name: "Quai de Saint-Félicien", type: "Quai", confidence: "high", source: "HAR La Vie SUP confirmé: Rivière Ashuapmushuan A (Saint-Félicien) / Quai de Saint-Félicien" },
+    "lac-megantic": { lat: 45.58784810132125, lon: -70.92756741709933, name: "Station touristique Baie-des-Sables", type: "Plage aménagée / descente de bateaux", confidence: "high", source: "Coordonnées fournies par l'utilisateur; plage, location nautique, descente de bateaux et quais confirmés par https://baiedessables.com/plage-amenagee/" },
+    "baie-de-perce": { lat: 48.81722205280654, lon: -64.4120404941832, name: "Accès confirmé de la Baie de Percé", type: "Accès nautique côtier", confidence: "high", source: "Coordonnées confirmées par l'utilisateur pour remplacer l'ancien point générique de la Baie de Percé" },
+    "lac-du-cap-aux-os": { lat: 48.827258274795376, lon: -64.3099938078322, name: "Accès confirmé du Lac du Cap-aux-Os", type: "Accès nautique", confidence: "high", source: "Coordonnées confirmées par l'utilisateur; stationnement adjacent signalé sur la route 132" },
+    "parc-national-forillon": { lat: 48.80506447087035, lon: -64.24512015509676, name: "Plage du parc national Forillon", type: "Plage / accès nautique côtier", confidence: "high", source: "Coordonnées de la plage confirmées par l'utilisateur" }
 };
 
 // Le point d'accès et le stationnement sont volontairement séparés. Les itinéraires
@@ -3487,31 +3584,62 @@ const parkingPointOverrides = {
     "baie-de-shawinigan-parc-de-la-baie": { lat: 46.528479, lon: -72.7818462, name: "Stationnement du Parc de la Baie", confidence: "high", hideSource: true, distanceToAccessMeters: 21, fee: "Aucun frais indiqué (à confirmer sur place)" },
     "lac-sacacomie": { lat: 46.5272924, lon: -73.2028248, name: "Stationnement du quai municipal", confidence: "high", source: "OpenStreetMap parking access=yes; confirmé par Canot Kayak Québec (GPS GNSS, qualité B)", distanceToAccessMeters: 35, fee: "Payant" },
     "riviere-st-maurice": { lat: 46.35318320931242, lon: -72.52670564986391, name: "Stationnement près de la mise à l'eau", confidence: "high", source: "Stationnement GPS validé", distanceToAccessMeters: 214, fee: "À vérifier" },
-    "parc-national-wapizagonke": { lat: 46.6707117, lon: -73.0046871, name: "Stationnement du secteur Wapizagonke", confidence: "medium", source: "OpenStreetMap amenity=parking; secteur recoupé avec Sépaq", distanceToAccessMeters: 134, fee: "Droit d'accès au parc" },
+    "parc-national-wapizagonke": { lat: 46.6707117, lon: -73.0046871, name: "Stationnement du secteur Wapizagonke", confidence: "high", source: "OpenStreetMap amenity=parking; secteur recoupé avec Sépaq et La Vie SUP (secteur Shewenegan)", distanceToAccessMeters: 134, fee: "Droit d'accès au parc" },
     "lac-taureau": { lat: 46.6887256, lon: -73.9000209, name: "Stationnement de la descente de bateaux du Réservoir Taureau", confidence: "high", hideSource: true, distanceToAccessMeters: 40, fee: "Gratuit" },
     "lac-maskinonge": { lat: 46.3018400, lon: -73.3885970, name: "Stationnement de la plage municipale, 333 rue du Parc", confidence: "high", source: "Coordonnées fournies par l'utilisateur; stationnement public confirmé à 11 m par Canot Kayak Québec et recoupé avec OpenStreetMap", distanceToAccessMeters: 71, fee: "Gratuit" },
     "lac-des-piles": { lat: 46.6653731, lon: -72.7901009, name: "Camping Plage Baie Martin, 1801 chemin de la Baie-Martin", confidence: "high", source: "Stationnement et accès routier validés", distanceToAccessMeters: 47, fee: "Accès et tarif à confirmer auprès du camping" },
-    "lac-aux-sables": { lat: 46.8670340, lon: -72.3870136, name: "Stationnement de la mise à l'eau de Lac-aux-Sables", confidence: "medium", source: "Canot Kayak Québec, Carte interactive: stationnement qualité B observé par imagerie satellite", distanceToAccessMeters: 63, fee: "Gratuit" },
-    "lac-saint-pierre": { lat: 46.22080543335617, lon: -72.92372854163526, name: "Domaine du Lac Saint-Pierre", confidence: "medium", source: "La Vie SUP, Louiseville (Fleuve) / Domaine du Lac Saint-Pierre; destination d'itinéraire publique", distanceToAccessMeters: 430, fee: "À vérifier" },
+    "lac-aux-sables": { lat: 46.8670340, lon: -72.3870136, name: "Stationnement de la mise à l'eau de Lac-aux-Sables", confidence: "high", source: "Canot Kayak Québec, stationnement qualité B; recoupé avec La Vie SUP, Lac-aux-Sables B / débarcadère municipal", distanceToAccessMeters: 63, fee: "Gratuit" },
+    "lac-saint-pierre": { lat: 46.22080543335617, lon: -72.92372854163526, name: "Domaine du Lac Saint-Pierre", confidence: "high", source: "HAR La Vie SUP confirmé: Louiseville (Fleuve) / Domaine du Lac Saint-Pierre", distanceToAccessMeters: 430, fee: "À vérifier" },
     "parc-national-oka": { lat: 45.4646954, lon: -74.0424846, name: "Stationnement de la Grande Plage d'Oka", confidence: "high", source: "Stationnement de la plage confirmé et recoupé avec la Sépaq", distanceToAccessMeters: 113, fee: "Stationnement payant en saison; droit d'accès au parc" },
     "reservoir-choiniere-yamaska": { lat: 45.427711468827454, lon: -72.61706242460583, name: "Stationnement du parc national de la Yamaska", confidence: "high", source: "Stationnement GPS validé et recoupé avec la Sépaq", distanceToAccessMeters: 189, fee: "Stationnement gratuit; droit d'accès au parc" },
     "reservoir-poisson-blanc": { lat: 46.0951093, lon: -75.6742184, name: "Stationnement P3 du pavillon Le Bastion", confidence: "high", source: "OpenStreetMap: stationnement P3; accès voisin confirmé par Canot Kayak Québec", distanceToAccessMeters: 153, fee: "À vérifier" },
     "baie-de-beauport-quebec": { lat: 46.8378537, lon: -71.1974402, name: "Stationnement de la plage de la Baie de Beauport", confidence: "high", source: "Canot Kayak Québec, Carte interactive: GPS, qualité B, validé", distanceToAccessMeters: 221, fee: "À vérifier" },
     "parc-national-plaisance": { lat: 45.5992347, lon: -75.1094637, name: "Stationnement de l'accueil du parc national de Plaisance", confidence: "high", source: "Canot Kayak Québec, Carte interactive: stationnement public qualité A, validé", distanceToAccessMeters: 43, fee: "Stationnement gratuit; droit d'accès au parc" },
     "lac-stukely-mont-orford": { lat: 45.3623465, lon: -72.2339001, name: "Stationnement de la plage Stukely", confidence: "high", source: "Canot Kayak Québec, Carte interactive: GPS GNSS, qualité B, validé; recoupé avec OpenStreetMap P2", distanceToAccessMeters: 110, fee: "Payant / permis requis" },
-    "lac-memphremagog-magog": { lat: 45.2641104, lon: -72.1533591, name: "Stationnement voisin de la rampe de Magog", confidence: "medium", source: "OpenStreetMap amenity=parking, accès réservé aux clients à confirmer", distanceToAccessMeters: 27, fee: "À vérifier" },
+    "lac-memphremagog-magog": { lat: 45.26341338502138, lon: -72.1481427151007, name: "Destination de la Capitainerie", confidence: "high", source: "HAR La Vie SUP confirmé: Rivière Magog / Capitainerie", distanceToAccessMeters: 0, fee: "À vérifier" },
     "fjord-du-saguenay-l-anse": { lat: 48.2439047, lon: -70.1800943, name: "Stationnement du quai de L'Anse-Saint-Jean", confidence: "high", source: "OpenStreetMap amenity=parking, access=yes, fee=yes", distanceToAccessMeters: 78, fee: "Payant" },
     "lac-saint-jean-alma": { lat: 48.4802148, lon: -71.7960512, name: "Stationnement Pointe Picard / Marina St-Gédéon", confidence: "high", source: "Canot Kayak Québec, Carte interactive: qualité B; recoupé avec OpenStreetMap", distanceToAccessMeters: 203, fee: "Payant" },
     "riviere-bonaventure": { lat: 48.0589625, lon: -65.5172142, name: "Stationnement de la Piouke", confidence: "high", source: "OpenStreetMap amenity=parking, surface asphaltée", distanceToAccessMeters: 30, fee: "À vérifier" },
-    "marais-du-nord-st-charles": { lat: 46.961562, lon: -71.392812, name: "Stationnement principal du Marais du Nord", confidence: "medium", source: "La Vie SUP, Marais du Nord / Stoneham-et-Tewkesbury, 1100 chemin de la Grande Ligne; destination d'itinéraire publique", distanceToAccessMeters: 334, fee: "Frais d'accès au site" },
+    "marais-du-nord-st-charles": { lat: 46.961562, lon: -71.392812, name: "Stationnement principal du Marais du Nord", confidence: "high", source: "HAR La Vie SUP confirmé: Marais du Nord / Stoneham-et-Tewkesbury, 1100 chemin de la Grande Ligne", distanceToAccessMeters: 334, fee: "Frais d'accès au site" },
     "iles-de-boucherville": { lat: 45.6117779, lon: -73.4566016, name: "Stationnement près de la mise à l'eau", confidence: "high", source: "OpenStreetMap amenity=parking; stationnement public GPS confirmé par Canot Kayak Québec", distanceToAccessMeters: 25, fee: "Droit d'accès au parc" },
     "lac-brome": { lat: 45.2559768, lon: -72.4948600, name: "Stationnement de la mise à l'eau du lac Brome", confidence: "high", source: "OpenStreetMap amenity=parking, access=yes, fee=yes", distanceToAccessMeters: 68, fee: "Payant" },
     "riviere-chicoutimi": { lat: 48.4304405, lon: -71.0528561, name: "Stationnement de la Marina Saguenay", confidence: "medium", source: "OpenStreetMap amenity=parking", distanceToAccessMeters: 86, fee: "À vérifier" },
     "lac-leamy-gatineau": { lat: 45.4320283, lon: -75.7084310, name: "Stationnement du port de plaisance Jacques-Cartier", confidence: "high", source: "OpenStreetMap amenity=parking, fee=yes; recoupé avec Canot Kayak Québec", distanceToAccessMeters: 108, fee: "Payant" },
     "lac-la-peche-outaouais": { lat: 45.6221030, lon: -76.1779938, name: "Stationnement du lac la Pêche", confidence: "high", source: "OpenStreetMap amenity=parking, access=yes; recoupé avec Canot Kayak Québec", distanceToAccessMeters: 48, fee: "Payant" },
     "fleuve-saint-laurent-ile-sainte-helene": { lat: 45.5018993, lon: -73.5234971, name: "Stationnement P3 du parc Jean-Drapeau", confidence: "high", source: "OpenStreetMap amenity=parking, access=yes, fee=yes", distanceToAccessMeters: 17, fee: "Payant" },
-    "bassin-olympique-parc-jean-drapeau": { lat: 45.5018993, lon: -73.5234971, name: "Stationnement P3 du parc Jean-Drapeau", confidence: "high", source: "OpenStreetMap amenity=parking, access=yes, fee=yes", distanceToAccessMeters: 17, fee: "Payant" }
+    "bassin-olympique-parc-jean-drapeau": { lat: 45.5018993, lon: -73.5234971, name: "Stationnement P3 du parc Jean-Drapeau", confidence: "high", source: "OpenStreetMap amenity=parking, access=yes, fee=yes", distanceToAccessMeters: 17, fee: "Payant" },
+    "lac-beauport": { lat: 46.954839, lon: -71.2702358, name: "Destination du Club nautique du Lac-Beauport", confidence: "high", source: "HAR La Vie SUP confirmé: Lac-Beauport / Club nautique du Lac-Beauport", distanceToAccessMeters: 0, fee: "À vérifier" },
+    "lac-kenogami": { lat: 48.33177878849501, lon: -71.43463046043273, name: "Centre touristique du Lac-Kénogami", confidence: "high", source: "HAR La Vie SUP confirmé: Centre touristique du Lac-Kénogami (Sépaq)", distanceToAccessMeters: 0, fee: "Droit d'accès à vérifier" },
+    "riviere-ashuapmushuan": { lat: 48.65068862453191, lon: -72.44201167148547, name: "Destination du quai de Saint-Félicien", confidence: "high", source: "HAR La Vie SUP confirmé: Rivière Ashuapmushuan / Quai de Saint-Félicien", distanceToAccessMeters: 0, fee: "À vérifier" },
+    "canal-de-lachine": { lat: 45.47900684308633, lon: -73.57398811398144, name: "Destination Aventures H2O du canal de Lachine", confidence: "high", source: "HAR La Vie SUP confirmé: Canal Lachine A / Aventures H2O", distanceToAccessMeters: 8, fee: "À vérifier" },
+    "bassin-de-lachine-montreal": { lat: 45.47900684308633, lon: -73.57398811398144, name: "Destination Aventures H2O du bassin de Lachine", confidence: "high", source: "HAR La Vie SUP confirmé: Canal Lachine A / Aventures H2O", distanceToAccessMeters: 8, fee: "À vérifier" },
+    "lac-meech-gatineau": { lat: 45.53778005904513, lon: -75.89963841809043, name: "Destination du stationnement P12 du lac Meech", confidence: "high", source: "HAR La Vie SUP confirmé: Lac Meech (P12) / Parc de la Gatineau", distanceToAccessMeters: 0, fee: "À vérifier" },
+    "lac-megantic": { lat: 45.58784810132125, lon: -70.92756741709933, name: "Destination de la Station touristique Baie-des-Sables", confidence: "high", source: "Coordonnées fournies par l'utilisateur; services nautiques confirmés par https://baiedessables.com/plage-amenagee/", distanceToAccessMeters: 0, fee: "Tarification à vérifier" },
+    "baie-de-perce": { lat: 48.81722205280654, lon: -64.4120404941832, name: "Destination confirmée de la Baie de Percé", confidence: "high", source: "Coordonnées confirmées par l'utilisateur pour la Baie de Percé", distanceToAccessMeters: 0, fee: "À vérifier" },
+    "lac-du-cap-aux-os": { lat: 48.827258274795376, lon: -64.3099938078322, name: "Stationnement adjacent sur la route 132", confidence: "high", source: "Coordonnées et proximité du stationnement confirmées par l'utilisateur", fee: "À vérifier" },
+    "parc-national-forillon": { lat: 48.8054277, lon: -64.2452039, name: "Stationnement du sentier du mont Saint-Alban, route 132", confidence: "high", source: "Lien Google Maps fourni par l'utilisateur: https://maps.app.goo.gl/uLaL6tZGpMKZJz2RA", distanceToAccessMeters: 41, fee: "Droits d'entrée de Parcs Canada à vérifier" }
 };
+
+laVieSupPopularSpotSeeds.forEach(seed => {
+    const source = `HAR La Vie SUP confirmé: ${seed.name} / ${seed.accessName}; destination Itinéraire extraite du fichier fourni`;
+    accessPointOverrides[seed.slug] = {
+        lat: seed.lat,
+        lon: seed.lon,
+        name: seed.accessName,
+        type: "Accès nautique confirmé par le HAR",
+        confidence: "high",
+        source
+    };
+    parkingPointOverrides[seed.slug] = {
+        lat: seed.lat,
+        lon: seed.lon,
+        name: `Destination d'itinéraire — ${seed.accessName}`,
+        confidence: "high",
+        source: `${source}; destination GPS confirmée par le HAR`,
+        distanceToAccessMeters: 0,
+        fee: "À vérifier"
+    };
+});
 
 function normalizeGpsPoint(point, fallback) {
     const lat = Number(point?.lat ?? fallback?.lat);

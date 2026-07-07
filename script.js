@@ -8,7 +8,13 @@
         "Gaspésie": { color: "#f97316", zone: "Est", emoji: "🌊" },
         "Québec": { color: "#06b6d4", zone: "Est", emoji: "🏛️" },
         "Outaouais": { color: "#10b981", zone: "Ouest", emoji: "🌳" },
-        "Montréal": { color: "#d97706", zone: "Centre-Est", emoji: "🏙️" }
+        "Montréal": { color: "#d97706", zone: "Centre-Est", emoji: "🏙️" },
+        "Laval": { color: "#f59e0b", zone: "Centre-Est", emoji: "🏙️" },
+        "Montérégie": { color: "#84cc16", zone: "Sud", emoji: "🌾" },
+        "Centre-du-Québec": { color: "#14b8a6", zone: "Centre", emoji: "🌿" },
+        "Chaudière-Appalaches": { color: "#0ea5e9", zone: "Est", emoji: "🌊" },
+        "Charlevoix": { color: "#6366f1", zone: "Est", emoji: "⛰️" },
+        "Bas-Saint-Laurent": { color: "#0891b2", zone: "Est", emoji: "🌊" }
     };
 
     function getRegionColor(region) {
@@ -179,10 +185,11 @@
             attribution: 'Source: Esri, Vantor, Earthstar Geographics, and the GIS User Community',
             maxZoom: 23
         });
-        satelliteLabelsLayer = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}', {
-            attribution: 'Labels: Esri, HERE, Garmin, OpenStreetMap contributors',
+        satelliteLabelsLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
             pane: 'satelliteLabelsPane',
-            maxNativeZoom: 19,
+            subdomains: 'abcd',
+            maxNativeZoom: 20,
             maxZoom: 23
         });
         setMapMode(getStoredMapMode(), false);
@@ -413,9 +420,9 @@
         { 
             name: "Parc National Forillon", 
             region: "Gaspésie",
-            lat: 48.8305, lon: -64.2165,
+            lat: 48.80506447087035, lon: -64.24512015509676,
             image: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=800",
-            parking: "Stationnement au Havre de Grande-Grave.", 
+            parking: "Stationnement du sentier du mont Saint-Alban, à environ 41 m de la plage.",
             prix: "Tarification d'entrée de Parc Canada applicable.", 
             info: "Naviguez dans une baie magnifique avec possibilité d'observer des phoques et baleines au loin.",
             isFree: false,
@@ -512,12 +519,12 @@
         { 
             name: "Lac Mégantic", 
             region: "Estrie",
-            lat: 45.51767, lon: -70.87950,
+            lat: 45.58784810132125, lon: -70.92756741709933,
             image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
-            parking: "Stationnement municipal à Mégantic.", 
-            prix: "Accès gratuit (rampe de mise à l'eau).", 
-            info: "Grand lac pittoresque avec petites îles. Secteur très sécuritaire pour débuter.",
-            isFree: true,
+            parking: "Station touristique Baie-des-Sables.",
+            prix: "Tarification à vérifier.",
+            info: "Plage aménagée avec location nautique, descente de bateaux et quais visiteurs.",
+            isFree: false,
             level: "facile"
         },
         { 
@@ -578,22 +585,22 @@
         { 
             name: "Baie de Percé", 
             region: "Gaspésie",
-            lat: 48.7525, lon: -64.2135,
+            lat: 48.81722205280654, lon: -64.4120404941832,
             image: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=800",
-            parking: "Stationnement en centre-ville de Percé.", 
-            prix: "À proximité du fameux rocher percé (gratuit).", 
-            info: "Baie abritée avec vue sur le rocher Percé. Observation de phoques possible.",
-            isFree: true,
+            parking: "Destination GPS confirmée de la Baie de Percé.",
+            prix: "Tarif et conditions d'accès à vérifier.",
+            info: "Point d'accès confirmé; vérifiez le vent, les marées et les conditions maritimes.",
+            isFree: false,
             level: "facile"
         },
         { 
             name: "Lac du Cap-aux-Os", 
             region: "Gaspésie",
-            lat: 48.3795, lon: -64.8905,
+            lat: 48.827258274795376, lon: -64.3099938078322,
             image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800",
-            parking: "Stationnement municipal (stationnement payant en été).", 
-            prix: "Environ 5$ pour le stationnement.", 
-            info: "Petit lac côtier avec faible fréquentation, eau froide mais cristalline.",
+            parking: "Stationnement adjacent sur la route 132.",
+            prix: "Tarification à vérifier.",
+            info: "GPS confirmé avec stationnement juste à côté de l'accès.",
             isFree: false,
             level: "facile"
         },
@@ -786,8 +793,8 @@
 
     function getGpsStatusLabel(spot) {
         if (!spot?.hasParkingPoint) return "Stationnement à vérifier";
-        if (spot?.accessConfidence === 'high') return "GPS stationnement validé";
-        if (spot?.accessConfidence === 'medium') return "GPS stationnement probable";
+        if (spot?.accessConfidence === 'high') return "GPS itinéraire confirmé";
+        if (spot?.accessConfidence === 'medium') return "GPS itinéraire probable";
         if (spot?.accessConfidence === 'legacy') return "GPS existant";
         return "GPS stationnement à vérifier";
     }
@@ -839,7 +846,7 @@
         grid.innerHTML = cards.map(spot => {
             const score = Number(spot.paddleScore || spot.score || 75);
             return `
-                <a href="lac.html?lake=${encodeURIComponent(spot.slug)}&v=20260703" class="popular-spot-card group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:border-blue-400 transition-all">
+                <a href="lac.html?lake=${encodeURIComponent(spot.slug)}&v=20260707-1" class="popular-spot-card group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:border-blue-400 transition-all">
                     <div class="relative h-44 overflow-hidden md:h-52">
                         <img src="${escapeHtml(spot.image)}" alt="${escapeHtml(spot.name)}" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
                         <div class="absolute top-3 left-3 rounded-full border px-2 py-1 text-[9px] font-black uppercase tracking-wider ${getGpsStatusClass(spot)}">
@@ -1140,7 +1147,7 @@
             minWidth: 220,
             className: 'custom-popup'
         };
-        const pageUrl = `lac.html?lake=${getLakePageSlug(name)}&v=20260703`;
+        const pageUrl = `lac.html?lake=${getLakePageSlug(name)}&v=20260707-1`;
         const safeDisplayName = escapeHtml(name);
         const popupActions = buildSpotPopupActions(name, pageUrl, spotInfo, lat, lon);
 
@@ -1700,7 +1707,7 @@
                             <span>CAP SUR CE SPOT</span>
                         </button>
                     </div>
-                    <a href="lac.html?lake=${getLakePageSlug(lac.name)}&v=20260703"
+                    <a href="lac.html?lake=${getLakePageSlug(lac.name)}&v=20260707-1"
                        class="w-full py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl font-black text-xs transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/25 active:scale-95">
                         <span>📖 VOIR LA PAGE COMPLÈTE</span>
                     </a>
@@ -2081,7 +2088,7 @@
                                 <h2 class="text-2xl font-bold mb-4">2 Spots les Plus Proches</h2>
                                 <div class="space-y-4 mb-6">
                                     ${nearestSpots.map((spot, idx) => `
-                                        <a href="lac.html?lake=${spot.slug}&v=20260703" class="block bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-900/50 p-4 rounded-lg hover:shadow-lg transition">
+                                        <a href="lac.html?lake=${spot.slug}&v=20260707-1" class="block bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-900/50 p-4 rounded-lg hover:shadow-lg transition">
                                             <div class="font-bold">${idx + 1}. ${spot.name}</div>
                                             <div class="text-sm text-slate-600 dark:text-slate-400">${spot.region}</div>
                                             <div class="text-sm font-bold text-blue-600 dark:text-blue-400">${spot.distance.toFixed(1)} km</div>
