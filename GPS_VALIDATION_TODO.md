@@ -1,15 +1,15 @@
 # Validation GPS des accès et stationnements
 
-Dernière passe: 2026-07-07
+Dernière passe: 2026-07-08
 
 ## État actuel
 
-- 101 spots sont publiés.
-- 87 spots possèdent maintenant une destination d'itinéraire distincte ou explicitement référencée.
+- 102 spots sont publiés.
+- 88 spots possèdent maintenant une destination d'itinéraire distincte ou explicitement référencée.
 - Selon la règle du projet, toute destination présente dans le HAR fourni est considérée comme GPS confirmé.
-- 86 destinations sont classées `high` et une seule demeure `medium`.
+- 87 destinations sont classées `high` et une seule demeure `medium`.
 - Les 14 autres spots conservent leur accès actuel, mais l'itinéraire de stationnement reste à vérifier.
-- Les compteurs de la carte affichent 90 points `high`, 1 point `medium` et 10 points `needs_verification`, car quatre accès validés servent de destination de repli lorsqu'aucun stationnement distinct n'existe.
+- Les compteurs de la carte affichent 91 points `high`, 1 point `medium` et 10 points `needs_verification`, car quatre accès validés servent de destination de repli lorsqu'aucun stationnement distinct n'existe.
 
 ## Recoupement La Vie SUP du 5 juillet 2026
 
@@ -92,6 +92,7 @@ Entre 250 et 500 m, le point est généralement classé `medium`. Au-delà de 50
 - Baie de Percé: ancien point générique remplacé par l'accès confirmé fourni par l'utilisateur (`48.81722205280654, -64.4120404941832`). Le stationnement, le tarif et les conditions maritimes restent à vérifier avant la sortie.
 - Lac du Cap-aux-Os: accès confirmé à `48.827258274795376, -64.3099938078322`; le stationnement adjacent sur la route 132 est également confirmé par l'utilisateur, sans distance précise ni tarif confirmé.
 - Parc national Forillon: plage confirmée à `48.80506447087035, -64.24512015509676`; le lien Google Maps fourni confirme le stationnement du sentier du mont Saint-Alban à `48.8054277, -64.2452039`, environ 41 m plus loin de l'autre côté de la rue.
+- Lac Matapédia — Baie de Charlie: accès plage confirmé par le lien Google Maps fourni à `48.5868597, -67.6347988`; stationnement OSM `way 745807742` à `48.58805, -67.63394`, environ 146 m plus loin. La Municipalité de Sayabec confirme la plage de sable, les installations et l'absence de surveillance.
 
 ## Prochaine passe manuelle
 

@@ -67,7 +67,7 @@
     </div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="data.js?v=20260707-1"></script>
+    <script src="data.js?v=20260708-4"></script>
     <script>
         // ========== GESTION DU THÈME ==========
         function toggleTheme() {
@@ -119,16 +119,17 @@
                 if (!data?.main || !data?.wind || !data?.clouds) {
                     throw new Error('Réponse météo incomplète');
                 }
+                const windKmh = data.wind.speed * 3.6;
                 return {
                     available: true,
                     temp: data.main.temp,
-                    wind: data.wind.speed * 3.6, // m/s à km/h
-                    rain: data.clouds.all,
-                    waves: (data.wind.speed * 3.6) / 10
+                    wind: windKmh, // m/s à km/h
+                    clouds: data.clouds.all,
+                    waterState: getLakeWaterState(windKmh)
                 };
             } catch (e) {
                 console.warn('Météo indisponible:', e.message);
-                return { available: false, temp: null, wind: null, rain: null, waves: null };
+                return { available: false, temp: null, wind: null, clouds: null, waterState: 'Indisponible' };
             } finally {
                 clearTimeout(timeoutId);
             }
@@ -136,6 +137,19 @@
 
         function formatLakeWeather(value, digits, suffix) {
             return Number.isFinite(value) ? `${value.toFixed(digits)}${suffix}` : 'Indisponible';
+        }
+
+        // État qualitatif inspiré de l'échelle de Beaufort. Une vitesse de vent
+        // seule ne permet pas de calculer une hauteur de vague fiable sur un lac.
+        function getLakeWaterState(windKmh) {
+            if (!Number.isFinite(windKmh)) return 'Indisponible';
+            if (windKmh < 1) return 'Calme';
+            if (windKmh < 6) return 'Rides légères';
+            if (windKmh < 12) return 'Vaguelettes';
+            if (windKmh < 20) return 'Très petites vagues';
+            if (windKmh < 29) return 'Petites vagues';
+            if (windKmh < 39) return 'Agité · moutons';
+            return 'Très agité';
         }
 
         function updateLakeWeatherWidget(weatherData) {
@@ -157,8 +171,8 @@
 
             temperature.textContent = formatLakeWeather(weatherData.temp, 1, '°C');
             wind.textContent = formatLakeWeather(weatherData.wind, 1, ' km/h');
-            clouds.textContent = formatLakeWeather(weatherData.rain, 0, '%');
-            waves.textContent = formatLakeWeather(weatherData.waves, 2, ' m');
+            clouds.textContent = formatLakeWeather(weatherData.clouds, 0, '%');
+            waves.textContent = weatherData.waterState || 'Indisponible';
         }
 
         async function loadLakeWeather(currentLake) {
@@ -233,7 +247,7 @@
 
                 const html = `
                     <section class="relative h-96 md:h-[60vh] flex items-end overflow-hidden">
-                        <img src="${currentLake.mainImage}" alt="${currentLake.name}" class="absolute inset-0 w-full h-full object-cover">
+                        <img src="${currentLake.mainImage}" alt="${currentLake.name}" decoding="async" fetchpriority="high" class="absolute inset-0 w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                         
                         <div class="relative z-10 max-w-6xl mx-auto w-full px-6 pb-12">
@@ -276,6 +290,8 @@
                                             <img 
                                                 src="${img}" 
                                                 alt="Photo ${idx + 1}"
+                                                loading="lazy"
+                                                decoding="async"
                                                 onclick="openPhotoModal(${idx}, ${currentLake.gallery.length}, window.currentLakeGallery)"
                                                 class="w-full h-32 md:h-44 object-cover rounded-xl shadow-md hover:scale-105 transition cursor-pointer"
                                             >
@@ -351,10 +367,11 @@
                                             </div>
                                             <div class="text-center bg-white dark:bg-slate-900/60 p-3 rounded-xl shadow-sm">
                                                 <div class="text-2xl mb-1">🌊</div>
-                                                <p class="text-xs text-slate-500">Vagues (Est.)</p>
-                                                <p id="lakeWeatherWaves" class="text-xl font-black">—</p>
+                                                <p class="text-xs text-slate-500">État de l’eau (vent)</p>
+                                                <p id="lakeWeatherWaves" class="text-base font-black leading-tight">—</p>
                                             </div>
                                         </div>
+                                        <p class="mt-3 text-xs text-slate-500 dark:text-slate-400">Estimation qualitative basée sur le vent; ce n’est pas une mesure de la hauteur des vagues.</p>
                                     </div>
                                 </section>
 
@@ -624,32 +641,34 @@
                         color: '#fff',
                         weight: 3,
                         fillOpacity: 1
-                    }).addTo(detailMap).bindPopup(`<strong>${parkingPoint.name}</strong><br>Stationnement et destination de l'itinéraire`).openPopup();
+                    }).addTo(detailMap).bindPopup(`<strong>${parkingPoint.name}</strong><br>Stationnement et destination de l'itinéraire`);
 
-                    L.polyline([
+                    const parkingDistance = detailMap.distance(
                         [parkingPoint.lat, parkingPoint.lon],
                         [accessPoint.lat, accessPoint.lon]
-                    ], {
-                        color: '#0f766e',
-                        weight: 3,
-                        opacity: 0.8,
-                        dashArray: '7 7'
-                    }).addTo(detailMap);
+                    );
 
-                    detailMap.fitBounds([
-                        [parkingPoint.lat, parkingPoint.lon],
-                        [accessPoint.lat, accessPoint.lon]
-                    ], { padding: [45, 45], maxZoom: 17 });
+                    if (parkingDistance > 10) {
+                        L.polyline([
+                            [parkingPoint.lat, parkingPoint.lon],
+                            [accessPoint.lat, accessPoint.lon]
+                        ], {
+                            color: '#0f766e',
+                            weight: 3,
+                            opacity: 0.8,
+                            dashArray: '7 7'
+                        }).addTo(detailMap);
+
+                        detailMap.fitBounds([
+                            [parkingPoint.lat, parkingPoint.lon],
+                            [accessPoint.lat, accessPoint.lon]
+                        ], { padding: [60, 60], maxZoom: 17 });
+                    } else {
+                        detailMap.setView([accessPoint.lat, accessPoint.lon], 17);
+                    }
+                } else {
+                    detailMap.setView([accessPoint.lat, accessPoint.lon], 15);
                 }
-
-                L.circleMarker([lake.lat, lake.lon], {
-                    radius: 12,
-                    fillColor: '#2563eb',
-                    color: '#fff',
-                    weight: 3,
-                    opacity: 1,
-                    fillOpacity: 0.9
-                }).addTo(detailMap).bindPopup(`<strong>${lake.name}</strong><br>${lake.region}`);
             } catch(e) {
                 console.warn("Erreur d'initialisation de la carte Leaflet:", e.message);
                 mapTarget.innerHTML = `
@@ -707,7 +726,7 @@
                         
                         if (filtered.length > 0) {
                             const html = filtered.map(lac => `
-                                <a href="?lake=${lac.slug}&v=20260707-1" class="block bg-slate-50 dark:bg-slate-700/50 p-3 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-blue-500 transition">
+                                <a href="?lake=${lac.slug}&v=20260708-4" class="block bg-slate-50 dark:bg-slate-700/50 p-3 rounded-xl border border-slate-100 dark:border-slate-700 hover:border-blue-500 transition">
                                     <div class="font-bold text-xs text-slate-800 dark:text-white">${lac.name}</div>
                                     <div class="text-[11px] text-slate-500 dark:text-slate-400">À environ ${(lac.distance || 0).toFixed(1)} km</div>
                                 </a>

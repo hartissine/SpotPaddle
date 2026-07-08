@@ -846,7 +846,7 @@
         grid.innerHTML = cards.map(spot => {
             const score = Number(spot.paddleScore || spot.score || 75);
             return `
-                <a href="lac.html?lake=${encodeURIComponent(spot.slug)}&v=20260707-1" class="popular-spot-card group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:border-blue-400 transition-all">
+                <a href="lac.html?lake=${encodeURIComponent(spot.slug)}&v=20260708-4" class="popular-spot-card group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:border-blue-400 transition-all">
                     <div class="relative h-44 overflow-hidden md:h-52">
                         <img src="${escapeHtml(spot.image)}" alt="${escapeHtml(spot.name)}" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
                         <div class="absolute top-3 left-3 rounded-full border px-2 py-1 text-[9px] font-black uppercase tracking-wider ${getGpsStatusClass(spot)}">
@@ -1147,7 +1147,7 @@
             minWidth: 220,
             className: 'custom-popup'
         };
-        const pageUrl = `lac.html?lake=${getLakePageSlug(name)}&v=20260707-1`;
+        const pageUrl = `lac.html?lake=${getLakePageSlug(name)}&v=20260708-4`;
         const safeDisplayName = escapeHtml(name);
         const popupActions = buildSpotPopupActions(name, pageUrl, spotInfo, lat, lon);
 
@@ -1707,7 +1707,7 @@
                             <span>CAP SUR CE SPOT</span>
                         </button>
                     </div>
-                    <a href="lac.html?lake=${getLakePageSlug(lac.name)}&v=20260707-1"
+                    <a href="lac.html?lake=${getLakePageSlug(lac.name)}&v=20260708-4"
                        class="w-full py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl font-black text-xs transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/25 active:scale-95">
                         <span>📖 VOIR LA PAGE COMPLÈTE</span>
                     </a>
@@ -2088,7 +2088,7 @@
                                 <h2 class="text-2xl font-bold mb-4">2 Spots les Plus Proches</h2>
                                 <div class="space-y-4 mb-6">
                                     ${nearestSpots.map((spot, idx) => `
-                                        <a href="lac.html?lake=${spot.slug}&v=20260707-1" class="block bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-900/50 p-4 rounded-lg hover:shadow-lg transition">
+                                        <a href="lac.html?lake=${spot.slug}&v=20260708-4" class="block bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-900/50 p-4 rounded-lg hover:shadow-lg transition">
                                             <div class="font-bold">${idx + 1}. ${spot.name}</div>
                                             <div class="text-sm text-slate-600 dark:text-slate-400">${spot.region}</div>
                                             <div class="text-sm font-bold text-blue-600 dark:text-blue-400">${spot.distance.toFixed(1)} km</div>

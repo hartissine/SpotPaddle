@@ -988,6 +988,77 @@ const lacDatabase = [
 // tout en conservant les fiches ?ditoriales plus riches d?j? pr?sentes ci-dessus.
 const supplementalSpotDetails = [
     {
+        "id": "lac-matapedia-baie-de-charlie",
+        "slug": "lac-matapedia-baie-de-charlie",
+        "name": "Lac Matapédia — Baie de Charlie",
+        "region": "Bas-Saint-Laurent",
+        "lat": 48.5868597,
+        "lon": -67.6347988,
+        "mainImage": "assets/spots/lac-matapedia-baie-de-charlie/panorama-baie.jpg",
+        "gallery": [
+            "assets/spots/lac-matapedia-baie-de-charlie/panorama-baie.jpg",
+            "assets/spots/lac-matapedia-baie-de-charlie/rive-boisee.jpg",
+            "assets/spots/lac-matapedia-baie-de-charlie/vue-depuis-la-planche.jpeg"
+        ],
+        "description": "Accès au lac Matapédia par la plage de sable du parc de la Baie-de-Charlie, à Sayabec. Le point GPS provient du lien Google Maps fourni et le site est confirmé par la municipalité.",
+        "longDescription": "La Baie de Charlie est un accès aménagé au lac Matapédia dans le secteur de Sayabec. La plage descend doucement dans l'eau et le parc comprend des tables de pique-nique, un gazebo, des jeux et des sentiers. Le stationnement aménagé se trouve à environ 146 m de la plage. La baignade n'est pas surveillée et les conditions sur le lac doivent être vérifiées avant la mise à l'eau.",
+        "difficulty": "facile",
+        "paddleScore": 82,
+        "scoreFactors": {
+            "wind": 7,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 7
+        },
+        "isFree": true,
+        "cost": "Accès libre; conditions à vérifier sur place",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Parcours variable sur le lac Matapédia",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Stationnement du parc de la Baie-de-Charlie",
+            "spots": "Capacité à vérifier",
+            "accessible": true,
+            "cost": "À vérifier"
+        },
+        "access": {
+            "description": "Plage du parc de la Baie-de-Charlie",
+            "type": "Plage / mise à l'eau manuelle",
+            "difficulty": "Facile",
+            "launchPoint": "Plage de sable non surveillée"
+        },
+        "amenities": [
+            "Stationnement aménagé",
+            "Tables de pique-nique et gazebo",
+            "Jeux pour enfants et sentiers pédestres"
+        ],
+        "warnings": [
+            "Plage non surveillée",
+            "Vérifiez le vent et les conditions du lac avant le départ",
+            "Confirmez les règles et services saisonniers sur place"
+        ],
+        "faq": [
+            {
+                "q": "Le point GPS est-il confirmé ?",
+                "a": "Oui. Le point d'accès provient du lien Google Maps fourni et le parc de la Baie-de-Charlie est confirmé par la Municipalité de Sayabec."
+            },
+            {
+                "q": "Où faut-il stationner ?",
+                "a": "Le stationnement aménagé du parc se trouve à environ 146 m de la plage. Le bouton d'itinéraire mène à ce stationnement."
+            },
+            {
+                "q": "La plage est-elle surveillée ?",
+                "a": "Non. La Municipalité de Sayabec précise que la plage n'est pas surveillée."
+            }
+        ],
+        "highlights": [
+            "GPS d'accès confirmé par le lien fourni",
+            "Plage de sable à pente douce",
+            "GPS du stationnement validé",
+            "Parc et sentiers aménagés"
+        ]
+    },
+    {
         "id": "baie-de-shawinigan-parc-de-la-baie",
         "slug": "baie-de-shawinigan-parc-de-la-baie",
         "name": "Baie de Shawinigan (Parc de la Baie)",
@@ -3536,6 +3607,7 @@ const laVieSupPopularSpotDetails = laVieSupPopularSpotSeeds.map(seed => {
 });
 
 const accessPointOverrides = {
+    "lac-matapedia-baie-de-charlie": { lat: 48.5868597, lon: -67.6347988, name: "Plage du parc de la Baie-de-Charlie", type: "Plage / mise à l'eau manuelle", confidence: "high", source: "Lien Google Maps fourni par l'utilisateur: https://maps.app.goo.gl/m9NBpw64FCsYtrog8; site confirmé par la Municipalité de Sayabec" },
     "baie-de-shawinigan-parc-de-la-baie": { lat: 46.5285141, lon: -72.7815819, name: "Mise à l'eau du Parc de la Baie", type: "Mise à l'eau en gravier", confidence: "high", hideSource: true },
     "lac-a-la-tortue": { lat: 46.6104797, lon: -72.6269128, name: "Plage du parc municipal du Lac à la Tortue", type: "Plage", confidence: "high", source: "OpenStreetMap natural=beach way 487542775" },
     "lac-sacacomie": { lat: 46.5274337, lon: -73.2032333, name: "Mise à l'eau du lac Sacacomie", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
@@ -3581,6 +3653,7 @@ const accessPointOverrides = {
 // Le point d'accès et le stationnement sont volontairement séparés. Les itinéraires
 // visent le stationnement afin d'éviter d'envoyer un véhicule directement sur la rive.
 const parkingPointOverrides = {
+    "lac-matapedia-baie-de-charlie": { lat: 48.58805, lon: -67.63394, name: "Stationnement du parc de la Baie-de-Charlie", confidence: "high", source: "OpenStreetMap amenity=parking, way 745807742; parc et plage confirmés par la Municipalité de Sayabec", distanceToAccessMeters: 146, fee: "À vérifier" },
     "baie-de-shawinigan-parc-de-la-baie": { lat: 46.528479, lon: -72.7818462, name: "Stationnement du Parc de la Baie", confidence: "high", hideSource: true, distanceToAccessMeters: 21, fee: "Aucun frais indiqué (à confirmer sur place)" },
     "lac-sacacomie": { lat: 46.5272924, lon: -73.2028248, name: "Stationnement du quai municipal", confidence: "high", source: "OpenStreetMap parking access=yes; confirmé par Canot Kayak Québec (GPS GNSS, qualité B)", distanceToAccessMeters: 35, fee: "Payant" },
     "riviere-st-maurice": { lat: 46.35318320931242, lon: -72.52670564986391, name: "Stationnement près de la mise à l'eau", confidence: "high", source: "Stationnement GPS validé", distanceToAccessMeters: 214, fee: "À vérifier" },
