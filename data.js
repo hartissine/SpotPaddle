@@ -1133,14 +1133,14 @@ const supplementalSpotDetails = [
         "slug": "lac-tremblant",
         "name": "Lac Tremblant",
         "region": "Laurentides",
-        "lat": 46.1402,
-        "lon": -74.6172,
+        "lat": 46.227230443496815,
+        "lon": -74.62875777620965,
         "mainImage": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800",
         "gallery": [
             "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800"
         ],
-        "description": "Lac Tremblant est un spot de paddle de la région Laurentides. Naviguez sur un magnifique lac au pied de la célèbre montagne de ski. Paysage somptueux.",
-        "longDescription": "Lac Tremblant est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Laurentides. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Naviguez sur un magnifique lac au pied de la célèbre montagne de ski. Paysage somptueux.",
+        "description": "Lac Tremblant est un spot de paddle de la région Laurentides avec accès par le secteur du Centre nautique Pierre Plouffe. Le lavage d'embarcation est obligatoire avant la mise à l'eau.",
+        "longDescription": "Lac Tremblant est référencé dans Spot Paddle avec le secteur du Centre nautique Pierre Plouffe comme accès nautique. Le lavage d'embarcation est obligatoire avant la mise à l'eau; le point GPS confirmé mène à l'endroit où l'embarcation peut être lavée. Avant la sortie, validez les frais, le stationnement, les règles locales, la météo et le vent.",
         "difficulty": "facile",
         "paddleScore": 76,
         "scoreFactors": {
@@ -1150,50 +1150,51 @@ const supplementalSpotDetails = [
             "waves": 8
         },
         "isFree": false,
-        "cost": "Accès payant (frais journaliers pour non-résidents).",
+        "cost": "Lavage d'embarcation obligatoire; frais d'accès et stationnement à vérifier.",
         "waterQuality": "À vérifier localement",
         "maxLength": "Circuit local",
         "season": "Mai à septembre",
         "parking": {
-            "location": "Stationnement au village piétonnier de Tremblant.",
+            "location": "Station de lavage / secteur du Centre nautique Pierre Plouffe.",
             "spots": "À vérifier",
             "accessible": true,
-            "cost": "Accès payant (frais journaliers pour non-résidents)."
+            "cost": "Lavage obligatoire; frais à vérifier"
         },
         "access": {
-            "description": "Stationnement au village piétonnier de Tremblant.",
-            "type": "Accès depuis stationnement",
+            "description": "Accès par le secteur du Centre nautique Pierre Plouffe après lavage obligatoire de l'embarcation.",
+            "type": "Centre nautique / mise à l'eau",
             "difficulty": "Facile",
-            "launchPoint": "Point indiqué sur la carte"
+            "launchPoint": "Centre nautique Pierre Plouffe"
         },
         "amenities": [
-            "Stationnement ou accès à proximité selon la fiche",
-            "Mise à l'eau à confirmer sur place",
+            "Centre nautique Pierre Plouffe",
+            "Station de lavage d'embarcation obligatoire",
             "Consultez la météo et le vent avant le départ"
         ],
         "warnings": [
-            "Vérifiez les règles locales et l'accès exact avant de partir",
+            "Lavage d'embarcation obligatoire avant la mise à l'eau",
+            "Vérifiez les frais, le stationnement et les règles locales avant de partir",
             "Les conditions peuvent changer rapidement selon le vent"
         ],
         "faq": [
             {
                 "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
-                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+                "a": "Oui. Le secteur du Centre nautique Pierre Plouffe est utilisé comme accès, avec le point de lavage confirmé par l'utilisateur."
             },
             {
                 "q": "Puis-je apporter mon propre paddle ?",
-                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
+                "a": "Oui, mais le lavage de l'embarcation est obligatoire avant la mise à l'eau. Vérifiez aussi les frais et les restrictions saisonnières."
             },
             {
                 "q": "Le stationnement est-il gratuit ?",
-                "a": "La fiche indique: Accès payant (frais journaliers pour non-résidents)."
+                "a": "Les frais d'accès, de stationnement et de lavage restent à vérifier sur place."
             }
         ],
         "highlights": [
-            "Accès ou stationnement payant à prévoir",
-            "Spot généralement accessible",
+            "Centre nautique Pierre Plouffe",
+            "Lavage d'embarcation obligatoire",
             "Page générée depuis les données de la carte",
-            "Point d'accès à valider avant la sortie"
+            "Point de lavage confirmé par l'utilisateur"
         ]
     },
     {
@@ -1398,6 +1399,74 @@ const supplementalSpotDetails = [
             "Spot à aborder avec prudence",
             "Page générée depuis les données de la carte",
             "Point d'accès à valider avant la sortie"
+        ]
+    },
+    {
+        "id": "petit-lac-magog-plage-municipale",
+        "slug": "petit-lac-magog-plage-municipale",
+        "name": "Petit-Lac-Magog — Parc de la Plage-Municipale",
+        "region": "Estrie",
+        "lat": 45.33464687563523,
+        "lon": -72.02350158716727,
+        "mainImage": "https://images.unsplash.com/photo-1475503572774-15a45e5d60b9?auto=format&fit=crop&q=80&w=800",
+        "gallery": [
+            "https://images.unsplash.com/photo-1475503572774-15a45e5d60b9?auto=format&fit=crop&q=80&w=800"
+        ],
+        "description": "Petit-Lac-Magog donne accès au lac Magog par le Parc de la Plage-Municipale, dans le secteur Deauville de Sherbrooke.",
+        "longDescription": "Le Parc de la Plage-Municipale est ajouté comme spot confirmé de Petit-Lac-Magog. Le point GPS fourni par l'utilisateur correspond au parc et sert à la fois d'accès et de destination de stationnement. OpenStreetMap confirme le parc sous le nom Parc de la Plage-Municipale à Deauville, Sherbrooke. Avant la sortie, validez les règles locales, la météo, le vent, les frais et la saison d'ouverture.",
+        "difficulty": "facile",
+        "paddleScore": 78,
+        "scoreFactors": {
+            "wind": 7,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 7
+        },
+        "isFree": true,
+        "cost": "À vérifier sur place.",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Circuit local sur le lac Magog",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Parc de la Plage-Municipale, secteur Deauville.",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "À vérifier"
+        },
+        "access": {
+            "description": "Accès par le Parc de la Plage-Municipale à Petit-Lac-Magog.",
+            "type": "Parc municipal / plage",
+            "difficulty": "Facile",
+            "launchPoint": "Parc de la Plage-Municipale"
+        },
+        "amenities": [
+            "Parc municipal confirmé",
+            "Plage municipale",
+            "Stationnement à vérifier sur place"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales, les frais et l'ouverture saisonnière avant de partir",
+            "Lac exposé au vent et à la circulation nautique par moments"
+        ],
+        "faq": [
+            {
+                "q": "Le point indiqué correspond-il au Parc de la Plage-Municipale ?",
+                "a": "Oui. Le point GPS a été fourni par l'utilisateur et le nom du parc est recoupé avec OpenStreetMap."
+            },
+            {
+                "q": "Puis-je apporter mon propre paddle ?",
+                "a": "Oui, sous réserve des règles locales, des frais, du stationnement et des restrictions saisonnières."
+            },
+            {
+                "q": "Le stationnement est-il gratuit ?",
+                "a": "À vérifier sur place; le point GPS sert de destination de stationnement et d'accès au parc."
+            }
+        ],
+        "highlights": [
+            "Nouveau spot confirmé",
+            "Parc de la Plage-Municipale",
+            "Accès et stationnement au même secteur",
+            "Point GPS fourni par l'utilisateur"
         ]
     },
     {
@@ -2013,74 +2082,6 @@ const supplementalSpotDetails = [
         ]
     },
     {
-        "id": "lac-tremblant-nord",
-        "slug": "lac-tremblant-nord",
-        "name": "Lac Tremblant Nord",
-        "region": "Laurentides",
-        "lat": 46.1535,
-        "lon": -74.6438,
-        "mainImage": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
-        "gallery": [
-            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800"
-        ],
-        "description": "Lac Tremblant Nord est un spot de paddle de la région Laurentides. Extension nord du lac Tremblant, moins fréquentée mais tout aussi magnifique.",
-        "longDescription": "Lac Tremblant Nord est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Laurentides. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Extension nord du lac Tremblant, moins fréquentée mais tout aussi magnifique.",
-        "difficulty": "facile",
-        "paddleScore": 76,
-        "scoreFactors": {
-            "wind": 8,
-            "rain": 7,
-            "temperature": 8,
-            "waves": 8
-        },
-        "isFree": false,
-        "cost": "Accès payant (frais journaliers).",
-        "waterQuality": "À vérifier localement",
-        "maxLength": "Circuit local",
-        "season": "Mai à septembre",
-        "parking": {
-            "location": "Stationnement au complexe touristique de Tremblant.",
-            "spots": "À vérifier",
-            "accessible": true,
-            "cost": "Accès payant (frais journaliers)."
-        },
-        "access": {
-            "description": "Stationnement au complexe touristique de Tremblant.",
-            "type": "Accès depuis stationnement",
-            "difficulty": "Facile",
-            "launchPoint": "Point indiqué sur la carte"
-        },
-        "amenities": [
-            "Stationnement ou accès à proximité selon la fiche",
-            "Mise à l'eau à confirmer sur place",
-            "Consultez la météo et le vent avant le départ"
-        ],
-        "warnings": [
-            "Vérifiez les règles locales et l'accès exact avant de partir",
-            "Les conditions peuvent changer rapidement selon le vent"
-        ],
-        "faq": [
-            {
-                "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
-                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
-            },
-            {
-                "q": "Puis-je apporter mon propre paddle ?",
-                "a": "Oui dans la plupart des cas, mais vérifiez toujours les règles locales, les frais, le lavage obligatoire et les restrictions saisonnières."
-            },
-            {
-                "q": "Le stationnement est-il gratuit ?",
-                "a": "La fiche indique: Accès payant (frais journaliers)."
-            }
-        ],
-        "highlights": [
-            "Accès ou stationnement payant à prévoir",
-            "Spot généralement accessible",
-            "Page générée depuis les données de la carte",
-            "Point d'accès à valider avant la sortie"
-        ]
-    },
-    {
         "id": "riviere-des-outaouais-arundel",
         "slug": "riviere-des-outaouais-arundel",
         "name": "Rivière des Outaouais (Arundel)",
@@ -2151,17 +2152,17 @@ const supplementalSpotDetails = [
     {
         "id": "lac-du-diable-laurentides",
         "slug": "lac-du-diable-laurentides",
-        "name": "Lac du Diable (Laurentides)",
+        "name": "Lac Forbes (Laurentides)",
         "region": "Laurentides",
-        "lat": 46.2295,
-        "lon": -74.5568,
+        "lat": 46.49046390419786,
+        "lon": -74.17010356318994,
         "mainImage": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800",
         "gallery": [
             "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800"
         ],
-        "description": "Lac du Diable (Laurentides) est un spot de paddle de la région Laurentides. Eau cristalline et faible fréquentation. Parfait pour les kayakistes qui cherchent la tranquillité.",
-        "longDescription": "Lac du Diable (Laurentides) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Laurentides. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Eau cristalline et faible fréquentation. Parfait pour les kayakistes qui cherchent la tranquillité.",
-        "difficulty": "sportif",
+        "description": "Lac Forbes (Laurentides) remplace l'ancien point du Lac du Diable avec un point GPS confirmé par l'utilisateur.",
+        "longDescription": "Lac Forbes (Laurentides) est référencé dans Spot Paddle comme point d'accès confirmé par l'utilisateur. Avant la sortie, validez les règles locales, la météo, le vent, le stationnement et les restrictions saisonnières sur place.",
+        "difficulty": "facile",
         "paddleScore": 66,
         "scoreFactors": {
             "wind": 6,
@@ -2169,26 +2170,26 @@ const supplementalSpotDetails = [
             "temperature": 7,
             "waves": 6
         },
-        "isFree": false,
-        "cost": "Forfait journalier (environ 10$).",
+        "isFree": true,
+        "cost": "À vérifier sur place.",
         "waterQuality": "À vérifier localement",
         "maxLength": "Circuit local",
         "season": "Mai à septembre",
         "parking": {
-            "location": "Stationnement de la base de plein air.",
+            "location": "Point GPS confirmé au Lac Forbes.",
             "spots": "À vérifier",
-            "accessible": false,
-            "cost": "Forfait journalier (environ 10$)."
+            "accessible": true,
+            "cost": "À vérifier"
         },
         "access": {
-            "description": "Stationnement de la base de plein air.",
-            "type": "Accès depuis stationnement",
-            "difficulty": "Modéré à sportif",
-            "launchPoint": "Point indiqué sur la carte"
+            "description": "Point GPS confirmé au Lac Forbes.",
+            "type": "Accès nautique confirmé",
+            "difficulty": "À vérifier sur place",
+            "launchPoint": "Point confirmé par l'utilisateur"
         },
         "amenities": [
-            "Stationnement ou accès à proximité selon la fiche",
-            "Mise à l'eau à confirmer sur place",
+            "Point GPS confirmé par l'utilisateur",
+            "Stationnement et services à vérifier sur place",
             "Consultez la météo et le vent avant le départ"
         ],
         "warnings": [
@@ -2198,7 +2199,7 @@ const supplementalSpotDetails = [
         "faq": [
             {
                 "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
-                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+                "a": "Oui. Le point a été remplacé par les coordonnées confirmées par l'utilisateur pour le Lac Forbes."
             },
             {
                 "q": "Puis-je apporter mon propre paddle ?",
@@ -2206,14 +2207,14 @@ const supplementalSpotDetails = [
             },
             {
                 "q": "Le stationnement est-il gratuit ?",
-                "a": "La fiche indique: Forfait journalier (environ 10$)."
+                "a": "Le tarif et les conditions de stationnement restent à vérifier sur place."
             }
         ],
         "highlights": [
-            "Accès ou stationnement payant à prévoir",
-            "Spot à aborder avec prudence",
+            "Point GPS confirmé par l'utilisateur",
+            "Remplace l'ancien point du Lac du Diable",
             "Page générée depuis les données de la carte",
-            "Point d'accès à valider avant la sortie"
+            "Stationnement et règles locales à vérifier"
         ]
     },
     {
@@ -2832,16 +2833,16 @@ const supplementalSpotDetails = [
     {
         "id": "lac-des-iles-quebec",
         "slug": "lac-des-iles-quebec",
-        "name": "Lac des Îles (Québec)",
-        "region": "Québec",
-        "lat": 46.8865,
-        "lon": -71.3105,
+        "name": "Lac des Îles (Laurentides)",
+        "region": "Laurentides",
+        "lat": 46.408652633180225,
+        "lon": -75.5163500723817,
         "mainImage": "https://images.unsplash.com/photo-1470070459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800",
         "gallery": [
             "https://images.unsplash.com/photo-1470070459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800"
         ],
-        "description": "Lac des Îles (Québec) est un spot de paddle de la région Québec. Petit lac urbain avec îles, parfait pour sortie courte depuis Québec.",
-        "longDescription": "Lac des Îles (Québec) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Québec. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Petit lac urbain avec îles, parfait pour sortie courte depuis Québec.",
+        "description": "Lac des Îles (Laurentides) est un spot de paddle accessible par le quai public de la Baie Poulin, dans le secteur Lac-des-Îles.",
+        "longDescription": "Lac des Îles (Laurentides) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau depuis le quai public confirmé à la Baie Poulin. Avant la sortie, validez les règles locales, la météo, le vent et les conditions de stationnement sur place.",
         "difficulty": "facile",
         "paddleScore": 78,
         "scoreFactors": {
@@ -2856,20 +2857,20 @@ const supplementalSpotDetails = [
         "maxLength": "Circuit local",
         "season": "Mai à septembre",
         "parking": {
-            "location": "Stationnement gratuit  à proximité du lac.",
+            "location": "Quai public de la Baie Poulin, à proximité du chemin de la Presqu'île.",
             "spots": "À vérifier",
             "accessible": true,
             "cost": "Gratuit"
         },
         "access": {
-            "description": "Stationnement gratuit  à proximité du lac.",
-            "type": "Accès depuis stationnement",
+            "description": "Quai public confirmé à la Baie Poulin.",
+            "type": "Quai public",
             "difficulty": "Facile",
-            "launchPoint": "Point indiqué sur la carte"
+            "launchPoint": "Quai public"
         },
         "amenities": [
-            "Stationnement ou accès à proximité selon la fiche",
-            "Mise à l'eau à confirmer sur place",
+            "Quai public confirmé par l'utilisateur",
+            "Accès routier à proximité du chemin de la Presqu'île",
             "Consultez la météo et le vent avant le départ"
         ],
         "warnings": [
@@ -2879,7 +2880,7 @@ const supplementalSpotDetails = [
         "faq": [
             {
                 "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
-                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+                "a": "Oui. Le point GPS a été confirmé par l'utilisateur comme quai public à la Baie Poulin."
             },
             {
                 "q": "Puis-je apporter mon propre paddle ?",
@@ -2891,25 +2892,25 @@ const supplementalSpotDetails = [
             }
         ],
         "highlights": [
-            "Accès indiqué gratuit dans la fiche",
-            "Spot généralement accessible",
+            "Quai public confirmé",
+            "Accès routier à proximité",
             "Page générée depuis les données de la carte",
-            "Point d'accès à valider avant la sortie"
+            "Conditions de stationnement à vérifier sur place"
         ]
     },
     {
         "id": "marais-de-l-ile-madame",
         "slug": "marais-de-l-ile-madame",
-        "name": "Marais de l'Île-Madame",
-        "region": "Québec",
-        "lat": 46.9465,
-        "lon": -71.2665,
+        "name": "Parc Monseigneur-Vel (Île du Marais)",
+        "region": "Estrie",
+        "lat": 45.26844395845996,
+        "lon": -72.0478460433003,
         "mainImage": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800",
         "gallery": [
             "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800"
         ],
-        "description": "Marais de l'Île-Madame est un spot de paddle de la région Québec. Marais protégé avec une biodiversité exceptionnelle, observation d'oiseaux.",
-        "longDescription": "Marais de l'Île-Madame est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Québec. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Marais protégé avec une biodiversité exceptionnelle, observation d'oiseaux.",
+        "description": "Le Parc Monseigneur-Vel remplace l'ancien point de l'Île du Marais avec un accès et un stationnement confirmés par l'utilisateur.",
+        "longDescription": "Le Parc Monseigneur-Vel est référencé dans Spot Paddle comme point d'accès confirmé pour le secteur de l'Île du Marais / lac Magog. Le point GPS fourni sert à la fois de stationnement et d'accès. Avant la sortie, validez les règles locales, la météo, le vent et les conditions du site.",
         "difficulty": "facile",
         "paddleScore": 80,
         "scoreFactors": {
@@ -2918,26 +2919,26 @@ const supplementalSpotDetails = [
             "temperature": 8,
             "waves": 8
         },
-        "isFree": false,
-        "cost": "Frais d'accès minimaux (environ 3$).",
+        "isFree": true,
+        "cost": "À vérifier sur place.",
         "waterQuality": "À vérifier localement",
         "maxLength": "Circuit local",
         "season": "Mai à septembre",
         "parking": {
-            "location": "Stationnement du site de conservation.",
+            "location": "Parc Monseigneur-Vel.",
             "spots": "À vérifier",
             "accessible": true,
-            "cost": "Frais d'accès minimaux (environ 3$)."
+            "cost": "À vérifier"
         },
         "access": {
-            "description": "Stationnement du site de conservation.",
-            "type": "Accès depuis stationnement",
+            "description": "Parc Monseigneur-Vel, stationnement et accès au même point.",
+            "type": "Parc / accès riverain",
             "difficulty": "Facile",
-            "launchPoint": "Point indiqué sur la carte"
+            "launchPoint": "Parc Monseigneur-Vel"
         },
         "amenities": [
-            "Stationnement ou accès à proximité selon la fiche",
-            "Mise à l'eau à confirmer sur place",
+            "Stationnement confirmé par l'utilisateur",
+            "Accès confirmé par l'utilisateur",
             "Consultez la météo et le vent avant le départ"
         ],
         "warnings": [
@@ -2947,7 +2948,7 @@ const supplementalSpotDetails = [
         "faq": [
             {
                 "q": "Le point indiqué correspond-il à une mise à l'eau officielle ?",
-                "a": "Il correspond au point de départ référencé dans la carte Spot Paddle. Certains accès doivent encore être validés précisément sur place ou avec la municipalité/le gestionnaire du site."
+                "a": "Oui. Le point GPS du Parc Monseigneur-Vel a été confirmé par l'utilisateur comme stationnement et accès."
             },
             {
                 "q": "Puis-je apporter mon propre paddle ?",
@@ -2955,14 +2956,14 @@ const supplementalSpotDetails = [
             },
             {
                 "q": "Le stationnement est-il gratuit ?",
-                "a": "La fiche indique: Frais d'accès minimaux (environ 3$)."
+                "a": "Les frais éventuels restent à vérifier sur place."
             }
         ],
         "highlights": [
-            "Accès ou stationnement payant à prévoir",
-            "Spot généralement accessible",
+            "Parc Monseigneur-Vel",
+            "Stationnement et accès confirmés",
             "Page générée depuis les données de la carte",
-            "Point d'accès à valider avant la sortie"
+            "Conditions locales à vérifier avant la sortie"
         ]
     },
     {
@@ -3615,8 +3616,13 @@ const accessPointOverrides = {
     "lac-saint-pierre": { lat: 46.2245511, lon: -72.9223353, name: "Rampe de mise à l'eau près du Domaine du Lac Saint-Pierre", type: "Rampe de mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
     "parc-national-wapizagonke": { lat: 46.6697644, lon: -73.0057686, name: "Mise à l'eau du secteur Wapizagonke", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
     "lac-taureau": { lat: 46.6890634, lon: -73.9001922, name: "Descente de bateaux du Réservoir Taureau", type: "Rampe de mise à l'eau", confidence: "high", hideSource: true },
+    "lac-tremblant": { lat: 46.227230443496815, lon: -74.62875777620965, name: "Centre nautique Pierre Plouffe / station de lavage", type: "Centre nautique / lavage obligatoire", confidence: "high", source: "Coordonnées confirmées par l'utilisateur: station de lavage obligatoire pour le secteur Pierre Plouffe" },
     "lac-maskinonge": { lat: 46.3023266, lon: -73.3889688, name: "Accès public Saint-Gabriel", type: "Mise à l'eau manuelle", confidence: "high", source: "Canot Kayak Québec, Carte interactive: accès public Saint-Gabriel, qualité B, validé" },
     "lac-des-piles": { lat: 46.6649705864116, lon: -72.789898034606, name: "Plage du Camping Baie Martin", type: "Plage de camping", confidence: "high", source: "Accès de la plage Baie Martin validé; activités recoupées avec Tourisme Shawinigan" },
+    "lac-du-diable-laurentides": { lat: 46.49046390419786, lon: -74.17010356318994, name: "Accès confirmé du Lac Forbes", type: "Accès nautique", confidence: "high", source: "Coordonnées confirmées par l'utilisateur pour remplacer l'ancien point du Lac du Diable par le Lac Forbes" },
+    "lac-des-iles-quebec": { lat: 46.408652633180225, lon: -75.5163500723817, name: "Quai public de la Baie Poulin", type: "Quai public", confidence: "high", source: "Coordonnées confirmées par l'utilisateur via capture satellite: quai public à la Baie Poulin" },
+    "marais-de-l-ile-madame": { lat: 45.26844395845996, lon: -72.0478460433003, name: "Parc Monseigneur-Vel", type: "Parc / accès riverain", confidence: "high", source: "Coordonnées confirmées par l'utilisateur: Parc Monseigneur-Vel, stationnement et accès" },
+    "petit-lac-magog-plage-municipale": { lat: 45.33464687563523, lon: -72.02350158716727, name: "Parc de la Plage-Municipale", type: "Parc municipal / plage", confidence: "high", source: "Coordonnées confirmées par l'utilisateur; parc recoupé avec OpenStreetMap relation 3662202" },
     "lac-aux-sables": { lat: 46.8674872, lon: -72.3865210, name: "Mise à l'eau de la Ville de Lac-aux-Sables", type: "Mise à l'eau", confidence: "high", source: "Canot Kayak Québec, Carte interactive: accès public; recoupé avec La Vie SUP, Lac-aux-Sables B / débarcadère municipal (écart 16 m)" },
     "lac-stukely-mont-orford": { lat: 45.3631631, lon: -72.2331165, name: "Accès Orford au lac Stukely", type: "Mise à l'eau", confidence: "high", source: "Canot Kayak Québec, Carte interactive: accès public GPS, qualité B; recoupé avec OpenStreetMap" },
     "lac-memphremagog-magog": { lat: 45.26341338502138, lon: -72.1481427151007, name: "Capitainerie de la rivière Magog", type: "Quai / accès nautique", confidence: "high", source: "HAR La Vie SUP confirmé: Rivière Magog / Capitainerie" },
@@ -3659,8 +3665,13 @@ const parkingPointOverrides = {
     "riviere-st-maurice": { lat: 46.35318320931242, lon: -72.52670564986391, name: "Stationnement près de la mise à l'eau", confidence: "high", source: "Stationnement GPS validé", distanceToAccessMeters: 214, fee: "À vérifier" },
     "parc-national-wapizagonke": { lat: 46.6707117, lon: -73.0046871, name: "Stationnement du secteur Wapizagonke", confidence: "high", source: "OpenStreetMap amenity=parking; secteur recoupé avec Sépaq et La Vie SUP (secteur Shewenegan)", distanceToAccessMeters: 134, fee: "Droit d'accès au parc" },
     "lac-taureau": { lat: 46.6887256, lon: -73.9000209, name: "Stationnement de la descente de bateaux du Réservoir Taureau", confidence: "high", hideSource: true, distanceToAccessMeters: 40, fee: "Gratuit" },
+    "lac-tremblant": { lat: 46.227230443496815, lon: -74.62875777620965, name: "Station de lavage obligatoire — secteur Pierre Plouffe", confidence: "high", source: "Coordonnées confirmées par l'utilisateur: endroit où laver l'embarcation avant la mise à l'eau", distanceToAccessMeters: 0, fee: "Lavage obligatoire; frais à vérifier" },
     "lac-maskinonge": { lat: 46.3018400, lon: -73.3885970, name: "Stationnement de la plage municipale, 333 rue du Parc", confidence: "high", source: "Coordonnées fournies par l'utilisateur; stationnement public confirmé à 11 m par Canot Kayak Québec et recoupé avec OpenStreetMap", distanceToAccessMeters: 71, fee: "Gratuit" },
     "lac-des-piles": { lat: 46.6653731, lon: -72.7901009, name: "Camping Plage Baie Martin, 1801 chemin de la Baie-Martin", confidence: "high", source: "Stationnement et accès routier validés", distanceToAccessMeters: 47, fee: "Accès et tarif à confirmer auprès du camping" },
+    "lac-du-diable-laurentides": { lat: 46.49046390419786, lon: -74.17010356318994, name: "Destination confirmée du Lac Forbes", confidence: "high", source: "Coordonnées confirmées par l'utilisateur pour remplacer l'ancien point du Lac du Diable par le Lac Forbes", distanceToAccessMeters: 0, fee: "À vérifier" },
+    "lac-des-iles-quebec": { lat: 46.408652633180225, lon: -75.5163500723817, name: "Destination routière du quai public de la Baie Poulin", confidence: "high", source: "Coordonnées confirmées par l'utilisateur via capture satellite: quai public routable à la Baie Poulin", distanceToAccessMeters: 0, fee: "À vérifier" },
+    "marais-de-l-ile-madame": { lat: 45.26844395845996, lon: -72.0478460433003, name: "Stationnement du Parc Monseigneur-Vel", confidence: "high", source: "Coordonnées confirmées par l'utilisateur: stationnement et accès au même point", distanceToAccessMeters: 0, fee: "À vérifier" },
+    "petit-lac-magog-plage-municipale": { lat: 45.33464687563523, lon: -72.02350158716727, name: "Stationnement du Parc de la Plage-Municipale", confidence: "high", source: "Coordonnées confirmées par l'utilisateur; parc recoupé avec OpenStreetMap relation 3662202", distanceToAccessMeters: 0, fee: "À vérifier" },
     "lac-aux-sables": { lat: 46.8670340, lon: -72.3870136, name: "Stationnement de la mise à l'eau de Lac-aux-Sables", confidence: "high", source: "Canot Kayak Québec, stationnement qualité B; recoupé avec La Vie SUP, Lac-aux-Sables B / débarcadère municipal", distanceToAccessMeters: 63, fee: "Gratuit" },
     "lac-saint-pierre": { lat: 46.22080543335617, lon: -72.92372854163526, name: "Domaine du Lac Saint-Pierre", confidence: "high", source: "HAR La Vie SUP confirmé: Louiseville (Fleuve) / Domaine du Lac Saint-Pierre", distanceToAccessMeters: 430, fee: "À vérifier" },
     "parc-national-oka": { lat: 45.4646954, lon: -74.0424846, name: "Stationnement de la Grande Plage d'Oka", confidence: "high", source: "Stationnement de la plage confirmé et recoupé avec la Sépaq", distanceToAccessMeters: 113, fee: "Stationnement payant en saison; droit d'accès au parc" },

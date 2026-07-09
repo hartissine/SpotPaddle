@@ -307,7 +307,7 @@
             isFree: false,
             level: "facile"
         },
-        { 
+        {
             name: "Lac des Piles (Baie-Martin)", 
             region: "Mauricie",
             lat: 46.6518317, lon: -72.7986336,
@@ -341,13 +341,13 @@
             level: "facile"
         },
         { 
-            name: "Lac Tremblant", 
+            name: "Lac Tremblant",
             region: "Laurentides",
-            lat: 46.1402, lon: -74.6172,
+            lat: 46.227230443496815, lon: -74.62875777620965,
             image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800",
-            parking: "Stationnement au village piétonnier de Tremblant.", 
-            prix: "Accès payant (frais journaliers pour non-résidents).", 
-            info: "Naviguez sur un magnifique lac au pied de la célèbre montagne de ski. Paysage somptueux.",
+            parking: "Station de lavage obligatoire — secteur Pierre Plouffe.",
+            prix: "Lavage obligatoire; frais à vérifier.",
+            info: "Accès par le secteur du Centre nautique Pierre Plouffe; lavage d'embarcation obligatoire.",
             isFree: false,
             level: "facile"
         },
@@ -385,7 +385,18 @@
             level: "sportif"
         },
         { 
-            name: "Fjord du Saguenay (L'Anse)", 
+            name: "Petit-Lac-Magog — Parc de la Plage-Municipale",
+            region: "Estrie",
+            lat: 45.33464687563523, lon: -72.02350158716727,
+            image: "https://images.unsplash.com/photo-1475503572774-15a45e5d60b9?auto=format&fit=crop&q=80&w=800",
+            parking: "Parc de la Plage-Municipale, secteur Deauville.",
+            prix: "À vérifier sur place.",
+            info: "Accès confirmé par le Parc de la Plage-Municipale à Petit-Lac-Magog.",
+            isFree: true,
+            level: "facile"
+        },
+        {
+            name: "Fjord du Saguenay (L'Anse)",
             region: "Saguenay-Lac-Saint-Jean",
             lat: 48.2450, lon: -70.2815,
             image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&q=80&w=800",
@@ -484,17 +495,6 @@
             level: "facile"
         },
         { 
-            name: "Lac Tremblant Nord", 
-            region: "Laurentides",
-            lat: 46.1535, lon: -74.6438,
-            image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
-            parking: "Stationnement au complexe touristique de Tremblant.", 
-            prix: "Accès payant (frais journaliers).", 
-            info: "Extension nord du lac Tremblant, moins fréquentée mais tout aussi magnifique.",
-            isFree: false,
-            level: "facile"
-        },
-        { 
             name: "Rivière des Outaouais (Arundel)", 
             region: "Laurentides",
             lat: 46.0795, lon: -74.9218,
@@ -506,15 +506,15 @@
             level: "facile"
         },
         { 
-            name: "Lac du Diable (Laurentides)", 
+            name: "Lac Forbes (Laurentides)",
             region: "Laurentides",
-            lat: 46.2295, lon: -74.5568,
+            lat: 46.49046390419786, lon: -74.17010356318994,
             image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800",
-            parking: "Stationnement de la base de plein air.", 
-            prix: "Forfait journalier (environ 10$).", 
-            info: "Eau cristalline et faible fréquentation. Parfait pour les kayakistes qui cherchent la tranquillité.",
-            isFree: false,
-            level: "sportif"
+            parking: "Point GPS confirmé au Lac Forbes.",
+            prix: "À vérifier sur place.",
+            info: "Point GPS confirmé par l'utilisateur pour remplacer l'ancien Lac du Diable.",
+            isFree: true,
+            level: "facile"
         },
         { 
             name: "Lac Mégantic", 
@@ -616,25 +616,25 @@
             level: "sportif"
         },
         { 
-            name: "Lac des Îles (Québec)", 
-            region: "Québec",
-            lat: 46.8865, lon: -71.3105,
+            name: "Lac des Îles (Laurentides)",
+            region: "Laurentides",
+            lat: 46.408652633180225, lon: -75.5163500723817,
             image: "https://images.unsplash.com/photo-1470070459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800",
-            parking: "Stationnement gratuit  à proximité du lac.", 
+            parking: "Quai public de la Baie Poulin, accès routier à proximité.",
             prix: "Accès public gratuit.", 
-            info: "Petit lac urbain avec îles, parfait pour sortie courte depuis Québec.",
+            info: "Accès confirmé au quai public de la Baie Poulin, secteur Lac-des-Îles.",
             isFree: true,
             level: "facile"
         },
         { 
-            name: "Marais de l'Île-Madame", 
-            region: "Québec",
-            lat: 46.9465, lon: -71.2665,
+            name: "Parc Monseigneur-Vel (Île du Marais)",
+            region: "Estrie",
+            lat: 45.26844395845996, lon: -72.0478460433003,
             image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800",
-            parking: "Stationnement du site de conservation.", 
-            prix: "Frais d'accès minimaux (environ 3$).", 
-            info: "Marais protégé avec une biodiversité exceptionnelle, observation d'oiseaux.",
-            isFree: false,
+            parking: "Parc Monseigneur-Vel, stationnement et accès confirmés.",
+            prix: "À vérifier sur place.",
+            info: "Accès confirmé par le Parc Monseigneur-Vel pour le secteur de l'Île du Marais.",
+            isFree: true,
             level: "facile"
         },
         { 
@@ -846,7 +846,7 @@
         grid.innerHTML = cards.map(spot => {
             const score = Number(spot.paddleScore || spot.score || 75);
             return `
-                <a href="lac.html?lake=${encodeURIComponent(spot.slug)}&v=20260708-4" class="popular-spot-card group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:border-blue-400 transition-all">
+                <a href="lac.html?lake=${encodeURIComponent(spot.slug)}&v=20260709-1" class="popular-spot-card group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200 hover:border-blue-400 transition-all">
                     <div class="relative h-44 overflow-hidden md:h-52">
                         <img src="${escapeHtml(spot.image)}" alt="${escapeHtml(spot.name)}" class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
                         <div class="absolute top-3 left-3 rounded-full border px-2 py-1 text-[9px] font-black uppercase tracking-wider ${getGpsStatusClass(spot)}">
@@ -1147,7 +1147,7 @@
             minWidth: 220,
             className: 'custom-popup'
         };
-        const pageUrl = `lac.html?lake=${getLakePageSlug(name)}&v=20260708-4`;
+        const pageUrl = `lac.html?lake=${getLakePageSlug(name)}&v=20260709-1`;
         const safeDisplayName = escapeHtml(name);
         const popupActions = buildSpotPopupActions(name, pageUrl, spotInfo, lat, lon);
 
@@ -1707,7 +1707,7 @@
                             <span>CAP SUR CE SPOT</span>
                         </button>
                     </div>
-                    <a href="lac.html?lake=${getLakePageSlug(lac.name)}&v=20260708-4"
+                    <a href="lac.html?lake=${getLakePageSlug(lac.name)}&v=20260709-1"
                        class="w-full py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl font-black text-xs transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/25 active:scale-95">
                         <span>📖 VOIR LA PAGE COMPLÈTE</span>
                     </a>
@@ -2088,7 +2088,7 @@
                                 <h2 class="text-2xl font-bold mb-4">2 Spots les Plus Proches</h2>
                                 <div class="space-y-4 mb-6">
                                     ${nearestSpots.map((spot, idx) => `
-                                        <a href="lac.html?lake=${spot.slug}&v=20260708-4" class="block bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-900/50 p-4 rounded-lg hover:shadow-lg transition">
+                                        <a href="lac.html?lake=${spot.slug}&v=20260709-1" class="block bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-900/50 p-4 rounded-lg hover:shadow-lg transition">
                                             <div class="font-bold">${idx + 1}. ${spot.name}</div>
                                             <div class="text-sm text-slate-600 dark:text-slate-400">${spot.region}</div>
                                             <div class="text-sm font-bold text-blue-600 dark:text-blue-400">${spot.distance.toFixed(1)} km</div>

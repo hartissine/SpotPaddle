@@ -1,15 +1,15 @@
 # Validation GPS des accès et stationnements
 
-Dernière passe: 2026-07-08
+Dernière passe: 2026-07-09
 
 ## État actuel
 
 - 102 spots sont publiés.
-- 88 spots possèdent maintenant une destination d'itinéraire distincte ou explicitement référencée.
+- 93 spots possèdent maintenant une destination d'itinéraire distincte ou explicitement référencée.
 - Selon la règle du projet, toute destination présente dans le HAR fourni est considérée comme GPS confirmé.
-- 87 destinations sont classées `high` et une seule demeure `medium`.
-- Les 14 autres spots conservent leur accès actuel, mais l'itinéraire de stationnement reste à vérifier.
-- Les compteurs de la carte affichent 91 points `high`, 1 point `medium` et 10 points `needs_verification`, car quatre accès validés servent de destination de repli lorsqu'aucun stationnement distinct n'existe.
+- 96 destinations sont classées `high` et une seule demeure `medium`.
+- Les autres spots conservent leur accès actuel, mais l'itinéraire de stationnement reste à vérifier.
+- L'audit GPS automatique affiche 96 destinations `high`, 1 destination `medium` et 5 destinations `needs_verification`.
 
 ## Recoupement La Vie SUP du 5 juillet 2026
 
@@ -93,7 +93,12 @@ Entre 250 et 500 m, le point est généralement classé `medium`. Au-delà de 50
 - Lac du Cap-aux-Os: accès confirmé à `48.827258274795376, -64.3099938078322`; le stationnement adjacent sur la route 132 est également confirmé par l'utilisateur, sans distance précise ni tarif confirmé.
 - Parc national Forillon: plage confirmée à `48.80506447087035, -64.24512015509676`; le lien Google Maps fourni confirme le stationnement du sentier du mont Saint-Alban à `48.8054277, -64.2452039`, environ 41 m plus loin de l'autre côté de la rue.
 - Lac Matapédia — Baie de Charlie: accès plage confirmé par le lien Google Maps fourni à `48.5868597, -67.6347988`; stationnement OSM `way 745807742` à `48.58805, -67.63394`, environ 146 m plus loin. La Municipalité de Sayabec confirme la plage de sable, les installations et l'absence de surveillance.
+- Lac des Îles: ancien point générique de Québec remplacé par le quai public de la Baie Poulin (`46.408652633180225, -75.5163500723817`) confirmé par l'utilisateur.
+- Lac Forbes: remplace l'ancien point du Lac du Diable; point GPS confirmé par l'utilisateur à `46.49046390419786, -74.17010356318994`. Les frais, le stationnement et les règles locales restent à vérifier sur place.
+- Lac Tremblant: point générique remplacé par le secteur du Centre nautique Pierre Plouffe; la destination d'itinéraire mène au point de lavage obligatoire confirmé par l'utilisateur (`46.227230443496815, -74.62875777620965`). La fiche Lac Tremblant Nord a été supprimée, car le même accès est valable pour ce secteur.
+- Parc Monseigneur-Vel / Île du Marais: ancien point du Marais de l'Île-Madame remplacé par le Parc Monseigneur-Vel (`45.26844395845996, -72.0478460433003`), confirmé par l'utilisateur comme stationnement et accès.
+- Petit-Lac-Magog: nouveau spot ajouté au Parc de la Plage-Municipale (`45.33464687563523, -72.02350158716727`), point GPS fourni par l'utilisateur et nom du parc recoupé avec OpenStreetMap relation `3662202`.
 
 ## Prochaine passe manuelle
 
-Priorité aux 14 spots sans stationnement GPS distinct, dont 10 sont encore marqués `needs_verification`. Le seul itinéraire `medium` restant est celui de la rivière Chicoutimi; il n'a pas de correspondance dans le HAR fourni.
+Priorité aux 5 spots encore marqués `needs_verification`. Le seul itinéraire `medium` restant est celui de la rivière Chicoutimi; il n'a pas de correspondance dans le HAR fourni.
