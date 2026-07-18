@@ -64,7 +64,7 @@ Bouton "Trouver mes 2 Spots" utilisant:
 - Modal affichant les 2 plus proches
 
 ### 4. **Support du Mode Sombre**
-Interface responsive en light/dark mode avec Tailwind CSS
+Interface responsive en light/dark mode avec Tailwind CSS compilé localement.
 
 ---
 
@@ -78,6 +78,10 @@ projet-mauricie/
 ├── lac.html                   # Template page individuelle lac
 ├── data.js                    # Base données lacs + algoritmes Paddle Score
 ├── script.js                  # Logique carte, filtres, geolocalisation
+├── src/tailwind.css           # Source Tailwind
+├── assets/tailwind.css        # CSS Tailwind compilé pour production
+├── tailwind.config.js         # Configuration Tailwind
+├── package.json               # Scripts npm dont build:css
 ├── style.css                  # Styles custom (mode sombre, etc.)
 ├── mentions-legales.html
 ├── politique-confidentialite.html

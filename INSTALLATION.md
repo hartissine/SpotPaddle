@@ -185,9 +185,16 @@ console.table(lacDatabase.map(l => ({
 
 ### Optimisations
 - Images optimisées (Unsplash resize)
-- CSS minified via Tailwind
+- CSS Tailwind compilé et minifié localement dans `assets/tailwind.css`
 - Lazy loading des images
 - Debounce des appels API
+
+Après une modification des classes HTML ou JavaScript:
+
+```bash
+npm install
+npm run build:css
+```
 
 ---
 
