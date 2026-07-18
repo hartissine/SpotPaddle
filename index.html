@@ -22,6 +22,7 @@
     <link rel="preconnect" href="https://meteo.spotpaddle.ca">
     <link rel="dns-prefetch" href="//meteo.spotpaddle.ca">
     <link rel="prefetch" href="lac.html" as="document">
+    <link rel="preload" as="image" href="assets/spots/baie-de-shawinigan/panorama-principal.jpg" fetchpriority="high">
 
     <title>Spot Paddle Québec - Accès GPS, météo & Paddle Score™</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -99,9 +100,7 @@
 
     <header class="relative min-h-[85svh] md:h-screen flex items-center justify-center text-white overflow-hidden py-20 md:py-0">
     
-    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
-        <source src="mixkit-Lac.mp4" type="video/mp4">
-        <br><br>
+    <video id="heroVideo" autoplay loop muted playsinline preload="none" poster="assets/spots/baie-de-shawinigan/panorama-principal.jpg" data-video-src="mixkit-Lac.mp4" class="absolute inset-0 w-full h-full object-cover z-0">
     </video>
 
     <div class="absolute inset-0 bg-black/50 z-10"></div>

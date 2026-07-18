@@ -1,3 +1,36 @@
+    function initHeroVideo() {
+        const video = document.getElementById('heroVideo');
+        if (!video) return;
+
+        const desktopMedia = window.matchMedia('(min-width: 768px)');
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const saveData = Boolean(navigator.connection?.saveData);
+
+        const loadVideo = () => {
+            if (video.dataset.loaded === 'true') return;
+            if (!desktopMedia.matches || reducedMotion.matches || saveData) return;
+
+            const source = document.createElement('source');
+            source.src = video.dataset.videoSrc;
+            source.type = 'video/mp4';
+            video.appendChild(source);
+            video.dataset.loaded = 'true';
+            video.load();
+
+            const playPromise = video.play();
+            if (playPromise && typeof playPromise.catch === 'function') {
+                playPromise.catch(() => {
+                    // Le poster reste visible si le navigateur bloque l'autoplay.
+                });
+            }
+        };
+
+        loadVideo();
+        desktopMedia.addEventListener?.('change', loadVideo);
+    }
+
+    initHeroVideo();
+
     // Système de couleurs et zones géographiques par région
     const regionConfig = {
         "Mauricie": { color: "#3b82f6", zone: "Centre", emoji: "🌲" },
