@@ -210,6 +210,12 @@
     
         <div id="mapShell" class="relative">
             <div id="map" class="shadow-xl border-4 border-white"></div>
+            <div id="mobileSpotPopupPanel" class="mobile-spot-popup hidden" role="dialog" aria-label="Détails du spot">
+                <button type="button" class="mobile-spot-popup-close" onclick="closeMobileSpotPopup()" aria-label="Fermer les détails du spot">
+                    ×
+                </button>
+                <div id="mobileSpotPopupContent"></div>
+            </div>
             <button id="mapInteractionToggle" type="button" onclick="toggleMainMapInteraction()" class="map-interaction-toggle map-overlay-control" aria-pressed="false" hidden>
                 🗺️ Explorer la carte
             </button>

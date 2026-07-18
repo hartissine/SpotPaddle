@@ -75,6 +75,38 @@
         shell.classList.toggle('map-popup-open', isMainMapPopupOpen && isMobileMapViewport());
     }
 
+    function isMobileSpotPopupVisible() {
+        const panel = document.getElementById('mobileSpotPopupPanel');
+        return Boolean(panel && !panel.classList.contains('hidden'));
+    }
+
+    function closeMobileSpotPopup() {
+        const panel = document.getElementById('mobileSpotPopupPanel');
+        if (panel) panel.classList.add('hidden');
+        setMainMapPopupOpen(false);
+        setMainMapZoomLocked(false);
+    }
+
+    function setMobileSpotPopupContent(content) {
+        const panel = document.getElementById('mobileSpotPopupPanel');
+        const panelContent = document.getElementById('mobileSpotPopupContent');
+        const shell = document.getElementById('mapShell') || mapElement?.parentElement;
+        if (!panel || !panelContent) return false;
+
+        panelContent.innerHTML = content;
+        panel.classList.remove('hidden');
+        setMainMapPopupOpen(true);
+        setMainMapZoomLocked(true);
+
+        if (shell) {
+            requestAnimationFrame(() => {
+                shell.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        }
+
+        return true;
+    }
+
     function setMainMapInteractionEnabled(enabled) {
         if (!map || !mapElement) return;
 
@@ -227,6 +259,7 @@
         // Close popup when clicking on map
         map.on('click', function() {
             map.closePopup();
+            closeMobileSpotPopup();
         });
         map.on('popupopen', function() {
             setMainMapZoomLocked(true);
@@ -237,6 +270,10 @@
             setMainMapPopupOpen(false);
         });
         window.addEventListener('resize', function() {
+            if (!isMobileMapViewport()) {
+                closeMobileSpotPopup();
+                return;
+            }
             setMainMapPopupOpen(isMainMapPopupOpen);
         });
     } else if (mapElement) {
@@ -1122,6 +1159,12 @@
     let latestWeatherPopupRequestId = 0;
 
     function setMarkerPopupContent(marker, content, options, shouldOpen = true) {
+        if (isMobileMapViewport() && (shouldOpen || isMobileSpotPopupVisible())) {
+            if (marker.closePopup) marker.closePopup();
+            setMobileSpotPopupContent(content);
+            return;
+        }
+
         const popup = marker.getPopup && marker.getPopup();
         if (popup) {
             Object.assign(popup.options, options);
