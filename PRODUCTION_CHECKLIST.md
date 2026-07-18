@@ -54,6 +54,7 @@ node scripts/generate-sitemap.js
 - La vidéo `mixkit-Lac.mp4` pèse environ 15 MB. Elle charge sur Wi-Fi/ethernet quand le navigateur expose l'information réseau; sur données mobiles, économiseur de données, réduction d'animations ou réseau inconnu sur mobile, le poster local reste affiché.
 - Le service Docker/Apache active la compression gzip et des headers de cache pour les assets statiques.
 - Tailwind est servi localement via `assets/tailwind.css`; après modification des classes HTML/JS, lancer `npm run build:css`.
+- Leaflet est servi localement via `assets/vendor/leaflet`; après une mise à jour npm de Leaflet, lancer `npm run vendor:leaflet`.
 - `data.js` et `script.js` sont gros. À minifier ou découper lors d'un futur chantier performance.
 
 ## 6. Données

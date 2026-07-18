@@ -80,6 +80,7 @@ projet-mauricie/
 ├── script.js                  # Logique carte, filtres, geolocalisation
 ├── src/tailwind.css           # Source Tailwind
 ├── assets/tailwind.css        # CSS Tailwind compilé pour production
+├── assets/vendor/leaflet      # Leaflet local pour la carte
 ├── tailwind.config.js         # Configuration Tailwind
 ├── package.json               # Scripts npm dont build:css
 ├── style.css                  # Styles custom (mode sombre, etc.)
