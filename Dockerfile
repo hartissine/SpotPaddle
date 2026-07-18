@@ -1,10 +1,14 @@
 FROM php:8.2-apache
 
-# Active le module rewrite d'Apache (souvent utile)
-RUN a2enmod rewrite
+# Active les modules utiles: réécriture, cache headers et compression gzip.
+RUN a2enmod rewrite headers deflate
 
 # Copie tous vos fichiers dans le dossier web d'Apache
 COPY . /var/www/html/
+COPY apache-spotpaddle.conf /etc/apache2/conf-available/spotpaddle.conf
+
+# Configure les headers de cache/compression et évite l'avertissement ServerName.
+RUN a2enconf spotpaddle
 
 # S'assure que les droits sont corrects pour l'utilisateur www-data (Apache)
 RUN chown -R www-data:www-data /var/www/html

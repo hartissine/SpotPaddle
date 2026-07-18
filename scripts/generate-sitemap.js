@@ -45,7 +45,6 @@ function buildSitemap() {
   const today = new Date().toISOString().slice(0, 10);
   const urls = [
     { loc: buildUrl('/'), priority: '1.0', changefreq: 'weekly' },
-    { loc: buildUrl('/index.html'), priority: '1.0', changefreq: 'weekly' },
     { loc: buildUrl('/mentions-legales.html'), priority: '0.3', changefreq: 'yearly' },
     { loc: buildUrl('/politique-confidentialite.html'), priority: '0.3', changefreq: 'yearly' }
   ];

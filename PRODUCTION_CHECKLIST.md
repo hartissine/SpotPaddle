@@ -28,6 +28,7 @@ Le résultat attendu est:
 ## 3. SEO
 
 - `sitemap.xml` contient les pages principales et toutes les fiches de spots.
+- `sitemap.xml` ne contient pas d'URL avec redirection, comme `/index.html`.
 - `robots.txt` pointe vers `https://spotpaddle.ca/sitemap.xml`.
 - Après ajout ou modification de spots, lancer:
 
@@ -36,6 +37,7 @@ node scripts/generate-sitemap.js
 ```
 
 - Soumettre `https://spotpaddle.ca/sitemap.xml` dans Google Search Console.
+- Dans Google Search Console, cliquer sur "Valider la correction" pour les problèmes "Page avec redirection" et "Bloquée par le fichier robots.txt" après déploiement.
 
 ## 4. Mobile
 
@@ -48,6 +50,7 @@ node scripts/generate-sitemap.js
 ## 5. Performance à surveiller
 
 - La vidéo `mixkit-Lac.mp4` pèse environ 15 MB. Elle charge sur Wi-Fi/ethernet quand le navigateur expose l'information réseau; sur données mobiles, économiseur de données, réduction d'animations ou réseau inconnu sur mobile, le poster local reste affiché.
+- Le service Docker/Apache active la compression gzip et des headers de cache pour les assets statiques.
 - Tailwind est encore chargé par CDN. À remplacer par un CSS compilé quand le site passera à une étape de build.
 - `data.js` et `script.js` sont gros. À minifier ou découper lors d'un futur chantier performance.
 
