@@ -61,9 +61,18 @@
     var satelliteLabelsLayer = null;
     var isMapZoomLocked = false;
     var isMainMapInteractionEnabled = true;
+    var isMainMapPopupOpen = false;
 
     function isMobileMapViewport() {
         return window.matchMedia('(max-width: 767px)').matches;
+    }
+
+    function setMainMapPopupOpen(open) {
+        isMainMapPopupOpen = Boolean(open);
+        const shell = document.getElementById('mapShell') || mapElement?.parentElement;
+        if (!shell) return;
+
+        shell.classList.toggle('map-popup-open', isMainMapPopupOpen && isMobileMapViewport());
     }
 
     function setMainMapInteractionEnabled(enabled) {
@@ -171,6 +180,26 @@
         }
     }
 
+    function getSpotPopupOptions() {
+        const isMobile = isMobileMapViewport();
+        const viewportWidth = window.innerWidth || 360;
+        const popupWidth = Math.max(260, Math.min(340, viewportWidth - 40));
+        const options = {
+            maxWidth: isMobile ? popupWidth : 260,
+            minWidth: isMobile ? Math.min(300, popupWidth) : 220,
+            className: 'custom-popup',
+            autoPan: true,
+            keepInView: true
+        };
+
+        if (typeof L !== 'undefined' && L.point) {
+            options.autoPanPaddingTopLeft = L.point(isMobile ? 16 : 20, isMobile ? 96 : 20);
+            options.autoPanPaddingBottomRight = L.point(isMobile ? 16 : 20, isMobile ? 36 : 20);
+        }
+
+        return options;
+    }
+
     if (leafletAvailable) {
         map = L.map('map', { zoomControl: false }).setView([initialView.lat, initialView.lon], initialView.zoom);
         map.createPane('satelliteLabelsPane');
@@ -201,9 +230,14 @@
         });
         map.on('popupopen', function() {
             setMainMapZoomLocked(true);
+            setMainMapPopupOpen(true);
         });
         map.on('popupclose', function() {
             setMainMapZoomLocked(false);
+            setMainMapPopupOpen(false);
+        });
+        window.addEventListener('resize', function() {
+            setMainMapPopupOpen(isMainMapPopupOpen);
         });
     } else if (mapElement) {
         const mapModeControl = document.getElementById('mapModeControl');
@@ -1088,7 +1122,9 @@
     let latestWeatherPopupRequestId = 0;
 
     function setMarkerPopupContent(marker, content, options, shouldOpen = true) {
-        if (marker.getPopup && marker.getPopup()) {
+        const popup = marker.getPopup && marker.getPopup();
+        if (popup) {
+            Object.assign(popup.options, options);
             marker.setPopupContent(content);
         } else {
             marker.bindPopup(content, options);
@@ -1132,7 +1168,7 @@
                         ⭐ Favori
                     </button>
                 </div>
-                <a href="${pageUrl}" class="block w-full py-2 bg-emerald-600 text-white rounded-md font-bold text-[10px] uppercase hover:bg-emerald-700 transition-colors text-center">
+                <a href="${pageUrl}" class="popup-action-link block w-full py-2 bg-emerald-600 text-white rounded-md font-bold text-[10px] uppercase hover:bg-emerald-700 transition-colors text-center">
                     📖 Page complète
                 </a>
             </div>
@@ -1142,11 +1178,7 @@
     // 5. API Logic
     async function getMeteo(lat, lon, name, marker, spotInfo = null) {
         const popupRequestId = ++latestWeatherPopupRequestId;
-        const popupOptions = {
-            maxWidth: 260,
-            minWidth: 220,
-            className: 'custom-popup'
-        };
+        const popupOptions = getSpotPopupOptions();
         const pageUrl = `lac.html?lake=${getLakePageSlug(name)}&v=20260709-1`;
         const safeDisplayName = escapeHtml(name);
         const popupActions = buildSpotPopupActions(name, pageUrl, spotInfo, lat, lon);

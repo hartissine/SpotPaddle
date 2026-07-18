@@ -220,11 +220,22 @@ OPENWEATHER_API_KEY=votre_nouvelle_cle
 
 GitHub Pages ne peut pas exécuter PHP. Le sous-domaine `meteo.spotpaddle.ca` doit donc rester sur un hébergement PHP séparé.
 
+### Health check Render
+
+Configurez le chemin de vérification du service météo Render sur:
+
+```text
+/health.php
+```
+
+Ce point de contrôle retourne `200` si PHP répond et si `OPENWEATHER_API_KEY` est disponible au runtime. Il retourne `503` si la clé manque. Il ne contacte pas OpenWeather afin d'éviter de consommer le quota API à chaque health check.
+
 ### Checklist Déploiement
 - [ ] Retirer console.log() de debug
 - [ ] Tester tous les liens
 - [ ] Vérifier HTTPS
 - [ ] Configurer `OPENWEATHER_API_KEY` sur le serveur météo
+- [ ] Configurer le health check Render sur `/health.php`
 - [ ] Vérifier que la clé OpenWeather n'apparaît dans aucun fichier suivi par Git
 - [ ] Analytics (Google Analytics, Fathom)
 - [ ] Sitemaps XML pour SEO

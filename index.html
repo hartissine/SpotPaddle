@@ -208,12 +208,12 @@
             <div class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-bold uppercase tracking-tighter">Données en direct 📡</div>
         </div>
     
-        <div class="relative">
+        <div id="mapShell" class="relative">
             <div id="map" class="shadow-xl border-4 border-white"></div>
-            <button id="mapInteractionToggle" type="button" onclick="toggleMainMapInteraction()" class="map-interaction-toggle" aria-pressed="false" hidden>
+            <button id="mapInteractionToggle" type="button" onclick="toggleMainMapInteraction()" class="map-interaction-toggle map-overlay-control" aria-pressed="false" hidden>
                 🗺️ Explorer la carte
             </button>
-            <div id="mapModeControl" class="absolute bottom-6 left-6 z-[1000] inline-flex items-center rounded-lg border border-slate-200 bg-white/95 p-1 shadow-xl backdrop-blur-md" role="group" aria-label="Type de carte">
+            <div id="mapModeControl" class="map-overlay-control absolute bottom-6 left-6 z-[1000] inline-flex items-center rounded-lg border border-slate-200 bg-white/95 p-1 shadow-xl backdrop-blur-md" role="group" aria-label="Type de carte">
                 <button id="mapModeStreet" type="button" onclick="setMapMode('street')" aria-pressed="true" class="min-h-9 rounded-md bg-blue-600 px-2.5 text-[10px] font-bold text-white transition-colors sm:px-3 sm:text-xs">
                     Carte
                 </button>
@@ -221,7 +221,7 @@
                     Satellite
                 </button>
             </div>
-            <div class="absolute bottom-6 right-6 z-[1000] flex flex-col gap-3">
+            <div id="mapFloatingControls" class="map-overlay-control absolute bottom-6 right-6 z-[1000] flex flex-col gap-3">
                 <div class="overflow-hidden rounded-lg border-2 border-blue-600 bg-white/95 shadow-xl backdrop-blur-md dark:border-blue-500 dark:bg-slate-800" role="group" aria-label="Contrôles du zoom">
                     <button type="button" onclick="zoomMap(1)" class="flex h-11 w-11 items-center justify-center text-2xl font-bold text-blue-600 transition-colors hover:bg-blue-50 dark:text-blue-400 dark:hover:bg-slate-700" title="Zoom avant" aria-label="Zoom avant">+</button>
                     <button type="button" onclick="zoomMap(-1)" class="flex h-11 w-11 items-center justify-center border-t border-slate-200 text-2xl font-bold text-blue-600 transition-colors hover:bg-blue-50 dark:border-slate-700 dark:text-blue-400 dark:hover:bg-slate-700" title="Zoom arrière" aria-label="Zoom arrière">−</button>
@@ -245,7 +245,7 @@
                 </button>
 
                 </div>
-            <div id="filterPanel" class="absolute top-6 left-6 z-[1000] filter-panel shadow-2xl transition-all duration-300">
+            <div id="filterPanel" class="map-overlay-control absolute top-6 left-6 z-[1000] filter-panel shadow-2xl transition-all duration-300">
 
                 <!-- Bouton ⚙️ = titre ET bascule du panneau -->
                 <button id="filterToggleBtn" onclick="toggleFilterCollapse()"

@@ -7,9 +7,14 @@ html {
 #map { 
     height: 600px; /* On l'agrandit un peu pour le look */
     border-radius: 2rem; 
+    position: relative;
     z-index: 0; 
     border: 4px solid white;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.map-overlay-control {
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
 }
 
 .map-interaction-toggle {
@@ -43,8 +48,21 @@ html {
 
 @media (max-width: 767px) {
     #map {
-        height: 380px;
+        height: min(76svh, 620px);
+        min-height: 520px;
         border-radius: 1.25rem;
+    }
+
+    #mapShell.map-popup-open #map {
+        z-index: 1100;
+    }
+
+    #mapShell.map-popup-open .map-overlay-control {
+        opacity: 0;
+        pointer-events: none;
+        transform: scale(0.98);
+        visibility: hidden;
+        z-index: 1 !important;
     }
 }
 
@@ -218,6 +236,23 @@ html {
     padding: 10px !important;
 }
 
+.custom-popup .leaflet-popup-content-wrapper {
+    border-radius: 1rem;
+}
+
+.custom-popup .leaflet-popup-content {
+    scrollbar-gutter: stable;
+}
+
+@media (max-width: 767px) {
+    .custom-popup .leaflet-popup-content {
+        width: min(340px, calc(100vw - 4rem)) !important;
+        max-width: calc(100vw - 4rem) !important;
+        max-height: min(64dvh, 520px) !important;
+        padding: 12px !important;
+    }
+}
+
 /* On stylise la barre de défilement pour qu'elle soit discrète */
 .leaflet-popup-content::-webkit-scrollbar {
     width: 4px;
@@ -225,6 +260,15 @@ html {
 .leaflet-popup-content::-webkit-scrollbar-thumb {
     background: #3b82f6;
     border-radius: 10px;
+}
+
+.custom-popup .leaflet-popup-content a.popup-action-link {
+    color: #ffffff !important;
+}
+
+.custom-popup .leaflet-popup-content a.popup-action-link:hover,
+.custom-popup .leaflet-popup-content a.popup-action-link:focus {
+    color: #ffffff !important;
 }
 
 .map-zoom-control--locked {
