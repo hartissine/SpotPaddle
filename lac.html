@@ -83,7 +83,7 @@
     </div>
 
     <script src="assets/vendor/leaflet/leaflet.js?v=1.9.4"></script>
-    <script src="data.js?v=20260709-1"></script>
+    <script src="assets/data.min.js?v=20260718-1"></script>
     <script id="lakeStructuredData" type="application/ld+json"></script>
     <script>
         // ========== GESTION DU THÈME ==========
@@ -176,10 +176,22 @@
             if (loadingEl) loadingEl.style.display = 'none';
         }
 
-        // ========== FETCH MÉTÉO AVEC TIMEOUT ==========
+        // ========== FETCH MÉTÉO AVEC RETRY ==========
+        const LAKE_WEATHER_TIMEOUT_MS = 10000;
+        const LAKE_WEATHER_RETRY_DELAY_MS = 4000;
+        const LAKE_WEATHER_RETRY_DELAY_MAX_MS = 15000;
+
+        function waitForLakeWeatherRetry(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function getLakeWeatherRetryDelayMs(attempt) {
+            return Math.min(LAKE_WEATHER_RETRY_DELAY_MS + (attempt * 2000), LAKE_WEATHER_RETRY_DELAY_MAX_MS);
+        }
+
         async function fetchWeatherForLake(lat, lon) {
             const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 6000);
+            const timeoutId = setTimeout(() => controller.abort(), LAKE_WEATHER_TIMEOUT_MS);
 
             try {
                 const params = new URLSearchParams({ lat: String(lat), lon: String(lon) });
@@ -202,9 +214,6 @@
                     clouds: data.clouds.all,
                     waterState: getLakeWaterState(windKmh)
                 };
-            } catch (e) {
-                console.warn('Météo indisponible:', e.message);
-                return { available: false, temp: null, wind: null, clouds: null, waterState: 'Indisponible' };
             } finally {
                 clearTimeout(timeoutId);
             }
@@ -239,9 +248,6 @@
             if (weatherData.available) {
                 status.className = 'mb-4 rounded-xl border border-emerald-200 bg-emerald-50 p-3 text-sm font-semibold text-emerald-800 dark:border-emerald-900/50 dark:bg-emerald-950/30 dark:text-emerald-200';
                 status.textContent = 'Conditions météo mises à jour.';
-            } else {
-                status.className = 'mb-4 rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm font-semibold text-amber-800 dark:border-amber-900/50 dark:bg-amber-950/30 dark:text-amber-200';
-                status.textContent = 'Météo temporairement indisponible. La fiche du spot reste accessible.';
             }
 
             temperature.textContent = formatLakeWeather(weatherData.temp, 1, '°C');
@@ -250,9 +256,42 @@
             waves.textContent = weatherData.waterState || 'Indisponible';
         }
 
+        function updateLakeWeatherLoading(attempt = 0) {
+            const status = document.getElementById('lakeWeatherStatus');
+            const temperature = document.getElementById('lakeWeatherTemp');
+            const wind = document.getElementById('lakeWeatherWind');
+            const clouds = document.getElementById('lakeWeatherClouds');
+            const waves = document.getElementById('lakeWeatherWaves');
+
+            if (!status || !temperature || !wind || !clouds || !waves) return;
+
+            status.className = 'mb-4 flex items-center gap-2 rounded-xl border border-blue-200 bg-blue-50 p-3 text-sm font-semibold text-blue-800 dark:border-blue-900/50 dark:bg-blue-950/30 dark:text-blue-200';
+            status.innerHTML = `
+                <span class="inline-block h-4 w-4 animate-spin rounded-full border-2 border-blue-500 border-t-transparent" aria-hidden="true"></span>
+                ${attempt > 0 ? 'Météo encore en chargement… nouvelle tentative en cours.' : 'Chargement de la météo en arrière-plan…'}
+            `;
+            temperature.textContent = '—';
+            wind.textContent = '—';
+            clouds.textContent = '—';
+            waves.textContent = 'Chargement…';
+        }
+
         async function loadLakeWeather(currentLake) {
-            const weatherData = await fetchWeatherForLake(currentLake.lat, currentLake.lon);
-            updateLakeWeatherWidget(weatherData);
+            let retryAttempt = 0;
+            updateLakeWeatherLoading(retryAttempt);
+
+            while (document.getElementById('lakeWeatherStatus')) {
+                try {
+                    const weatherData = await fetchWeatherForLake(currentLake.lat, currentLake.lon);
+                    updateLakeWeatherWidget(weatherData);
+                    return;
+                } catch (error) {
+                    retryAttempt += 1;
+                    console.warn('Météo encore en chargement:', error.message);
+                    updateLakeWeatherLoading(retryAttempt);
+                    await waitForLakeWeatherRetry(getLakeWeatherRetryDelayMs(retryAttempt));
+                }
+            }
         }
 
         // ========== INITIALISATION PAGE ==========

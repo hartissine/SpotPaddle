@@ -186,11 +186,12 @@ console.table(lacDatabase.map(l => ({
 ### Optimisations
 - Images optimisées (Unsplash resize)
 - CSS Tailwind compilé et minifié localement dans `assets/tailwind.css`
+- JavaScript minifié localement dans `assets/data.min.js` et `assets/script.min.js`
 - Leaflet servi localement depuis `assets/vendor/leaflet`
 - Lazy loading des images
 - Debounce des appels API
 
-Après une modification des classes HTML ou JavaScript:
+Après une modification des classes HTML, de `data.js`, de `script.js` ou des dépendances front:
 
 ```bash
 npm install

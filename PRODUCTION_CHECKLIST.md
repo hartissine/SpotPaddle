@@ -55,7 +55,8 @@ node scripts/generate-sitemap.js
 - Le service Docker/Apache active la compression gzip et des headers de cache pour les assets statiques.
 - Tailwind est servi localement via `assets/tailwind.css`; après modification des classes HTML/JS, lancer `npm run build:css`.
 - Leaflet est servi localement via `assets/vendor/leaflet`; après une mise à jour npm de Leaflet, lancer `npm run vendor:leaflet`.
-- `data.js` et `script.js` sont gros. À minifier ou découper lors d'un futur chantier performance.
+- `data.js` et `script.js` sont servis en production via `assets/data.min.js` et `assets/script.min.js`; après modification, lancer `npm run build`.
+- Prochain chantier possible: découper `data.js` par région ou charger les fiches de spots à la demande.
 
 ## 6. Données
 

@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "npm run build:css && npm run vendor:leaflet",
+    "build": "npm run build:css && npm run build:js && npm run vendor:leaflet",
+    "build:js": "node scripts/minify-js.js",
     "build:css": "tailwindcss -i ./src/tailwind.css -o ./assets/tailwind.css --minify",
     "dev:css": "tailwindcss -i ./src/tailwind.css -o ./assets/tailwind.css --watch",
     "vendor:leaflet": "node scripts/vendor-leaflet.js"
   },
   "devDependencies": {
     "leaflet": "1.9.4",
-    "tailwindcss": "3.4.17"
+    "tailwindcss": "3.4.17",
+    "terser": "5.31.6"
   }
 }

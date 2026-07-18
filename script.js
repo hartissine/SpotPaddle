@@ -1160,7 +1160,9 @@
         return emojiMap[iconCode] || '❓';
     }
 
-    const WEATHER_TIMEOUT_MS = 6000;
+    const WEATHER_TIMEOUT_MS = 10000;
+    const WEATHER_RETRY_DELAY_MS = 4000;
+    const WEATHER_RETRY_DELAY_MAX_MS = 15000;
     const WEATHER_CACHE_TTL_MS = 10 * 60 * 1000;
     const weatherResponseCache = new Map();
 
@@ -1214,6 +1216,14 @@
 
         weatherResponseCache.set(cacheKey, { promise, expiresAt: now + WEATHER_TIMEOUT_MS });
         return promise;
+    }
+
+    function waitForWeatherRetry(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    function getWeatherRetryDelayMs(attempt) {
+        return Math.min(WEATHER_RETRY_DELAY_MS + (attempt * 2000), WEATHER_RETRY_DELAY_MAX_MS);
     }
 
     let latestWeatherPopupRequestId = 0;
@@ -1278,6 +1288,31 @@
         `;
     }
 
+    function buildSpotWeatherLoadingContent(safeDisplayName, popupActions, attempt = 0) {
+        const detailText = attempt > 0
+            ? 'On attend la réponse du service météo.'
+            : 'On récupère les données météo du spot.';
+
+        return `
+            <div class="text-sm p-2">
+                <h3 class="text-lg text-blue-800 font-bold mb-2 text-center">${safeDisplayName}</h3>
+                <div class="flex items-center justify-center gap-2 rounded-lg bg-blue-50 p-3 text-slate-700">
+                    <span class="inline-block h-4 w-4 animate-spin rounded-full border-2 border-blue-200 border-t-blue-600"></span>
+                    <span class="text-xs font-semibold">Météo en chargement…</span>
+                </div>
+                <p class="mt-2 text-center text-[10px] text-slate-500">${detailText}</p>
+                <div class="mt-3">${popupActions}</div>
+            </div>
+        `;
+    }
+
+    function isWeatherPopupRequestActive(popupRequestId, marker) {
+        if (popupRequestId !== latestWeatherPopupRequestId) return false;
+        if (isMobileMapViewport()) return isMobileSpotPopupVisible();
+        if (marker?.isPopupOpen) return marker.isPopupOpen();
+        return true;
+    }
+
     // 5. API Logic
     async function getMeteo(lat, lon, name, marker, spotInfo = null) {
         const popupRequestId = ++latestWeatherPopupRequestId;
@@ -1286,92 +1321,84 @@
         const safeDisplayName = escapeHtml(name);
         const popupActions = buildSpotPopupActions(name, pageUrl, spotInfo, lat, lon);
 
-        setMarkerPopupContent(marker, `
-            <div class="text-sm p-2">
-                <h3 class="text-lg text-blue-800 font-bold mb-2 text-center">${safeDisplayName}</h3>
-                <div class="flex items-center justify-center gap-2 rounded-lg bg-blue-50 p-3 text-slate-700">
-                    <span class="inline-block h-4 w-4 animate-spin rounded-full border-2 border-blue-200 border-t-blue-600"></span>
-                    <span class="text-xs font-semibold">Météo en chargement…</span>
-                </div>
-                <div class="mt-3">${popupActions}</div>
-            </div>
-        `, popupOptions);
+        setMarkerPopupContent(marker, buildSpotWeatherLoadingContent(safeDisplayName, popupActions), popupOptions);
 
-        try {
-            const data = await fetchWeatherJson(lat, lon);
+        let retryAttempt = 0;
 
-            if (popupRequestId !== latestWeatherPopupRequestId) return;
-            
-            const temp = Math.round(data.main.temp);
-            const vent = Math.round(data.wind.speed * 3.6); 
-            const tempEau = temp - 4;   
-            const desc = data.weather[0].description;
-            const iconCode = data.weather[0].icon;
+        while (isWeatherPopupRequestActive(popupRequestId, marker)) {
+            try {
+                const data = await fetchWeatherJson(lat, lon);
 
-            let statusColor = "bg-green-500";
-            let statusText = "Conditions Idéales 🟢";
+                if (!isWeatherPopupRequestActive(popupRequestId, marker)) return;
 
-            if (vent > 18) {
-                statusColor = "bg-red-500";
-                statusText = "Navigation Déconseillée 🔴";
-            } else if (vent >= 10) {
-                statusColor = "bg-yellow-500";
-                statusText = "Prudence : Vent modéré 🟡";
-            }
+                const temp = Math.round(data.main.temp);
+                const vent = Math.round(data.wind.speed * 3.6);
+                const desc = data.weather[0].description;
+                const iconCode = data.weather[0].icon;
 
-            // Création du panneau avec tes styles originaux
-            const shouldKeepPopupOpen = !marker.isPopupOpen || marker.isPopupOpen();
-            setMarkerPopupContent(marker, `
-            <div class="text-sm p-1">
-                <h3 class="text-lg text-blue-800 font-bold italic mb-1 border-b border-blue-100 pb-1">${safeDisplayName}</h3>
-                
-                <div class="flex items-center mb-2 bg-blue-50 dark:bg-slate-800/50 p-2 rounded-lg border border-slate-200">
-                    <span class="text-xl mr-2">${getWeatherEmoji(iconCode)}</span>
-                    <span class="text-slate-900 dark:text-white capitalize text-[11px] font-bold leading-tight">
-                        ${desc}
-                    </span>
-                </div>
+                let statusColor = "bg-green-500";
+                let statusText = "Conditions Idéales 🟢";
 
-                <div class="mb-2 p-1.5 rounded-lg text-white text-center font-bold text-[10px] uppercase tracking-wider ${statusColor}">
-                    ${statusText}
-                </div>
+                if (vent > 18) {
+                    statusColor = "bg-red-500";
+                    statusText = "Navigation Déconseillée 🔴";
+                } else if (vent >= 10) {
+                    statusColor = "bg-yellow-500";
+                    statusText = "Prudence : Vent modéré 🟡";
+                }
 
-                <div class="grid grid-cols-2 gap-2 text-center mb-2">
-                    <div class="bg-slate-100 p-1 rounded-lg border border-slate-200">
-                        <span class="block text-[9px] text-slate-500 uppercase">Air</span>
-                        <b class="text-xs">${temp}°C</b>
+                // Création du panneau avec tes styles originaux
+                const shouldKeepPopupOpen = !marker.isPopupOpen || marker.isPopupOpen();
+                setMarkerPopupContent(marker, `
+                <div class="text-sm p-1">
+                    <h3 class="text-lg text-blue-800 font-bold italic mb-1 border-b border-blue-100 pb-1">${safeDisplayName}</h3>
+
+                    <div class="flex items-center mb-2 bg-blue-50 dark:bg-slate-800/50 p-2 rounded-lg border border-slate-200">
+                        <span class="text-xl mr-2">${getWeatherEmoji(iconCode)}</span>
+                        <span class="text-slate-900 dark:text-white capitalize text-[11px] font-bold leading-tight">
+                            ${desc}
+                        </span>
                     </div>
-                    <div class="bg-slate-100 p-1 rounded-lg border border-slate-200">
-                        <span class="block text-[9px] text-slate-500 uppercase">Vent</span>
-                        <b class="text-xs">${vent} km/h</b>
+
+                    <div class="mb-2 p-1.5 rounded-lg text-white text-center font-bold text-[10px] uppercase tracking-wider ${statusColor}">
+                        ${statusText}
                     </div>
-                </div>
 
-                ${popupActions}
-            </div>
-            `, popupOptions, shouldKeepPopupOpen);
-                
-            setTimeout(() => {
-                if (map) map.invalidateSize();
-            }, 100);
-
-        } catch (error) {
-            console.error("Erreur météo pour", name, ":", error);
-
-            if (popupRequestId !== latestWeatherPopupRequestId) return;
-            
-            // 2. Fallback de secours si l'API ou le PHP plante
-            const shouldKeepPopupOpen = !marker.isPopupOpen || marker.isPopupOpen();
-            setMarkerPopupContent(marker, `
-                <div class="text-sm p-2">
-                    <h3 class="text-lg text-blue-800 font-bold mb-2 text-center">${safeDisplayName}</h3>
-                    <div class="mb-3 rounded-lg border border-amber-200 bg-amber-50 p-2 text-center">
-                        <p class="text-amber-800 text-xs font-semibold">⚠️ Météo temporairement indisponible</p>
-                        <p class="text-slate-500 mt-1 text-[10px]">Les informations et l’itinéraire du spot restent disponibles.</p>
+                    <div class="grid grid-cols-2 gap-2 text-center mb-2">
+                        <div class="bg-slate-100 p-1 rounded-lg border border-slate-200">
+                            <span class="block text-[9px] text-slate-500 uppercase">Air</span>
+                            <b class="text-xs">${temp}°C</b>
+                        </div>
+                        <div class="bg-slate-100 p-1 rounded-lg border border-slate-200">
+                            <span class="block text-[9px] text-slate-500 uppercase">Vent</span>
+                            <b class="text-xs">${vent} km/h</b>
+                        </div>
                     </div>
+
                     ${popupActions}
                 </div>
-            `, popupOptions, shouldKeepPopupOpen);
+                `, popupOptions, shouldKeepPopupOpen);
+
+                setTimeout(() => {
+                    if (map) map.invalidateSize();
+                }, 100);
+
+                return;
+            } catch (error) {
+                retryAttempt += 1;
+                console.warn("Météo encore en chargement pour", name, ":", error.message);
+
+                if (!isWeatherPopupRequestActive(popupRequestId, marker)) return;
+
+                const shouldKeepPopupOpen = !marker.isPopupOpen || marker.isPopupOpen();
+                setMarkerPopupContent(
+                    marker,
+                    buildSpotWeatherLoadingContent(safeDisplayName, popupActions, retryAttempt),
+                    popupOptions,
+                    shouldKeepPopupOpen
+                );
+                await waitForWeatherRetry(getWeatherRetryDelayMs(retryAttempt));
+            }
         }
     }
 

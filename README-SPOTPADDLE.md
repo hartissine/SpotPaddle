@@ -78,6 +78,8 @@ projet-mauricie/
 ├── lac.html                   # Template page individuelle lac
 ├── data.js                    # Base données lacs + algoritmes Paddle Score
 ├── script.js                  # Logique carte, filtres, geolocalisation
+├── assets/data.min.js         # Données minifiées servies en production
+├── assets/script.min.js       # JavaScript minifié servi en production
 ├── src/tailwind.css           # Source Tailwind
 ├── assets/tailwind.css        # CSS Tailwind compilé pour production
 ├── assets/vendor/leaflet      # Leaflet local pour la carte
