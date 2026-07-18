@@ -30,6 +30,8 @@ Le résultat attendu est:
 - `sitemap.xml` contient les pages principales et toutes les fiches de spots.
 - `sitemap.xml` ne contient pas d'URL avec redirection, comme `/index.html`.
 - `robots.txt` pointe vers `https://spotpaddle.ca/sitemap.xml`.
+- `site.webmanifest`, les icones et `assets/spotpaddle-social.jpg` sont accessibles apres deploiement.
+- Les apercus de partage utilisent une image locale `https://spotpaddle.ca/assets/spotpaddle-social.jpg`.
 - Après ajout ou modification de spots, lancer:
 
 ```bash

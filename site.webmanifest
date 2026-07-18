@@ -1,0 +1,24 @@
+{
+  "name": "Spot Paddle",
+  "short_name": "Spot Paddle",
+  "description": "Carte des spots de paddle au Quebec avec GPS, meteo et informations de securite.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/assets/icons/spotpaddle-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icons/spotpaddle-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

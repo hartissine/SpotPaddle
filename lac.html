@@ -3,19 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="application-name" content="Spot Paddle">
+    <meta name="apple-mobile-web-app-title" content="Spot Paddle">
     <meta name="description" content="Page lac Spot Paddle" />
     
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Spot Paddle - Détails Lac" />
     <meta property="og:description" content="Informations complètes du lac avec Paddle Score™" />
-    <meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200" />
+    <meta property="og:image" content="https://spotpaddle.ca/assets/spotpaddle-social.jpg" />
+    <meta property="og:image:secure_url" content="https://spotpaddle.ca/assets/spotpaddle-social.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Spot Paddle au Québec" />
     <meta property="og:locale" content="fr_CA" />
     <meta property="og:url" content="https://spotpaddle.ca/lac.html" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Spot Paddle - Détails Lac" />
     <meta name="twitter:description" content="Informations complètes du lac avec Paddle Score™" />
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200" />
+    <meta name="twitter:image" content="https://spotpaddle.ca/assets/spotpaddle-social.jpg" />
+    <meta name="twitter:image:alt" content="Spot Paddle au Québec" />
     <link rel="canonical" href="https://spotpaddle.ca/lac.html" />
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/spotpaddle-icon-192.png">
+    <link rel="apple-touch-icon" href="/assets/icons/spotpaddle-icon-192.png">
     <link rel="preconnect" href="https://meteo.spotpaddle.ca">
     <link rel="dns-prefetch" href="//meteo.spotpaddle.ca">
 
@@ -74,6 +85,7 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="data.js?v=20260709-1"></script>
+    <script id="lakeStructuredData" type="application/ld+json"></script>
     <script>
         // ========== GESTION DU THÈME ==========
         function toggleTheme() {
@@ -83,6 +95,64 @@
 
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.classList.add('dark');
+        }
+
+        const SITE_ORIGIN = 'https://spotpaddle.ca';
+        const FALLBACK_SOCIAL_IMAGE = `${SITE_ORIGIN}/assets/spotpaddle-social.jpg`;
+
+        function toAbsoluteSiteUrl(value, fallback = FALLBACK_SOCIAL_IMAGE) {
+            if (!value) return fallback;
+
+            try {
+                return new URL(value, `${SITE_ORIGIN}/`).toString();
+            } catch (error) {
+                return fallback;
+            }
+        }
+
+        function setMetaContent(selector, content) {
+            const meta = document.querySelector(selector);
+            if (meta && content) {
+                meta.setAttribute('content', content);
+            }
+        }
+
+        function setLakeStructuredData(currentLake, canonicalUrl, imageUrl) {
+            const structuredDataEl = document.getElementById('lakeStructuredData');
+            if (!structuredDataEl) return;
+
+            const structuredData = {
+                '@context': 'https://schema.org',
+                '@type': 'Place',
+                name: `${currentLake.name} - Spot Paddle`,
+                description: currentLake.description || currentLake.longDescription || '',
+                url: canonicalUrl,
+                image: imageUrl,
+                address: {
+                    '@type': 'PostalAddress',
+                    addressRegion: currentLake.region || 'Québec',
+                    addressCountry: 'CA'
+                },
+                geo: {
+                    '@type': 'GeoCoordinates',
+                    latitude: currentLake.lat,
+                    longitude: currentLake.lon
+                },
+                amenityFeature: [
+                    {
+                        '@type': 'LocationFeatureSpecification',
+                        name: 'Paddle Score',
+                        value: currentLake.paddleScore || null
+                    },
+                    {
+                        '@type': 'LocationFeatureSpecification',
+                        name: 'Acces gratuit',
+                        value: currentLake.isFree === true
+                    }
+                ]
+            };
+
+            structuredDataEl.textContent = JSON.stringify(structuredData);
         }
 
         // Vérifier que data.js a chargé au chargement de la fenêtre
@@ -199,27 +269,27 @@
                 showErrorMessage('Lac non trouvé', "Désolé, ce lac n'existe pas ou a été déplacé.");
             } else {
                 // Métadonnées dynamiques
-                document.title = `${currentLake.name} - Spot Paddle`;
-                const titleMeta = document.querySelector('meta[property="og:title"]');
-                const descMeta = document.querySelector('meta[property="og:description"]');
-                const imgMeta = document.querySelector('meta[property="og:image"]');
-                const urlMeta = document.querySelector('meta[property="og:url"]');
-                const descMetaName = document.querySelector('meta[name="description"]');
-                const canonicalLink = document.querySelector('link[rel="canonical"]');
-                const twitterTitleMeta = document.querySelector('meta[name="twitter:title"]');
-                const twitterDescMeta = document.querySelector('meta[name="twitter:description"]');
-                const twitterImgMeta = document.querySelector('meta[name="twitter:image"]');
                 const canonicalUrl = `https://spotpaddle.ca/lac.html?lake=${encodeURIComponent(currentLake.slug)}`;
-                
-                if (titleMeta) titleMeta.setAttribute('content', currentLake.name);
-                if (descMeta) descMeta.setAttribute('content', currentLake.description || '');
-                if (imgMeta) imgMeta.setAttribute('content', currentLake.mainImage || '');
-                if (urlMeta) urlMeta.setAttribute('content', canonicalUrl);
-                if (descMetaName) descMetaName.setAttribute('content', currentLake.description || '');
+                const imageUrl = toAbsoluteSiteUrl(currentLake.mainImage);
+                const pageTitle = `${currentLake.name} - Spot Paddle`;
+                const pageDescription = currentLake.description || currentLake.longDescription || 'Spot de paddle au Québec avec GPS, météo et informations pratiques.';
+
+                document.title = pageTitle;
+                setMetaContent('meta[property="og:title"]', pageTitle);
+                setMetaContent('meta[property="og:description"]', pageDescription);
+                setMetaContent('meta[property="og:image"]', imageUrl);
+                setMetaContent('meta[property="og:image:secure_url"]', imageUrl);
+                setMetaContent('meta[property="og:image:alt"]', currentLake.name);
+                setMetaContent('meta[property="og:url"]', canonicalUrl);
+                setMetaContent('meta[name="description"]', pageDescription);
+                setMetaContent('meta[name="twitter:title"]', pageTitle);
+                setMetaContent('meta[name="twitter:description"]', pageDescription);
+                setMetaContent('meta[name="twitter:image"]', imageUrl);
+                setMetaContent('meta[name="twitter:image:alt"]', currentLake.name);
+
+                const canonicalLink = document.querySelector('link[rel="canonical"]');
                 if (canonicalLink) canonicalLink.setAttribute('href', canonicalUrl);
-                if (twitterTitleMeta) twitterTitleMeta.setAttribute('content', `${currentLake.name} - Spot Paddle`);
-                if (twitterDescMeta) twitterDescMeta.setAttribute('content', currentLake.description || '');
-                if (twitterImgMeta) twitterImgMeta.setAttribute('content', currentLake.mainImage || '');
+                setLakeStructuredData(currentLake, canonicalUrl, imageUrl);
 
                 // Lancement du rendu
                 renderLakePage(currentLake);
