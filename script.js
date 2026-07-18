@@ -1230,21 +1230,30 @@
 
     function setMarkerPopupContent(marker, content, options, shouldOpen = true) {
         if (isMobileMapViewport() && (shouldOpen || isMobileSpotPopupVisible())) {
+            if (map) map.closePopup();
             if (marker.closePopup) marker.closePopup();
             setMobileSpotPopupContent(content);
             return;
         }
 
-        const popup = marker.getPopup && marker.getPopup();
-        if (popup) {
-            Object.assign(popup.options, options);
-            marker.setPopupContent(content);
-        } else {
-            marker.bindPopup(content, options);
+        if (!map || typeof L === 'undefined' || !marker?.getLatLng) return;
+
+        const openPopup = marker._spotPaddlePopup;
+        if (openPopup?.isOpen?.()) {
+            Object.assign(openPopup.options, options);
+            openPopup.setContent(content);
+            if (openPopup.update) openPopup.update();
+            return;
         }
 
+        const popup = L.popup(options, marker)
+            .setLatLng(marker.getLatLng())
+            .setContent(content);
+
+        marker._spotPaddlePopup = popup;
+
         if (shouldOpen) {
-            marker.openPopup();
+            popup.openOn(map);
         }
     }
 
@@ -1434,6 +1443,7 @@
     function isWeatherPopupRequestActive(popupRequestId, marker) {
         if (popupRequestId !== latestWeatherPopupRequestId) return false;
         if (isMobileMapViewport()) return isMobileSpotPopupVisible();
+        if (marker?._spotPaddlePopup?.isOpen) return marker._spotPaddlePopup.isOpen();
         if (marker?.isPopupOpen) return marker.isPopupOpen();
         return true;
     }
