@@ -231,15 +231,19 @@ Configurez le chemin de vérification du service météo Render sur:
 Ce point de contrôle retourne `200` si PHP répond et si `OPENWEATHER_API_KEY` est disponible au runtime. Il retourne `503` si la clé manque. Il ne contacte pas OpenWeather afin d'éviter de consommer le quota API à chaque health check.
 
 ### Checklist Déploiement
+Voir aussi `PRODUCTION_CHECKLIST.md` pour la checklist courte à utiliser après chaque mise en ligne.
+
 - [ ] Retirer console.log() de debug
 - [ ] Tester tous les liens
 - [ ] Vérifier HTTPS
 - [ ] Configurer `OPENWEATHER_API_KEY` sur le serveur météo
 - [ ] Configurer le health check Render sur `/health.php`
+- [ ] Lancer `node scripts/generate-sitemap.js` après ajout/modification de spots
+- [ ] Lancer `node scripts/smoke-check.js` après déploiement
 - [ ] Vérifier que la clé OpenWeather n'apparaît dans aucun fichier suivi par Git
 - [ ] Analytics (Google Analytics, Fathom)
-- [ ] Sitemaps XML pour SEO
-- [ ] robots.txt
+- [x] Sitemaps XML pour SEO
+- [x] robots.txt
 - [ ] Favicons (logo.png, logo.ico)
 
 ---

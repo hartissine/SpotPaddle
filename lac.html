@@ -10,6 +10,12 @@
     <meta property="og:description" content="Informations complètes du lac avec Paddle Score™" />
     <meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200" />
     <meta property="og:locale" content="fr_CA" />
+    <meta property="og:url" content="https://spotpaddle.ca/lac.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Spot Paddle - Détails Lac" />
+    <meta name="twitter:description" content="Informations complètes du lac avec Paddle Score™" />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200" />
+    <link rel="canonical" href="https://spotpaddle.ca/lac.html" />
     <link rel="preconnect" href="https://meteo.spotpaddle.ca">
     <link rel="dns-prefetch" href="//meteo.spotpaddle.ca">
 
@@ -197,12 +203,23 @@
                 const titleMeta = document.querySelector('meta[property="og:title"]');
                 const descMeta = document.querySelector('meta[property="og:description"]');
                 const imgMeta = document.querySelector('meta[property="og:image"]');
+                const urlMeta = document.querySelector('meta[property="og:url"]');
                 const descMetaName = document.querySelector('meta[name="description"]');
+                const canonicalLink = document.querySelector('link[rel="canonical"]');
+                const twitterTitleMeta = document.querySelector('meta[name="twitter:title"]');
+                const twitterDescMeta = document.querySelector('meta[name="twitter:description"]');
+                const twitterImgMeta = document.querySelector('meta[name="twitter:image"]');
+                const canonicalUrl = `https://spotpaddle.ca/lac.html?lake=${encodeURIComponent(currentLake.slug)}`;
                 
                 if (titleMeta) titleMeta.setAttribute('content', currentLake.name);
                 if (descMeta) descMeta.setAttribute('content', currentLake.description || '');
                 if (imgMeta) imgMeta.setAttribute('content', currentLake.mainImage || '');
+                if (urlMeta) urlMeta.setAttribute('content', canonicalUrl);
                 if (descMetaName) descMetaName.setAttribute('content', currentLake.description || '');
+                if (canonicalLink) canonicalLink.setAttribute('href', canonicalUrl);
+                if (twitterTitleMeta) twitterTitleMeta.setAttribute('content', `${currentLake.name} - Spot Paddle`);
+                if (twitterDescMeta) twitterDescMeta.setAttribute('content', currentLake.description || '');
+                if (twitterImgMeta) twitterImgMeta.setAttribute('content', currentLake.mainImage || '');
 
                 // Lancement du rendu
                 renderLakePage(currentLake);
