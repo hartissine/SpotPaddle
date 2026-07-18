@@ -1165,6 +1165,49 @@
     const WEATHER_RETRY_DELAY_MAX_MS = 15000;
     const WEATHER_CACHE_TTL_MS = 10 * 60 * 1000;
     const weatherResponseCache = new Map();
+    const WEATHER_DEBUG_ENABLED = (() => {
+        try {
+            const params = new URLSearchParams(window.location.search);
+            return ['weather', 'meteo'].includes(String(params.get('debug') || '').toLowerCase());
+        } catch (error) {
+            return false;
+        }
+    })();
+
+    function weatherDebugLog(eventName, details = {}) {
+        if (!WEATHER_DEBUG_ENABLED) return;
+        console.debug('[SpotPaddle météo]', eventName, details);
+    }
+
+    function getWeatherDebugSummary(error) {
+        if (!error) return '';
+
+        if (error.name === 'AbortError') {
+            return 'Timeout: le proxy météo n’a pas répondu à temps.';
+        }
+
+        const status = error.status ? `HTTP ${error.status}` : error.name || 'Erreur';
+        return `${status}: ${error.message}`;
+    }
+
+    function buildWeatherDebugPanel({ attempt = 0, startedAt = null, error = null, url = '' } = {}) {
+        if (!WEATHER_DEBUG_ENABLED) return '';
+
+        const elapsedSeconds = startedAt ? Math.round((Date.now() - startedAt) / 1000) : 0;
+        const summary = getWeatherDebugSummary(error) || 'Aucune erreur pour le moment.';
+
+        return `
+            <details class="mt-2 rounded-lg border border-slate-200 bg-slate-50 p-2 text-left text-[10px] text-slate-600">
+                <summary class="cursor-pointer font-bold text-slate-700">Debug météo</summary>
+                <dl class="mt-2 space-y-1">
+                    <div><dt class="inline font-bold">Tentative:</dt> <dd class="inline">${attempt + 1}</dd></div>
+                    <div><dt class="inline font-bold">Écoulé:</dt> <dd class="inline">${elapsedSeconds}s</dd></div>
+                    <div><dt class="inline font-bold">Dernier état:</dt> <dd class="inline">${escapeHtml(summary)}</dd></div>
+                    ${url ? `<div class="break-all"><dt class="font-bold">URL:</dt><dd>${escapeHtml(url)}</dd></div>` : ''}
+                </dl>
+            </details>
+        `;
+    }
 
     function getWeatherUrl(lat, lon, type = 'weather') {
         const params = new URLSearchParams({
@@ -1175,14 +1218,56 @@
         return `https://meteo.spotpaddle.ca/meteo.php?${params.toString()}`;
     }
 
-    async function fetchJsonWithTimeout(url, timeoutMs = WEATHER_TIMEOUT_MS) {
+    async function fetchJsonWithTimeout(url, timeoutMs = WEATHER_TIMEOUT_MS, debugMeta = {}) {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+        const startedAt = Date.now();
+
+        weatherDebugLog('fetch:start', {
+            url,
+            timeoutMs,
+            ...debugMeta
+        });
 
         try {
             const response = await fetch(url, { signal: controller.signal, cache: 'default' });
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            return await response.json();
+            const durationMs = Date.now() - startedAt;
+
+            weatherDebugLog('fetch:response', {
+                url,
+                durationMs,
+                status: response.status,
+                ok: response.ok,
+                cache: response.headers.get('x-spotpaddle-cache'),
+                rateRemaining: response.headers.get('x-ratelimit-remaining'),
+                ...debugMeta
+            });
+
+            if (!response.ok) {
+                const error = new Error(`HTTP ${response.status}`);
+                error.status = response.status;
+                throw error;
+            }
+
+            const data = await response.json();
+            weatherDebugLog('fetch:success', {
+                url,
+                durationMs,
+                code: data?.cod,
+                city: data?.name,
+                ...debugMeta
+            });
+            return data;
+        } catch (error) {
+            weatherDebugLog('fetch:error', {
+                url,
+                durationMs: Date.now() - startedAt,
+                message: error.message,
+                name: error.name,
+                status: error.status || null,
+                ...debugMeta
+            });
+            throw error;
         } finally {
             clearTimeout(timeoutId);
         }
@@ -1194,14 +1279,17 @@
         const cached = weatherResponseCache.get(cacheKey);
 
         if (cached?.data && cached.expiresAt > now) {
+            weatherDebugLog('cache:hit', { cacheKey, type, lat, lon });
             return cached.data;
         }
 
         if (cached?.promise) {
+            weatherDebugLog('cache:promise', { cacheKey, type, lat, lon });
             return cached.promise;
         }
 
-        const promise = fetchJsonWithTimeout(getWeatherUrl(lat, lon, type))
+        const url = getWeatherUrl(lat, lon, type);
+        const promise = fetchJsonWithTimeout(url, WEATHER_TIMEOUT_MS, { cacheKey, type, lat, lon })
             .then(data => {
                 weatherResponseCache.set(cacheKey, {
                     data,
@@ -1293,6 +1381,27 @@
                 <a href="${pageUrl}" class="popup-action-link block w-full py-2 bg-emerald-600 text-white rounded-md font-bold text-[10px] uppercase hover:bg-emerald-700 transition-colors text-center">
                     📖 Page complète
                 </a>
+            </div>
+        `;
+    }
+
+    function buildSpotPopupHeading(safeDisplayName, spotInfo = null, mode = 'center') {
+        const region = spotInfo?.region || 'Région à confirmer';
+        const safeRegion = escapeHtml(region);
+        const regionEmoji = escapeHtml(getRegionEmoji(region));
+        const wrapperClass = mode === 'bordered'
+            ? 'mb-2 border-b border-blue-100 pb-2 text-center'
+            : 'mb-2 text-center';
+        const titleClass = mode === 'bordered'
+            ? 'text-lg text-blue-800 font-bold italic leading-tight'
+            : 'text-lg text-blue-800 font-bold leading-tight';
+
+        return `
+            <div class="${wrapperClass}">
+                <h3 class="${titleClass}">${safeDisplayName}</h3>
+                <p class="mt-1 inline-flex items-center justify-center rounded-full bg-blue-50 px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-blue-700">
+                    ${regionEmoji} ${safeRegion}
+                </p>
             </div>
         `;
     }
@@ -1422,19 +1531,22 @@
         getMeteo(selectedEntry.spot.lat, selectedEntry.spot.lon, selectedEntry.spot.name, selectedEntry.marker, selectedEntry.spot);
     }
 
-    function buildSpotWeatherLoadingContent(safeDisplayName, popupActions, attempt = 0) {
-        const detailText = attempt > 0
+    function buildSpotWeatherLoadingContent(safeDisplayName, popupActions, spotInfo = null, attempt = 0, debugState = {}) {
+        const detailText = attempt >= 3
+            ? 'Le service météo prend plus de temps que prévu. On continue d’essayer.'
+            : attempt > 0
             ? 'On attend la réponse du service météo.'
             : 'On récupère les données météo du spot.';
 
         return `
             <div class="text-sm p-2">
-                <h3 class="text-lg text-blue-800 font-bold mb-2 text-center">${safeDisplayName}</h3>
+                ${buildSpotPopupHeading(safeDisplayName, spotInfo)}
                 <div class="flex items-center justify-center gap-2 rounded-lg bg-blue-50 p-3 text-slate-700">
                     <span class="inline-block h-4 w-4 animate-spin rounded-full border-2 border-blue-200 border-t-blue-600"></span>
                     <span class="text-xs font-semibold">Météo en chargement…</span>
                 </div>
                 <p class="mt-2 text-center text-[10px] text-slate-500">${detailText}</p>
+                ${buildWeatherDebugPanel({ attempt, ...debugState })}
                 <div class="mt-3">${popupActions}</div>
             </div>
         `;
@@ -1455,8 +1567,19 @@
         const pageUrl = `lac.html?lake=${getLakePageSlug(name)}&v=20260709-1`;
         const safeDisplayName = escapeHtml(name);
         const popupActions = buildSpotPopupActions(name, pageUrl, spotInfo, lat, lon);
+        const weatherUrl = getWeatherUrl(lat, lon);
+        const requestStartedAt = Date.now();
 
-        setMarkerPopupContent(marker, buildSpotWeatherLoadingContent(safeDisplayName, popupActions), popupOptions);
+        weatherDebugLog('popup:start', { popupRequestId, name, lat, lon, url: weatherUrl });
+
+        setMarkerPopupContent(
+            marker,
+            buildSpotWeatherLoadingContent(safeDisplayName, popupActions, spotInfo, 0, {
+                startedAt: requestStartedAt,
+                url: weatherUrl
+            }),
+            popupOptions
+        );
 
         let retryAttempt = 0;
 
@@ -1465,6 +1588,12 @@
                 const data = await fetchWeatherJson(lat, lon);
 
                 if (!isWeatherPopupRequestActive(popupRequestId, marker)) return;
+                weatherDebugLog('popup:weather-ready', {
+                    popupRequestId,
+                    name,
+                    attempts: retryAttempt + 1,
+                    elapsedMs: Date.now() - requestStartedAt
+                });
 
                 const temp = Math.round(data.main.temp);
                 const vent = Math.round(data.wind.speed * 3.6);
@@ -1486,7 +1615,7 @@
                 const shouldKeepPopupOpen = !marker.isPopupOpen || marker.isPopupOpen();
                 setMarkerPopupContent(marker, `
                 <div class="text-sm p-1">
-                    <h3 class="text-lg text-blue-800 font-bold italic mb-1 border-b border-blue-100 pb-1">${safeDisplayName}</h3>
+                    ${buildSpotPopupHeading(safeDisplayName, spotInfo, 'bordered')}
 
                     <div class="flex items-center mb-2 bg-blue-50 dark:bg-slate-800/50 p-2 rounded-lg border border-slate-200">
                         <span class="text-xl mr-2">${getWeatherEmoji(iconCode)}</span>
@@ -1521,14 +1650,24 @@
                 return;
             } catch (error) {
                 retryAttempt += 1;
-                console.warn("Météo encore en chargement pour", name, ":", error.message);
+                weatherDebugLog('popup:retry', {
+                    popupRequestId,
+                    name,
+                    retryAttempt,
+                    nextRetryMs: getWeatherRetryDelayMs(retryAttempt),
+                    error: getWeatherDebugSummary(error)
+                });
 
                 if (!isWeatherPopupRequestActive(popupRequestId, marker)) return;
 
                 const shouldKeepPopupOpen = !marker.isPopupOpen || marker.isPopupOpen();
                 setMarkerPopupContent(
                     marker,
-                    buildSpotWeatherLoadingContent(safeDisplayName, popupActions, retryAttempt),
+                    buildSpotWeatherLoadingContent(safeDisplayName, popupActions, spotInfo, retryAttempt, {
+                        startedAt: requestStartedAt,
+                        error,
+                        url: weatherUrl
+                    }),
                     popupOptions,
                     shouldKeepPopupOpen
                 );

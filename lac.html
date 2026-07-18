@@ -31,7 +31,7 @@
     <link rel="dns-prefetch" href="//meteo.spotpaddle.ca">
 
     <title>Spot Paddle - Détails Lac</title>
-    <link rel="stylesheet" href="assets/tailwind.css?v=20260718-4" />
+    <link rel="stylesheet" href="assets/tailwind.css?v=20260718-5" />
     <link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css?v=1.9.4" />
     <link rel="stylesheet" href="style.css?v=20260629-1" />
 </head>
@@ -83,7 +83,7 @@
     </div>
 
     <script src="assets/vendor/leaflet/leaflet.js?v=1.9.4"></script>
-    <script src="assets/data.min.js?v=20260718-4"></script>
+    <script src="assets/data.min.js?v=20260718-5"></script>
     <script id="lakeStructuredData" type="application/ld+json"></script>
     <script>
         // ========== GESTION DU THÈME ==========
@@ -180,6 +180,58 @@
         const LAKE_WEATHER_TIMEOUT_MS = 10000;
         const LAKE_WEATHER_RETRY_DELAY_MS = 4000;
         const LAKE_WEATHER_RETRY_DELAY_MAX_MS = 15000;
+        const LAKE_WEATHER_DEBUG_ENABLED = (() => {
+            try {
+                const params = new URLSearchParams(window.location.search);
+                return ['weather', 'meteo'].includes(String(params.get('debug') || '').toLowerCase());
+            } catch (error) {
+                return false;
+            }
+        })();
+
+        function lakeWeatherDebugLog(eventName, details = {}) {
+            if (!LAKE_WEATHER_DEBUG_ENABLED) return;
+            console.debug('[SpotPaddle météo lac]', eventName, details);
+        }
+
+        function escapeLakeDebugText(value) {
+            return String(value ?? '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function getLakeWeatherUrl(lat, lon) {
+            const params = new URLSearchParams({ lat: String(lat), lon: String(lon) });
+            return `https://meteo.spotpaddle.ca/meteo.php?${params.toString()}`;
+        }
+
+        function getLakeWeatherDebugSummary(error) {
+            if (!error) return 'Aucune erreur pour le moment.';
+            if (error.name === 'AbortError') return 'Timeout: le proxy météo n’a pas répondu à temps.';
+            const status = error.status ? `HTTP ${error.status}` : error.name || 'Erreur';
+            return `${status}: ${error.message}`;
+        }
+
+        function buildLakeWeatherDebugPanel({ attempt = 0, startedAt = null, error = null, url = '' } = {}) {
+            if (!LAKE_WEATHER_DEBUG_ENABLED) return '';
+
+            const elapsedSeconds = startedAt ? Math.round((Date.now() - startedAt) / 1000) : 0;
+
+            return `
+                <details class="mt-2 w-full rounded-lg border border-slate-200 bg-white/70 p-2 text-left text-[10px] text-slate-600 dark:border-slate-700 dark:bg-slate-900/50 dark:text-slate-300">
+                    <summary class="cursor-pointer font-bold">Debug météo</summary>
+                    <div class="mt-2 space-y-1">
+                        <div><strong>Tentative:</strong> ${attempt + 1}</div>
+                        <div><strong>Écoulé:</strong> ${elapsedSeconds}s</div>
+                        <div><strong>Dernier état:</strong> ${escapeLakeDebugText(getLakeWeatherDebugSummary(error))}</div>
+                        ${url ? `<div class="break-all"><strong>URL:</strong> ${escapeLakeDebugText(url)}</div>` : ''}
+                    </div>
+                </details>
+            `;
+        }
 
         function waitForLakeWeatherRetry(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
@@ -192,20 +244,42 @@
         async function fetchWeatherForLake(lat, lon) {
             const controller = new AbortController();
             const timeoutId = setTimeout(() => controller.abort(), LAKE_WEATHER_TIMEOUT_MS);
+            const startedAt = Date.now();
+            const url = getLakeWeatherUrl(lat, lon);
+
+            lakeWeatherDebugLog('fetch:start', { url, lat, lon, timeoutMs: LAKE_WEATHER_TIMEOUT_MS });
 
             try {
-                const params = new URLSearchParams({ lat: String(lat), lon: String(lon) });
-                const response = await fetch(`https://meteo.spotpaddle.ca/meteo.php?${params.toString()}`, {
+                const response = await fetch(url, {
                     signal: controller.signal,
                     cache: 'default'
                 });
+
+                lakeWeatherDebugLog('fetch:response', {
+                    url,
+                    status: response.status,
+                    ok: response.ok,
+                    durationMs: Date.now() - startedAt,
+                    cache: response.headers.get('x-spotpaddle-cache'),
+                    rateRemaining: response.headers.get('x-ratelimit-remaining')
+                });
                 
-                if (!response.ok) throw new Error('API status: ' + response.status);
+                if (!response.ok) {
+                    const error = new Error('API status: ' + response.status);
+                    error.status = response.status;
+                    throw error;
+                }
                 
                 const data = await response.json();
                 if (!data?.main || !data?.wind || !data?.clouds) {
                     throw new Error('Réponse météo incomplète');
                 }
+                lakeWeatherDebugLog('fetch:success', {
+                    url,
+                    city: data.name,
+                    code: data.cod,
+                    durationMs: Date.now() - startedAt
+                });
                 const windKmh = data.wind.speed * 3.6;
                 return {
                     available: true,
@@ -214,6 +288,15 @@
                     clouds: data.clouds.all,
                     waterState: getLakeWaterState(windKmh)
                 };
+            } catch (error) {
+                lakeWeatherDebugLog('fetch:error', {
+                    url,
+                    message: error.message,
+                    name: error.name,
+                    status: error.status || null,
+                    durationMs: Date.now() - startedAt
+                });
+                throw error;
             } finally {
                 clearTimeout(timeoutId);
             }
@@ -256,7 +339,7 @@
             waves.textContent = weatherData.waterState || 'Indisponible';
         }
 
-        function updateLakeWeatherLoading(attempt = 0) {
+        function updateLakeWeatherLoading(attempt = 0, debugState = {}) {
             const status = document.getElementById('lakeWeatherStatus');
             const temperature = document.getElementById('lakeWeatherTemp');
             const wind = document.getElementById('lakeWeatherWind');
@@ -265,10 +348,13 @@
 
             if (!status || !temperature || !wind || !clouds || !waves) return;
 
-            status.className = 'mb-4 flex items-center gap-2 rounded-xl border border-blue-200 bg-blue-50 p-3 text-sm font-semibold text-blue-800 dark:border-blue-900/50 dark:bg-blue-950/30 dark:text-blue-200';
+            status.className = 'mb-4 rounded-xl border border-blue-200 bg-blue-50 p-3 text-sm font-semibold text-blue-800 dark:border-blue-900/50 dark:bg-blue-950/30 dark:text-blue-200';
             status.innerHTML = `
-                <span class="inline-block h-4 w-4 animate-spin rounded-full border-2 border-blue-500 border-t-transparent" aria-hidden="true"></span>
-                ${attempt > 0 ? 'Météo encore en chargement… nouvelle tentative en cours.' : 'Chargement de la météo en arrière-plan…'}
+                <div class="flex items-center gap-2">
+                    <span class="inline-block h-4 w-4 animate-spin rounded-full border-2 border-blue-500 border-t-transparent" aria-hidden="true"></span>
+                    <span>${attempt >= 3 ? 'Le service météo prend plus de temps que prévu. On continue d’essayer.' : attempt > 0 ? 'Météo encore en chargement… nouvelle tentative en cours.' : 'Chargement de la météo en arrière-plan…'}</span>
+                </div>
+                ${buildLakeWeatherDebugPanel({ attempt, ...debugState })}
             `;
             temperature.textContent = '—';
             wind.textContent = '—';
@@ -278,17 +364,44 @@
 
         async function loadLakeWeather(currentLake) {
             let retryAttempt = 0;
-            updateLakeWeatherLoading(retryAttempt);
+            const requestStartedAt = Date.now();
+            const weatherUrl = getLakeWeatherUrl(currentLake.lat, currentLake.lon);
+
+            lakeWeatherDebugLog('widget:start', {
+                lake: currentLake.name,
+                lat: currentLake.lat,
+                lon: currentLake.lon,
+                url: weatherUrl
+            });
+
+            updateLakeWeatherLoading(retryAttempt, {
+                startedAt: requestStartedAt,
+                url: weatherUrl
+            });
 
             while (document.getElementById('lakeWeatherStatus')) {
                 try {
                     const weatherData = await fetchWeatherForLake(currentLake.lat, currentLake.lon);
                     updateLakeWeatherWidget(weatherData);
+                    lakeWeatherDebugLog('widget:weather-ready', {
+                        lake: currentLake.name,
+                        attempts: retryAttempt + 1,
+                        elapsedMs: Date.now() - requestStartedAt
+                    });
                     return;
                 } catch (error) {
                     retryAttempt += 1;
-                    console.warn('Météo encore en chargement:', error.message);
-                    updateLakeWeatherLoading(retryAttempt);
+                    lakeWeatherDebugLog('widget:retry', {
+                        lake: currentLake.name,
+                        retryAttempt,
+                        nextRetryMs: getLakeWeatherRetryDelayMs(retryAttempt),
+                        error: getLakeWeatherDebugSummary(error)
+                    });
+                    updateLakeWeatherLoading(retryAttempt, {
+                        startedAt: requestStartedAt,
+                        error,
+                        url: weatherUrl
+                    });
                     await waitForLakeWeatherRetry(getLakeWeatherRetryDelayMs(retryAttempt));
                 }
             }
