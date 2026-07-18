@@ -47,7 +47,7 @@ node scripts/generate-sitemap.js
 
 ## 5. Performance à surveiller
 
-- La vidéo `mixkit-Lac.mp4` pèse environ 15 MB. Elle n'est chargée que sur écrans larges; le mobile utilise un poster local.
+- La vidéo `mixkit-Lac.mp4` pèse environ 15 MB. Elle charge sur Wi-Fi/ethernet quand le navigateur expose l'information réseau; sur données mobiles, économiseur de données, réduction d'animations ou réseau inconnu sur mobile, le poster local reste affiché.
 - Tailwind est encore chargé par CDN. À remplacer par un CSS compilé quand le site passera à une étape de build.
 - `data.js` et `script.js` sont gros. À minifier ou découper lors d'un futur chantier performance.
 

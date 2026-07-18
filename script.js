@@ -4,12 +4,37 @@
 
         const desktopMedia = window.matchMedia('(min-width: 768px)');
         const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-        const saveData = Boolean(navigator.connection?.saveData);
+        const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
 
-        const loadVideo = () => {
+        const getConnectionType = () => String(connection?.type || '').toLowerCase();
+        const isExplicitWifi = () => ['wifi', 'ethernet'].includes(getConnectionType());
+        const isExplicitCellular = () => ['cellular', '2g', '3g', '4g', '5g'].includes(getConnectionType());
+
+        const shouldUseVideo = () => {
+            if (reducedMotion.matches || connection?.saveData || isExplicitCellular()) return false;
+            if (isExplicitWifi()) return true;
+
+            // Beaucoup de navigateurs ne disent pas si le téléphone est en Wi-Fi.
+            // Dans ce cas, on reste prudent sur mobile et on charge la vidéo sur écran large.
+            return desktopMedia.matches;
+        };
+
+        const unloadVideo = () => {
+            if (video.dataset.loaded !== 'true') return;
+            video.pause();
+            video.querySelectorAll('source').forEach(source => source.remove());
+            video.removeAttribute('src');
+            video.dataset.loaded = 'false';
+            video.load();
+        };
+
+        const syncHeroMedia = () => {
+            if (!shouldUseVideo()) {
+                unloadVideo();
+                return;
+            }
+
             if (video.dataset.loaded === 'true') return;
-            if (!desktopMedia.matches || reducedMotion.matches || saveData) return;
-
             const source = document.createElement('source');
             source.src = video.dataset.videoSrc;
             source.type = 'video/mp4';
@@ -25,8 +50,10 @@
             }
         };
 
-        loadVideo();
-        desktopMedia.addEventListener?.('change', loadVideo);
+        syncHeroMedia();
+        desktopMedia.addEventListener?.('change', syncHeroMedia);
+        reducedMotion.addEventListener?.('change', syncHeroMedia);
+        connection?.addEventListener?.('change', syncHeroMedia);
     }
 
     initHeroVideo();
