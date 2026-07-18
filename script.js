@@ -1288,6 +1288,131 @@
         `;
     }
 
+    let nearbySpotSelection = [];
+
+    function getMarkerScreenCenter(marker) {
+        const icon = marker?.getElement?.();
+        if (icon) {
+            const rect = icon.getBoundingClientRect();
+            return {
+                x: rect.left + rect.width / 2,
+                y: rect.top + rect.height / 2,
+                rect
+            };
+        }
+
+        if (!map || !marker?.getLatLng) return null;
+
+        const mapRect = map.getContainer().getBoundingClientRect();
+        const point = map.latLngToContainerPoint(marker.getLatLng());
+
+        return {
+            x: mapRect.left + point.x,
+            y: mapRect.top + point.y - 20,
+            rect: null
+        };
+    }
+
+    function getSelectableMarkersNearClientPoint(clientX, clientY) {
+        if (!map) return [];
+
+        const paddingPx = isMobileMapViewport() ? 18 : 10;
+        const fallbackRadiusPx = isMobileMapViewport() ? 56 : 36;
+
+        return markers
+            .filter(marker => marker?.spotInfo && map.hasLayer(marker))
+            .map(marker => {
+                const center = getMarkerScreenCenter(marker);
+                if (!center) return null;
+
+                const distancePx = Math.hypot(clientX - center.x, clientY - center.y);
+                const isInsideIcon = center.rect
+                    ? clientX >= center.rect.left - paddingPx &&
+                        clientX <= center.rect.right + paddingPx &&
+                        clientY >= center.rect.top - paddingPx &&
+                        clientY <= center.rect.bottom + paddingPx
+                    : distancePx <= fallbackRadiusPx;
+
+                return isInsideIcon ? {
+                    marker,
+                    spot: marker.spotInfo,
+                    distancePx
+                } : null;
+            })
+            .filter(Boolean)
+            .sort((a, b) => a.distancePx - b.distancePx || a.spot.name.localeCompare(b.spot.name));
+    }
+
+    function getNearbySelectableMarkers(sourceMarker, event) {
+        const originalEvent = event?.originalEvent;
+        if (Number.isFinite(originalEvent?.clientX) && Number.isFinite(originalEvent?.clientY)) {
+            return getSelectableMarkersNearClientPoint(originalEvent.clientX, originalEvent.clientY);
+        }
+
+        if (!map || !sourceMarker?.getLatLng) return [];
+
+        const sourcePoint = map.latLngToContainerPoint(sourceMarker.getLatLng());
+        const radiusPx = isMobileMapViewport() ? 54 : 44;
+
+        return markers
+            .filter(marker => marker?.spotInfo && map.hasLayer(marker) && marker.getLatLng)
+            .map(marker => {
+                const point = map.latLngToContainerPoint(marker.getLatLng());
+                return {
+                    marker,
+                    spot: marker.spotInfo,
+                    distancePx: sourcePoint.distanceTo(point)
+                };
+            })
+            .filter(entry => entry.distancePx <= radiusPx)
+            .sort((a, b) => a.distancePx - b.distancePx || a.spot.name.localeCompare(b.spot.name));
+    }
+
+    function buildNearbySpotSelectorContent(entries) {
+        const visibleEntries = entries.slice(0, 8);
+        const hiddenCount = Math.max(0, entries.length - visibleEntries.length);
+
+        return `
+            <div class="text-sm p-2">
+                <h3 class="text-lg text-blue-800 font-bold mb-1 text-center">Plusieurs spots ici</h3>
+                <p class="text-center text-[10px] text-slate-500 mb-3">Choisis le marqueur exact à ouvrir.</p>
+                <div class="max-h-60 overflow-y-auto space-y-2">
+                    ${visibleEntries.map((entry, index) => `
+                        <button type="button" onclick="selectNearbySpotFromPopup(${index})" class="w-full rounded-xl border border-blue-100 bg-white p-3 text-left shadow-sm transition hover:bg-blue-50">
+                            <span class="block text-xs font-black text-blue-800">${escapeHtml(entry.spot.name)}</span>
+                            <span class="mt-1 block text-[10px] font-semibold text-slate-500">${escapeHtml(entry.spot.region)} · ${escapeHtml(getGpsStatusLabel(entry.spot))}</span>
+                        </button>
+                    `).join('')}
+                </div>
+                ${hiddenCount ? `<p class="mt-2 text-center text-[10px] text-slate-500">Zoome pour voir ${hiddenCount} autre${hiddenCount > 1 ? 's' : ''} spot${hiddenCount > 1 ? 's' : ''} proche${hiddenCount > 1 ? 's' : ''}.</p>` : ''}
+            </div>
+        `;
+    }
+
+    function openNearbySpotSelector(marker, entries) {
+        latestWeatherPopupRequestId += 1;
+        nearbySpotSelection = entries;
+        setMarkerPopupContent(marker, buildNearbySpotSelectorContent(entries), getSpotPopupOptions());
+    }
+
+    function selectNearbySpotFromPopup(index) {
+        const entry = nearbySpotSelection[Number(index)];
+        if (!entry) return;
+
+        getMeteo(entry.spot.lat, entry.spot.lon, entry.spot.name, entry.marker, entry.spot);
+    }
+
+    function openSpotMarker(spot, marker, event) {
+        const nearbyEntries = getNearbySelectableMarkers(marker, event);
+        if (isMobileMapViewport() && nearbyEntries.length > 1) {
+            openNearbySpotSelector(marker, nearbyEntries);
+            return;
+        }
+
+        const selectedEntry = nearbyEntries[0] || { marker, spot };
+        getMeteo(selectedEntry.spot.lat, selectedEntry.spot.lon, selectedEntry.spot.name, selectedEntry.marker, selectedEntry.spot);
+    }
+
     function buildSpotWeatherLoadingContent(safeDisplayName, popupActions, attempt = 0) {
         const detailText = attempt > 0
             ? 'On attend la réponse du service météo.'
@@ -1466,9 +1591,10 @@
             marker.region = spot.region || "Mauricie";
             marker.regionColor = regionColor;
             marker.spotName = spot.name;
+            marker.spotInfo = spot;
             markers.push(marker);
-            marker.on('click', function() {
-                getMeteo(spot.lat, spot.lon, spot.name, marker, spot);
+            marker.on('click', function(event) {
+                openSpotMarker(spot, marker, event);
             });
         });
     }
@@ -2286,6 +2412,7 @@
     window.initSpotSelect = initSpotSelect;
     window.initRegionFilter = initRegionFilter;
     window.resetFilters = resetFilters;
+    window.selectNearbySpotFromPopup = selectNearbySpotFromPopup;
     window.findNearestSpots = findNearestSpots;
     window.showFavorites = showFavorites;
     window.fermerFavoritesSidebar = fermerFavoritesSidebar;
