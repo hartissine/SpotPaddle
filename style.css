@@ -102,6 +102,16 @@ html {
         border-radius: 1.25rem;
     }
 
+    .map-interaction-toggle {
+        right: 1rem;
+        left: auto;
+        max-width: calc(100% - 9rem);
+        transform: none;
+        line-height: 1.1;
+        text-align: center;
+        white-space: normal;
+    }
+
     #mapShell.map-popup-open #map {
         z-index: 1100;
     }
