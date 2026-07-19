@@ -4,6 +4,7 @@ const SITE_ORIGIN = process.env.SPOTPADDLE_SITE_ORIGIN || 'https://spotpaddle.ca
 const WEATHER_ORIGIN = process.env.SPOTPADDLE_WEATHER_ORIGIN || 'https://meteo.spotpaddle.ca';
 const LOCAL_TEST_ORIGIN = process.env.SPOTPADDLE_LOCAL_ORIGIN || 'http://127.0.0.1:5500';
 const TEST_WEATHER_PATH = '/meteo.php?lat=48.47962&lon=-71.79344';
+const TEST_SUGGESTION_PATH = '/suggestion.php';
 
 const checks = [
   {
@@ -27,6 +28,18 @@ const checks = [
       if (!response.ok) return false;
       const data = await response.json();
       return Number(data.cod) === 200 && Boolean(data.main) && Boolean(data.wind);
+    }
+  },
+  {
+    name: 'Suggestion endpoint',
+    url: new URL(TEST_SUGGESTION_PATH, WEATHER_ORIGIN).toString(),
+    validate: async response => {
+      if (!response.ok) return false;
+      const data = await response.json();
+      return data.status === 'ok'
+        && data.service === 'spotpaddle-suggestions'
+        && data.checks?.recipient_email === true
+        && data.checks?.smtp_configured === true;
     }
   },
   {

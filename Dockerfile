@@ -6,6 +6,7 @@ RUN a2enmod rewrite headers deflate
 # Copie tous vos fichiers dans le dossier web d'Apache
 COPY . /var/www/html/
 COPY apache-spotpaddle.conf /etc/apache2/conf-available/spotpaddle.conf
+COPY spotpaddle.ini /usr/local/etc/php/conf.d/spotpaddle.ini
 
 # Configure les headers de cache/compression et évite l'avertissement ServerName.
 RUN a2enconf spotpaddle

@@ -6,8 +6,18 @@ Cette checklist sert avant et après chaque déploiement public.
 
 - `https://meteo.spotpaddle.ca/health.php` retourne `status: ok`.
 - `https://meteo.spotpaddle.ca/meteo.php?lat=48.47962&lon=-71.79344` retourne un JSON OpenWeather avec `cod: 200`.
+- `https://meteo.spotpaddle.ca/suggestion.php` retourne `status: ok`, `service: spotpaddle-suggestions` et `checks.smtp_configured: true`.
 - Dans Render, le `Health Check Path` du service météo est `/health.php`.
 - `OPENWEATHER_API_KEY` est configurée dans Render et n'apparaît dans aucun fichier public.
+- Pour recevoir les suggestions par courriel, configurer dans Render:
+  - `SPOTPADDLE_TO_EMAIL=hartissine@gmail.com`
+  - `SMTP_HOST=smtp.gmail.com`
+  - `SMTP_PORT=587`
+  - `SMTP_SECURE=tls`
+  - `SMTP_USERNAME=hartissine@gmail.com`
+  - `SMTP_PASSWORD=` mot de passe d'application Gmail
+  - `SMTP_FROM_EMAIL=hartissine@gmail.com`
+  - `SMTP_FROM_NAME=Spot Paddle`
 
 ## 2. Smoke test rapide
 
@@ -23,6 +33,7 @@ Le résultat attendu est:
 [OK] Site home
 [OK] Weather health
 [OK] Weather API
+[OK] Suggestion endpoint
 ```
 
 ## 3. SEO

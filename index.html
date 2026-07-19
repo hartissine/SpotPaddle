@@ -35,7 +35,7 @@
     <link rel="preload" as="image" href="assets/spots/baie-de-shawinigan/panorama-principal.jpg" fetchpriority="high">
 
     <title>Spot Paddle Québec - Accès GPS, météo & Paddle Score™</title>
-    <link rel="stylesheet" href="assets/tailwind.css?v=20260718-5" />
+    <link rel="stylesheet" href="assets/tailwind.css?v=20260719-1" />
     <link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css?v=1.9.4" />
     <link rel="stylesheet" href="style.css?v=20260629-1" />
     <script src="assets/data.min.js?v=20260718-5"></script>
@@ -65,6 +65,9 @@
                 <a href="#securite" class="text-white hover:text-blue-200 transition duration-300 font-medium flex items-center gap-1">
                     <span>🛡️</span> Sécurité
                 </a>
+                <a href="contribuer.html" class="text-white hover:text-blue-200 transition duration-300 font-medium flex items-center gap-1">
+                    <span>➕</span> Proposer un spot
+                </a>
                 <a href="#" onclick="showFavorites()" class="text-white hover:text-blue-200 transition duration-300 font-medium flex items-center gap-1 cursor-pointer">
                     <span>⭐</span> Favoris
                 </a>
@@ -83,6 +86,9 @@
                     </a>
                     <a href="#securite" class="text-white hover:text-blue-200 transition font-medium flex items-center gap-2 py-2">
                         <span>🛡️</span> Sécurité
+                    </a>
+                    <a href="contribuer.html" class="text-white hover:text-blue-200 transition font-medium flex items-center gap-2 py-2">
+                        <span>➕</span> Proposer un spot
                     </a>
                     <a href="#" onclick="showFavorites()" class="text-white hover:text-blue-200 transition font-medium flex items-center gap-2 py-2 cursor-pointer">
                         <span>⭐</span> Favoris
@@ -128,6 +134,7 @@
         <div class="flex flex-col md:flex-row gap-4 justify-center pb-12">
             <button onclick="findNearestSpots()" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full font-bold text-base transition-all shadow-xl hover:scale-105">📍 Trouver mes 2 Spots</button>
             <a href="#carte" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-bold text-base transition-all shadow-xl hover:scale-105">🗺️ Voir la Carte</a>
+            <a href="contribuer.html" class="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white px-6 py-3 rounded-full font-bold text-base transition-all">➕ Proposer un spot</a>
             <a href="#securite" class="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white px-6 py-3 rounded-full font-bold text-base transition-all">⚖️ Sécurité</a>
         </div>
 
@@ -406,6 +413,26 @@
         </div>
     </section>
 
+    <section class="bg-white border-y border-slate-200">
+        <div class="max-w-6xl mx-auto px-6 py-10 grid gap-6 md:grid-cols-3 md:items-center">
+            <div class="md:col-span-2">
+                <p class="text-xs font-black uppercase tracking-widest text-emerald-600 mb-2">Carte participative</p>
+                <h3 class="text-2xl md:text-3xl font-black text-slate-900">Un spot de paddle manque sur la carte ? <span aria-hidden="true">🏄‍♂️</span></h3>
+                <p class="mt-3 text-slate-600 leading-relaxed">
+                    Aidez la communauté à découvrir de nouveaux endroits où pagayer. Partagez simplement <strong class="font-bold text-slate-800">le nom du spot, sa localisation, un lien Maps ou une photo</strong>. On s'occupe de vérifier les informations avant de l'ajouter à Spot Paddle.
+                </p>
+            </div>
+            <div class="flex flex-col sm:flex-row md:flex-col gap-3">
+                <a href="contribuer.html#formulaire" class="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-5 py-3 text-sm font-black uppercase tracking-wider text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-700">
+                    Proposer un spot
+                </a>
+                <a href="contribuer.html" class="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-5 py-3 text-sm font-black uppercase tracking-wider text-slate-700 transition hover:bg-slate-100">
+                    Partager une photo
+                </a>
+            </div>
+        </div>
+    </section>
+
     <div id="overlay" onclick="fermerSidebar(); fermerFavoritesSidebar()" class="fixed inset-0 bg-black bg-opacity-50 hidden z-[2500] transition-opacity"></div>
 
     <div id="sidebar" class="fixed top-0 right-0 h-full w-full md:w-[450px] bg-white/90 backdrop-blur-xl shadow-2xl z-[9999] transform translate-x-full transition-transform duration-500 ease-in-out overflow-y-auto border-l border-white/20">    
@@ -479,13 +506,14 @@
                         <a href="https://www.instagram.com/spotpaddle.ca/" target="_blank" rel="noopener noreferrer" class="bg-slate-800 p-2 rounded-full hover:bg-pink-600 transition" aria-label="Instagram" title="Instagram">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-5 h-5 fill-current" aria-hidden="true"><path d="M12 2.16c3.2 0 3.584.012 4.85.07 1.17.055 1.803.24 2.227.4.53.203.908.445 1.305.84.397.397.637.775.84 1.305.16.423.345 1.056.4 2.227.058 1.266.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.055 1.17-.24 1.803-.4 2.227-.203.53-.445.908-.84 1.305a3.86 3.86 0 0 1-1.305.84c-.423.16-1.056.345-2.227.4-1.266.058-1.65.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.055-1.803-.24-2.227-.4a3.88 3.88 0 0 1-1.305-.84 3.88 3.88 0 0 1-.84-1.305c-.16-.423-.345-1.056-.4-2.227C2.172 15.584 2.16 15.2 2.16 12s.012-3.584.07-4.85c.055-1.17.24-1.803.4-2.227.203-.53.445-.908.84-1.305.397-.397.775-.637 1.305-.84.423-.16 1.056-.345 2.227-.4C8.416 2.172 8.8 2.16 12 2.16zm0 1.8c-3.16 0-3.534.012-4.78.07-1.017.044-1.57.203-1.93.338a2.24 2.24 0 0 0-.81.5 2.24 2.24 0 0 0-.5.81c-.135.36-.294.913-.338 1.93-.058 1.246-.07 1.62-.07 4.78s.012 3.534.07 4.78c.044 1.017.203 1.57.338 1.93.12.313.28.58.5.81.23.23.497.38.81.5.36.135.913.294 1.93.338 1.246.058 1.62.07 4.78.07s3.534-.012 4.78-.07c1.017-.044 1.57-.203 1.93-.338a2.28 2.28 0 0 0 .81-.5 2.28 2.28 0 0 0 .5-.81c.135-.36.294-.913.338-1.93.058-1.246.07-1.62.07-4.78s-.012-3.534-.07-4.78c-.044-1.017-.203-1.57-.338-1.93a2.24 2.24 0 0 0-.5-.81 2.24 2.24 0 0 0-.81-.5c-.36-.135-.913-.294-1.93-.338-1.246-.058-1.62-.07-4.78-.07zm0 4.14a5.86 5.86 0 1 1 0 11.72 5.86 5.86 0 0 1 0-11.72zm0 1.8a4.06 4.06 0 1 0 0 8.12 4.06 4.06 0 0 0 0-8.12zm6.18-1.92a1.38 1.38 0 1 1 0 2.76 1.38 1.38 0 0 1 0-2.76z"/></svg>
                         </a>
-                        <a href="mailto:info@destinationmauricie.com" class="bg-slate-800 p-2 rounded-full hover:bg-green-600 transition" aria-label="Envoyer un mail" title="Envoyer un mail">
+                        <a href="mailto:hartissine@gmail.com?subject=%5BSPOTPADDLE%5D%20Contact" class="bg-slate-800 p-2 rounded-full hover:bg-green-600 transition" aria-label="Envoyer un mail" title="Envoyer un mail">
                             ✉️
                         </a>
                     </div>
                     <p class="text-slate-400 text-xs">
                         <a href="mentions-legales.html" class="hover:text-white underline">Mentions légales</a> | 
-                        <a href="politique-confidentialite.html" class="hover:text-white underline">Politique de confidentialité</a>
+                        <a href="politique-confidentialite.html" class="hover:text-white underline">Politique de confidentialité</a> |
+                        <a href="contribuer.html" class="hover:text-white underline">Proposer un spot</a>
                     </p>
                 </div>
             </div>
