@@ -864,29 +864,16 @@ details[open] > summary::before {
     }
 }
 
-/* La fiche rapide reste dans le flux sur mobile et sur les écrans peu hauts. */
-.quick-info-panel {
+/* La colonne d'informations reste dans le flux sur mobile. */
+.quick-info-column {
     position: static;
 }
 
-/* Sur un grand écran, elle peut suivre le défilement sans jamais être coupée. */
-@media (min-width: 1024px) and (min-height: 860px) {
-    .quick-info-panel {
+/* Sur ordinateur, toute la colonne reste d'abord à sa place, puis suit le
+   défilement lorsque son bord supérieur atteint la navigation. */
+@media (min-width: 1024px) {
+    .quick-info-column {
         position: sticky;
         top: 6rem;
-        max-height: calc(100dvh - 7.5rem);
-        overflow-y: auto;
-        overscroll-behavior: contain;
-        scrollbar-width: thin;
-        scrollbar-color: rgba(100, 116, 139, 0.55) transparent;
-    }
-
-    .quick-info-panel::-webkit-scrollbar {
-        width: 0.45rem;
-    }
-
-    .quick-info-panel::-webkit-scrollbar-thumb {
-        border-radius: 999px;
-        background: rgba(100, 116, 139, 0.55);
     }
 }

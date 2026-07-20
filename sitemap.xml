@@ -29,6 +29,13 @@
   </url>
 
   <url>
+    <loc>https://spotpaddle.ca/informations-pratiques.html</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://spotpaddle.ca/lac.html?lake=anse-a-l-orme</loc>
     <lastmod>2026-07-18</lastmod>
     <changefreq>monthly</changefreq>
