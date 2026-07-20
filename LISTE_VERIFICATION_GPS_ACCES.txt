@@ -1,0 +1,2171 @@
+LISTE INTERNE - VÉRIFICATION GPS ET ACCÈS À L’EAU
+Générée le : 2026-07-20
+Nombre de spots : 108
+
+LÉGENDE
+[ ] À vérifier  [x] Vérifié manuellement
+Contrôler : point sur l’eau, plage/quai/rampe, accès automobile, stationnement proche et caractère public.
+Ce fichier est interne et n’est utilisé par aucune page du site.
+
+======================================================================
+
+001. [ ] Kamouraska
+Région : Bas-Saint-Laurent
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Quai de Kamouraska
+Coordonnées d’accès : 47.56252208364726, -69.87411031976998
+Confiance GPS actuelle : high
+Stationnement déclaré : Quai de Kamouraska
+Stationnement GPS distinct : 47.56252208364726, -69.87411031976998
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=47.56252208364726,-69.87411031976998
+OpenStreetMap : https://www.openstreetmap.org/?mlat=47.56252208364726&mlon=-69.87411031976998#map=18/47.56252208364726/-69.87411031976998
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+002. [ ] Lac Matapédia — Baie de Charlie
+Région : Bas-Saint-Laurent
+Type d’accès déclaré : Plage / mise à l'eau manuelle
+Adresse / point d’accès : Plage du parc de la Baie-de-Charlie
+Coordonnées d’accès : 48.5868597, -67.6347988
+Confiance GPS actuelle : high
+Stationnement déclaré : Stationnement du parc de la Baie-de-Charlie
+Stationnement GPS distinct : 48.58805, -67.63394
+Distance stationnement-eau : 146 m
+Station de lavage : Non définie
+Coût / condition : Accès libre; conditions à vérifier sur place
+Restrictions : Plage non surveillée | Vérifiez le vent et les conditions du lac avant le départ | Confirmez les règles et services saisonniers sur place
+Google Maps : https://www.google.com/maps/search/?api=1&query=48.5868597,-67.6347988
+OpenStreetMap : https://www.openstreetmap.org/?mlat=48.5868597&mlon=-67.6347988#map=18/48.5868597/-67.6347988
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+003. [ ] Lac Matapédia (Sayabec)
+Région : Bas-Saint-Laurent
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Parc Pierre-Brochu
+Coordonnées d’accès : 48.56632933392173, -67.66329127863952
+Confiance GPS actuelle : high
+Stationnement déclaré : Parc Pierre-Brochu
+Stationnement GPS distinct : 48.56632933392173, -67.66329127863952
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=48.56632933392173,-67.66329127863952
+OpenStreetMap : https://www.openstreetmap.org/?mlat=48.56632933392173&mlon=-67.66329127863952#map=18/48.56632933392173/-67.66329127863952
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+004. [ ] Lac Témiscouata
+Région : Bas-Saint-Laurent
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Parc national du Lac-Témiscouata
+Coordonnées d’accès : 47.695538106839365, -68.84352824507407
+Confiance GPS actuelle : high
+Stationnement déclaré : Parc national du Lac-Témiscouata
+Stationnement GPS distinct : 47.695538106839365, -68.84352824507407
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=47.695538106839365,-68.84352824507407
+OpenStreetMap : https://www.openstreetmap.org/?mlat=47.695538106839365&mlon=-68.84352824507407#map=18/47.695538106839365/-68.84352824507407
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+005. [ ] Rimouski (Rocher-Blanc)
+Région : Bas-Saint-Laurent
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Plage du Rocher-Blanc
+Coordonnées d’accès : 48.43355849755616, -68.59287749732535
+Confiance GPS actuelle : high
+Stationnement déclaré : Plage du Rocher-Blanc
+Stationnement GPS distinct : 48.43355849755616, -68.59287749732535
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=48.43355849755616,-68.59287749732535
+OpenStreetMap : https://www.openstreetmap.org/?mlat=48.43355849755616&mlon=-68.59287749732535#map=18/48.43355849755616/-68.59287749732535
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+006. [ ] Baie-des-Rochers
+Région : Charlevoix
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Parc municipal de Baie-des-Rochers
+Coordonnées d’accès : 47.953452992851034, -69.81140329280224
+Confiance GPS actuelle : high
+Stationnement déclaré : Parc municipal de Baie-des-Rochers
+Stationnement GPS distinct : 47.953452992851034, -69.81140329280224
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=47.953452992851034,-69.81140329280224
+OpenStreetMap : https://www.openstreetmap.org/?mlat=47.953452992851034&mlon=-69.81140329280224#map=18/47.953452992851034/-69.81140329280224
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+007. [ ] Lac Arthabaska
+Région : Charlevoix
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Parc national des Grands-Jardins
+Coordonnées d’accès : 47.66183716631818, -70.77873970552157
+Confiance GPS actuelle : high
+Stationnement déclaré : Parc national des Grands-Jardins
+Stationnement GPS distinct : 47.66183716631818, -70.77873970552157
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=47.66183716631818,-70.77873970552157
+OpenStreetMap : https://www.openstreetmap.org/?mlat=47.66183716631818&mlon=-70.77873970552157#map=18/47.66183716631818/-70.77873970552157
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+008. [ ] Rivière du Gouffre
+Région : Charlevoix
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Quai de Baie-Saint-Paul
+Coordonnées d’accès : 47.43170772518342, -70.49178160618612
+Confiance GPS actuelle : high
+Stationnement déclaré : Quai de Baie-Saint-Paul
+Stationnement GPS distinct : 47.43170772518342, -70.49178160618612
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=47.43170772518342,-70.49178160618612
+OpenStreetMap : https://www.openstreetmap.org/?mlat=47.43170772518342&mlon=-70.49178160618612#map=18/47.43170772518342/-70.49178160618612
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+009. [ ] Rivière Malbaie (Hautes-Gorges)
+Région : Charlevoix
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Parc national des Hautes-Gorges-de-la-Rivière-Malbaie
+Coordonnées d’accès : 47.8927742855333, -70.47639862807804
+Confiance GPS actuelle : high
+Stationnement déclaré : Parc national des Hautes-Gorges-de-la-Rivière-Malbaie
+Stationnement GPS distinct : 47.8927742855333, -70.47639862807804
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=47.8927742855333,-70.47639862807804
+OpenStreetMap : https://www.openstreetmap.org/?mlat=47.8927742855333&mlon=-70.47639862807804#map=18/47.8927742855333/-70.47639862807804
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+010. [ ] Berthier-sur-Mer
+Région : Chaudière-Appalaches
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Plage de Berthier-sur-Mer
+Coordonnées d’accès : 46.934895957447615, -70.7167548313723
+Confiance GPS actuelle : high
+Stationnement déclaré : Plage de Berthier-sur-Mer
+Stationnement GPS distinct : 46.934271415738955, -70.71644101291746
+Distance stationnement-eau : 73 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.934895957447615,-70.7167548313723
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.934895957447615&mlon=-70.7167548313723#map=18/46.934895957447615/-70.7167548313723
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+011. [ ] Lac Etchemin
+Région : Chaudière-Appalaches
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Éco-Parc des Etchemins
+Coordonnées d’accès : 46.39506950939851, -70.50892871733326
+Confiance GPS actuelle : high
+Stationnement déclaré : Éco-Parc des Etchemins
+Stationnement GPS distinct : 46.39506950939851, -70.50892871733326
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.39506950939851,-70.50892871733326
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.39506950939851&mlon=-70.50892871733326#map=18/46.39506950939851/-70.50892871733326
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+012. [ ] Lac Trois-Saumons
+Région : Chaudière-Appalaches
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Parc municipal du lac Trois-Saumons
+Coordonnées d’accès : 47.12111244585895, -70.19077482737445
+Confiance GPS actuelle : high
+Stationnement déclaré : Parc municipal du lac Trois-Saumons
+Stationnement GPS distinct : 47.12111244585895, -70.19077482737445
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=47.12111244585895,-70.19077482737445
+OpenStreetMap : https://www.openstreetmap.org/?mlat=47.12111244585895&mlon=-70.19077482737445#map=18/47.12111244585895/-70.19077482737445
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+013. [ ] Lac Aylmer (Stratford)
+Région : Estrie
+Type d’accès déclaré : Mise à l'eau
+Adresse / point d’accès : Mise à l'eau Lac Aylmer, secteur Stratford.
+Coordonnées d’accès : 45.8064658, -71.3258953
+Confiance GPS actuelle : high
+Stationnement déclaré : Mise à l'eau Lac Aylmer, secteur Stratford.
+Stationnement GPS distinct : Non défini
+Distance stationnement-eau : À vérifier
+Station de lavage : Non définie
+Coût / condition : Accès payant (environ 8$).
+Restrictions : Vérifiez les règles locales et l'accès exact avant de partir | Les conditions peuvent changer rapidement selon le vent
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.8064658,-71.3258953
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.8064658&mlon=-71.3258953#map=18/45.8064658/-71.3258953
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+014. [ ] Lac Boivin
+Région : Estrie
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Parc Daniel-Johnson
+Coordonnées d’accès : 45.400375338658016, -72.70787023663209
+Confiance GPS actuelle : high
+Stationnement déclaré : Parc Daniel-Johnson
+Stationnement GPS distinct : 45.400375338658016, -72.70787023663209
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.400375338658016,-72.70787023663209
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.400375338658016&mlon=-72.70787023663209#map=18/45.400375338658016/-72.70787023663209
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+015. [ ] Lac Brome
+Région : Estrie
+Type d’accès déclaré : Mise à l'eau
+Adresse / point d’accès : Mise à l'eau du Lac Brome.
+Coordonnées d’accès : 45.2564916, -72.4953189
+Confiance GPS actuelle : high
+Stationnement déclaré : Mise à l'eau du Lac Brome.
+Stationnement GPS distinct : 45.2559768, -72.49486
+Distance stationnement-eau : 68 m
+Station de lavage : Non définie
+Coût / condition : Gratuit ou petit frais selon l'endroit.
+Restrictions : Vérifiez les règles locales et l'accès exact avant de partir | Les conditions peuvent changer rapidement selon le vent
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.2564916,-72.4953189
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.2564916&mlon=-72.4953189#map=18/45.2564916/-72.4953189
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+016. [ ] Lac Brompton (Racine)
+Région : Estrie
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Camping Plage McKenzie
+Coordonnées d’accès : 45.473382433570194, -72.14062493448105
+Confiance GPS actuelle : high
+Stationnement déclaré : Camping Plage McKenzie
+Stationnement GPS distinct : 45.473382433570194, -72.14062493448105
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.473382433570194,-72.14062493448105
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.473382433570194&mlon=-72.14062493448105#map=18/45.473382433570194/-72.14062493448105
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+017. [ ] Lac Lyster
+Région : Estrie
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Plage du lac Lyster
+Coordonnées d’accès : 45.03377319819917, -71.91883050400364
+Confiance GPS actuelle : high
+Stationnement déclaré : Plage du lac Lyster
+Stationnement GPS distinct : 45.03389830039283, -71.91924892860379
+Distance stationnement-eau : 36 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.03377319819917,-71.91883050400364
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.03377319819917&mlon=-71.91883050400364#map=18/45.03377319819917/-71.91883050400364
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+018. [ ] Lac Mégantic
+Région : Estrie
+Type d’accès déclaré : Plage aménagée / descente de bateaux
+Adresse / point d’accès : Plage aménagée et secteur nautique de Baie-des-Sables
+Coordonnées d’accès : 45.58749460337366, -70.9277716473864
+Confiance GPS actuelle : high
+Stationnement déclaré : Station touristique Baie-des-Sables
+Stationnement GPS distinct : 45.58777616189573, -70.92878015797264
+Distance stationnement-eau : 84 m
+Station de lavage : Non définie
+Coût / condition : Tarification de la Station touristique Baie-des-Sables à vérifier
+Restrictions : Objets flottants interdits dans la zone de baignade, sauf VFI | Il est interdit de stationner un véhicule sur la plage | Présence interdite sur la plage entre 23 h et 6 h
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.58749460337366,-70.9277716473864
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.58749460337366&mlon=-70.9277716473864#map=18/45.58749460337366/-70.9277716473864
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+019. [ ] Lac Memphrémagog (Magog)
+Région : Estrie
+Type d’accès déclaré : Plage / accès riverain
+Adresse / point d’accès : Stationnement à la plage des Cantons à Magog.
+Coordonnées d’accès : 45.2672900360233, -72.15984658219729
+Confiance GPS actuelle : high
+Stationnement déclaré : Stationnement à la plage des Cantons à Magog.
+Stationnement GPS distinct : 45.267323071458264, -72.15942547538818
+Distance stationnement-eau : 33 m
+Station de lavage : Non définie
+Coût / condition : Accès public gratuit (stationnement payant en saison).
+Restrictions : Conditions variables: vent, courant ou vagues possibles | Vérifiez les règles locales et l'accès exact avant de partir
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.2672900360233,-72.15984658219729
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.2672900360233&mlon=-72.15984658219729#map=18/45.2672900360233/-72.15984658219729
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+020. [ ] Lac Stukely (Mont-Orford)
+Région : Estrie
+Type d’accès déclaré : Mise à l'eau
+Adresse / point d’accès : Mise à l'eau du lac Stukely, parc du Mont-Orford.
+Coordonnées d’accès : 45.363417803831844, -72.23536491401258
+Confiance GPS actuelle : high
+Stationnement déclaré : Mise à l'eau du lac Stukely, parc du Mont-Orford.
+Stationnement GPS distinct : 45.36292216758857, -72.23522543914586
+Distance stationnement-eau : 56 m
+Station de lavage : Non définie
+Coût / condition : Entrée de parc de la SEPAQ obligatoire.
+Restrictions : Vérifiez les règles locales et l'accès exact avant de partir | Les conditions peuvent changer rapidement selon le vent
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.363417803831844,-72.23536491401258
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.363417803831844&mlon=-72.23536491401258#map=18/45.363417803831844/-72.23536491401258
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+021. [ ] Lac Trois-Lacs
+Région : Estrie
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Plage municipale de Val-des-Sources
+Coordonnées d’accès : 45.79701592892924, -71.88945331364174
+Confiance GPS actuelle : high
+Stationnement déclaré : Plage municipale de Val-des-Sources
+Stationnement GPS distinct : 45.79701592892924, -71.88945331364174
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.79701592892924,-71.88945331364174
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.79701592892924&mlon=-71.88945331364174#map=18/45.79701592892924/-71.88945331364174
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+022. [ ] Parc Monseigneur-Vel (Île du Marais)
+Région : Estrie
+Type d’accès déclaré : Parc / accès riverain
+Adresse / point d’accès : Accès à l'eau du Parc Monseigneur-Vel.
+Coordonnées d’accès : 45.268449928380484, -72.04829719674834
+Confiance GPS actuelle : high
+Stationnement déclaré : Parc Monseigneur-Vel.
+Stationnement GPS distinct : 45.26844237757551, -72.04798606050721
+Distance stationnement-eau : 24 m
+Station de lavage : Non définie
+Coût / condition : À vérifier sur place.
+Restrictions : Vérifiez les règles locales et l'accès exact avant de partir | Les conditions peuvent changer rapidement selon le vent
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.268449928380484,-72.04829719674834
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.268449928380484&mlon=-72.04829719674834#map=18/45.268449928380484/-72.04829719674834
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+023. [ ] Petit-Lac-Magog — Parc de la Plage-Municipale
+Région : Estrie
+Type d’accès déclaré : Parc municipal / plage
+Adresse / point d’accès : Accès par le Parc de la Plage-Municipale à Petit-Lac-Magog.
+Coordonnées d’accès : 45.33441207629638, -72.02343277469295
+Confiance GPS actuelle : high
+Stationnement déclaré : Parc de la Plage-Municipale, secteur Deauville.
+Stationnement GPS distinct : 45.3347269549525, -72.02356420293273
+Distance stationnement-eau : 36 m
+Station de lavage : Non définie
+Coût / condition : À vérifier sur place.
+Restrictions : Vérifiez les règles locales, les frais et l'ouverture saisonnière avant de partir | Lac exposé au vent et à la circulation nautique par moments
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.33441207629638,-72.02343277469295
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.33441207629638&mlon=-72.02343277469295#map=18/45.33441207629638/-72.02343277469295
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+024. [ ] Réservoir Choinière (Yamaska)
+Région : Estrie
+Type d’accès déclaré : Plage / centre de location
+Adresse / point d’accès : Accès nautique au secteur de la plage et du centre de location du réservoir Choinière.
+Coordonnées d’accès : 45.42668294095945, -72.61486447370173
+Confiance GPS actuelle : high
+Stationnement déclaré : Centre de découverte et de services / plage du parc national de la Yamaska.
+Stationnement GPS distinct : 45.42759779530486, -72.61670983347672
+Distance stationnement-eau : 176 m
+Station de lavage : Non définie
+Coût / condition : Droit d'accès Sépaq et stationnement de plage en saison.
+Restrictions : Stationnement de plage payant et achalandé en été | Dernières locations avant la fermeture du centre de location | Consultez les avis de qualité d'eau et de météo
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.42668294095945,-72.61486447370173
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.42668294095945&mlon=-72.61486447370173#map=18/45.42668294095945/-72.61486447370173
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+025. [ ] Baie de Percé
+Région : Gaspésie
+Type d’accès déclaré : Accès nautique côtier
+Adresse / point d’accès : Point d'accès confirmé de la Baie de Percé
+Coordonnées d’accès : 48.517193260835136, -64.21663054575258
+Confiance GPS actuelle : high
+Stationnement déclaré : Stationnement à vérifier près de l'accès à l'eau
+Stationnement GPS distinct : Non défini
+Distance stationnement-eau : À vérifier
+Station de lavage : Non définie
+Coût / condition : Tarif et conditions d'accès à vérifier
+Restrictions : Vérifiez les règles locales et l'accès exact avant de partir | Les conditions peuvent changer rapidement selon le vent
+Google Maps : https://www.google.com/maps/search/?api=1&query=48.517193260835136,-64.21663054575258
+OpenStreetMap : https://www.openstreetmap.org/?mlat=48.517193260835136&mlon=-64.21663054575258#map=18/48.517193260835136/-64.21663054575258
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+026. [ ] Lac du Cap-aux-Os
+Région : Gaspésie
+Type d’accès déclaré : Accès nautique
+Adresse / point d’accès : Accès confirmé près du stationnement de la route 132
+Coordonnées d’accès : 48.827258274795376, -64.3099938078322
+Confiance GPS actuelle : high
+Stationnement déclaré : Stationnement adjacent à l'accès sur la route 132
+Stationnement GPS distinct : 48.827258274795376, -64.3099938078322
+Distance stationnement-eau : À vérifier
+Station de lavage : Non définie
+Coût / condition : Tarification à vérifier
+Restrictions : Vérifiez les règles locales et l'accès exact avant de partir | Les conditions peuvent changer rapidement selon le vent
+Google Maps : https://www.google.com/maps/search/?api=1&query=48.827258274795376,-64.3099938078322
+OpenStreetMap : https://www.openstreetmap.org/?mlat=48.827258274795376&mlon=-64.3099938078322#map=18/48.827258274795376/-64.3099938078322
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+027. [ ] Parc National Forillon
+Région : Gaspésie
+Type d’accès déclaré : Plage / accès nautique côtier
+Adresse / point d’accès : Plage confirmée du parc national Forillon
+Coordonnées d’accès : 48.80506447087035, -64.24512015509676
+Confiance GPS actuelle : high
+Stationnement déclaré : Stationnement du sentier du mont Saint-Alban, route 132
+Stationnement GPS distinct : 48.8054277, -64.2452039
+Distance stationnement-eau : 41 m
+Station de lavage : Non définie
+Coût / condition : Tarification d'entrée de Parc Canada applicable.
+Restrictions : Conditions variables: vent, courant ou vagues possibles | Vérifiez les règles locales et l'accès exact avant de partir
+Google Maps : https://www.google.com/maps/search/?api=1&query=48.80506447087035,-64.24512015509676
+OpenStreetMap : https://www.openstreetmap.org/?mlat=48.80506447087035&mlon=-64.24512015509676#map=18/48.80506447087035/-64.24512015509676
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+028. [ ] Rivière Bonaventure
+Région : Gaspésie
+Type d’accès déclaré : Accès depuis stationnement
+Adresse / point d’accès : Accès public sous le pont de la route 132.
+Coordonnées d’accès : 48.058761, -65.51748
+Confiance GPS actuelle : high
+Stationnement déclaré : Accès public sous le pont de la route 132.
+Stationnement GPS distinct : 48.0589625, -65.5172142
+Distance stationnement-eau : 30 m
+Station de lavage : Non définie
+Coût / condition : Gratuit pour navigation autonome.
+Restrictions : Conditions variables: vent, courant ou vagues possibles | Vérifiez les règles locales et l'accès exact avant de partir
+Google Maps : https://www.google.com/maps/search/?api=1&query=48.058761,-65.51748
+OpenStreetMap : https://www.openstreetmap.org/?mlat=48.058761&mlon=-65.51748#map=18/48.058761/-65.51748
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+029. [ ] Rivière Cascapédia
+Région : Gaspésie
+Type d’accès déclaré : Rampe de mise à l'eau
+Adresse / point d’accès : Accès public gratuit (plusieurs rampes).
+Coordonnées d’accès : 48.25311727909155, -65.90292651939353
+Confiance GPS actuelle : high
+Stationnement déclaré : Accès public gratuit (plusieurs rampes).
+Stationnement GPS distinct : Non défini
+Distance stationnement-eau : À vérifier
+Station de lavage : Non définie
+Coût / condition : Gratuit pour la navigation autonome.
+Restrictions : Conditions variables: vent, courant ou vagues possibles | Vérifiez les règles locales et l'accès exact avant de partir
+Google Maps : https://www.google.com/maps/search/?api=1&query=48.25311727909155,-65.90292651939353
+OpenStreetMap : https://www.openstreetmap.org/?mlat=48.25311727909155&mlon=-65.90292651939353#map=18/48.25311727909155/-65.90292651939353
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+030. [ ] Lac Maskinongé (Saint-Gabriel-de-Brandon)
+Région : Lanaudière
+Type d’accès déclaré : Plage
+Adresse / point d’accès : Accès par la plage de Saint-Gabriel, au bout de la rue du Parc.
+Coordonnées d’accès : 46.3023266, -73.3889688
+Confiance GPS actuelle : high
+Stationnement déclaré : Plage de Saint-Gabriel, 333 rue du Parc, Saint-Gabriel-de-Brandon, QC J0K 2N0.
+Stationnement GPS distinct : 46.30184, -73.388597
+Distance stationnement-eau : 71 m
+Station de lavage : Non définie
+Coût / condition : Tarifs de plage et de stationnement à vérifier avant le départ
+Restrictions : ⚠️ Peu profond par endroits | ⚠️ Fond vaseux - Chaussures recommandées | ⚠️ Très fréquenté en été | ⚠️ Vérifier les règles locales de mise à l'eau à la plage
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.3023266,-73.3889688
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.3023266&mlon=-73.3889688#map=18/46.3023266/-73.3889688
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+031. [ ] Lac Sainte-Émélie
+Région : Lanaudière
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Plage municipale de Sainte-Émélie-de-l'Énergie
+Coordonnées d’accès : 46.32564521127613, -73.64207236742668
+Confiance GPS actuelle : high
+Stationnement déclaré : Plage municipale de Sainte-Émélie-de-l'Énergie
+Stationnement GPS distinct : 46.32564521127613, -73.64207236742668
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.32564521127613,-73.64207236742668
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.32564521127613&mlon=-73.64207236742668#map=18/46.32564521127613/-73.64207236742668
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+032. [ ] Lac des Îles (Laurentides)
+Région : Laurentides
+Type d’accès déclaré : Quai public
+Adresse / point d’accès : Quai public confirmé à la Baie Poulin.
+Coordonnées d’accès : 46.408652633180225, -75.5163500723817
+Confiance GPS actuelle : high
+Stationnement déclaré : Quai public de la Baie Poulin, à proximité du chemin de la Presqu'île.
+Stationnement GPS distinct : 46.408652633180225, -75.5163500723817
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Accès public gratuit.
+Restrictions : Vérifiez les règles locales et l'accès exact avant de partir | Les conditions peuvent changer rapidement selon le vent
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.408652633180225,-75.5163500723817
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.408652633180225&mlon=-75.5163500723817#map=18/46.408652633180225/-75.5163500723817
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+033. [ ] Lac des Seize Îles (débarcadère municipal)
+Région : Laurentides
+Type d’accès déclaré : Débarcadère municipal
+Adresse / point d’accès : Rue Lapierre, sur réservation seulement
+Coordonnées d’accès : 45.9231495841278, -74.46794202259929
+Confiance GPS actuelle : high
+Stationnement déclaré : Rue Lapierre, Lac-des-Seize-Îles
+Stationnement GPS distinct : Non défini
+Distance stationnement-eau : À vérifier
+Station de lavage : Non définie
+Coût / condition : 10 $/jour sans moteur (visiteur, 2026)
+Restrictions : Rendez-vous requis pour l'entrée et la sortie | Lavage avant et après | Embarcations interdites à la plage Joseph-Rodger
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.9231495841278,-74.46794202259929
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.9231495841278&mlon=-74.46794202259929#map=18/45.9231495841278/-74.46794202259929
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+034. [ ] Lac du Mont Habitant (plage)
+Région : Laurentides
+Type d’accès déclaré : Plage / location
+Adresse / point d’accès : Accès par la plage
+Coordonnées d’accès : 45.88072798572343, -74.17963580639703
+Confiance GPS actuelle : high
+Stationnement déclaré : 12, chemin des Skieurs, Saint-Sauveur
+Stationnement GPS distinct : 45.881669062338574, -74.17798356566827
+Distance stationnement-eau : 165 m
+Station de lavage : Non définie
+Coût / condition : Accès payant; tarif à confirmer
+Restrictions : Accès payant | Confirmer les règles applicables aux embarcations personnelles | Pêche et barbecues interdits
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.88072798572343,-74.17963580639703
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.88072798572343&mlon=-74.17963580639703#map=18/45.88072798572343/-74.17963580639703
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+035. [ ] Lac Forbes (Laurentides)
+Région : Laurentides
+Type d’accès déclaré : Accès nautique confirmé
+Adresse / point d’accès : Point GPS confirmé au Lac Forbes.
+Coordonnées d’accès : 46.488844424555495, -74.17198999349367
+Confiance GPS actuelle : high
+Stationnement déclaré : Stationnement à vérifier près de l'accès au Lac Forbes.
+Stationnement GPS distinct : Non défini
+Distance stationnement-eau : À vérifier
+Station de lavage : Non définie
+Coût / condition : À vérifier sur place.
+Restrictions : Conditions variables: vent, courant ou vagues possibles | Vérifiez les règles locales et l'accès exact avant de partir
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.488844424555495,-74.17198999349367
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.488844424555495&mlon=-74.17198999349367#map=18/46.488844424555495/-74.17198999349367
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+036. [ ] Lac Masson (débarcadère municipal)
+Région : Laurentides
+Type d’accès déclaré : Débarcadère municipal
+Adresse / point d’accès : Lavage au 70A chemin des Hauteurs puis mise à l'eau au 70 chemin Masson
+Coordonnées d’accès : 46.03409660740623, -74.03833768126533
+Confiance GPS actuelle : high
+Stationnement déclaré : 70, chemin Masson, Sainte-Marguerite-du-Lac-Masson
+Stationnement GPS distinct : 46.03409660740623, -74.03833768126533
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Gratuit sans moteur; vignette et lavage obligatoires
+Restrictions : Vignette et lavage obligatoires | Prévoir jusqu'à 24 h ouvrables pour la demande | Respecter l'horaire
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.03409660740623,-74.03833768126533
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.03409660740623&mlon=-74.03833768126533#map=18/46.03409660740623/-74.03833768126533
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+037. [ ] Lac Raymond
+Région : Laurentides
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Plage municipale du Lac Raymond
+Coordonnées d’accès : 46.009136770288805, -74.16941338584282
+Confiance GPS actuelle : high
+Stationnement déclaré : Plage municipale du Lac Raymond
+Stationnement GPS distinct : 46.00936981068226, -74.1695892836931
+Distance stationnement-eau : 29 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.009136770288805,-74.16941338584282
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.009136770288805&mlon=-74.16941338584282#map=18/46.009136770288805/-74.16941338584282
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+038. [ ] Lac Rond (plage Jean-Guy-Caron)
+Région : Laurentides
+Type d’accès déclaré : Plage / location
+Adresse / point d’accès : Location à la plage; embarcation personnelle réservée aux résidents
+Coordonnées d’accès : 45.94967058887019, -74.14095805832862
+Confiance GPS actuelle : high
+Stationnement déclaré : 1080, chemin du Chantecler, Sainte-Adèle
+Stationnement GPS distinct : 45.949804584150016, -74.1404316234221
+Distance stationnement-eau : 43 m
+Station de lavage : Non définie
+Coût / condition : Plage et stationnement payants pour les non-résidents; location en sus
+Restrictions : Embarcations personnelles interdites aux non-résidents depuis 2026 | Nettoyage obligatoire pour les résidents | Embarcations interdites dans la zone de baignade
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.94967058887019,-74.14095805832862
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.94967058887019&mlon=-74.14095805832862#map=18/45.94967058887019/-74.14095805832862
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+039. [ ] Lac Saint-Joseph (plage Gratton)
+Région : Laurentides
+Type d’accès déclaré : Plage
+Adresse / point d’accès : Accès depuis la plage Gratton
+Coordonnées d’accès : 45.972370018135365, -74.33935648574739
+Confiance GPS actuelle : high
+Stationnement déclaré : 2000, chemin du Village, Saint-Adolphe-d'Howard
+Stationnement GPS distinct : 45.97194980542055, -74.33984292665237
+Distance stationnement-eau : 60 m
+Station de lavage : Non définie
+Coût / condition : Gratuit
+Restrictions : Baignade interdite sans sauveteur | Circulation motorisée | Valider la mise à l'eau avec le personnel
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.972370018135365,-74.33935648574739
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.972370018135365&mlon=-74.33935648574739#map=18/45.972370018135365/-74.33935648574739
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+040. [ ] Lac Tremblant
+Région : Laurentides
+Type d’accès déclaré : Plage / accès à l'eau
+Adresse / point d’accès : Accès à l'eau par la plage après le lavage obligatoire de l'embarcation.
+Coordonnées d’accès : 46.20843802180653, -74.59551156749815
+Confiance GPS actuelle : high
+Stationnement déclaré : Stationnement de la plage du lac Tremblant.
+Stationnement GPS distinct : 46.20795473742718, -74.59538459521232
+Distance stationnement-eau : 55 m
+Station de lavage : Station de lavage obligatoire — secteur Pierre Plouffe — 46.227230443496815, -74.62875777620965
+Coût / condition : Lavage d'embarcation obligatoire; frais d'accès et stationnement à vérifier.
+Restrictions : Lavage d'embarcation obligatoire avant la mise à l'eau | Vérifiez les frais, le stationnement et les règles locales avant de partir | Les conditions peuvent changer rapidement selon le vent
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.20843802180653,-74.59551156749815
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.20843802180653&mlon=-74.59551156749815#map=18/46.20843802180653/-74.59551156749815
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+041. [ ] Parc national d'Oka
+Région : Laurentides
+Type d’accès déclaré : Plage / rampe de mise à l'eau
+Adresse / point d’accès : Mise à l'eau à la Crête ou à la plage principale selon les consignes Sépaq.
+Coordonnées d’accès : 45.4636861, -74.0426822
+Confiance GPS actuelle : high
+Stationnement déclaré : Stationnement confirmé de la plage / secteur Le Littoral.
+Stationnement GPS distinct : 45.4646954, -74.0424846
+Distance stationnement-eau : 113 m
+Station de lavage : Non définie
+Coût / condition : Droit d'accès Sépaq et stationnement de plage en saison.
+Restrictions : Le lac des Deux Montagnes peut devenir venteux rapidement | Stationnement très achalandé les fins de semaine d'été | Respectez les zones de baignade et les consignes Sépaq
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.4636861,-74.0426822
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.4636861&mlon=-74.0426822#map=18/45.4636861/-74.0426822
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+042. [ ] Réservoir Poisson-Blanc
+Région : Laurentides
+Type d’accès déclaré : Pavillon d'accueil / mise à l'eau
+Adresse / point d’accès : Accès au réservoir via le pavillon Le Bastion et services du parc.
+Coordonnées d’accès : 46.0939877, -75.6730562
+Confiance GPS actuelle : high
+Stationnement déclaré : Pavillon d'accueil Le Bastion, secteur Notre-Dame-du-Laus.
+Stationnement GPS distinct : 46.0951093, -75.6742184
+Distance stationnement-eau : 153 m
+Station de lavage : Non définie
+Coût / condition : Frais de parc, stationnement ou location selon activité.
+Restrictions : Grand plan d'eau: prévoir vent, distance et autonomie | Réservation recommandée pour camping et location | Plus adapté aux sorties préparées qu'aux sorties improvisées
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.0939877,-75.6730562
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.0939877&mlon=-75.6730562#map=18/46.0939877/-75.6730562
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+043. [ ] Rivière des Mille Îles (Rosemère)
+Région : Laurentides
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Parc de la Rivière-des-Mille-Îles
+Coordonnées d’accès : 45.61628409314794, -73.71368772274728
+Confiance GPS actuelle : high
+Stationnement déclaré : Parc de la Rivière-des-Mille-Îles
+Stationnement GPS distinct : 45.61628409314794, -73.71368772274728
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.61628409314794,-73.71368772274728
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.61628409314794&mlon=-73.71368772274728#map=18/45.61628409314794/-73.71368772274728
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+044. [ ] Rivière des Mille Îles (Saint-Eustache)
+Région : Laurentides
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Parc de la Rivière-des-Mille-Îles
+Coordonnées d’accès : 45.5684655394164, -73.86933586811523
+Confiance GPS actuelle : high
+Stationnement déclaré : Parc de la Rivière-des-Mille-Îles
+Stationnement GPS distinct : 45.5684655394164, -73.86933586811523
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.5684655394164,-73.86933586811523
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.5684655394164&mlon=-73.86933586811523#map=18/45.5684655394164/-73.86933586811523
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+045. [ ] Rivière des Outaouais (Arundel)
+Région : Laurentides
+Type d’accès déclaré : Accès depuis stationnement
+Adresse / point d’accès : Accès gratuit au parc Arundel.
+Coordonnées d’accès : 46.0795, -74.9218
+Confiance GPS actuelle : needs_verification
+Stationnement déclaré : Accès gratuit au parc Arundel.
+Stationnement GPS distinct : Non défini
+Distance stationnement-eau : À vérifier
+Station de lavage : Non définie
+Coût / condition : Accès public gratuit.
+Restrictions : Vérifiez les règles locales et l'accès exact avant de partir | Les conditions peuvent changer rapidement selon le vent
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.0795,-74.9218
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.0795&mlon=-74.9218#map=18/46.0795/-74.9218
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+046. [ ] Rivière du Nord (parc du chemin du Pont)
+Région : Laurentides
+Type d’accès déclaré : Descente canot-kayak
+Adresse / point d’accès : Descente aménagée
+Coordonnées d’accès : 45.894893, -74.115192
+Confiance GPS actuelle : needs_verification
+Stationnement déclaré : 199, chemin du Pont, Piedmont
+Stationnement GPS distinct : Non défini
+Distance stationnement-eau : À vérifier
+Station de lavage : Non définie
+Coût / condition : Gratuit
+Restrictions : Vérifier le débit et prévoir le retour ou une navette
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.894893,-74.115192
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.894893&mlon=-74.115192#map=18/45.894893/-74.115192
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+047. [ ] Rivière du Nord (parc Gilbert-Aubin)
+Région : Laurentides
+Type d’accès déclaré : Quai / portage
+Adresse / point d’accès : Sentier vers le quai
+Coordonnées d’accès : 45.9024651, -74.1345495
+Confiance GPS actuelle : needs_verification
+Stationnement déclaré : 685, boulevard des Laurentides, Piedmont
+Stationnement GPS distinct : Non défini
+Distance stationnement-eau : À vérifier
+Station de lavage : Non définie
+Coût / condition : Gratuit hors fermeture
+Restrictions : Fermeture complète prévue fin été-automne 2026 | Confirmer la réouverture | Vérifier le débit et prévoir le retour ou une navette
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.9024651,-74.1345495
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.9024651&mlon=-74.1345495#map=18/45.9024651/-74.1345495
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+048. [ ] Rivière du Nord (Val-David)
+Région : Laurentides
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : À l'Abordage
+Coordonnées d’accès : 46.02572166074477, -74.21344151982926
+Confiance GPS actuelle : high
+Stationnement déclaré : À l'Abordage
+Stationnement GPS distinct : 46.02572166074477, -74.21344151982926
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.02572166074477,-74.21344151982926
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.02572166074477&mlon=-74.21344151982926#map=18/46.02572166074477/-74.21344151982926
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+049. [ ] Rivière Rouge (Labelle)
+Région : Laurentides
+Type d’accès déclaré : Accès depuis stationnement
+Adresse / point d’accès : Stationnement gratuit au Parc de la Gare de Labelle.
+Coordonnées d’accès : 46.2762, -74.7298
+Confiance GPS actuelle : needs_verification
+Stationnement déclaré : Stationnement gratuit au Parc de la Gare de Labelle.
+Stationnement GPS distinct : Non défini
+Distance stationnement-eau : À vérifier
+Station de lavage : Non définie
+Coût / condition : Accès public gratuit.
+Restrictions : Conditions variables: vent, courant ou vagues possibles | Vérifiez les règles locales et l'accès exact avant de partir
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.2762,-74.7298
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.2762&mlon=-74.7298#map=18/46.2762/-74.7298
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+050. [ ] Rivière des Mille Îles (Laval)
+Région : Laval
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Parc de la Rivière-des-Mille-Îles
+Coordonnées d’accès : 45.61003613757706, -73.79642886099386
+Confiance GPS actuelle : high
+Stationnement déclaré : Parc de la Rivière-des-Mille-Îles
+Stationnement GPS distinct : 45.61003613757706, -73.79642886099386
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.61003613757706,-73.79642886099386
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.61003613757706&mlon=-73.79642886099386#map=18/45.61003613757706/-73.79642886099386
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+051. [ ] Baie de Shawinigan (Parc de la Baie)
+Région : Mauricie
+Type d’accès déclaré : Mise à l'eau en gravier
+Adresse / point d’accès : Accès à l'eau du Parc de la Baie, au bout du stationnement.
+Coordonnées d’accès : 46.5285141, -72.7815819
+Confiance GPS actuelle : high
+Stationnement déclaré : Stationnement du Parc de la Baie, chemin de la Baie, Shawinigan.
+Stationnement GPS distinct : 46.528479, -72.7818462
+Distance stationnement-eau : 21 m
+Station de lavage : Non définie
+Coût / condition : Accès public; aucun frais indiqué (à confirmer sur place).
+Restrictions : Courant possible sur la rivière Saint-Maurice | Présence possible d'embarcations motorisées | Le vent peut lever des vagues dans la baie
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.5285141,-72.7815819
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.5285141&mlon=-72.7815819#map=18/46.5285141/-72.7815819
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+052. [ ] Fleuve à Trois-Rivières (Parc Antoine-Gauthier)
+Région : Mauricie
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Parc Antoine-Gauthier
+Coordonnées d’accès : 46.28023990822192, -72.65812546866448
+Confiance GPS actuelle : high
+Stationnement déclaré : Parc Antoine-Gauthier
+Stationnement GPS distinct : 46.28023990822192, -72.65812546866448
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.28023990822192,-72.65812546866448
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.28023990822192&mlon=-72.65812546866448#map=18/46.28023990822192/-72.65812546866448
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+053. [ ] Lac à la Tortue (Plage)
+Région : Mauricie
+Type d’accès déclaré : Plage aménagée
+Adresse / point d’accès : Accès facile via le Parc Municipal
+Coordonnées d’accès : 46.6104797, -72.6269128
+Confiance GPS actuelle : high
+Stationnement déclaré : Stationnement au Parc Municipal de la Plage
+Stationnement GPS distinct : Non défini
+Distance stationnement-eau : À vérifier
+Station de lavage : Non définie
+Coût / condition : Gratuit
+Restrictions : ⚠️ Zone de décollage d'hydravions - Restez vigilant près du centre du lac | ⚠️ Navigation moteur autorisée - Restez prudent | ⚠️ Vitesse du vent peut augmenter rapidement l'après-midi
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.6104797,-72.6269128
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.6104797&mlon=-72.6269128#map=18/46.6104797/-72.6269128
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+054. [ ] Lac Clair (Grandes-Piles)
+Région : Mauricie
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Aire Nature Grandes-Piles
+Coordonnées d’accès : 46.759828377610134, -72.71054862611861
+Confiance GPS actuelle : high
+Stationnement déclaré : Aire Nature Grandes-Piles
+Stationnement GPS distinct : 46.759828377610134, -72.71054862611861
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.759828377610134,-72.71054862611861
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.759828377610134&mlon=-72.71054862611861#map=18/46.759828377610134/-72.71054862611861
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+055. [ ] Lac des Piles (Baie-Martin)
+Région : Mauricie
+Type d’accès déclaré : Privé / Camping
+Adresse / point d’accès : Accès via le Camping Baie-Martin
+Coordonnées d’accès : 46.6649705864116, -72.789898034606
+Confiance GPS actuelle : high
+Stationnement déclaré : Camping Plage Baie Martin, 1801 chemin de la Baie-Martin
+Stationnement GPS distinct : 46.6653731, -72.7901009
+Distance stationnement-eau : 47 m
+Station de lavage : Non définie
+Coût / condition : Accès et tarif à confirmer auprès du camping
+Restrictions : ⚠️ Accès situé sur un terrain de camping privé | ⚠️ Confirmer l'accès de jour, les heures et le tarif avant le départ | ⚠️ Partage du lac avec des embarcations motorisées
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.6649705864116,-72.789898034606
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.6649705864116&mlon=-72.789898034606#map=18/46.6649705864116/-72.789898034606
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+056. [ ] Lac Sacacomie
+Région : Mauricie
+Type d’accès déclaré : Mise à l'eau
+Adresse / point d’accès : Mise à l'eau OSM près du lac Sacacomie.
+Coordonnées d’accès : 46.5274337, -73.2032333
+Confiance GPS actuelle : high
+Stationnement déclaré : Mise à l'eau OSM près du lac Sacacomie.
+Stationnement GPS distinct : 46.5272924, -73.2028248
+Distance stationnement-eau : 35 m
+Station de lavage : Non définie
+Coût / condition : 15$ - 25$ selon la saison
+Restrictions : ⚠️ Lac très long - Estimez vos efforts | ⚠️ Vent d'Ouest peut être violent l'après-midi | ⚠️ Faible profondeur par endroits
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.5274337,-73.2032333
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.5274337&mlon=-73.2032333#map=18/46.5274337/-73.2032333
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+057. [ ] Lac Saint-Pierre
+Région : Mauricie
+Type d’accès déclaré : Rampe de mise à l'eau
+Adresse / point d’accès : Rampe de mise à l'eau près du Domaine du Lac Saint-Pierre.
+Coordonnées d’accès : 46.2245511, -72.9223353
+Confiance GPS actuelle : high
+Stationnement déclaré : Rampe de mise à l'eau près du Domaine du Lac Saint-Pierre.
+Stationnement GPS distinct : 46.22080543335617, -72.92372854163526
+Distance stationnement-eau : 430 m
+Station de lavage : Non définie
+Coût / condition : Frais de mise à l'eau variables
+Restrictions : ⚠️ Très exposé au vent d'Ouest - VÉRIFIE LA MÉTÉO | ⚠️ Vagues importantes si vent > 15 km/h | ⚠️ Refuge d'oiseaux - Navigator doucement
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.2245511,-72.9223353
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.2245511&mlon=-72.9223353#map=18/46.2245511/-72.9223353
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+058. [ ] Lac Taureau (Plage Pointe-Fine)
+Région : Mauricie
+Type d’accès déclaré : Rampe de mise à l'eau
+Adresse / point d’accès : Accès par la descente de bateaux du Réservoir Taureau
+Coordonnées d’accès : 46.6890634, -73.9001922
+Confiance GPS actuelle : high
+Stationnement déclaré : Stationnement de la descente de bateaux du Réservoir Taureau
+Stationnement GPS distinct : 46.6887256, -73.9000209
+Distance stationnement-eau : 40 m
+Station de lavage : Non définie
+Coût / condition : Frais d'accès au parc régional (10$-15$)
+Restrictions : ⚠️ Navigation moteur autorisée - Restez visible | ⚠️ Beaucoup de baigneurs en été | ⚠️ Hauts-fonds par endroits
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.6890634,-73.9001922
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.6890634&mlon=-73.9001922#map=18/46.6890634/-73.9001922
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+059. [ ] Lac-aux-Sables
+Région : Mauricie
+Type d’accès déclaré : Marina / accès riverain
+Adresse / point d’accès : Marina / accès riverain de Lac-aux-Sables.
+Coordonnées d’accès : 46.8674872, -72.386521
+Confiance GPS actuelle : high
+Stationnement déclaré : Marina / accès riverain de Lac-aux-Sables.
+Stationnement GPS distinct : 46.867034, -72.3870136
+Distance stationnement-eau : 63 m
+Station de lavage : Non définie
+Coût / condition : Stationnement parfois payant (5$)
+Restrictions : ⚠️ TRÈS fréquenté en été - Arrivez avant 9h | ⚠️ Beaucoup de baigneurs et plongeurs | ⚠️ Vitesse de bateaux limitée (zone de baignade)
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.8674872,-72.386521
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.8674872&mlon=-72.386521#map=18/46.8674872/-72.386521
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+060. [ ] Parc National - Lac Édouard
+Région : Mauricie
+Type d’accès déclaré : Parc aménagé
+Adresse / point d’accès : Accès officiel via le parc
+Coordonnées d’accès : 46.7882, -72.8575
+Confiance GPS actuelle : needs_verification
+Stationnement déclaré : Stationnement de la plage
+Stationnement GPS distinct : Non défini
+Distance stationnement-eau : À vérifier
+Station de lavage : Non définie
+Coût / condition : Entrée Parc National (35$ adulte)
+Restrictions : ⚠️ Entrée en haute saison peut être complète | ⚠️ Limite de stationnement | ⚠️ Lavage équipement obligatoire
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.7882,-72.8575
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.7882&mlon=-72.8575#map=18/46.7882/-72.8575
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+061. [ ] Parc National - Wapizagonke
+Région : Mauricie
+Type d’accès déclaré : Mise à l'eau
+Adresse / point d’accès : Mise à l'eau du secteur Wapizagonke.
+Coordonnées d’accès : 46.6697644, -73.0057686
+Confiance GPS actuelle : high
+Stationnement déclaré : Mise à l'eau du secteur Wapizagonke.
+Stationnement GPS distinct : 46.6707117, -73.0046871
+Distance stationnement-eau : 134 m
+Station de lavage : Non définie
+Coût / condition : Entrée Parc National (35$ adulte) + Frais de mise à l'eau
+Restrictions : ⚠️ Lavage des équipements obligatoire (contrôle des espèces aquatiques envahissantes) | ⚠️ Circulation limitée selon les saisons | ⚠️ Réservation recommandée en haute saison
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.6697644,-73.0057686
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.6697644&mlon=-73.0057686#map=18/46.6697644/-73.0057686
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+062. [ ] Rivière Batiscan (Sainte-Geneviève)
+Région : Mauricie
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Halte Desjardins
+Coordonnées d’accès : 46.52819240725861, -72.33872004246305
+Confiance GPS actuelle : high
+Stationnement déclaré : Halte Desjardins
+Stationnement GPS distinct : 46.52819240725861, -72.33872004246305
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.52819240725861,-72.33872004246305
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.52819240725861&mlon=-72.33872004246305#map=18/46.52819240725861/-72.33872004246305
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+063. [ ] Rivière St-Maurice (TR)
+Région : Mauricie
+Type d’accès déclaré : Mise à l'eau
+Adresse / point d’accès : Mise à l'eau de l'Île Saint-Quentin / Avenue des Draveurs.
+Coordonnées d’accès : 46.35126835324924, -72.52643053695992
+Confiance GPS actuelle : high
+Stationnement déclaré : Mise à l'eau de l'Île Saint-Quentin / Avenue des Draveurs.
+Stationnement GPS distinct : 46.35318320931242, -72.52670564986391
+Distance stationnement-eau : 214 m
+Station de lavage : Non définie
+Coût / condition : Frais d'accès au parc de l'île
+Restrictions : ⚠️ Courants forts au centre - ÉVITEZ LE CENTRE | ⚠️ Bateaux à moteur présents | ⚠️ Marées influencent les courants
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.35126835324924,-72.52643053695992
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.35126835324924&mlon=-72.52643053695992#map=18/46.35126835324924/-72.52643053695992
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+064. [ ] Lac Saint-Louis (Châteauguay)
+Région : Montérégie
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Centre nautique de Châteauguay
+Coordonnées d’accès : 45.38095677197638, -73.7692669525504
+Confiance GPS actuelle : high
+Stationnement déclaré : Centre nautique de Châteauguay
+Stationnement GPS distinct : 45.38095677197638, -73.7692669525504
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.38095677197638,-73.7692669525504
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.38095677197638&mlon=-73.7692669525504#map=18/45.38095677197638/-73.7692669525504
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+065. [ ] Récréoparc de Sainte-Catherine
+Région : Montérégie
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Récréoparc
+Coordonnées d’accès : 45.409097533068895, -73.55948067512136
+Confiance GPS actuelle : high
+Stationnement déclaré : Récréoparc
+Stationnement GPS distinct : 45.409097533068895, -73.55948067512136
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.409097533068895,-73.55948067512136
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.409097533068895&mlon=-73.55948067512136#map=18/45.409097533068895/-73.55948067512136
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+066. [ ] Rivière Châteauguay (Pointe nautique)
+Région : Montérégie
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Pointe nautique de Châteauguay
+Coordonnées d’accès : 45.36898953256263, -73.75210847546604
+Confiance GPS actuelle : high
+Stationnement déclaré : Pointe nautique de Châteauguay
+Stationnement GPS distinct : 45.36898953256263, -73.75210847546604
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.36898953256263,-73.75210847546604
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.36898953256263&mlon=-73.75210847546604#map=18/45.36898953256263/-73.75210847546604
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+067. [ ] Bassin de Lachine (Montréal)
+Région : Montréal
+Type d’accès déclaré : Accès depuis stationnement
+Adresse / point d’accès : Stationnement du Centre Nautique.
+Coordonnées d’accès : 45.4789452, -73.5740394
+Confiance GPS actuelle : high
+Stationnement déclaré : Stationnement du Centre Nautique.
+Stationnement GPS distinct : 45.47900684308633, -73.57398811398144
+Distance stationnement-eau : 8 m
+Station de lavage : Non définie
+Coût / condition : Navigation libre et gratuite.
+Restrictions : Vérifiez les règles locales et l'accès exact avant de partir | Les conditions peuvent changer rapidement selon le vent
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.4789452,-73.5740394
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.4789452&mlon=-73.5740394#map=18/45.4789452/-73.5740394
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+068. [ ] Bassin olympique (Parc Jean-Drapeau)
+Région : Montréal
+Type d’accès déclaré : Mise à l'eau
+Adresse / point d’accès : Mise à l'eau du parc Jean-Drapeau.
+Coordonnées d’accès : 45.50176, -73.5235966
+Confiance GPS actuelle : high
+Stationnement déclaré : Mise à l'eau du parc Jean-Drapeau.
+Stationnement GPS distinct : 45.5018993, -73.5234971
+Distance stationnement-eau : 17 m
+Station de lavage : Non définie
+Coût / condition : Frais d'accès au parc (environ 5$).
+Restrictions : Vérifiez les règles locales et l'accès exact avant de partir | Les conditions peuvent changer rapidement selon le vent
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.50176,-73.5235966
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.50176&mlon=-73.5235966#map=18/45.50176/-73.5235966
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+069. [ ] Canal de Lachine
+Région : Montréal
+Type d’accès déclaré : Centre nautique / marina
+Adresse / point d’accès : Centre Nautique du Canal.
+Coordonnées d’accès : 45.4789452, -73.5740394
+Confiance GPS actuelle : high
+Stationnement déclaré : Centre Nautique du Canal.
+Stationnement GPS distinct : 45.47900684308633, -73.57398811398144
+Distance stationnement-eau : 8 m
+Station de lavage : Non définie
+Coût / condition : Navigation libre et gratuite (permis d'écluse optionnel).
+Restrictions : Vérifiez les règles locales et l'accès exact avant de partir | Les conditions peuvent changer rapidement selon le vent
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.4789452,-73.5740394
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.4789452&mlon=-73.5740394#map=18/45.4789452/-73.5740394
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+070. [ ] Fleuve Saint-Laurent (Île Sainte-Hélène)
+Région : Montréal
+Type d’accès déclaré : Mise à l'eau
+Adresse / point d’accès : Mise à l'eau du parc Jean-Drapeau / Île Sainte-Hélène.
+Coordonnées d’accès : 45.50176, -73.5235966
+Confiance GPS actuelle : high
+Stationnement déclaré : Mise à l'eau du parc Jean-Drapeau / Île Sainte-Hélène.
+Stationnement GPS distinct : 45.5018993, -73.5234971
+Distance stationnement-eau : 17 m
+Station de lavage : Non définie
+Coût / condition : Accès gratuit depuis la côte.
+Restrictions : Conditions variables: vent, courant ou vagues possibles | Vérifiez les règles locales et l'accès exact avant de partir
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.50176,-73.5235966
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.50176&mlon=-73.5235966#map=18/45.50176/-73.5235966
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+071. [ ] Île des Sœurs (Pointe Nord)
+Région : Montréal
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Parc de l'Esplanade de la Pointe-Nord
+Coordonnées d’accès : 45.47359826542235, -73.53672596130842
+Confiance GPS actuelle : high
+Stationnement déclaré : Parc de l'Esplanade de la Pointe-Nord
+Stationnement GPS distinct : 45.47359826542235, -73.53672596130842
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.47359826542235,-73.53672596130842
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.47359826542235&mlon=-73.53672596130842#map=18/45.47359826542235/-73.53672596130842
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+072. [ ] Île-Bizard (Parc-nature)
+Région : Montréal
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Parc-nature du Bois-de-l'Île-Bizard
+Coordonnées d’accès : 45.517164085182586, -73.89966301735798
+Confiance GPS actuelle : high
+Stationnement déclaré : Parc-nature du Bois-de-l'Île-Bizard
+Stationnement GPS distinct : 45.517164085182586, -73.89966301735798
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.517164085182586,-73.89966301735798
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.517164085182586&mlon=-73.89966301735798#map=18/45.517164085182586/-73.89966301735798
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+073. [ ] Îles-de-Boucherville
+Région : Montréal
+Type d’accès déclaré : Mise à l'eau
+Adresse / point d’accès : Mise à l'eau du parc national des Îles-de-Boucherville.
+Coordonnées d’accès : 45.611956, -73.4568017
+Confiance GPS actuelle : high
+Stationnement déclaré : Mise à l'eau du parc national des Îles-de-Boucherville.
+Stationnement GPS distinct : 45.6117779, -73.4566016
+Distance stationnement-eau : 25 m
+Station de lavage : Non définie
+Coût / condition : Frais d'accès quotidiens de la SEPAQ.
+Restrictions : Vérifiez les règles locales et l'accès exact avant de partir | Les conditions peuvent changer rapidement selon le vent
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.611956,-73.4568017
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.611956&mlon=-73.4568017#map=18/45.611956/-73.4568017
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+074. [ ] L'Anse-à-l'Orme
+Région : Montréal
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Parc-nature de l'Anse-à-l'Orme
+Coordonnées d’accès : 45.45359666837751, -73.93795110678688
+Confiance GPS actuelle : high
+Stationnement déclaré : Parc-nature de l'Anse-à-l'Orme
+Stationnement GPS distinct : 45.45359666837751, -73.93795110678688
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.45359666837751,-73.93795110678688
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.45359666837751&mlon=-73.93795110678688#map=18/45.45359666837751/-73.93795110678688
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+075. [ ] Plage de l'Est
+Région : Montréal
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Plage de l'Est
+Coordonnées d’accès : 45.69801448232836, -73.47954440684374
+Confiance GPS actuelle : high
+Stationnement déclaré : Plage de l'Est
+Stationnement GPS distinct : 45.69801448232836, -73.47954440684374
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.69801448232836,-73.47954440684374
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.69801448232836&mlon=-73.47954440684374#map=18/45.69801448232836/-73.47954440684374
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+076. [ ] Rivière des Prairies (Beauséjour)
+Région : Montréal
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Parc du Beauséjour
+Coordonnées d’accès : 45.52859657679447, -73.7340093701714
+Confiance GPS actuelle : high
+Stationnement déclaré : Parc du Beauséjour
+Stationnement GPS distinct : 45.52859657679447, -73.7340093701714
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.52859657679447,-73.7340093701714
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.52859657679447&mlon=-73.7340093701714#map=18/45.52859657679447/-73.7340093701714
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+077. [ ] Verdun (Parc George-O'Reilly)
+Région : Montréal
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Parc de l'Honorable-George-O'Reilly
+Coordonnées d’accès : 45.44281162584198, -73.57448716079948
+Confiance GPS actuelle : high
+Stationnement déclaré : Parc de l'Honorable-George-O'Reilly
+Stationnement GPS distinct : 45.44281162584198, -73.57448716079948
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.44281162584198,-73.57448716079948
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.44281162584198&mlon=-73.57448716079948#map=18/45.44281162584198/-73.57448716079948
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+078. [ ] Lac des Trente et Un Milles
+Région : Outaouais
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Secteur Sainte-Thérèse-de-la-Gatineau
+Coordonnées d’accès : 46.29687390470017, -75.80001853448552
+Confiance GPS actuelle : high
+Stationnement déclaré : Secteur Sainte-Thérèse-de-la-Gatineau
+Stationnement GPS distinct : 46.29687390470017, -75.80001853448552
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.29687390470017,-75.80001853448552
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.29687390470017&mlon=-75.80001853448552#map=18/46.29687390470017/-75.80001853448552
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+079. [ ] Lac la Pêche (Outaouais)
+Région : Outaouais
+Type d’accès déclaré : Mise à l'eau
+Adresse / point d’accès : Mise à l'eau du lac la Pêche.
+Coordonnées d’accès : 45.6224025, -76.1784341
+Confiance GPS actuelle : high
+Stationnement déclaré : Mise à l'eau du lac la Pêche.
+Stationnement GPS distinct : 45.622103, -76.1779938
+Distance stationnement-eau : 48 m
+Station de lavage : Non définie
+Coût / condition : Frais d'accès du parc.
+Restrictions : Vérifiez les règles locales et l'accès exact avant de partir | Les conditions peuvent changer rapidement selon le vent
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.6224025,-76.1784341
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.6224025&mlon=-76.1784341#map=18/45.6224025/-76.1784341
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+080. [ ] Lac Leamy (Gatineau)
+Région : Outaouais
+Type d’accès déclaré : Mise à l'eau
+Adresse / point d’accès : Mise à l'eau du Lac Leamy.
+Coordonnées d’accès : 45.4319796, -75.7070505
+Confiance GPS actuelle : high
+Stationnement déclaré : Mise à l'eau du Lac Leamy.
+Stationnement GPS distinct : 45.4320283, -75.708431
+Distance stationnement-eau : 108 m
+Station de lavage : Non définie
+Coût / condition : Accès gratuit au parc (stationnement payant).
+Restrictions : Vérifiez les règles locales et l'accès exact avant de partir | Les conditions peuvent changer rapidement selon le vent
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.4319796,-75.7070505
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.4319796&mlon=-75.7070505#map=18/45.4319796/-75.7070505
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+081. [ ] Lac Meech (Gatineau)
+Région : Outaouais
+Type d’accès déclaré : Plage / accès riverain
+Adresse / point d’accès : Stationnement P11 (Plage O'Brien).
+Coordonnées d’accès : 45.53778005904513, -75.89963841809043
+Confiance GPS actuelle : high
+Stationnement déclaré : Stationnement P11 (Plage O'Brien).
+Stationnement GPS distinct : 45.53778005904513, -75.89963841809043
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Accès gratuit au lac (stationnement payant en été).
+Restrictions : Vérifiez les règles locales et l'accès exact avant de partir | Les conditions peuvent changer rapidement selon le vent
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.53778005904513,-75.89963841809043
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.53778005904513&mlon=-75.89963841809043#map=18/45.53778005904513/-75.89963841809043
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+082. [ ] Lac Philippe (Outaouais)
+Région : Outaouais
+Type d’accès déclaré : Mise à l'eau
+Adresse / point d’accès : Mise à l'eau du lac Philippe, parc de la Gatineau.
+Coordonnées d’accès : 45.6021161, -76.0435501
+Confiance GPS actuelle : high
+Stationnement déclaré : Mise à l'eau du lac Philippe, parc de la Gatineau.
+Stationnement GPS distinct : Non défini
+Distance stationnement-eau : À vérifier
+Station de lavage : Non définie
+Coût / condition : Frais d'accès (environ 7$).
+Restrictions : Vérifiez les règles locales et l'accès exact avant de partir | Les conditions peuvent changer rapidement selon le vent
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.6021161,-76.0435501
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.6021161&mlon=-76.0435501#map=18/45.6021161/-76.0435501
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+083. [ ] Parc national de Plaisance
+Région : Outaouais
+Type d’accès déclaré : Débarcadère
+Adresse / point d’accès : Débarcadère du centre de découverte et de services, secteur des Presqu'îles.
+Coordonnées d’accès : 45.5989056, -75.1097501
+Confiance GPS actuelle : high
+Stationnement déclaré : Centre de découverte et de services, 1001 chemin des Presqu'îles, Plaisance.
+Stationnement GPS distinct : 45.5992347, -75.1094637
+Distance stationnement-eau : 43 m
+Station de lavage : Non définie
+Coût / condition : Droit d'accès Sépaq.
+Restrictions : Zones de marais: rester dans les parcours autorisés | Insectes possibles en saison | Respecter les habitats sensibles
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.5989056,-75.1097501
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.5989056&mlon=-75.1097501#map=18/45.5989056/-75.1097501
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+084. [ ] Rivière des Outaouais (Chelsea)
+Région : Outaouais
+Type d’accès déclaré : Mise à l'eau
+Adresse / point d’accès : Mise à l'eau sur la rivière des Outaouais, secteur Gatineau/Chelsea.
+Coordonnées d’accès : 45.4608066, -75.6852272
+Confiance GPS actuelle : high
+Stationnement déclaré : Mise à l'eau sur la rivière des Outaouais, secteur Gatineau/Chelsea.
+Stationnement GPS distinct : Non défini
+Distance stationnement-eau : À vérifier
+Station de lavage : Non définie
+Coût / condition : Accès gratuit.
+Restrictions : Vérifiez les règles locales et l'accès exact avant de partir | Les conditions peuvent changer rapidement selon le vent
+Google Maps : https://www.google.com/maps/search/?api=1&query=45.4608066,-75.6852272
+OpenStreetMap : https://www.openstreetmap.org/?mlat=45.4608066&mlon=-75.6852272#map=18/45.4608066/-75.6852272
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+085. [ ] Anse de Cap-Rouge (Parc Jean-Déry)
+Région : Québec
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Parc Jean-Déry
+Coordonnées d’accès : 46.7478181, -71.343989
+Confiance GPS actuelle : high
+Stationnement déclaré : Parc Jean-Déry
+Stationnement GPS distinct : 46.7478181, -71.343989
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.7478181,-71.343989
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.7478181&mlon=-71.343989#map=18/46.7478181/-71.343989
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+086. [ ] Baie de Beauport
+Région : Québec
+Type d’accès déclaré : Plage urbaine / activités nautiques
+Adresse / point d’accès : Accès par la plage de la Baie de Beauport.
+Coordonnées d’accès : 46.8378694, -71.1945722
+Confiance GPS actuelle : high
+Stationnement déclaré : 1 chemin de la Baie-de-Beauport, Québec.
+Stationnement GPS distinct : 46.8378537, -71.1974402
+Distance stationnement-eau : 221 m
+Station de lavage : Non définie
+Coût / condition : Accès au site gratuit; stationnement payant.
+Restrictions : Plan d'eau exposé au vent et aux conditions du fleuve | Surveiller les avis de baignade et la qualité de l'eau | Rester dans les zones autorisées
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.8378694,-71.1945722
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.8378694&mlon=-71.1945722#map=18/46.8378694/-71.1945722
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+087. [ ] Lac Beauport
+Région : Québec
+Type d’accès déclaré : Accès depuis stationnement
+Adresse / point d’accès : Stationnement au Club Nautique de Lac-Beauport.
+Coordonnées d’accès : 46.954839, -71.2702358
+Confiance GPS actuelle : high
+Stationnement déclaré : Stationnement au Club Nautique de Lac-Beauport.
+Stationnement GPS distinct : 46.954839, -71.2702358
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Frais d'accès journalier requis.
+Restrictions : Vérifiez les règles locales et l'accès exact avant de partir | Les conditions peuvent changer rapidement selon le vent
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.954839,-71.2702358
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.954839&mlon=-71.2702358#map=18/46.954839/-71.2702358
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+088. [ ] Lac Delage
+Région : Québec
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Manoir du Lac Delage
+Coordonnées d’accès : 46.96853569873607, -71.4026251968102
+Confiance GPS actuelle : high
+Stationnement déclaré : Manoir du Lac Delage
+Stationnement GPS distinct : 46.96853569873607, -71.4026251968102
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.96853569873607,-71.4026251968102
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.96853569873607&mlon=-71.4026251968102#map=18/46.96853569873607/-71.4026251968102
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+089. [ ] Lac Long (Portneuf)
+Région : Québec
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Parc régional de Portneuf
+Coordonnées d’accès : 46.83427797469136, -72.14731880866188
+Confiance GPS actuelle : high
+Stationnement déclaré : Parc régional de Portneuf
+Stationnement GPS distinct : 46.83427797469136, -72.14731880866188
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.83427797469136,-72.14731880866188
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.83427797469136&mlon=-72.14731880866188#map=18/46.83427797469136/-72.14731880866188
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+090. [ ] Lac Saint-Augustin
+Région : Québec
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Parc riverain du Lac Saint-Augustin
+Coordonnées d’accès : 46.74343047963627, -71.3951573802442
+Confiance GPS actuelle : high
+Stationnement déclaré : Parc riverain du Lac Saint-Augustin
+Stationnement GPS distinct : 46.74343047963627, -71.3951573802442
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.74343047963627,-71.3951573802442
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.74343047963627&mlon=-71.3951573802442#map=18/46.74343047963627/-71.3951573802442
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+091. [ ] Lac Saint-Charles (Centre Agiro)
+Région : Québec
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Centre Agiro
+Coordonnées d’accès : 46.91136225783032, -71.37185683996404
+Confiance GPS actuelle : high
+Stationnement déclaré : Centre Agiro
+Stationnement GPS distinct : 46.91136225783032, -71.37185683996404
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.91136225783032,-71.37185683996404
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.91136225783032&mlon=-71.37185683996404#map=18/46.91136225783032/-71.37185683996404
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+092. [ ] Lac Saint-Joseph (Duchesnay)
+Région : Québec
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Station touristique Duchesnay
+Coordonnées d’accès : 46.87058677113481, -71.63576502200156
+Confiance GPS actuelle : high
+Stationnement déclaré : Station touristique Duchesnay
+Stationnement GPS distinct : 46.87058677113481, -71.63576502200156
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.87058677113481,-71.63576502200156
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.87058677113481&mlon=-71.63576502200156#map=18/46.87058677113481/-71.63576502200156
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+093. [ ] Lac Sept-Îles (Portneuf)
+Région : Québec
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Camp Portneuf
+Coordonnées d’accès : 46.92257165399806, -71.74192057534863
+Confiance GPS actuelle : high
+Stationnement déclaré : Camp Portneuf
+Stationnement GPS distinct : 46.92257165399806, -71.74192057534863
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.92257165399806,-71.74192057534863
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.92257165399806&mlon=-71.74192057534863#map=18/46.92257165399806/-71.74192057534863
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+094. [ ] Lac Simon (Portneuf)
+Région : Québec
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Plage Eau Claire
+Coordonnées d’accès : 46.89838628655255, -72.01959501428937
+Confiance GPS actuelle : high
+Stationnement déclaré : Plage Eau Claire
+Stationnement GPS distinct : 46.89838628655255, -72.01959501428937
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.89838628655255,-72.01959501428937
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.89838628655255&mlon=-72.01959501428937#map=18/46.89838628655255/-72.01959501428937
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+095. [ ] Marais du Nord (St-Charles)
+Région : Québec
+Type d’accès déclaré : Accès depuis stationnement
+Adresse / point d’accès : Stationnement principal du site d'interprétation.
+Coordonnées d’accès : 46.958743932978464, -71.39128783083098
+Confiance GPS actuelle : needs_verification
+Stationnement déclaré : Stationnement principal du site d'interprétation.
+Stationnement GPS distinct : 46.961562, -71.392812
+Distance stationnement-eau : 334 m
+Station de lavage : Non définie
+Coût / condition : Frais d'accès pour la conservation du site.
+Restrictions : Vérifiez les règles locales et l'accès exact avant de partir | Les conditions peuvent changer rapidement selon le vent
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.958743932978464,-71.39128783083098
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.958743932978464&mlon=-71.39128783083098#map=18/46.958743932978464/-71.39128783083098
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+096. [ ] Rivière Bras-du-Nord
+Région : Québec
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Vallée Bras-du-Nord
+Coordonnées d’accès : 47.075670956977106, -71.89465673117994
+Confiance GPS actuelle : high
+Stationnement déclaré : Vallée Bras-du-Nord
+Stationnement GPS distinct : 47.075670956977106, -71.89465673117994
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=47.075670956977106,-71.89465673117994
+OpenStreetMap : https://www.openstreetmap.org/?mlat=47.075670956977106&mlon=-71.89465673117994#map=18/47.075670956977106/-71.89465673117994
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+097. [ ] Rivière Jacques-Cartier (Grand Héron)
+Région : Québec
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Parc de glisse du Grand Héron
+Coordonnées d’accès : 46.846126478496146, -71.62536305388318
+Confiance GPS actuelle : high
+Stationnement déclaré : Parc de glisse du Grand Héron
+Stationnement GPS distinct : 46.846126478496146, -71.62536305388318
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.846126478496146,-71.62536305388318
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.846126478496146&mlon=-71.62536305388318#map=18/46.846126478496146/-71.62536305388318
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+098. [ ] Rivière Jacques-Cartier (Parc national)
+Région : Québec
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Parc national de la Jacques-Cartier
+Coordonnées d’accès : 47.17442453834519, -71.36829576336933
+Confiance GPS actuelle : high
+Stationnement déclaré : Parc national de la Jacques-Cartier
+Stationnement GPS distinct : 47.17442453834519, -71.36829576336933
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=47.17442453834519,-71.36829576336933
+OpenStreetMap : https://www.openstreetmap.org/?mlat=47.17442453834519&mlon=-71.36829576336933#map=18/47.17442453834519/-71.36829576336933
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+099. [ ] Rivière Sainte-Anne (Portneuf)
+Région : Québec
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Parc régional de Portneuf
+Coordonnées d’accès : 46.71183084326505, -72.07568348873885
+Confiance GPS actuelle : high
+Stationnement déclaré : Parc régional de Portneuf
+Stationnement GPS distinct : 46.71183084326505, -72.07568348873885
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.71183084326505,-72.07568348873885
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.71183084326505&mlon=-72.07568348873885#map=18/46.71183084326505/-72.07568348873885
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+100. [ ] Rivière Sainte-Anne (Québec)
+Région : Québec
+Type d’accès déclaré : Accès depuis stationnement
+Adresse / point d’accès : Stationnement gratuit du parc.
+Coordonnées d’accès : 46.9495, -71.0865
+Confiance GPS actuelle : needs_verification
+Stationnement déclaré : Stationnement gratuit du parc.
+Stationnement GPS distinct : Non défini
+Distance stationnement-eau : À vérifier
+Station de lavage : Non définie
+Coût / condition : Accès public gratuit.
+Restrictions : Vérifiez les règles locales et l'accès exact avant de partir | Les conditions peuvent changer rapidement selon le vent
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.9495,-71.0865
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.9495&mlon=-71.0865#map=18/46.9495/-71.0865
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+101. [ ] Saint-Laurent-de-l'Île-d'Orléans
+Région : Québec
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Accès au fleuve de Saint-Laurent-de-l'Île-d'Orléans
+Coordonnées d’accès : 46.86012576891334, -71.00394669345651
+Confiance GPS actuelle : high
+Stationnement déclaré : Accès au fleuve de Saint-Laurent-de-l'Île-d'Orléans
+Stationnement GPS distinct : 46.86012576891334, -71.00394669345651
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=46.86012576891334,-71.00394669345651
+OpenStreetMap : https://www.openstreetmap.org/?mlat=46.86012576891334&mlon=-71.00394669345651#map=18/46.86012576891334/-71.00394669345651
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+102. [ ] Fjord du Saguenay (L'Anse)
+Région : Saguenay-Lac-Saint-Jean
+Type d’accès déclaré : Quai / accès municipal
+Adresse / point d’accès : Stationnement au quai municipal de L'Anse-Saint-Jean.
+Coordonnées d’accès : 48.2444772, -70.1794917
+Confiance GPS actuelle : high
+Stationnement déclaré : Stationnement au quai municipal de L'Anse-Saint-Jean.
+Stationnement GPS distinct : 48.2439047, -70.1800943
+Distance stationnement-eau : 78 m
+Station de lavage : Non définie
+Coût / condition : Accès libre et gratuit.
+Restrictions : Conditions variables: vent, courant ou vagues possibles | Vérifiez les règles locales et l'accès exact avant de partir
+Google Maps : https://www.google.com/maps/search/?api=1&query=48.2444772,-70.1794917
+OpenStreetMap : https://www.openstreetmap.org/?mlat=48.2444772&mlon=-70.1794917#map=18/48.2444772/-70.1794917
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+103. [ ] Lac Kénogami
+Région : Saguenay-Lac-Saint-Jean
+Type d’accès déclaré : Accès depuis stationnement
+Adresse / point d’accès : Stationnement aux chutes Kénogami.
+Coordonnées d’accès : 48.33177878849501, -71.43463046043273
+Confiance GPS actuelle : high
+Stationnement déclaré : Stationnement aux chutes Kénogami.
+Stationnement GPS distinct : 48.33177878849501, -71.43463046043273
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Accès gratuit.
+Restrictions : Vérifiez les règles locales et l'accès exact avant de partir | Les conditions peuvent changer rapidement selon le vent
+Google Maps : https://www.google.com/maps/search/?api=1&query=48.33177878849501,-71.43463046043273
+OpenStreetMap : https://www.openstreetmap.org/?mlat=48.33177878849501&mlon=-71.43463046043273#map=18/48.33177878849501/-71.43463046043273
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+104. [ ] Lac Saint-Jean (Alma)
+Région : Saguenay-Lac-Saint-Jean
+Type d’accès déclaré : Marina / mise à l'eau
+Adresse / point d’accès : Marina St-Gédéon, mise à l'eau OSM près de la plage.
+Coordonnées d’accès : 48.4796193, -71.7934448
+Confiance GPS actuelle : high
+Stationnement déclaré : Marina St-Gédéon, mise à l'eau OSM près de la plage.
+Stationnement GPS distinct : 48.4802148, -71.7960512
+Distance stationnement-eau : 203 m
+Station de lavage : Non définie
+Coût / condition : Accès public gratuit.
+Restrictions : Vérifiez les règles locales et l'accès exact avant de partir | Les conditions peuvent changer rapidement selon le vent
+Google Maps : https://www.google.com/maps/search/?api=1&query=48.4796193,-71.7934448
+OpenStreetMap : https://www.openstreetmap.org/?mlat=48.4796193&mlon=-71.7934448#map=18/48.4796193/-71.7934448
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+105. [ ] Lac Saint-Jean (Roberval)
+Région : Saguenay-Lac-Saint-Jean
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Plage de la Pointe-Scott
+Coordonnées d’accès : 48.533296015177186, -72.2186771128563
+Confiance GPS actuelle : high
+Stationnement déclaré : Plage de la Pointe-Scott
+Stationnement GPS distinct : 48.533296015177186, -72.2186771128563
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=48.533296015177186,-72.2186771128563
+OpenStreetMap : https://www.openstreetmap.org/?mlat=48.533296015177186&mlon=-72.2186771128563#map=18/48.533296015177186/-72.2186771128563
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+106. [ ] Lac Saint-Jean (Saint-Prime)
+Région : Saguenay-Lac-Saint-Jean
+Type d’accès déclaré : Accès nautique confirmé par le HAR
+Adresse / point d’accès : Plage municipale de Saint-Prime
+Coordonnées d’accès : 48.60054103706304, -72.32507726060467
+Confiance GPS actuelle : high
+Stationnement déclaré : Plage municipale de Saint-Prime
+Stationnement GPS distinct : 48.60054103706304, -72.32507726060467
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Tarif et droits d'accès à vérifier
+Restrictions : Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire | Les conditions locales peuvent changer après la capture du HAR
+Google Maps : https://www.google.com/maps/search/?api=1&query=48.60054103706304,-72.32507726060467
+OpenStreetMap : https://www.openstreetmap.org/?mlat=48.60054103706304&mlon=-72.32507726060467#map=18/48.60054103706304/-72.32507726060467
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+107. [ ] Rivière Ashuapmushuan
+Région : Saguenay-Lac-Saint-Jean
+Type d’accès déclaré : Accès depuis stationnement
+Adresse / point d’accès : Accès à partir du parc Ashuapmushuan.
+Coordonnées d’accès : 48.65068862453191, -72.44201167148547
+Confiance GPS actuelle : high
+Stationnement déclaré : Accès à partir du parc Ashuapmushuan.
+Stationnement GPS distinct : 48.65068862453191, -72.44201167148547
+Distance stationnement-eau : 0 m
+Station de lavage : Non définie
+Coût / condition : Frais d'accès minimaux.
+Restrictions : Conditions variables: vent, courant ou vagues possibles | Vérifiez les règles locales et l'accès exact avant de partir
+Google Maps : https://www.google.com/maps/search/?api=1&query=48.65068862453191,-72.44201167148547
+OpenStreetMap : https://www.openstreetmap.org/?mlat=48.65068862453191&mlon=-72.44201167148547#map=18/48.65068862453191/-72.44201167148547
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+
+108. [ ] Rivière Chicoutimi
+Région : Saguenay-Lac-Saint-Jean
+Type d’accès déclaré : Marina / mise à l'eau
+Adresse / point d’accès : Marina Saguenay / mise à l'eau.
+Coordonnées d’accès : 48.4303002, -71.0517127
+Confiance GPS actuelle : high
+Stationnement déclaré : Marina Saguenay / mise à l'eau.
+Stationnement GPS distinct : 48.4304405, -71.0528561
+Distance stationnement-eau : 86 m
+Station de lavage : Non définie
+Coût / condition : Accès public gratuit.
+Restrictions : Vérifiez les règles locales et l'accès exact avant de partir | Les conditions peuvent changer rapidement selon le vent
+Google Maps : https://www.google.com/maps/search/?api=1&query=48.4303002,-71.0517127
+OpenStreetMap : https://www.openstreetmap.org/?mlat=48.4303002&mlon=-71.0517127#map=18/48.4303002/-71.0517127
+Résultat de ma vérification : [ ] adéquat  [ ] à corriger  [ ] accès privé  [ ] stationnement absent
+Coordonnées corrigées : ______________________________
+Notes : ________________________________________________________________
+
+----------------------------------------------------------------------
+

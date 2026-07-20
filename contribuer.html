@@ -23,7 +23,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/spotpaddle-icon-192.png">
     <link rel="apple-touch-icon" href="/assets/icons/spotpaddle-icon-192.png">
     <title>Proposer un spot | Spot Paddle</title>
-    <link rel="stylesheet" href="assets/tailwind.css?v=20260719-1" />
+    <link rel="stylesheet" href="assets/tailwind.css?v=20260719-2" />
     <link rel="stylesheet" href="style.css?v=20260719-1" />
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans">
@@ -119,6 +119,7 @@
                             <label for="spotPhotos" class="block text-xs font-black uppercase tracking-wider text-blue-700">Photo du spot à joindre à la suggestion</label>
                         </div>
                         <input id="spotPhotos" name="photos[]" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" multiple class="mt-3 w-full rounded-xl border border-blue-200 bg-white px-3 py-3 text-sm text-slate-700 file:mr-4 file:rounded-full file:border-0 file:bg-blue-600 file:px-4 file:py-2 file:text-xs file:font-black file:uppercase file:text-white">
+                        <div id="photoPreviewList" class="mt-4 hidden grid gap-3 sm:grid-cols-2" aria-live="polite"></div>
 
                         <div class="mt-4 grid gap-4 md:grid-cols-2">
                             <label class="block">
@@ -144,7 +145,7 @@
                             <textarea id="photoPostText" name="photoPostText" rows="3" class="mt-2 w-full rounded-2xl border border-blue-200 bg-white px-4 py-3 text-sm font-semibold outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100" placeholder="Petit texte, anecdote ou description à publier avec la photo"></textarea>
                         </label>
 
-                        <p id="photoHint" class="mt-3 text-xs leading-relaxed text-blue-800">Les photos seront envoyées avec le formulaire. Maximum 5 photos de 5 Mo chacune.</p>
+                        <p id="photoHint" class="mt-3 text-xs leading-relaxed text-blue-800">Les photos seront envoyées avec le formulaire. Maximum 5 photos, 25 Mo au total.</p>
                     </div>
 
                     <div class="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -192,8 +193,13 @@
         const statusEl = document.getElementById('formStatus');
         const photosInput = document.getElementById('spotPhotos');
         const photoHint = document.getElementById('photoHint');
+        const photoPreviewList = document.getElementById('photoPreviewList');
         const copyButton = document.getElementById('copySuggestionButton');
         const submitButton = form?.querySelector('[data-submit-button]');
+        const maxPhotos = 5;
+        const maxPhotoBytes = 25 * 1024 * 1024;
+        const maxTotalPhotoBytes = 25 * 1024 * 1024;
+        let photoPreviewUrls = [];
 
         function getValue(id) {
             return document.getElementById(id)?.value.trim() || '';
@@ -211,8 +217,115 @@
             statusEl.textContent = message;
         }
 
+        function escapeHtml(value) {
+            return String(value).replace(/[&<>"']/g, character => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            })[character]);
+        }
+
         function addLine(lines, label, value) {
             if (value) lines.push(`${label}: ${value}`);
+        }
+
+        function getSelectedPhotos() {
+            return Array.from(photosInput?.files || []);
+        }
+
+        function getSelectedPhotosTotalBytes(files = getSelectedPhotos()) {
+            return files.reduce((total, file) => total + file.size, 0);
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes >= 1024 * 1024) {
+                return `${(bytes / (1024 * 1024)).toFixed(1)} Mo`;
+            }
+
+            return `${Math.max(1, Math.round(bytes / 1024))} Ko`;
+        }
+
+        function revokePhotoPreviewUrls() {
+            photoPreviewUrls.forEach(url => URL.revokeObjectURL(url));
+            photoPreviewUrls = [];
+        }
+
+        function replaceSelectedPhotos(files) {
+            if (!photosInput) return;
+
+            if (typeof DataTransfer === 'undefined') {
+                photosInput.value = '';
+                setStatus('Votre navigateur ne permet pas de retirer une photo individuellement. Resélectionnez les photos à envoyer.', 'error');
+                renderPhotoPreview();
+                updatePhotoHint();
+                return;
+            }
+
+            const transfer = new DataTransfer();
+            files.forEach(file => transfer.items.add(file));
+            photosInput.files = transfer.files;
+            renderPhotoPreview();
+            updatePhotoHint();
+        }
+
+        function renderPhotoPreview() {
+            if (!photoPreviewList) return;
+
+            revokePhotoPreviewUrls();
+            const files = getSelectedPhotos();
+
+            if (!files.length) {
+                photoPreviewList.classList.add('hidden');
+                photoPreviewList.innerHTML = '';
+                return;
+            }
+
+            photoPreviewList.classList.remove('hidden');
+            photoPreviewList.innerHTML = files.map((file, index) => {
+                const isTooLarge = file.size > maxPhotoBytes;
+                const previewUrl = URL.createObjectURL(file);
+                const safeFileName = escapeHtml(file.name);
+                photoPreviewUrls.push(previewUrl);
+
+                return `
+                    <div class="overflow-hidden rounded-2xl border bg-white shadow-sm ${isTooLarge ? 'border-red-300' : 'border-blue-100'}">
+                        <img src="${previewUrl}" alt="Aperçu de ${safeFileName}" class="h-32 w-full object-cover">
+                        <div class="space-y-2 p-3">
+                            <p class="truncate text-sm font-black text-slate-800">${safeFileName}</p>
+                            <div class="flex items-center justify-between gap-2">
+                                <span class="rounded-full ${isTooLarge ? 'bg-red-100 text-red-700' : 'bg-blue-100 text-blue-700'} px-2.5 py-1 text-[11px] font-black uppercase tracking-wide">${formatFileSize(file.size)}</span>
+                                <button type="button" data-photo-remove-index="${index}" class="rounded-full border border-slate-200 px-3 py-1 text-[11px] font-black uppercase tracking-wide text-slate-600 transition hover:border-red-200 hover:bg-red-50 hover:text-red-700">Retirer</button>
+                            </div>
+                            ${isTooLarge ? '<p class="text-xs font-semibold text-red-600">Cette photo dépasse 25 Mo.</p>' : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function validateSelectedPhotos() {
+            const files = getSelectedPhotos();
+
+            if (files.length > maxPhotos) {
+                setStatus(`Maximum ${maxPhotos} photos par envoi. Retirez ${files.length - maxPhotos} photo${files.length - maxPhotos > 1 ? 's' : ''}.`, 'error');
+                return false;
+            }
+
+            const oversizedPhoto = files.find(file => file.size > maxPhotoBytes);
+            if (oversizedPhoto) {
+                setStatus(`La photo "${oversizedPhoto.name}" dépasse 25 Mo. Retirez-la ou envoyez une version plus légère.`, 'error');
+                return false;
+            }
+
+            const totalBytes = getSelectedPhotosTotalBytes(files);
+            if (totalBytes > maxTotalPhotoBytes) {
+                setStatus(`Les photos totalisent ${formatFileSize(totalBytes)}. Maximum 25 Mo au total.`, 'error');
+                return false;
+            }
+
+            return true;
         }
 
         function hasMinimumInfo() {
@@ -254,13 +367,39 @@
         }
 
         function updatePhotoHint() {
-            const count = photosInput?.files?.length || 0;
+            const files = getSelectedPhotos();
+            const count = files.length;
+            const totalBytes = getSelectedPhotosTotalBytes(files);
             photoHint.textContent = count
-                ? `${count} photo${count > 1 ? 's' : ''} sélectionnée${count > 1 ? 's' : ''}. Elles seront envoyées avec le formulaire.`
-                : 'Les photos seront envoyées avec le formulaire. Maximum 5 photos de 5 Mo chacune.';
+                ? `${count} photo${count > 1 ? 's' : ''} sélectionnée${count > 1 ? 's' : ''} (${formatFileSize(totalBytes)} au total). Maximum 25 Mo.`
+                : 'Les photos seront envoyées avec le formulaire. Maximum 5 photos, 25 Mo au total.';
         }
 
-        photosInput?.addEventListener('change', updatePhotoHint);
+        photosInput?.addEventListener('change', () => {
+            renderPhotoPreview();
+            updatePhotoHint();
+
+            if (photosInput.files.length > maxPhotos) {
+                setStatus(`Maximum ${maxPhotos} photos par envoi. Retirez les photos en trop avant l’envoi.`, 'error');
+                return;
+            }
+
+            if (validateSelectedPhotos()) {
+                setStatus('', 'info');
+            }
+        });
+
+        photoPreviewList?.addEventListener('click', event => {
+            const removeButton = event.target.closest('[data-photo-remove-index]');
+            if (!removeButton) return;
+
+            const removeIndex = Number(removeButton.getAttribute('data-photo-remove-index'));
+            const nextFiles = getSelectedPhotos().filter((_, index) => index !== removeIndex);
+            replaceSelectedPhotos(nextFiles);
+            if (validateSelectedPhotos()) {
+                setStatus('', 'info');
+            }
+        });
 
         form?.addEventListener('submit', async event => {
             event.preventDefault();
@@ -270,6 +409,7 @@
                 setStatus('Ajoutez au moins un nom, un lien, une note ou un titre de photo.', 'error');
                 return;
             }
+            if (!validateSelectedPhotos()) return;
 
             const previousButtonText = submitButton?.textContent || '';
 
@@ -294,6 +434,7 @@
                 }
 
                 form.reset();
+                renderPhotoPreview();
                 updatePhotoHint();
                 setStatus(data.message || 'Merci! Votre contribution a été envoyée à Spot Paddle.', 'success');
             } catch (error) {

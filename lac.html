@@ -31,7 +31,7 @@
     <link rel="dns-prefetch" href="//meteo.spotpaddle.ca">
 
     <title>Spot Paddle - Détails Lac</title>
-    <link rel="stylesheet" href="assets/tailwind.css?v=20260719-1" />
+    <link rel="stylesheet" href="assets/tailwind.css?v=20260719-2" />
     <link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css?v=1.9.4" />
     <link rel="stylesheet" href="style.css?v=20260719-1" />
 </head>
@@ -456,6 +456,9 @@
                 const parkingPoint = typeof getLakeParkingPoint === 'function'
                     ? getLakeParkingPoint(currentLake)
                     : null;
+                const washStationPoint = typeof getLakeWashStationPoint === 'function'
+                    ? getLakeWashStationPoint(currentLake)
+                    : currentLake.washStationPoint || null;
                 const directionsPoint = typeof getLakeDirectionsPoint === 'function'
                     ? getLakeDirectionsPoint(currentLake)
                     : (parkingPoint || accessPoint);
@@ -578,6 +581,13 @@
                                             ${parkingPoint?.source && !parkingPoint?.hideSource ? `<p class="text-xs text-slate-500 mt-2">Source GPS : ${parkingPoint.source}</p>` : ''}
                                         </div>
                                     </div>
+                                    ${washStationPoint ? `
+                                    <div class="mt-6 rounded-2xl border-2 border-amber-500 bg-amber-50 p-6 shadow-lg dark:bg-amber-950/30">
+                                        <h3 class="text-xl font-black text-amber-800 dark:text-amber-300">🧼 LAVAGE OBLIGATOIRE AVANT LA MISE À L’EAU</h3>
+                                        <p class="mt-2 font-semibold text-slate-800 dark:text-slate-200">Passez d’abord par ${washStationPoint.name}.</p>
+                                        <p class="mt-2 text-sm text-slate-700 dark:text-slate-300">Cette station est indiquée par un marqueur orange distinct sur la carte. Le stationnement et la plage se trouvent ensuite aux points vert et bleu.</p>
+                                        <a href="https://www.google.com/maps/dir/?api=1&destination=${washStationPoint.lat},${washStationPoint.lon}" target="_blank" rel="noopener" class="mt-4 inline-flex rounded-xl bg-amber-600 px-4 py-3 text-xs font-black uppercase text-white hover:bg-amber-700">Itinéraire vers la station de lavage</a>
+                                    </div>` : ''}
                                 </section>
 
                                 <section>
@@ -816,6 +826,9 @@
             const parkingPoint = typeof getLakeParkingPoint === 'function'
                 ? getLakeParkingPoint(lake)
                 : null;
+            const washStationPoint = typeof getLakeWashStationPoint === 'function'
+                ? getLakeWashStationPoint(lake)
+                : lake.washStationPoint || null;
             const directionsPoint = typeof getLakeDirectionsPoint === 'function'
                 ? getLakeDirectionsPoint(lake)
                 : (parkingPoint || accessPoint);
@@ -906,6 +919,20 @@
                     }
                 } else {
                     detailMap.setView([accessPoint.lat, accessPoint.lon], 15);
+                }
+
+                if (washStationPoint) {
+                    L.circleMarker([washStationPoint.lat, washStationPoint.lon], {
+                        radius: 11,
+                        fillColor: '#d97706',
+                        color: '#fff',
+                        weight: 3,
+                        fillOpacity: 1
+                    }).addTo(detailMap).bindPopup(`<strong>${washStationPoint.name}</strong><br>🧼 Lavage obligatoire avant la mise à l'eau`);
+
+                    const visiblePoints = [[accessPoint.lat, accessPoint.lon], [washStationPoint.lat, washStationPoint.lon]];
+                    if (parkingPoint) visiblePoints.push([parkingPoint.lat, parkingPoint.lon]);
+                    detailMap.fitBounds(visiblePoints, { padding: [60, 60], maxZoom: 17 });
                 }
             } catch(e) {
                 console.warn("Erreur d'initialisation de la carte Leaflet:", e.message);

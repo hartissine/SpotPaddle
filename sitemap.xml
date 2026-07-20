@@ -741,4 +741,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url><loc>https://spotpaddle.ca/lac.html?lake=lac-du-mont-habitant-plage</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://spotpaddle.ca/lac.html?lake=lac-saint-joseph-plage-gratton</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://spotpaddle.ca/lac.html?lake=lac-rond-plage-jean-guy-caron</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://spotpaddle.ca/lac.html?lake=lac-des-seize-iles-debarcadere</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://spotpaddle.ca/lac.html?lake=riviere-du-nord-parc-chemin-du-pont</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://spotpaddle.ca/lac.html?lake=riviere-du-nord-parc-gilbert-aubin</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
