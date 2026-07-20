@@ -3646,8 +3646,8 @@ const laVieSupPopularSpotDetails = laVieSupPopularSpotSeeds.map(seed => {
         lon: seed.lon,
         mainImage: gallery[0],
         gallery,
-        description: `${seed.name} est une destination de paddle populaire référencée par la carte publique La Vie SUP. Le point GPS mène à ${seed.accessName}.`,
-        longDescription: `${seed.name} est ajouté au catalogue Spot Paddle à partir d'une destination d'itinéraire confirmée dans le HAR de la carte publique La Vie SUP. Le GPS est confirmé; les frais, services et restrictions saisonnières doivent néanmoins être vérifiés auprès du gestionnaire local avant chaque sortie.`,
+        description: `${seed.name} est une destination de paddle accessible par ${seed.accessName}.`,
+        longDescription: `Le point de départ de ${seed.name} se situe à ${seed.accessName}. Vérifiez les frais, les services, les heures d'ouverture et les restrictions saisonnières auprès du gestionnaire avant chaque sortie.`,
         difficulty: "facile",
         paddleScore: seed.score,
         scoreFactors: { wind: 7, rain: 7, temperature: 8, waves: 7 },
@@ -3657,14 +3657,14 @@ const laVieSupPopularSpotDetails = laVieSupPopularSpotSeeds.map(seed => {
         maxLength: "Parcours variable",
         season: "Mai à septembre",
         parking: { location: seed.accessName, spots: "Capacité à vérifier", accessible: true, cost: "À vérifier" },
-        access: { description: seed.accessName, type: "Accès nautique confirmé par le HAR", difficulty: "À vérifier", launchPoint: "Destination Itinéraire La Vie SUP" },
-        amenities: ["GPS d'itinéraire confirmé par le HAR La Vie SUP", "Services et capacité du stationnement à vérifier", "Consultez la météo avant le départ"],
+        access: { description: seed.accessName, type: "Accès nautique", difficulty: "Consulter les conditions locales", launchPoint: seed.accessName },
+        amenities: ["Accès à l'eau indiqué", "Services et capacité du stationnement à vérifier", "Consultez la météo avant le départ"],
         warnings: ["Vérifiez les frais et les restrictions saisonnières auprès du gestionnaire", "Les conditions locales peuvent changer après la capture du HAR"],
         faq: [
-            { q: "Le GPS est-il confirmé ?", a: "Oui. Le point correspond à une destination Itinéraire présente dans le HAR La Vie SUP fourni pour la validation du catalogue." },
+            { q: "Où se trouve le point de départ ?", a: `Le départ indiqué se trouve à ${seed.accessName}. Utilisez le bouton d'itinéraire pour rejoindre l'accès routier.` },
             { q: "Puis-je apporter mon propre paddle ?", a: "Vérifiez les règles du gestionnaire, les frais, les permis et les restrictions avant le déplacement." }
         ],
-        highlights: ["Destination populaire au Québec", "GPS d'itinéraire confirmé par le HAR", "Conditions locales à vérifier"]
+        highlights: ["Destination de paddle au Québec", "Accès à l'eau indiqué", "Conditions locales à vérifier"]
     };
 });
 

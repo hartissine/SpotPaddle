@@ -465,17 +465,16 @@
                 const directionsUrl = typeof getLakeDirectionsUrl === 'function'
                     ? getLakeDirectionsUrl(currentLake)
                     : `https://www.google.com/maps/dir/?api=1&destination=${directionsPoint.lat},${directionsPoint.lon}`;
-                const gpsStatus = accessPoint?.confidence === 'high'
-                    ? 'GPS accès validé'
-                    : accessPoint?.confidence === 'medium'
-                        ? 'GPS accès probable'
-                        : 'GPS accès à vérifier';
-                const parkingStatus = parkingPoint?.confidence === 'high'
-                    ? 'GPS stationnement validé'
-                    : parkingPoint?.confidence === 'medium'
-                        ? 'GPS stationnement probable'
-                        : 'GPS stationnement à vérifier';
-                const gpsSource = accessPoint?.source || 'Coordonnées Spot Paddle existantes';
+                const publicHighlights = (currentLake.highlights || []).filter(item =>
+                    !/(gps|valid[ée]|confirm[ée]|page générée|har la vie sup|source)/i.test(String(item))
+                );
+                const internalValidationPattern = /(gps|valid[ée]|confirm[ée]|page générée|har la vie sup|source|point indiqué correspond)/i;
+                const publicAmenities = (currentLake.amenities || []).filter(item =>
+                    !internalValidationPattern.test(String(item))
+                );
+                const publicFaq = (currentLake.faq || []).filter(item =>
+                    !internalValidationPattern.test(`${item?.q || ''} ${item?.a || ''}`)
+                );
                 
                 // Sauvegarde globale de la galerie pour éviter les soucis d'échappement de chaînes HTML inline
                 window.currentLakeGallery = currentLake.gallery || [];
@@ -515,7 +514,7 @@
                                         ${currentLake.longDescription || currentLake.description || 'Pas de description détaillée disponible.'}
                                     </p>
                                     <div class="grid md:grid-cols-2 gap-4">
-                                        ${(currentLake.highlights || ['Spot magnifique', 'Idéal en famille']).map(h => `
+                                        ${(publicHighlights.length ? publicHighlights : ['Accès à l’eau indiqué', 'Informations pratiques disponibles']).map(h => `
                                             <div class="bg-blue-50 dark:bg-blue-950/40 border-l-4 border-blue-500 p-4 rounded-r-xl font-medium text-slate-800 dark:text-slate-200">
                                                 ${h}
                                             </div>
@@ -567,18 +566,16 @@
                                             <h3 class="text-lg font-bold mb-2 text-blue-600 dark:text-blue-400">📍 Point d'accès</h3>
                                             <p class="font-semibold text-sm text-slate-700 dark:text-slate-300 mb-2">${currentLake.access?.type || "Mise à l'eau publique"}</p>
                                             <p class="text-sm text-slate-600 dark:text-slate-400">${currentLake.access?.description || 'Accès direct via la plage principale.'}</p>
-                                            <p class="text-xs text-slate-500 mt-3">${accessPoint?.name || 'Point GPS actuel'} (${gpsStatus})</p>
-                                            ${accessPoint?.hideSource ? '' : `<p class="text-xs text-slate-500 mt-2">Source GPS: ${gpsSource}</p>`}
-                                            <p class="text-xs text-slate-500 mt-2">La carte distingue la mise à l'eau du stationnement lorsqu'ils sont tous deux confirmés.</p>
+                                            <p class="text-xs text-slate-500 mt-3">${accessPoint?.name || currentLake.access?.launchPoint || 'Accès à l’eau'}</p>
+                                            <p class="text-xs text-slate-500 mt-2">La carte distingue l’accès à l’eau du stationnement.</p>
                                             <p class="text-xs text-slate-500 mt-3">Difficulté d'accès: <span class="font-bold">${currentLake.access?.difficulty || 'Facile'}</span></p>
                                         </div>
                                         <div class="bg-slate-100 dark:bg-slate-800/60 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
                                             <h3 class="text-lg font-bold mb-2 text-green-600 dark:text-green-400">🅿️ Stationnement</h3>
                                             <p class="font-semibold text-sm text-slate-700 dark:text-slate-300 mb-1">${parkingPoint?.name || currentLake.parking?.location || 'Stationnement à confirmer'}</p>
-                                            <p class="text-sm text-slate-600 dark:text-slate-400">${parkingStatus}</p>
+                                            <p class="text-sm text-slate-600 dark:text-slate-400">Destination utilisée pour l’itinéraire automobile</p>
                                             ${parkingPoint?.distanceToAccessMeters ? `<p class="text-xs text-slate-500 mt-3">Transport jusqu'à l'eau : environ <span class="font-bold">${parkingPoint.distanceToAccessMeters} m</span></p>` : '<p class="text-xs text-amber-700 dark:text-amber-300 mt-3">La proximité du stationnement avec l’eau reste à confirmer.</p>'}
                                             <p class="text-xs text-slate-500 mt-2">Tarif : <span class="font-bold">${parkingPoint?.fee || currentLake.parking?.cost || 'À vérifier'}</span></p>
-                                            ${parkingPoint?.source && !parkingPoint?.hideSource ? `<p class="text-xs text-slate-500 mt-2">Source GPS : ${parkingPoint.source}</p>` : ''}
                                         </div>
                                     </div>
                                     ${washStationPoint ? `
@@ -623,11 +620,11 @@
                                     </div>
                                 </section>
 
-                                ${currentLake.faq && currentLake.faq.length > 0 ? `
+                                ${publicFaq.length > 0 ? `
                                 <section>
                                     <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">❓ Questions Fréquentes</h2>
                                     <div class="space-y-3">
-                                        ${currentLake.faq.map(item => `
+                                        ${publicFaq.map(item => `
                                             <details class="bg-slate-100 dark:bg-slate-800 p-4 rounded-xl group border border-slate-200 dark:border-slate-700">
                                                 <summary class="font-bold cursor-pointer flex justify-between items-center text-sm md:text-base">
                                                     ${item.q}
@@ -672,11 +669,11 @@
                                         </div>
                                     </div>
 
-                                    ${currentLake.amenities ? `
+                                    ${publicAmenities.length ? `
                                     <div>
                                         <h4 class="font-semibold text-xs uppercase tracking-wider text-slate-400 mb-2">Aménagements</h4>
                                         <ul class="text-xs space-y-1.5 grid grid-cols-2 gap-1 text-slate-600 dark:text-slate-300">
-                                            ${currentLake.amenities.map(a => `<li>✅ ${a}</li>`).join('')}
+                                            ${publicAmenities.map(a => `<li>✅ ${a}</li>`).join('')}
                                         </ul>
                                     </div>` : ''}
 

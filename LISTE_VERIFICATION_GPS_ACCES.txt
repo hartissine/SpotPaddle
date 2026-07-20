@@ -11,7 +11,7 @@ Ce fichier est interne et n’est utilisé par aucune page du site.
 
 001. [ ] Kamouraska
 Région : Bas-Saint-Laurent
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Quai de Kamouraska
 Coordonnées d’accès : 47.56252208364726, -69.87411031976998
 Confiance GPS actuelle : high
@@ -51,7 +51,7 @@ Notes : ________________________________________________________________
 
 003. [ ] Lac Matapédia (Sayabec)
 Région : Bas-Saint-Laurent
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Parc Pierre-Brochu
 Coordonnées d’accès : 48.56632933392173, -67.66329127863952
 Confiance GPS actuelle : high
@@ -71,7 +71,7 @@ Notes : ________________________________________________________________
 
 004. [ ] Lac Témiscouata
 Région : Bas-Saint-Laurent
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Parc national du Lac-Témiscouata
 Coordonnées d’accès : 47.695538106839365, -68.84352824507407
 Confiance GPS actuelle : high
@@ -91,7 +91,7 @@ Notes : ________________________________________________________________
 
 005. [ ] Rimouski (Rocher-Blanc)
 Région : Bas-Saint-Laurent
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Plage du Rocher-Blanc
 Coordonnées d’accès : 48.43355849755616, -68.59287749732535
 Confiance GPS actuelle : high
@@ -111,7 +111,7 @@ Notes : ________________________________________________________________
 
 006. [ ] Baie-des-Rochers
 Région : Charlevoix
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Parc municipal de Baie-des-Rochers
 Coordonnées d’accès : 47.953452992851034, -69.81140329280224
 Confiance GPS actuelle : high
@@ -131,7 +131,7 @@ Notes : ________________________________________________________________
 
 007. [ ] Lac Arthabaska
 Région : Charlevoix
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Parc national des Grands-Jardins
 Coordonnées d’accès : 47.66183716631818, -70.77873970552157
 Confiance GPS actuelle : high
@@ -151,7 +151,7 @@ Notes : ________________________________________________________________
 
 008. [ ] Rivière du Gouffre
 Région : Charlevoix
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Quai de Baie-Saint-Paul
 Coordonnées d’accès : 47.43170772518342, -70.49178160618612
 Confiance GPS actuelle : high
@@ -171,7 +171,7 @@ Notes : ________________________________________________________________
 
 009. [ ] Rivière Malbaie (Hautes-Gorges)
 Région : Charlevoix
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Parc national des Hautes-Gorges-de-la-Rivière-Malbaie
 Coordonnées d’accès : 47.8927742855333, -70.47639862807804
 Confiance GPS actuelle : high
@@ -191,7 +191,7 @@ Notes : ________________________________________________________________
 
 010. [ ] Berthier-sur-Mer
 Région : Chaudière-Appalaches
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Plage de Berthier-sur-Mer
 Coordonnées d’accès : 46.934895957447615, -70.7167548313723
 Confiance GPS actuelle : high
@@ -211,7 +211,7 @@ Notes : ________________________________________________________________
 
 011. [ ] Lac Etchemin
 Région : Chaudière-Appalaches
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Éco-Parc des Etchemins
 Coordonnées d’accès : 46.39506950939851, -70.50892871733326
 Confiance GPS actuelle : high
@@ -231,7 +231,7 @@ Notes : ________________________________________________________________
 
 012. [ ] Lac Trois-Saumons
 Région : Chaudière-Appalaches
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Parc municipal du lac Trois-Saumons
 Coordonnées d’accès : 47.12111244585895, -70.19077482737445
 Confiance GPS actuelle : high
@@ -271,7 +271,7 @@ Notes : ________________________________________________________________
 
 014. [ ] Lac Boivin
 Région : Estrie
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Parc Daniel-Johnson
 Coordonnées d’accès : 45.400375338658016, -72.70787023663209
 Confiance GPS actuelle : high
@@ -311,7 +311,7 @@ Notes : ________________________________________________________________
 
 016. [ ] Lac Brompton (Racine)
 Région : Estrie
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Camping Plage McKenzie
 Coordonnées d’accès : 45.473382433570194, -72.14062493448105
 Confiance GPS actuelle : high
@@ -331,7 +331,7 @@ Notes : ________________________________________________________________
 
 017. [ ] Lac Lyster
 Région : Estrie
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Plage du lac Lyster
 Coordonnées d’accès : 45.03377319819917, -71.91883050400364
 Confiance GPS actuelle : high
@@ -411,7 +411,7 @@ Notes : ________________________________________________________________
 
 021. [ ] Lac Trois-Lacs
 Région : Estrie
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Plage municipale de Val-des-Sources
 Coordonnées d’accès : 45.79701592892924, -71.88945331364174
 Confiance GPS actuelle : high
@@ -611,7 +611,7 @@ Notes : ________________________________________________________________
 
 031. [ ] Lac Sainte-Émélie
 Région : Lanaudière
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Plage municipale de Sainte-Émélie-de-l'Énergie
 Coordonnées d’accès : 46.32564521127613, -73.64207236742668
 Confiance GPS actuelle : high
@@ -731,7 +731,7 @@ Notes : ________________________________________________________________
 
 037. [ ] Lac Raymond
 Région : Laurentides
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Plage municipale du Lac Raymond
 Coordonnées d’accès : 46.009136770288805, -74.16941338584282
 Confiance GPS actuelle : high
@@ -851,7 +851,7 @@ Notes : ________________________________________________________________
 
 043. [ ] Rivière des Mille Îles (Rosemère)
 Région : Laurentides
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Parc de la Rivière-des-Mille-Îles
 Coordonnées d’accès : 45.61628409314794, -73.71368772274728
 Confiance GPS actuelle : high
@@ -871,7 +871,7 @@ Notes : ________________________________________________________________
 
 044. [ ] Rivière des Mille Îles (Saint-Eustache)
 Région : Laurentides
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Parc de la Rivière-des-Mille-Îles
 Coordonnées d’accès : 45.5684655394164, -73.86933586811523
 Confiance GPS actuelle : high
@@ -951,7 +951,7 @@ Notes : ________________________________________________________________
 
 048. [ ] Rivière du Nord (Val-David)
 Région : Laurentides
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : À l'Abordage
 Coordonnées d’accès : 46.02572166074477, -74.21344151982926
 Confiance GPS actuelle : high
@@ -991,7 +991,7 @@ Notes : ________________________________________________________________
 
 050. [ ] Rivière des Mille Îles (Laval)
 Région : Laval
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Parc de la Rivière-des-Mille-Îles
 Coordonnées d’accès : 45.61003613757706, -73.79642886099386
 Confiance GPS actuelle : high
@@ -1031,7 +1031,7 @@ Notes : ________________________________________________________________
 
 052. [ ] Fleuve à Trois-Rivières (Parc Antoine-Gauthier)
 Région : Mauricie
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Parc Antoine-Gauthier
 Coordonnées d’accès : 46.28023990822192, -72.65812546866448
 Confiance GPS actuelle : high
@@ -1071,7 +1071,7 @@ Notes : ________________________________________________________________
 
 054. [ ] Lac Clair (Grandes-Piles)
 Région : Mauricie
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Aire Nature Grandes-Piles
 Coordonnées d’accès : 46.759828377610134, -72.71054862611861
 Confiance GPS actuelle : high
@@ -1231,7 +1231,7 @@ Notes : ________________________________________________________________
 
 062. [ ] Rivière Batiscan (Sainte-Geneviève)
 Région : Mauricie
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Halte Desjardins
 Coordonnées d’accès : 46.52819240725861, -72.33872004246305
 Confiance GPS actuelle : high
@@ -1271,7 +1271,7 @@ Notes : ________________________________________________________________
 
 064. [ ] Lac Saint-Louis (Châteauguay)
 Région : Montérégie
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Centre nautique de Châteauguay
 Coordonnées d’accès : 45.38095677197638, -73.7692669525504
 Confiance GPS actuelle : high
@@ -1291,7 +1291,7 @@ Notes : ________________________________________________________________
 
 065. [ ] Récréoparc de Sainte-Catherine
 Région : Montérégie
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Récréoparc
 Coordonnées d’accès : 45.409097533068895, -73.55948067512136
 Confiance GPS actuelle : high
@@ -1311,7 +1311,7 @@ Notes : ________________________________________________________________
 
 066. [ ] Rivière Châteauguay (Pointe nautique)
 Région : Montérégie
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Pointe nautique de Châteauguay
 Coordonnées d’accès : 45.36898953256263, -73.75210847546604
 Confiance GPS actuelle : high
@@ -1411,7 +1411,7 @@ Notes : ________________________________________________________________
 
 071. [ ] Île des Sœurs (Pointe Nord)
 Région : Montréal
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Parc de l'Esplanade de la Pointe-Nord
 Coordonnées d’accès : 45.47359826542235, -73.53672596130842
 Confiance GPS actuelle : high
@@ -1431,7 +1431,7 @@ Notes : ________________________________________________________________
 
 072. [ ] Île-Bizard (Parc-nature)
 Région : Montréal
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Parc-nature du Bois-de-l'Île-Bizard
 Coordonnées d’accès : 45.517164085182586, -73.89966301735798
 Confiance GPS actuelle : high
@@ -1471,7 +1471,7 @@ Notes : ________________________________________________________________
 
 074. [ ] L'Anse-à-l'Orme
 Région : Montréal
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Parc-nature de l'Anse-à-l'Orme
 Coordonnées d’accès : 45.45359666837751, -73.93795110678688
 Confiance GPS actuelle : high
@@ -1491,7 +1491,7 @@ Notes : ________________________________________________________________
 
 075. [ ] Plage de l'Est
 Région : Montréal
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Plage de l'Est
 Coordonnées d’accès : 45.69801448232836, -73.47954440684374
 Confiance GPS actuelle : high
@@ -1511,7 +1511,7 @@ Notes : ________________________________________________________________
 
 076. [ ] Rivière des Prairies (Beauséjour)
 Région : Montréal
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Parc du Beauséjour
 Coordonnées d’accès : 45.52859657679447, -73.7340093701714
 Confiance GPS actuelle : high
@@ -1531,7 +1531,7 @@ Notes : ________________________________________________________________
 
 077. [ ] Verdun (Parc George-O'Reilly)
 Région : Montréal
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Parc de l'Honorable-George-O'Reilly
 Coordonnées d’accès : 45.44281162584198, -73.57448716079948
 Confiance GPS actuelle : high
@@ -1551,7 +1551,7 @@ Notes : ________________________________________________________________
 
 078. [ ] Lac des Trente et Un Milles
 Région : Outaouais
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Secteur Sainte-Thérèse-de-la-Gatineau
 Coordonnées d’accès : 46.29687390470017, -75.80001853448552
 Confiance GPS actuelle : high
@@ -1691,7 +1691,7 @@ Notes : ________________________________________________________________
 
 085. [ ] Anse de Cap-Rouge (Parc Jean-Déry)
 Région : Québec
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Parc Jean-Déry
 Coordonnées d’accès : 46.7478181, -71.343989
 Confiance GPS actuelle : high
@@ -1751,7 +1751,7 @@ Notes : ________________________________________________________________
 
 088. [ ] Lac Delage
 Région : Québec
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Manoir du Lac Delage
 Coordonnées d’accès : 46.96853569873607, -71.4026251968102
 Confiance GPS actuelle : high
@@ -1771,7 +1771,7 @@ Notes : ________________________________________________________________
 
 089. [ ] Lac Long (Portneuf)
 Région : Québec
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Parc régional de Portneuf
 Coordonnées d’accès : 46.83427797469136, -72.14731880866188
 Confiance GPS actuelle : high
@@ -1791,7 +1791,7 @@ Notes : ________________________________________________________________
 
 090. [ ] Lac Saint-Augustin
 Région : Québec
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Parc riverain du Lac Saint-Augustin
 Coordonnées d’accès : 46.74343047963627, -71.3951573802442
 Confiance GPS actuelle : high
@@ -1811,7 +1811,7 @@ Notes : ________________________________________________________________
 
 091. [ ] Lac Saint-Charles (Centre Agiro)
 Région : Québec
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Centre Agiro
 Coordonnées d’accès : 46.91136225783032, -71.37185683996404
 Confiance GPS actuelle : high
@@ -1831,7 +1831,7 @@ Notes : ________________________________________________________________
 
 092. [ ] Lac Saint-Joseph (Duchesnay)
 Région : Québec
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Station touristique Duchesnay
 Coordonnées d’accès : 46.87058677113481, -71.63576502200156
 Confiance GPS actuelle : high
@@ -1851,7 +1851,7 @@ Notes : ________________________________________________________________
 
 093. [ ] Lac Sept-Îles (Portneuf)
 Région : Québec
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Camp Portneuf
 Coordonnées d’accès : 46.92257165399806, -71.74192057534863
 Confiance GPS actuelle : high
@@ -1871,7 +1871,7 @@ Notes : ________________________________________________________________
 
 094. [ ] Lac Simon (Portneuf)
 Région : Québec
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Plage Eau Claire
 Coordonnées d’accès : 46.89838628655255, -72.01959501428937
 Confiance GPS actuelle : high
@@ -1911,7 +1911,7 @@ Notes : ________________________________________________________________
 
 096. [ ] Rivière Bras-du-Nord
 Région : Québec
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Vallée Bras-du-Nord
 Coordonnées d’accès : 47.075670956977106, -71.89465673117994
 Confiance GPS actuelle : high
@@ -1931,7 +1931,7 @@ Notes : ________________________________________________________________
 
 097. [ ] Rivière Jacques-Cartier (Grand Héron)
 Région : Québec
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Parc de glisse du Grand Héron
 Coordonnées d’accès : 46.846126478496146, -71.62536305388318
 Confiance GPS actuelle : high
@@ -1951,7 +1951,7 @@ Notes : ________________________________________________________________
 
 098. [ ] Rivière Jacques-Cartier (Parc national)
 Région : Québec
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Parc national de la Jacques-Cartier
 Coordonnées d’accès : 47.17442453834519, -71.36829576336933
 Confiance GPS actuelle : high
@@ -1971,7 +1971,7 @@ Notes : ________________________________________________________________
 
 099. [ ] Rivière Sainte-Anne (Portneuf)
 Région : Québec
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Parc régional de Portneuf
 Coordonnées d’accès : 46.71183084326505, -72.07568348873885
 Confiance GPS actuelle : high
@@ -2011,7 +2011,7 @@ Notes : ________________________________________________________________
 
 101. [ ] Saint-Laurent-de-l'Île-d'Orléans
 Région : Québec
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Accès au fleuve de Saint-Laurent-de-l'Île-d'Orléans
 Coordonnées d’accès : 46.86012576891334, -71.00394669345651
 Confiance GPS actuelle : high
@@ -2091,7 +2091,7 @@ Notes : ________________________________________________________________
 
 105. [ ] Lac Saint-Jean (Roberval)
 Région : Saguenay-Lac-Saint-Jean
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Plage de la Pointe-Scott
 Coordonnées d’accès : 48.533296015177186, -72.2186771128563
 Confiance GPS actuelle : high
@@ -2111,7 +2111,7 @@ Notes : ________________________________________________________________
 
 106. [ ] Lac Saint-Jean (Saint-Prime)
 Région : Saguenay-Lac-Saint-Jean
-Type d’accès déclaré : Accès nautique confirmé par le HAR
+Type d’accès déclaré : Accès nautique
 Adresse / point d’accès : Plage municipale de Saint-Prime
 Coordonnées d’accès : 48.60054103706304, -72.32507726060467
 Confiance GPS actuelle : high

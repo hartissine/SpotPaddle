@@ -922,21 +922,6 @@
         return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(access.lat)},${encodeURIComponent(access.lon)}`;
     }
 
-    function getGpsStatusLabel(spot) {
-        if (!spot?.hasParkingPoint) return "Stationnement à vérifier";
-        if (spot?.accessConfidence === 'high') return "GPS itinéraire confirmé";
-        if (spot?.accessConfidence === 'medium') return "GPS itinéraire probable";
-        if (spot?.accessConfidence === 'legacy') return "GPS existant";
-        return "GPS stationnement à vérifier";
-    }
-
-    function getGpsStatusClass(spot) {
-        if (!spot?.hasParkingPoint) return "bg-amber-100 text-amber-700 border-amber-200";
-        if (spot?.accessConfidence === 'high') return "bg-emerald-100 text-emerald-700 border-emerald-200";
-        if (spot?.accessConfidence === 'medium') return "bg-amber-100 text-amber-700 border-amber-200";
-        return "bg-slate-100 text-slate-600 border-slate-200";
-    }
-
     const popularQuebecSpotSlugs = [
         'baie-de-shawinigan-parc-de-la-baie',
         'parc-national-oka',
@@ -1127,9 +1112,11 @@
     function updateTrustStats() {
         const counts = spots.reduce((acc, spot) => {
             acc.total += 1;
-            acc[spot.accessConfidence] = (acc[spot.accessConfidence] || 0) + 1;
+            if (spot.isFree) acc.free += 1;
+            if (spot.level === 'facile') acc.easy += 1;
+            if (spot.level === 'sportif') acc.sport += 1;
             return acc;
-        }, { total: 0, high: 0, medium: 0, needs_verification: 0, legacy: 0 });
+        }, { total: 0, free: 0, easy: 0, sport: 0 });
 
         const setText = (id, value) => {
             const el = document.getElementById(id);
@@ -1137,11 +1124,11 @@
         };
 
         setText('heroSpotCount', counts.total);
-        setText('heroGpsCount', counts.high);
+        setText('heroGpsCount', counts.total);
         setText('trustSpotCount', counts.total);
-        setText('trustGpsHigh', counts.high);
-        setText('trustGpsMedium', counts.medium);
-        setText('trustGpsNeeds', counts.needs_verification);
+        setText('trustFreeCount', counts.free);
+        setText('trustEasyCount', counts.easy);
+        setText('trustSportCount', counts.sport);
     }
 
     // 4. Weather Emoji Function
@@ -1355,16 +1342,9 @@
 
     function buildSpotPopupActions(name, pageUrl, spotInfo, lat, lon) {
         const access = getSpotAccessCoords(spotInfo || { lat, lon });
-        const gpsStatus = getGpsStatusLabel(spotInfo);
-        const gpsStatusClass = getGpsStatusClass(spotInfo);
         const safeName = escapeInlineJsString(name);
 
         return `
-            <div class="mb-2 text-center">
-                <span class="inline-flex items-center justify-center rounded-full border px-2 py-1 text-[9px] font-black uppercase tracking-wider ${gpsStatusClass}">
-                    ${escapeHtml(gpsStatus)}
-                </span>
-            </div>
             <div class="flex flex-col gap-1.5">
                 <button onclick="window.open('https://www.google.com/maps/dir/?api=1&destination=${access.lat},${access.lon}', '_blank')"
                     class="w-full py-2 bg-slate-800 text-white rounded-md font-bold text-[10px] uppercase hover:bg-black transition-colors flex items-center justify-center gap-1">
@@ -2045,8 +2025,6 @@
         if(lac) {
             const sidebar = document.getElementById('sidebar');
             const accessCoords = getSpotAccessCoords(lac);
-            const gpsStatus = getGpsStatusLabel(lac);
-            const gpsStatusClass = getGpsStatusClass(lac);
             
             sidebar.innerHTML = `
                 <div class="relative h-64 w-full">
@@ -2063,8 +2041,7 @@
                             <h4 class="font-bold text-slate-900 dark:text-white">Accès & Parking</h4>
                             <p class="text-slate-600 dark:text-slate-400 text-sm">${lac.parking}</p>
                             <p class="text-slate-500 dark:text-slate-400 text-xs mt-2">${lac.accessName}</p>
-                            <span class="inline-flex mt-2 rounded-full border px-2 py-1 text-[9px] font-black uppercase tracking-wider ${gpsStatusClass}">${gpsStatus}</span>
-                            <p class="text-slate-500 dark:text-slate-400 text-[11px] mt-2">Itinéraire vers l'accès utilisable, pas vers le centre du lac.</p>
+                            <p class="text-slate-500 dark:text-slate-400 text-[11px] mt-2">L’itinéraire mène au stationnement ou à l’accès routier du spot.</p>
                         </div>
                     </div>
 
