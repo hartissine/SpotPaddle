@@ -946,6 +946,24 @@
         return 'bg-red-100 text-red-700 border-red-200';
     }
 
+    function getGpsStatusLabel(spot) {
+        const confidence = String(spot?.accessConfidence || '').toLowerCase();
+        if (confidence === 'verified' || confidence === 'high') return 'GPS vérifié';
+        if (confidence === 'medium') return 'GPS documenté';
+        return 'GPS à valider';
+    }
+
+    function getGpsStatusClass(spot) {
+        const confidence = String(spot?.accessConfidence || '').toLowerCase();
+        if (confidence === 'verified' || confidence === 'high') {
+            return 'bg-emerald-50 text-emerald-700 border-emerald-200';
+        }
+        if (confidence === 'medium') {
+            return 'bg-amber-50 text-amber-700 border-amber-200';
+        }
+        return 'bg-slate-50 text-slate-600 border-slate-200';
+    }
+
     function getShortSpotCopy(spot) {
         const text = spot.info || spot.parking || '';
         return text.length > 105 ? `${text.slice(0, 102).trim()}...` : text;
@@ -1714,7 +1732,7 @@
                 })
             }).addTo(map);
 
-            marker.spotType = getSpotType(spot.name);
+            marker.spotType = getSpotType(spot);
             marker.isFree = spot.isFree;
             marker.level = spot.level;
             marker.region = spot.region || "Mauricie";
@@ -1735,10 +1753,19 @@
     updateTrustStats();
 
     // Fonction pour déterminer le type de spot
-    function getSpotType(name) {
-        if (name.includes('Lac')) return 'lac';
-        if (name.includes('Rivière')) return 'riviere';
-        if (name.includes('Parc')) return 'parc';
+    function getSpotType(spot) {
+        const normalize = value => String(value || '')
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .toLowerCase();
+        const name = normalize(spot?.name);
+        const access = normalize([spot?.accessType, spot?.parking].filter(Boolean).join(' '));
+
+        if (name.includes('riviere') || name.includes('fleuve')) return 'riviere';
+        if (name.includes('parc')) return 'parc';
+        if (name.includes('lac') || name.includes('reservoir') || name.includes('baie')) return 'lac';
+        if (access.includes('riviere') || access.includes('fleuve')) return 'riviere';
+        if (access.includes('parc')) return 'parc';
         return 'lac'; // Défaut
     }
 
@@ -1794,6 +1821,12 @@
         }
         
         appliquerFiltres();
+
+        // Libérer l'espace sur la carte une fois qu'une région précise est choisie.
+        const filterContent = document.getElementById('filterContent');
+        if (region !== 'all' && filterContent && !filterContent.classList.contains('hidden')) {
+            toggleFilterCollapse();
+        }
     }
 
     // Actions interactives pour les filtres
@@ -1983,24 +2016,36 @@
     // Fonction pour gérer le menu mobile
     function toggleMobileMenu() {
         const menu = document.getElementById('mobileMenu');
+        const button = document.getElementById('menuToggle');
+        if (!menu || !button) return;
+
         menu.classList.toggle('hidden');
+        button.setAttribute('aria-expanded', String(!menu.classList.contains('hidden')));
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
+    function initMobileNavigation() {
         const menuToggle = document.getElementById('menuToggle');
         const mobileMenu = document.getElementById('mobileMenu');
+        if (!menuToggle || !mobileMenu || menuToggle.dataset.menuReady === 'true') return;
 
-        if (menuToggle) {
-            menuToggle.addEventListener('click', (e) => {
-                e.stopPropagation(); // Empêche le clic de "remonter" jusqu'au document
-                toggleMobileMenu();
-            });
-        }
+        menuToggle.dataset.menuReady = 'true';
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation(); // Empêche le clic de "remonter" jusqu'au document
+            toggleMobileMenu();
+        });
+
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target.closest('a')) {
+                mobileMenu.classList.add('hidden');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
 
         // Fermer le menu mobile en cliquant ailleurs sur la page
         document.addEventListener('click', (e) => {
             if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
                 mobileMenu.classList.add('hidden');
+                menuToggle.setAttribute('aria-expanded', 'false');
             }
         });
 
@@ -2015,7 +2060,13 @@
                 }, 1200); // Délai de sécurité pour s'assurer que Leaflet et la carte sont pleinement chargés
             }
         }
-    });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initMobileNavigation);
+    } else {
+        initMobileNavigation();
+    }
 
     // 6. UI Functions
     function ouvrirSidebar(nom) {

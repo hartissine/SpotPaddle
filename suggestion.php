@@ -4,9 +4,9 @@ declare(strict_types=1);
 const SERVICE_NAME = 'spotpaddle-suggestions';
 const DEFAULT_RECIPIENT_EMAIL = 'hartissine@gmail.com';
 const MAX_PHOTOS = 5;
-const MAX_PHOTO_BYTES = 26214400; // 25 MB
-const MAX_PHOTO_TOTAL_BYTES = 26214400; // 25 MB
-const MAX_POST_BYTES = 31457280; // 30 MB, leaves room for multipart overhead.
+const MAX_PHOTO_BYTES = 18874368; // 18 MB
+const MAX_PHOTO_TOTAL_BYTES = 18874368; // Keeps base64 MIME email below common 25 MB limits.
+const MAX_POST_BYTES = 23068672; // 22 MB, leaves room for multipart overhead.
 
 header('X-Content-Type-Options: nosniff');
 header('Referrer-Policy: no-referrer');
@@ -198,7 +198,7 @@ function collectPhotoAttachments(): array
         $size = (int) ($sizes[$index] ?? 0);
 
         if ($size <= 0 || $size > MAX_PHOTO_BYTES) {
-            throw new UserInputException('Chaque photo doit faire 25 Mo ou moins.');
+            throw new UserInputException('Chaque photo doit faire 18 Mo ou moins.');
         }
 
         if ($tmpName === '' || !is_uploaded_file($tmpName)) {
@@ -387,7 +387,7 @@ function sendContributionEmail(string $subject, string $bodyText, array $attachm
         return;
     }
 
-    if (function_exists('mail')) {
+    if (filter_var((string) getenv('SPOTPADDLE_ALLOW_PHP_MAIL'), FILTER_VALIDATE_BOOL) && function_exists('mail')) {
         $headers = [
             'From: ' . formatMailbox($fromEmail, $fromName),
             'MIME-Version: 1.0',
@@ -400,7 +400,7 @@ function sendContributionEmail(string $subject, string $bodyText, array $attachm
         }
     }
 
-    throw new RuntimeException('Aucun service d’envoi courriel n’est configuré.');
+    throw new RuntimeException('SMTP n’est pas configuré. La contribution n’a pas été marquée comme envoyée.');
 }
 
 function buildSubmissionText(array $fields, array $attachments): string
@@ -474,7 +474,7 @@ if ($method !== 'POST') {
 }
 
 if ((int) ($_SERVER['CONTENT_LENGTH'] ?? 0) > MAX_POST_BYTES) {
-    sendPayload(413, ['error' => 'Envoi trop lourd. Maximum 25 Mo de photos au total.']);
+    sendPayload(413, ['error' => 'Envoi trop lourd. Maximum 18 Mo de photos au total.']);
 }
 
 $storageDir = rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . 'spotpaddle-suggestions';
@@ -514,7 +514,7 @@ try {
     $attachments = collectPhotoAttachments();
     $photoTotalBytes = array_reduce($attachments, static fn (int $total, array $attachment): int => $total + (int) $attachment['size'], 0);
     if ($photoTotalBytes > MAX_PHOTO_TOTAL_BYTES) {
-        throw new UserInputException('Les photos doivent faire 25 Mo ou moins au total.');
+        throw new UserInputException('Les photos doivent faire 18 Mo ou moins au total.');
     }
 
     $hasMinimumInfo = count($attachments) > 0;
