@@ -39,7 +39,7 @@ const checks = [
       return data.status === 'ok'
         && data.service === 'spotpaddle-suggestions'
         && data.checks?.recipient_email === true
-        && data.checks?.smtp_configured === true;
+        && data.checks?.delivery_configured === true;
     }
   },
   {

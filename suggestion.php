@@ -365,6 +365,90 @@ function sendViaSmtp(string $toEmail, string $fromEmail, string $fromName, strin
     fclose($socket);
 }
 
+function sendViaResend(string $apiKey, string $toEmail, string $fromEmail, string $fromName, string $subject, string $bodyText, array $attachments): void
+{
+    $payload = [
+        'from' => $fromName !== '' ? $fromName . ' <' . $fromEmail . '>' : $fromEmail,
+        'to' => [$toEmail],
+        'subject' => $subject,
+        'text' => $bodyText,
+        'attachments' => array_map(
+            static fn (array $attachment): array => [
+                'filename' => (string) $attachment['filename'],
+                'content' => base64_encode((string) $attachment['content'])
+            ],
+            $attachments
+        )
+    ];
+
+    $jsonPayload = json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    if ($jsonPayload === false) {
+        throw new RuntimeException('Préparation de la requête Resend impossible.');
+    }
+
+    $headers = [
+        'Authorization: Bearer ' . $apiKey,
+        'Content-Type: application/json',
+        'Accept: application/json',
+        'Idempotency-Key: spotpaddle-' . bin2hex(random_bytes(16))
+    ];
+
+    $statusCode = 0;
+    $responseBody = '';
+
+    if (function_exists('curl_init')) {
+        $handle = curl_init('https://api.resend.com/emails');
+        curl_setopt_array($handle, [
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => $jsonPayload,
+            CURLOPT_HTTPHEADER => $headers,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_CONNECTTIMEOUT => 10,
+            CURLOPT_TIMEOUT => 45
+        ]);
+        $response = curl_exec($handle);
+        if ($response === false) {
+            $message = curl_error($handle);
+            curl_close($handle);
+            throw new RuntimeException('Connexion à l’API Resend impossible: ' . $message);
+        }
+        $statusCode = (int) curl_getinfo($handle, CURLINFO_RESPONSE_CODE);
+        $responseBody = (string) $response;
+        curl_close($handle);
+    } else {
+        $context = stream_context_create([
+            'http' => [
+                'method' => 'POST',
+                'header' => implode("\r\n", $headers),
+                'content' => $jsonPayload,
+                'ignore_errors' => true,
+                'timeout' => 45
+            ]
+        ]);
+        $response = @file_get_contents('https://api.resend.com/emails', false, $context);
+        $responseBody = $response === false ? '' : (string) $response;
+        foreach ($http_response_header ?? [] as $headerLine) {
+            if (preg_match('#^HTTP/\S+\s+(\d{3})#', $headerLine, $matches)) {
+                $statusCode = (int) $matches[1];
+            }
+        }
+        if ($response === false && $statusCode === 0) {
+            throw new RuntimeException('Connexion HTTPS à l’API Resend impossible.');
+        }
+    }
+
+    $responseData = json_decode($responseBody, true);
+    if ($statusCode < 200 || $statusCode >= 300 || !is_array($responseData) || empty($responseData['id'])) {
+        $providerMessage = is_array($responseData)
+            ? (string) ($responseData['message'] ?? $responseData['error'] ?? '')
+            : '';
+        throw new RuntimeException(
+            'Envoi Resend refusé (HTTP ' . $statusCode . ')' .
+            ($providerMessage !== '' ? ': ' . $providerMessage : '.')
+        );
+    }
+}
+
 function sendContributionEmail(string $subject, string $bodyText, array $attachments): void
 {
     $toEmail = trim((string) (getenv('SPOTPADDLE_TO_EMAIL') ?: DEFAULT_RECIPIENT_EMAIL));
@@ -379,6 +463,16 @@ function sendContributionEmail(string $subject, string $bodyText, array $attachm
     }
 
     $fromName = trim((string) (getenv('SMTP_FROM_NAME') ?: 'Spot Paddle'));
+    $resendApiKey = trim((string) getenv('RESEND_API_KEY'));
+    if ($resendApiKey !== '') {
+        $resendFromEmail = trim((string) (getenv('RESEND_FROM_EMAIL') ?: $fromEmail));
+        if (filter_var($resendFromEmail, FILTER_VALIDATE_EMAIL) === false) {
+            throw new RuntimeException('Adresse expéditeur Resend invalide.');
+        }
+        sendViaResend($resendApiKey, $toEmail, $resendFromEmail, $fromName, $subject, $bodyText, $attachments);
+        return;
+    }
+
     $boundary = 'spotpaddle-' . bin2hex(random_bytes(12));
     $mimeBody = buildMimeBody($bodyText, $attachments, $boundary);
 
@@ -453,15 +547,21 @@ if ($method === 'OPTIONS') {
     exit;
 }
 
-if ($method === 'GET' || $method === 'HEAD') {
+    if ($method === 'GET' || $method === 'HEAD') {
     $recipientEmail = trim((string) (getenv('SPOTPADDLE_TO_EMAIL') ?: DEFAULT_RECIPIENT_EMAIL));
+    $resendConfigured = trim((string) getenv('RESEND_API_KEY')) !== ''
+        && filter_var(trim((string) getenv('RESEND_FROM_EMAIL')), FILTER_VALIDATE_EMAIL) !== false;
+    $smtpConfigured = trim((string) getenv('SMTP_HOST')) !== '';
     sendPayload(200, [
         'status' => 'ok',
         'service' => SERVICE_NAME,
         'checks' => [
             'php' => true,
             'recipient_email' => filter_var($recipientEmail, FILTER_VALIDATE_EMAIL) !== false,
-            'smtp_configured' => trim((string) getenv('SMTP_HOST')) !== '',
+            'resend_configured' => $resendConfigured,
+            'smtp_configured' => $smtpConfigured,
+            'delivery_configured' => $resendConfigured || $smtpConfigured,
+            'delivery_provider' => $resendConfigured ? 'resend' : ($smtpConfigured ? 'smtp' : 'none'),
             'mail_function' => function_exists('mail')
         ],
         'timestamp' => gmdate('c')

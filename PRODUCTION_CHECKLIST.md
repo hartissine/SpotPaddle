@@ -6,11 +6,14 @@ Cette checklist sert avant et après chaque déploiement public.
 
 - `https://meteo.spotpaddle.ca/health.php` retourne `status: ok`.
 - `https://meteo.spotpaddle.ca/meteo.php?lat=48.47962&lon=-71.79344` retourne un JSON OpenWeather avec `cod: 200`.
-- `https://meteo.spotpaddle.ca/suggestion.php` retourne `status: ok`, `service: spotpaddle-suggestions` et `checks.smtp_configured: true`.
+- `https://meteo.spotpaddle.ca/suggestion.php` retourne `status: ok`, `service: spotpaddle-suggestions`, `checks.delivery_configured: true` et idéalement `checks.delivery_provider: resend`.
 - Dans Render, le `Health Check Path` du service météo est `/health.php`.
 - `OPENWEATHER_API_KEY` est configurée dans Render et n'apparaît dans aucun fichier public.
 - Pour recevoir les suggestions par courriel, configurer dans Render:
   - `SPOTPADDLE_TO_EMAIL=hartissine@gmail.com`
+  - `RESEND_API_KEY=` clé API créée dans Resend
+  - `RESEND_FROM_EMAIL=contributions@spotpaddle.ca` après validation du domaine dans Resend
+- Sur une instance Render payante, SMTP peut aussi servir de solution de secours:
   - `SMTP_HOST=smtp.gmail.com`
   - `SMTP_PORT=587`
   - `SMTP_SECURE=tls`
