@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "npm run build:css && npm run build:js && npm run vendor:leaflet",
+    "test": "node scripts/quality-check.js",
     "build:js": "node scripts/minify-js.js",
     "build:css": "tailwindcss -i ./src/tailwind.css -o ./assets/tailwind.css --minify",
     "dev:css": "tailwindcss -i ./src/tailwind.css -o ./assets/tailwind.css --watch",

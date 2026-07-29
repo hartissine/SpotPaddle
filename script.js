@@ -2172,6 +2172,10 @@
                             <span>CAP SUR CE SPOT</span>
                         </button>
                     </div>
+                    <a href="contribuer.html?mode=photo&spot=${encodeURIComponent(lac.name)}&slug=${encodeURIComponent(getLakePageSlug(lac.name))}"
+                       class="w-full py-4 bg-amber-500 hover:bg-amber-600 text-slate-950 rounded-2xl font-black text-xs transition-all flex items-center justify-center gap-2 shadow-lg shadow-amber-500/25 active:scale-95">
+                        <span>📷 AJOUTER UNE PHOTO</span>
+                    </a>
                     <a href="lac.html?lake=${getLakePageSlug(lac.name)}&v=20260709-1"
                        class="w-full py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-2xl font-black text-xs transition-all flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/25 active:scale-95">
                         <span>📖 VOIR LA PAGE COMPLÈTE</span>

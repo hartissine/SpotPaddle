@@ -502,15 +502,15 @@ function buildSubmissionText(array $fields, array $attachments): string
     $lines = ['Nouvelle contribution Spot Paddle', '', 'Spot'];
 
     addLine($lines, 'Nom ou endroit', $fields['spotName']);
+    addLine($lines, 'Identifiant du spot', $fields['spotSlug']);
     addLine($lines, 'Ville ou région', $fields['spotRegion']);
     addLine($lines, 'Lien Maps ou indication', $fields['spotMapLink']);
     addLine($lines, 'Détail utile', $fields['spotNotes']);
 
-    $hasPhotoDetails = count($attachments) > 0 || $fields['photoTitle'] !== '' || $fields['photoCredit'] !== '' || $fields['photoPostText'] !== '';
+    $hasPhotoDetails = count($attachments) > 0 || $fields['photoCredit'] !== '' || $fields['photoPostText'] !== '';
     if ($hasPhotoDetails) {
         $lines[] = '';
         $lines[] = 'Photos';
-        addLine($lines, 'Titre de la photo', $fields['photoTitle']);
         addLine($lines, 'Nom à afficher comme source', $fields['photoCredit']);
         addLine($lines, 'Utilisation souhaitée', $fields['photoUsage']);
         addLine($lines, 'Texte si publication', $fields['photoPostText']);
@@ -601,14 +601,15 @@ try {
 
     $fields = [
         'spotName' => getField('spotName', 160),
+        'spotSlug' => getField('spotSlug', 160),
         'spotRegion' => getField('spotRegion', 160),
         'spotMapLink' => getField('spotMapLink', 500),
         'spotNotes' => getField('spotNotes', 2000),
-        'photoTitle' => getField('photoTitle', 160),
         'photoCredit' => getField('photoCredit', 160),
         'photoUsage' => getField('photoUsage', 160),
         'photoPostText' => getField('photoPostText', 2000),
-        'sourcePage' => getField('sourcePage', 200)
+        'sourcePage' => getField('sourcePage', 200),
+        'contributionMode' => getField('contributionMode', 40)
     ];
 
     $attachments = collectPhotoAttachments();
@@ -618,7 +619,7 @@ try {
     }
 
     $hasMinimumInfo = count($attachments) > 0;
-    foreach (['spotName', 'spotRegion', 'spotMapLink', 'spotNotes', 'photoTitle', 'photoCredit', 'photoPostText'] as $fieldName) {
+    foreach (['spotName', 'spotRegion', 'spotMapLink', 'spotNotes', 'photoCredit', 'photoPostText'] as $fieldName) {
         if ($fields[$fieldName] !== '') {
             $hasMinimumInfo = true;
             break;
@@ -629,12 +630,12 @@ try {
         throw new UserInputException('Ajoutez au moins un nom, un lien, une note ou une photo.');
     }
 
-    if (count($attachments) > 0 && $fields['photoTitle'] === '' && $fields['spotName'] === '' && $fields['spotRegion'] === '') {
-        throw new UserInputException('Ajoutez un titre, un nom de spot ou une région pour identifier la photo.');
+    if (count($attachments) > 0 && $fields['spotName'] === '' && $fields['spotRegion'] === '') {
+        throw new UserInputException('Choisissez un spot ou ajoutez une région pour identifier la photo.');
     }
 
-    $subjectType = count($attachments) > 0 || $fields['photoTitle'] !== '' ? 'Contribution photo' : 'Suggestion de spot';
-    $subjectName = $fields['spotName'] ?: ($fields['photoTitle'] ?: 'Nouvelle contribution');
+    $subjectType = count($attachments) > 0 ? 'Contribution photo' : 'Suggestion de spot';
+    $subjectName = $fields['spotName'] ?: 'Nouvelle contribution';
     $subjectName = str_replace(["\r", "\n"], ' ', $subjectName);
     if (strlen($subjectName) > 80) {
         $subjectName = substr($subjectName, 0, 80);

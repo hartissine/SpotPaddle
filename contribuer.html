@@ -48,8 +48,8 @@
         <div class="relative mx-auto grid min-h-[560px] max-w-6xl items-center px-6 py-20">
             <div class="max-w-3xl">
                 <p class="mb-4 inline-flex rounded-full bg-blue-500/80 px-4 py-2 text-xs font-black uppercase tracking-[0.2em]">Communauté Spot Paddle</p>
-                <h1 class="text-4xl font-black leading-tight tracking-tight sm:text-5xl md:text-7xl">Proposer un spot ou partager des photos</h1>
-                <p class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-200">
+                <h1 id="pageTitle" class="text-4xl font-black leading-tight tracking-tight sm:text-5xl md:text-7xl">Proposer un spot ou partager des photos</h1>
+                <p id="pageIntro" class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-200">
                     Aidez à compléter la carte avec des accès fiables, des stationnements précis, des infos locales et des images utiles pour les paddlers du Québec.
                 </p>
                 <div class="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -61,7 +61,7 @@
     </header>
 
     <main>
-        <section class="border-b border-slate-200 bg-white">
+        <section data-full-form-only class="border-b border-slate-200 bg-white">
             <div class="mx-auto grid max-w-6xl gap-6 px-6 py-10 md:grid-cols-3">
                 <div class="rounded-2xl border border-slate-200 bg-slate-50 p-5">
                     <p class="text-xs font-black uppercase tracking-[0.18em] text-blue-600">Accès</p>
@@ -85,17 +85,20 @@
             <div class="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1fr_0.78fr]">
                 <form id="spotSuggestionForm" action="https://meteo.spotpaddle.ca/suggestion.php" method="post" enctype="multipart/form-data" class="rounded-3xl border border-slate-200 bg-white p-6 shadow-2xl shadow-slate-200/70 md:p-8">
                     <input type="hidden" name="sourcePage" value="contribuer.html">
+                    <input id="contributionMode" type="hidden" name="contributionMode" value="spot">
+                    <input id="spotSlug" type="hidden" name="spotSlug" value="">
                     <label class="absolute -left-[9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
                         Site web
                         <input type="text" name="website" tabindex="-1" autocomplete="off">
                     </label>
                     <div class="mb-8">
                         <p class="text-xs font-black uppercase tracking-[0.2em] text-blue-600">Suggestion rapide</p>
-                        <h2 class="mt-2 text-3xl font-black text-slate-950">Juste l'essentiel</h2>
-                        <p class="mt-3 text-sm leading-relaxed text-slate-600">Un nom, une région ou un lien Maps suffit pour commencer. Les détails peuvent rester approximatifs.</p>
+                        <h2 id="formTitle" class="mt-2 text-3xl font-black text-slate-950">Juste l'essentiel</h2>
+                        <p id="formIntro" class="mt-3 text-sm leading-relaxed text-slate-600">Un nom, une région ou un lien Maps suffit pour commencer. Les détails peuvent rester approximatifs.</p>
+                        <p id="selectedSpotNotice" class="mt-4 hidden rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-bold text-amber-900"></p>
                     </div>
 
-                    <div class="grid gap-5 md:grid-cols-2">
+                    <div data-full-form-only class="grid gap-5 md:grid-cols-2">
                         <label class="block">
                             <span class="text-xs font-black uppercase tracking-wider text-slate-500">Nom du spot ou endroit</span>
                             <input id="spotName" name="spotName" type="text" class="mt-2 w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100" placeholder="Ex. lac, plage, parc, quai...">
@@ -110,7 +113,7 @@
                         </label>
                     </div>
 
-                    <label class="mt-5 block">
+                    <label data-full-form-only class="mt-5 block">
                         <span class="text-xs font-black uppercase tracking-wider text-slate-500">Petit détail utile</span>
                         <textarea id="spotNotes" name="spotNotes" rows="4" class="mt-2 w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm font-semibold outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100" placeholder="Ex. mise à l'eau facile, stationnement payant, courant, vent, règlement, lavage obligatoire..."></textarea>
                     </label>
@@ -122,16 +125,12 @@
                         <input id="spotPhotos" name="photos[]" type="file" accept="image/jpeg,image/png,image/webp,image/heic,image/heif" multiple class="mt-3 w-full rounded-xl border border-blue-200 bg-white px-3 py-3 text-sm text-slate-700 file:mr-4 file:rounded-full file:border-0 file:bg-blue-600 file:px-4 file:py-2 file:text-xs file:font-black file:uppercase file:text-white">
                         <div id="photoPreviewList" class="mt-4 hidden grid gap-3 sm:grid-cols-2" aria-live="polite"></div>
 
-                        <div class="mt-4 grid gap-4 md:grid-cols-2">
+                        <div class="mt-4 grid gap-4">
                             <label class="block">
-                                <span class="text-xs font-black uppercase tracking-wider text-blue-700">Titre de la photo</span>
-                                <input id="photoTitle" name="photoTitle" type="text" class="mt-2 w-full rounded-2xl border border-blue-200 bg-white px-4 py-3 text-sm font-semibold outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100" placeholder="Ex. Quai du parc, coucher de soleil...">
-                            </label>
-                            <label class="block">
-                                <span class="text-xs font-black uppercase tracking-wider text-blue-700">Nom à afficher comme source</span>
+                                <span class="text-xs font-black uppercase tracking-wider text-blue-700">Votre nom ou crédit <span class="normal-case font-semibold">(facultatif)</span></span>
                                 <input id="photoCredit" name="photoCredit" type="text" class="mt-2 w-full rounded-2xl border border-blue-200 bg-white px-4 py-3 text-sm font-semibold outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100" placeholder="Votre nom, page ou Instagram">
                             </label>
-                            <label class="block md:col-span-2">
+                            <label data-full-form-only class="block">
                                 <span class="text-xs font-black uppercase tracking-wider text-blue-700">Utilisation souhaitée</span>
                                 <select id="photoUsage" name="photoUsage" class="mt-2 w-full rounded-2xl border border-blue-200 bg-white px-4 py-3 text-sm font-semibold outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100">
                                     <option>Galerie photo avec mon nom comme source</option>
@@ -142,7 +141,7 @@
                         </div>
 
                         <label class="mt-4 block">
-                            <span class="text-xs font-black uppercase tracking-wider text-blue-700">Texte si c'est pour une publication</span>
+                            <span id="photoNoteLabel" class="text-xs font-black uppercase tracking-wider text-blue-700">Texte si c'est pour une publication</span>
                             <textarea id="photoPostText" name="photoPostText" rows="3" class="mt-2 w-full rounded-2xl border border-blue-200 bg-white px-4 py-3 text-sm font-semibold outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100" placeholder="Petit texte, anecdote ou description à publier avec la photo"></textarea>
                         </label>
 
@@ -150,14 +149,14 @@
                     </div>
 
                     <div class="mt-6 flex flex-col gap-3 sm:flex-row">
-                        <button type="submit" data-submit-button class="inline-flex flex-1 items-center justify-center rounded-2xl bg-blue-600 px-6 py-4 text-sm font-black uppercase tracking-wider text-white shadow-xl shadow-blue-600/20 transition hover:bg-blue-700 disabled:cursor-wait disabled:opacity-70">Envoyer à Spot Paddle</button>
-                        <button id="copySuggestionButton" type="button" class="inline-flex flex-1 items-center justify-center rounded-2xl border border-slate-300 bg-white px-6 py-4 text-sm font-black uppercase tracking-wider text-slate-700 transition hover:bg-slate-100">Copier le résumé</button>
+                        <button type="submit" data-submit-button class="inline-flex flex-1 items-center justify-center rounded-2xl bg-amber-500 px-6 py-4 text-sm font-black uppercase tracking-wider text-slate-950 shadow-xl shadow-amber-500/20 transition hover:bg-amber-600 disabled:cursor-wait disabled:opacity-70">Envoyer à Spot Paddle</button>
+                        <button id="copySuggestionButton" data-full-form-only type="button" class="inline-flex flex-1 items-center justify-center rounded-2xl border border-slate-300 bg-white px-6 py-4 text-sm font-black uppercase tracking-wider text-slate-700 transition hover:bg-slate-100">Copier le résumé</button>
                     </div>
 
                     <p id="formStatus" class="mt-4 min-h-5 text-sm font-semibold text-slate-600" aria-live="polite"></p>
                 </form>
 
-                <aside class="space-y-5">
+                <aside data-full-form-only class="space-y-5">
                     <div class="rounded-3xl bg-slate-900 p-6 text-white shadow-2xl shadow-slate-300/60">
                         <p class="text-xs font-black uppercase tracking-[0.2em] text-blue-300">Minimum utile</p>
                         <ul class="mt-5 space-y-4 text-sm leading-relaxed text-slate-200">
@@ -201,6 +200,10 @@
         const maxPhotoBytes = 18 * 1024 * 1024;
         const maxTotalPhotoBytes = 18 * 1024 * 1024;
         let photoPreviewUrls = [];
+        const pageParams = new URLSearchParams(window.location.search);
+        const isPhotoMode = pageParams.get('mode') === 'photo';
+        const selectedSpotName = (pageParams.get('spot') || '').trim();
+        const selectedSpotSlug = (pageParams.get('slug') || '').trim();
 
         function getValue(id) {
             return document.getElementById(id)?.value.trim() || '';
@@ -230,6 +233,43 @@
 
         function addLine(lines, label, value) {
             if (value) lines.push(`${label}: ${value}`);
+        }
+
+        function initializeContributionMode() {
+            if (!isPhotoMode) return;
+
+            document.querySelectorAll('[data-full-form-only]').forEach(element => {
+                element.classList.add('hidden');
+            });
+
+            const spotNameInput = document.getElementById('spotName');
+            const spotSlugInput = document.getElementById('spotSlug');
+            const modeInput = document.getElementById('contributionMode');
+            const selectedSpotNotice = document.getElementById('selectedSpotNotice');
+
+            if (spotNameInput) spotNameInput.value = selectedSpotName;
+            if (spotSlugInput) spotSlugInput.value = selectedSpotSlug;
+            if (modeInput) modeInput.value = 'photo';
+
+            document.getElementById('pageTitle').textContent = 'Partager une photo';
+            document.getElementById('pageIntro').textContent = 'Ajoutez votre photo en quelques secondes. Le spot est déjà sélectionné pour vous.';
+            document.getElementById('formTitle').textContent = 'Votre photo';
+            document.getElementById('formIntro').textContent = 'Choisissez une photo, puis ajoutez votre nom ou une courte note seulement si vous le souhaitez.';
+            document.getElementById('photoNoteLabel').textContent = 'Courte note (facultative)';
+            document.getElementById('photoPostText').placeholder = 'Ex. état de la mise à l’eau, date de la photo ou détail utile';
+            submitButton.textContent = 'Envoyer la photo';
+
+            if (selectedSpotNotice) {
+                selectedSpotNotice.textContent = selectedSpotName
+                    ? `📍 Photo pour : ${selectedSpotName}`
+                    : '📍 Le spot sera associé à votre photo.';
+                selectedSpotNotice.classList.remove('hidden');
+            }
+
+            if (photosInput) photosInput.required = true;
+            document.title = selectedSpotName
+                ? `Partager une photo de ${selectedSpotName} - Spot Paddle`
+                : 'Partager une photo - Spot Paddle';
         }
 
         function getSelectedPhotos() {
@@ -336,7 +376,6 @@
                 'spotRegion',
                 'spotMapLink',
                 'spotNotes',
-                'photoTitle',
                 'photoCredit',
                 'photoPostText'
             ].some(id => getValue(id)) || photoCount > 0;
@@ -344,7 +383,7 @@
 
         function buildSuggestionText() {
             const photoCount = photosInput?.files?.length || 0;
-            const hasPhotoDetails = Boolean(photoCount || getValue('photoTitle') || getValue('photoCredit') || getValue('photoPostText'));
+            const hasPhotoDetails = Boolean(photoCount || getValue('photoCredit') || getValue('photoPostText'));
             const lines = ['Nouvelle contribution Spot Paddle', '', 'Spot'];
 
             addLine(lines, 'Nom ou endroit', getValue('spotName'));
@@ -354,7 +393,6 @@
 
             if (hasPhotoDetails) {
                 lines.push('', 'Photos');
-                addLine(lines, 'Titre de la photo', getValue('photoTitle'));
                 addLine(lines, 'Nom à afficher comme source', getValue('photoCredit'));
                 addLine(lines, 'Utilisation souhaitée', getValue('photoUsage'));
                 addLine(lines, 'Texte si publication', getValue('photoPostText'));
@@ -402,12 +440,14 @@
             }
         });
 
+        initializeContributionMode();
+
         form?.addEventListener('submit', async event => {
             event.preventDefault();
 
             if (!form.reportValidity()) return;
             if (!hasMinimumInfo()) {
-                setStatus('Ajoutez au moins un nom, un lien, une note ou un titre de photo.', 'error');
+                setStatus(isPhotoMode ? 'Choisissez une photo à envoyer.' : 'Ajoutez au moins un nom, un lien, une note ou une photo.', 'error');
                 return;
             }
             if (!validateSelectedPhotos()) return;
