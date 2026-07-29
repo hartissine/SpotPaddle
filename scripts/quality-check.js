@@ -71,7 +71,7 @@ check(
     'lac.html: le panneau de niveau d’eau est absent'
 );
 check(
-    hydroPhp.includes("'01BD004'") &&
+    hydroPhp.includes("'02OE012'") &&
     hydroPhp.includes('hydrometric-realtime/items'),
     'hydro.php: le relais hydrométrique officiel est incomplet'
 );

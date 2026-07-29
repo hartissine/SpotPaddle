@@ -102,7 +102,13 @@
         const HYDROMETRIC_STATIONS = {
             'lac-matapedia-baie-de-charlie': '01BD004',
             'lac-matapedia-sayabec': '01BD004',
-            'riviere-bonaventure': '01BG002'
+            'riviere-bonaventure': '01BG002',
+            'lac-memphremagog-magog': '02OE012',
+            'riviere-mille-iles-rosemere': '02OA003',
+            'riviere-mille-iles-laval': '02OA003',
+            'riviere-mille-iles-saint-eustache': '02OA003',
+            'verdun-parc-george-oreilly': '02OA016',
+            'lac-saint-louis-chateauguay': '02OA039'
         };
 
         function toAbsoluteSiteUrl(value, fallback = FALLBACK_SOCIAL_IMAGE) {
@@ -227,6 +233,11 @@
         }
 
         function formatHydrometricObservationTime(value) {
+            if (/^\d{4}-\d{2}-\d{2}$/.test(String(value))) {
+                const [year, month, day] = String(value).split('-');
+                return `${year}-${month}-${day}`;
+            }
+
             const date = new Date(value);
             if (Number.isNaN(date.getTime())) return 'Heure non disponible';
 
@@ -277,7 +288,10 @@
                 const stationEl = document.getElementById('hydrometricStation');
                 const observedEl = document.getElementById('hydrometricObservedAt');
                 const sourceEl = document.getElementById('hydrometricSource');
+                const badgeEl = document.getElementById('hydrometricBadge');
+                const noticeEl = document.getElementById('hydrometricDataNotice');
                 const trend = getHydrometricTrendLabel(data.measurement.trend);
+                const isHistorical = data.data_type === 'historical';
 
                 if (status) status.classList.add('hidden');
                 if (content) content.classList.remove('hidden');
@@ -288,8 +302,19 @@
                     trendEl.className = `text-xl font-black ${trend.color}`;
                 }
                 if (stationEl) stationEl.textContent = `${data.station.name} (${data.station.number})`;
-                if (observedEl) observedEl.textContent = `Dernière mesure : ${formatHydrometricObservationTime(data.measurement.observed_at)}`;
+                if (observedEl) observedEl.textContent = `${isHistorical ? 'Dernière donnée disponible' : 'Dernière mesure'} : ${formatHydrometricObservationTime(data.measurement.observed_at)}`;
                 if (sourceEl) sourceEl.href = data.source_url;
+                if (badgeEl) {
+                    badgeEl.textContent = isHistorical ? 'Donnée historique' : 'Temps quasi réel';
+                    badgeEl.className = isHistorical
+                        ? 'rounded-full bg-amber-100 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-amber-800 dark:bg-amber-950/50 dark:text-amber-300'
+                        : 'rounded-full bg-sky-100 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-sky-800 dark:bg-sky-950/50 dark:text-sky-300';
+                }
+                if (noticeEl) {
+                    noticeEl.textContent = isHistorical
+                        ? 'Cette station ne transmet plus de mesure récente. Valeur affichée à titre historique seulement.'
+                        : 'Mesures provisoires en temps quasi réel. Elles ne remplacent pas l’observation des conditions sur place.';
+                }
             } catch (error) {
                 setHydrometricUnavailable('Le niveau d’eau est temporairement indisponible. Réessayez plus tard.');
             }
@@ -711,7 +736,7 @@
                                 <section>
                                     <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
                                         <h2 class="text-2xl font-bold flex items-center gap-2">🌊 Niveau de l’eau</h2>
-                                        <span class="rounded-full bg-sky-100 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-sky-800 dark:bg-sky-950/50 dark:text-sky-300">Station officielle</span>
+                                        <span id="hydrometricBadge" class="rounded-full bg-sky-100 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-sky-800 dark:bg-sky-950/50 dark:text-sky-300">Station officielle</span>
                                     </div>
                                     <div class="rounded-2xl border border-sky-200 bg-gradient-to-br from-sky-50 to-cyan-100 p-6 shadow-sm dark:border-slate-700 dark:from-slate-800 dark:to-slate-800/40">
                                         <div id="hydrometricStatus" class="flex items-center gap-2 rounded-xl border border-sky-200 bg-white/70 p-4 text-sm font-semibold text-sky-900 dark:border-sky-900/50 dark:bg-sky-950/30 dark:text-sky-200" role="status" aria-live="polite">
@@ -736,7 +761,7 @@
                                             <div class="mt-4 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
                                                 <p id="hydrometricStation" class="font-bold"></p>
                                                 <p id="hydrometricObservedAt" class="mt-1"></p>
-                                                <p class="mt-2">Mesures provisoires en temps quasi réel. Elles ne remplacent pas l’observation des conditions sur place.</p>
+                                                <p id="hydrometricDataNotice" class="mt-2">Mesures provisoires en temps quasi réel. Elles ne remplacent pas l’observation des conditions sur place.</p>
                                                 <a id="hydrometricSource" href="https://eau.ec.gc.ca/" target="_blank" rel="noopener" class="mt-3 inline-flex font-black text-sky-700 underline hover:text-sky-900 dark:text-sky-300">Voir la station officielle</a>
                                             </div>
                                         </div>

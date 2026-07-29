@@ -14,6 +14,22 @@ const HYDRO_STATIONS = [
     '01BG002' => [
         'name' => 'Rivière Bonaventure en amont du pont',
         'waterbody' => 'Rivière Bonaventure'
+    ],
+    '02OE012' => [
+        'name' => 'Lac Memphrémagog à Magog',
+        'waterbody' => 'Lac Memphrémagog'
+    ],
+    '02OA003' => [
+        'name' => 'Rivière des Mille Îles à Bois-des-Filion',
+        'waterbody' => 'Rivière des Mille Îles'
+    ],
+    '02OA016' => [
+        'name' => 'Fleuve Saint-Laurent à LaSalle',
+        'waterbody' => 'Fleuve Saint-Laurent'
+    ],
+    '02OA039' => [
+        'name' => 'Lac Saint-Louis à Pointe-Claire',
+        'waterbody' => 'Lac Saint-Louis'
     ]
 ];
 
@@ -113,6 +129,7 @@ $url = 'https://api.weather.gc.ca/collections/hydrometric-realtime/items?' . htt
     'STATION_NUMBER' => $stationNumber,
     'datetime' => $start . '/' . $end,
     'limit' => 250,
+    'sortby' => '-DATETIME',
     'f' => 'json'
 ], '', '&', PHP_QUERY_RFC3986);
 
@@ -152,7 +169,63 @@ foreach (($decoded['features'] ?? []) as $feature) {
 usort($observations, static fn (array $a, array $b): int => strcmp($b['observedAt'], $a['observedAt']));
 
 if ($observations === []) {
-    $payload = unavailablePayload($stationNumber, $station, 'Aucune mesure récente transmise par cette station.');
+    $historyUrl = 'https://api.weather.gc.ca/collections/hydrometric-daily-mean/items?' . http_build_query([
+        'STATION_NUMBER' => $stationNumber,
+        'limit' => 100,
+        'sortby' => '-DATE',
+        'f' => 'json'
+    ], '', '&', PHP_QUERY_RFC3986);
+    $historyResponse = @file_get_contents($historyUrl, false, $context);
+    $historyHeaders = $http_response_header ?? [];
+    $historyStatus = parseUpstreamStatus($historyHeaders);
+    $historyDecoded = $historyResponse !== false ? json_decode($historyResponse, true) : null;
+    $historical = null;
+
+    if ($historyStatus >= 200 && $historyStatus < 300 && is_array($historyDecoded)) {
+        foreach (($historyDecoded['features'] ?? []) as $feature) {
+            $properties = $feature['properties'] ?? [];
+            $level = is_numeric($properties['LEVEL'] ?? null) ? (float) $properties['LEVEL'] : null;
+            $discharge = is_numeric($properties['DISCHARGE'] ?? null) ? (float) $properties['DISCHARGE'] : null;
+            if ($level === null && $discharge === null) {
+                continue;
+            }
+
+            $historical = [
+                'observedAt' => (string) ($properties['DATE'] ?? ''),
+                'level' => $level,
+                'discharge' => $discharge,
+                'stationName' => trim((string) ($properties['STATION_NAME'] ?? $station['name']))
+            ];
+            break;
+        }
+    }
+
+    if ($historical === null || $historical['observedAt'] === '') {
+        $payload = unavailablePayload($stationNumber, $station, 'Aucune mesure récente ou historique disponible pour cette station.');
+    } else {
+        $payload = [
+            'status' => 'ok',
+            'available' => true,
+            'data_type' => 'historical',
+            'station' => [
+                'number' => $stationNumber,
+                'name' => $historical['stationName'] ?: $station['name'],
+                'waterbody' => $station['waterbody']
+            ],
+            'measurement' => [
+                'level' => $historical['level'],
+                'discharge' => $historical['discharge'],
+                'observed_at' => $historical['observedAt'],
+                'trend' => 'unknown',
+                'change_period_hours' => null,
+                'level_change' => null,
+                'discharge_change' => null
+            ],
+            'provisional' => false,
+            'source' => 'Environnement et Changement climatique Canada',
+            'source_url' => 'https://eau.ec.gc.ca/report/historical_f.html?stn=' . rawurlencode($stationNumber)
+        ];
+    }
 } else {
     $latest = $observations[0];
     $oldest = $observations[count($observations) - 1];
@@ -170,6 +243,7 @@ if ($observations === []) {
     $payload = [
         'status' => 'ok',
         'available' => true,
+        'data_type' => 'realtime',
         'station' => [
             'number' => $stationNumber,
             'name' => $latest['stationName'] ?: $station['name'],
