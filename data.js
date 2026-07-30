@@ -1001,18 +1001,23 @@ const supplementalSpotDetails = [
             "assets/spots/riviere-macaza/riviere-et-reflets.jpg"
         ],
         "photoCredit": "Refuges rustiques La Macaza",
-        "description": "Accès à la rivière Macaza documenté par une contribution de la communauté.",
-        "longDescription": "Ce point donne accès à la rivière Macaza, à La Macaza. Le stationnement indiqué par la personne contributrice se trouve à environ 32 m du point d’accès à l’eau. Les conditions, les règles d’accès et les services doivent être vérifiés sur place avant le départ.",
-        "difficulty": "À confirmer",
-        "paddleScore": null,
-        "scoreFactors": {},
+        "description": "Accès à la rivière Macaza documenté par une contribution de la communauté et confirmé à l’aide de la carte de Canot Kayak Québec.",
+        "longDescription": "Ce point donne accès au secteur calme de la rivière Macaza et au lac Macaza. La mise à l’eau est répertoriée par Canot Kayak Québec. Le stationnement confirmé se trouve à environ 32 m du point d’accès à l’eau. Le Paddle Score évalue seulement le secteur calme et le lac; il ne s’applique pas à la descente des rapides. Le tarif et les règles locales doivent être vérifiés sur place avant le départ.",
+        "difficulty": "Intermédiaire",
+        "paddleScore": 74,
+        "scoreFactors": {
+            "wind": 7,
+            "rain": 7,
+            "temperature": 7,
+            "waves": 8
+        },
         "isFree": null,
         "cost": "À vérifier",
         "waterQuality": "Non évaluée",
-        "maxLength": "Parcours à confirmer",
+        "maxLength": "Secteur calme et lac Macaza",
         "season": "À vérifier",
         "parking": {
-            "location": "Stationnement indiqué par la personne contributrice",
+            "location": "Stationnement confirmé à proximité de l’accès",
             "spots": "Capacité à vérifier",
             "accessible": null,
             "cost": "À vérifier"
@@ -1020,7 +1025,7 @@ const supplementalSpotDetails = [
         "access": {
             "description": "Accès à l’eau de la rivière Macaza",
             "type": "Accès riverain / mise à l’eau manuelle",
-            "difficulty": "À confirmer",
+            "difficulty": "Intermédiaire; débutant possible sur le lac par météo calme",
             "launchPoint": "Rivière Macaza"
         },
         "amenities": [
@@ -1029,7 +1034,11 @@ const supplementalSpotDetails = [
         ],
         "warnings": [
             "Vérifiez le courant, le niveau de l’eau et la météo avant le départ",
-            "Confirmez les règles d’accès et le statut du terrain sur place"
+            "Vérifiez le tarif du stationnement et les règles locales sur place",
+            "Le Paddle Score couvre seulement le secteur calme et le lac Macaza; il n’évalue pas la descente de la rivière",
+            "Ne remontez pas ou ne descendez pas au-delà du secteur calme sans consulter la carte de Canot Kayak Québec et posséder l’expérience requise",
+            "La difficulté des rapides peut varier selon le niveau de l’eau",
+            "Aucune mesure publique en direct n’est disponible pour la rivière Macaza; une vérification visuelle est requise avant le départ"
         ],
         "faq": [
             {
@@ -1043,7 +1052,9 @@ const supplementalSpotDetails = [
         ],
         "highlights": [
             "Galerie de trois photos communautaires",
-            "Accès à l’eau et stationnement indiqués séparément"
+            "Mise à l’eau répertoriée par Canot Kayak Québec",
+            "Accès à l’eau et stationnement indiqués séparément",
+            "Secteur calme donnant accès au lac Macaza"
         ]
     },
     {
@@ -3734,7 +3745,7 @@ const laVieSupPopularSpotDetails = laVieSupPopularSpotSeeds.map(seed => {
 });
 
 const accessPointOverrides = {
-    "riviere-macaza": { lat: 46.398759536928964, lon: -74.72960327747677, name: "Accès à l’eau de la rivière Macaza", type: "Accès riverain / mise à l’eau manuelle", confidence: "high", source: "Coordonnées confirmées par la personne contributrice" },
+    "riviere-macaza": { lat: 46.398759536928964, lon: -74.72960327747677, name: "Accès à l’eau de la rivière Macaza", type: "Accès riverain / mise à l’eau manuelle", confidence: "high", source: "Coordonnées fournies par la personne contributrice; mise à l’eau répertoriée sur la carte Rivière Macaza de Canot Kayak Québec (publication 2022)" },
     "lac-saint-joseph-plage-gratton": { lat: 45.972370018135365, lon: -74.33935648574739, name: "Plage Gratton", type: "Plage / accès à l'eau", confidence: "high", source: "Coordonnées confirmées par l'utilisateur" },
     "lac-rond-plage-jean-guy-caron": { lat: 45.94967058887019, lon: -74.14095805832862, name: "Plage Jean-Guy-Caron", type: "Plage / accès à l'eau", confidence: "high", source: "Coordonnées confirmées par l'utilisateur" },
     "lac-du-mont-habitant-plage": { lat: 45.88072798572343, lon: -74.17963580639703, name: "Plage du lac du Mont Habitant", type: "Plage / accès à l'eau", confidence: "high", source: "Coordonnées confirmées par l'utilisateur" },
@@ -3793,7 +3804,7 @@ const accessPointOverrides = {
 // Le point d'accès et le stationnement sont volontairement séparés. Les itinéraires
 // visent le stationnement afin d'éviter d'envoyer un véhicule directement sur la rive.
 const parkingPointOverrides = {
-    "riviere-macaza": { lat: 46.39878543336365, lon: -74.73001633765895, name: "Stationnement de l’accès à la rivière Macaza", confidence: "high", source: "Coordonnées confirmées par la personne contributrice", distanceToAccessMeters: 32, fee: "À vérifier" },
+    "riviere-macaza": { lat: 46.39878543336365, lon: -74.73001633765895, name: "Stationnement confirmé de l’accès à la rivière Macaza", confidence: "high", source: "Emplacement du stationnement confirmé par la personne contributrice", distanceToAccessMeters: 32, fee: "À vérifier" },
     "lac-saint-joseph-plage-gratton": { lat: 45.97194980542055, lon: -74.33984292665237, name: "Stationnement de la plage Gratton", confidence: "high", source: "Coordonnées confirmées par l'utilisateur", distanceToAccessMeters: 60, fee: "Gratuit" },
     "lac-rond-plage-jean-guy-caron": { lat: 45.949804584150016, lon: -74.1404316234221, name: "Stationnement de la plage Jean-Guy-Caron", confidence: "high", source: "Coordonnées confirmées par l'utilisateur", distanceToAccessMeters: 43, fee: "Payant pour les non-résidents" },
     "lac-raymond-val-morin": { lat: 46.00936981068226, lon: -74.1695892836931, name: "Stationnement du lac Raymond", confidence: "high", source: "Coordonnées confirmées par l'utilisateur", distanceToAccessMeters: 29, fee: "À vérifier" },
