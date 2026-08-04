@@ -11,11 +11,11 @@ const lacDatabase = [
         region: "Mauricie",
         lat: 46.6110,
         lon: -72.6240,
-        mainImage: "https://images.unsplash.com/photo-1501183007986-d0d080b147f9?auto=format&fit=crop&q=80&w=1200",
+        mainImage: "assets/spots/lac-raymond-val-morin.jpg",
         gallery: [
-            "https://images.unsplash.com/photo-1501183007986-d0d080b147f9?auto=format&fit=crop&q=80&w=800",
-            "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=800",
-            "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-raymond-val-morin.jpg",
+            "assets/spots/lac-forbes.jpg",
+            "assets/spots/lac-raymond-val-morin.jpg"
         ],
         description: "Lac à la Tortue est un joyau populaire de la Mauricie, réputé pour ses eaux calmes et accessibles. Parfait pour les débutants, ce lac offre un environnement sécuritaire avec une infrastructure bien établie.",
         longDescription: "Situées en plein cœur de la Mauricie, les eaux de Lac à la Tortue offrent une expérience paddle accessible et agréable. Le lac est bien aménagé avec des plages publiques, et les conditions généralement calmes le rendent idéal pour les familles et les paddlers débutants. Attention toutefois à la zone de décollage des hydravions au centre du lac.",
@@ -86,10 +86,10 @@ const lacDatabase = [
         region: "Mauricie",
         lat: 46.527974024663074,
         lon: -73.19878614418161,
-        mainImage: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=1200",
+        mainImage: "assets/spots/lac-forbes.jpg",
         gallery: [
-            "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800",
-            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-forbes.jpg",
+            "assets/spots/lac-maskinonge.jpg"
         ],
         description: "Réputé pour son eau cristalline et ses 42 km de rivage sauvage, Lac Sacacomie est le paradis des paddlers en quête d'aventure. Une eau d'une clarté exceptionnelle vous permettra de voir 15 mètres de profondeur.",
         longDescription: "Avec une longueur de 42 km et une eau exceptionnellement claire, Lac Sacacomie offre l'une des plus belles expériences de paddle en Mauricie. Le rivage sauvage, parsemé d'îles verdoyantes et de baies secrètes, en fait un lieu de prédilection pour les explorateurs. L'eau cristalline permet une visibilité remarquable sous l'eau.",
@@ -157,10 +157,10 @@ const lacDatabase = [
         region: "Mauricie",
         lat: 46.35147138297579,
         lon: -72.52938180436846,
-        mainImage: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&q=80&w=1200",
+        mainImage: "assets/spots/lac-mercier-illustration-ia.jpg",
         gallery: [
-            "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&q=80&w=800",
-            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-mercier-illustration-ia.jpg",
+            "assets/spots/lac-maskinonge.jpg"
         ],
         description: "Naviguez autour de l'Île Saint-Quentin au coucher du soleil pour une expérience magique. Cette rivière mythique offre un équilibre parfait entre aventure et accessibilité.",
         longDescription: "La Rivière St-Maurice est un incontournable. L'Île Saint-Quentin offre un circuit de paddle idéal, permettant d'explorer l'histoire industrielle du Québec tout en pagayant. Les courants sont modérés hors du centre, et le paysage vire au magique en fin d'après-midi.",
@@ -229,10 +229,10 @@ const lacDatabase = [
         region: "Mauricie",
         lat: 46.22455,
         lon: -72.92234,
-        mainImage: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=1200",
+        mainImage: "assets/spots/lac-tremblant.jpg",
         gallery: [
-            "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&q=80&w=800",
-            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-tremblant.jpg",
+            "assets/spots/lac-maskinonge.jpg"
         ],
         description: "Réserve de biosphère UNESCO, Lac Saint-Pierre est un site d'importance mondiale pour la biodiversité. Préparez-vous pour les conditions venteuses - c'est un lac sportif !",
         longDescription: "Le Lac Saint-Pierre est bien plus qu'un lieu de paddle - c'est un site de conservation d'importance mondiale. La biosphère offre une faune et une flore remarquables. Cependant, ce lac est très exposé au vent d'Ouest et convient mieux aux paddlers expérimentés.",
@@ -300,10 +300,9 @@ const lacDatabase = [
         region: "Mauricie",
         lat: 46.66976,
         lon: -73.00577,
-        mainImage: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200",
+        mainImage: "assets/spots/lac-maskinonge.jpg",
         gallery: [
-            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
-            "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-maskinonge.jpg"
         ],
         description: "Naviguez au pied de falaises mythiques dans le Parc National de la Mauricie. Les chutes Waber sont accessibles via ce lac - une expérience inoubliable !",
         longDescription: "Le Lac Wapizagonke offre une immersion totale dans la nature sauvage de la Mauricie. Les falaises imposantes, la faune diversifiée et l'accessibilité aux chutes Waber en font un destination de choix pour les amoureux de la nature.",
@@ -372,10 +371,10 @@ const lacDatabase = [
         region: "Mauricie",
         lat: 46.6890634,
         lon: -73.9001922,
-        mainImage: "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&q=80&w=1200",
+        mainImage: "assets/spots/lac-memphremagog-magog.jpg",
         gallery: [
-            "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&q=80&w=800",
-            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-memphremagog-magog.jpg",
+            "assets/spots/lac-maskinonge.jpg"
         ],
         description: "Plages de sable magnifiques et eaux profondes, Lac Taureau est le choix parfait pour un week-end en famille. Attention à la navigation moteur.",
         longDescription: "Avec ses plages de sable fin et ses installations modernes, Lac Taureau offre l'essence même du paddling québécois de détente. Le parc régional est bien équipé et accueillant.",
@@ -439,10 +438,10 @@ const lacDatabase = [
         region: "Lanaudière",
         lat: 46.33623,
         lon: -73.39885,
-        mainImage: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200",
+        mainImage: "assets/spots/lac-maskinonge.jpg",
         gallery: [
-            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
-            "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-maskinonge.jpg",
+            "assets/spots/lac-forbes.jpg"
         ],
         description: "Grand lac accessible depuis la plage de Saint-Gabriel, au 333 rue du Parc. L'accès par la plage facilite l'arrivée avec une embarcation légère.",
         longDescription: "Le lac Maskinongé est accessible depuis la plage de Saint-Gabriel à Saint-Gabriel-de-Brandon. L'itinéraire mène au 333 rue du Parc, près de la plage, plutôt qu'au centre du lac. Le plan d'eau peut être exposé au vent et à la circulation nautique; vérifiez les conditions et les règles locales avant la mise à l'eau.",
@@ -507,10 +506,10 @@ const lacDatabase = [
         region: "Mauricie",
         lat: 46.6518317,
         lon: -72.7986336,
-        mainImage: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200",
+        mainImage: "assets/spots/lac-maskinonge.jpg",
         gallery: [
-            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
-            "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-maskinonge.jpg",
+            "assets/spots/lac-forbes.jpg"
         ],
         description: "Grand lac de la Mauricie accessible par le Camping Plage Baie Martin, qui propose une plage ainsi que des activités de canot et de kayak.",
         longDescription: "Le lac des Piles offre un vaste plan d'eau entouré de relief boisé. L'accès présenté ici passe par le Camping Plage Baie Martin, au 1801 chemin de la Baie-Martin. Les conditions d'accès de jour et les tarifs doivent être confirmés auprès du camping avant le départ.",
@@ -578,10 +577,10 @@ const lacDatabase = [
         region: "Mauricie",
         lat: 46.87022,
         lon: -72.39044,
-        mainImage: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=1200",
+        mainImage: "assets/spots/lac-raymond-val-morin.jpg",
         gallery: [
-            "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=800",
-            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-raymond-val-morin.jpg",
+            "assets/spots/lac-maskinonge.jpg"
         ],
         description: "Sable fin et eau claire. Très fréquenté durant l'été - arrivez tôt ! C'est LE spot familial.",
         longDescription: "Lac-aux-Sables est le cœur battant du paddle loisir en Mauricie. Plages de sable impeccables, eau claire et ambiance festive.",
@@ -645,10 +644,10 @@ const lacDatabase = [
         region: "Mauricie",
         lat: 46.7882,
         lon: -72.8575,
-        mainImage: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=1200",
+        mainImage: "assets/spots/lac-lyster.jpg",
         gallery: [
-            "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800",
-            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-lyster.jpg",
+            "assets/spots/lac-maskinonge.jpg"
         ],
         description: "Plage surveillée et eaux calmes. Parfait pour le paddle yoga et la détente en parc national.",
         longDescription: "Lac Édouard offre le meilleur des deux mondes - la tranquillité d'un parc national et l'infrastructure d'une plage populaire.",
@@ -712,10 +711,10 @@ const lacDatabase = [
         "region": "Laurentides",
         "lat": 45.468056,
         "lon": -74.030556,
-        "mainImage": "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&q=80&w=1200",
+        "mainImage": "assets/spots/lac-memphremagog-magog.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&q=80&w=800",
-            "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-memphremagog-magog.jpg",
+            "assets/spots/lac-megantic.jpg"
         ],
         "description": "Grand classique proche de Montréal, le parc national d'Oka donne accès au lac des Deux Montagnes avec plage, location nautique et secteurs adaptés au kayak et au surf à pagaie.",
         "longDescription": "Le parc national d'Oka est un des spots nautiques les plus fréquentés près de Montréal. La Sépaq y indique la location de kayak et de surf à pagaie, avec mise à l'eau possible à la Crête ou à la plage principale selon l'embarcation et la saison. Le plan d'eau est vaste: vérifiez le vent avant de partir.",
@@ -768,9 +767,9 @@ const lacDatabase = [
         "region": "Estrie",
         "lat": 45.42668294095945,
         "lon": -72.61486447370173,
-        "mainImage": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=1200",
+        "mainImage": "assets/spots/reservoir-choiniere-yamaska.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/reservoir-choiniere-yamaska.jpg"
         ],
         "description": "Le réservoir Choinière, au parc national de la Yamaska, est un plan d'eau populaire pour le canot, le kayak, le pédalo et le surf à pagaie.",
         "longDescription": "Le parc national de la Yamaska entoure le réservoir Choinière, un vaste plan d'eau utilisé pour les activités nautiques. La Sépaq y mentionne le canot, le kayak, le surf à pagaie, le pédalo et la baignade surveillée en saison. C'est un bon choix pour une sortie encadrée et familiale en Estrie.",
@@ -823,9 +822,9 @@ const lacDatabase = [
         "region": "Laurentides",
         "lat": 46.095,
         "lon": -75.67389,
-        "mainImage": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=1200",
+        "mainImage": "assets/spots/lac-forbes.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-forbes.jpg"
         ],
         "description": "Le Poisson-Blanc est un incontournable des Laurentides pour les sorties de canot, kayak, SUP et camping sur les îles.",
         "longDescription": "Le parc régional du Poisson-Blanc est reconnu pour le canot, le kayak, le SUP-camping et les plages sauvages du réservoir. Le pavillon d'accueil Le Bastion à Notre-Dame-du-Laus offre des services et de la location nautique. C'est un spot magnifique, mais plus aventure que plage urbaine.",
@@ -878,9 +877,9 @@ const lacDatabase = [
         "region": "Québec",
         "lat": 46.84386285760057,
         "lon": -71.17843386608614,
-        "mainImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1200",
+        "mainImage": "assets/spots/lac-megantic.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-megantic.jpg"
         ],
         "description": "La Baie de Beauport est une destination estivale très fréquentée à Québec, avec grande plage, sports nautiques et stationnement sur place.",
         "longDescription": "La Baie de Beauport du Port de Québec propose une grande plage de sable, des activités nautiques et sportives, ainsi qu'un accès près du centre-ville de Québec. Le site est pratique pour une sortie urbaine, mais il faut tenir compte du vent et du caractère exposé du fleuve.",
@@ -933,9 +932,9 @@ const lacDatabase = [
         "region": "Outaouais",
         "lat": 45.6,
         "lon": -75.133333,
-        "mainImage": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=1200",
+        "mainImage": "assets/spots/lac-forbes.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-forbes.jpg"
         ],
         "description": "Le parc national de Plaisance est un spot d'Outaouais reconnu pour les sorties calmes en canot, kayak et surf à pagaie dans les baies et marais.",
         "longDescription": "La Sépaq décrit le parc national de Plaisance comme un paysage de baies, d'étangs et de marécages en bordure de la rivière des Outaouais. Le parc offre canot, kayak, surf à pagaie et plusieurs débarcadères, notamment au centre de découverte et de services du secteur des Presqu'îles.",
@@ -991,7 +990,7 @@ const supplementalSpotDetails = [
         "id": "riviere-macaza",
         "slug": "riviere-macaza",
         "name": "Rivière Macaza",
-        "region": "La Macaza",
+        "region": "Laurentides",
         "lat": 46.398759536928964,
         "lon": -74.72960327747677,
         "mainImage": "assets/spots/riviere-macaza/passage-sous-le-pont.jpg",
@@ -1199,15 +1198,78 @@ const supplementalSpotDetails = [
         ]
     },
     {
+        "id": "lac-mercier",
+        "slug": "lac-mercier",
+        "name": "Lac Mercier",
+        "region": "Laurentides",
+        "lat": 46.193499,
+        "lon": -74.631738,
+        "mainImage": "assets/spots/lac-mercier-illustration-ia.jpg",
+        "gallery": [
+            "assets/spots/lac-mercier-illustration-ia.jpg"
+        ],
+        "description": "Le lac Mercier, à Mont-Tremblant, offre un stationnement gratuit et une mise à l'eau située à gauche du quai.",
+        "longDescription": "Ce point d'accès au lac Mercier a été confirmé par une personne contributrice. Le stationnement est gratuit et la mise à l'eau pour les embarcations légères se trouve à gauche du quai. Vérifiez les conditions et les règles locales avant le départ.",
+        "difficulty": "facile",
+        "paddleScore": 75,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 7,
+            "temperature": 8,
+            "waves": 8
+        },
+        "isFree": true,
+        "cost": "Stationnement gratuit",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "Circuit local",
+        "season": "Mai à septembre",
+        "parking": {
+            "location": "Stationnement gratuit près du quai du lac Mercier.",
+            "spots": "À vérifier",
+            "accessible": true,
+            "cost": "Gratuit"
+        },
+        "access": {
+            "description": "Mise à l'eau à gauche du quai.",
+            "type": "Quai / mise à l'eau manuelle",
+            "difficulty": "Facile",
+            "launchPoint": "À gauche du quai du lac Mercier"
+        },
+        "amenities": [
+            "Stationnement gratuit",
+            "Quai",
+            "Mise à l'eau pour embarcations légères"
+        ],
+        "warnings": [
+            "Vérifiez les règles locales avant la mise à l'eau",
+            "Les conditions peuvent changer rapidement selon le vent"
+        ],
+        "faq": [
+            {
+                "q": "Où se trouve la mise à l'eau ?",
+                "a": "La mise à l'eau se trouve à gauche du quai, au point GPS indiqué."
+            },
+            {
+                "q": "Le stationnement est-il payant ?",
+                "a": "Non. Le stationnement a été signalé comme gratuit par une personne contributrice."
+            }
+        ],
+        "highlights": [
+            "Accès confirmé par une personne contributrice",
+            "Stationnement gratuit",
+            "Mise à l'eau à gauche du quai"
+        ]
+    },
+    {
         "id": "lac-tremblant",
         "slug": "lac-tremblant",
         "name": "Lac Tremblant",
         "region": "Laurentides",
         "lat": 46.20843802180653,
         "lon": -74.59551156749815,
-        "mainImage": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-tremblant.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-tremblant.jpg"
         ],
         "description": "Lac Tremblant possède un accès par la plage avec stationnement distinct. Le lavage de l'embarcation est obligatoire avant la mise à l'eau.",
         "longDescription": "L'accès à l'eau du lac Tremblant se fait par la plage indiquée sur la carte, avec un stationnement distinct à proximité. IMPORTANT : le lavage de l'embarcation est obligatoire avant la mise à l'eau. Rendez-vous d'abord à la station de lavage du secteur Pierre Plouffe, clairement indiquée par un troisième marqueur sur la carte, puis dirigez-vous vers le stationnement et la plage. Vérifiez les heures, les frais et les règles locales avant le départ.",
@@ -1283,9 +1345,9 @@ const supplementalSpotDetails = [
         "region": "Laurentides",
         "lat": 46.2762,
         "lon": -74.7298,
-        "mainImage": "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-lyster.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-lyster.jpg"
         ],
         "description": "Rivière Rouge (Labelle) est un spot de paddle de la région Laurentides. Eaux calmes serpentant entre de magnifiques plages de sable fin, parfaites pour le pique-nique.",
         "longDescription": "Rivière Rouge (Labelle) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Laurentides. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Eaux calmes serpentant entre de magnifiques plages de sable fin, parfaites pour le pique-nique.",
@@ -1351,9 +1413,9 @@ const supplementalSpotDetails = [
         "region": "Estrie",
         "lat": 45.363417803831844,
         "lon": -72.23536491401258,
-        "mainImage": "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-forbes.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-forbes.jpg"
         ],
         "description": "Lac Stukely (Mont-Orford) est un spot de paddle de la r?gion Estrie. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Mise à l'eau du lac Stukely, parc du Mont-Orford.",
         "longDescription": "Lac Stukely (Mont-Orford) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Estrie. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Eau calme et très propre au cœur du parc national. Navigation sauvage protégée du vent.",
@@ -1419,9 +1481,9 @@ const supplementalSpotDetails = [
         "region": "Estrie",
         "lat": 45.2672900360233,
         "lon": -72.15984658219729,
-        "mainImage": "https://images.unsplash.com/photo-1475503572774-15a45e5d60b9?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-memphremagog-magog.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1475503572774-15a45e5d60b9?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-memphremagog-magog.jpg"
         ],
         "description": "Lac Memphrémagog (Magog) est un spot de paddle de la région Estrie. Vue extraordinaire sur le Mont Orford. Attention au vent de face et aux bateaux à moteur.",
         "longDescription": "Lac Memphrémagog (Magog) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Estrie. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Vue extraordinaire sur le Mont Orford. Attention au vent de face et aux bateaux à moteur.",
@@ -1487,9 +1549,9 @@ const supplementalSpotDetails = [
         "region": "Estrie",
         "lat": 45.33441207629638,
         "lon": -72.02343277469295,
-        "mainImage": "https://images.unsplash.com/photo-1475503572774-15a45e5d60b9?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/petit-lac-magog-plage-municipale.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1475503572774-15a45e5d60b9?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/petit-lac-magog-plage-municipale.jpg"
         ],
         "description": "Petit-Lac-Magog donne accès au lac Magog par le Parc de la Plage-Municipale, dans le secteur Deauville de Sherbrooke.",
         "longDescription": "Le Parc de la Plage-Municipale est ajouté comme spot confirmé de Petit-Lac-Magog. Les points GPS de l'accès à l'eau et du stationnement sont enregistrés séparément. OpenStreetMap confirme le parc sous le nom Parc de la Plage-Municipale à Deauville, Sherbrooke. Avant la sortie, validez les règles locales, la météo, le vent, les frais et la saison d'ouverture.",
@@ -1555,9 +1617,9 @@ const supplementalSpotDetails = [
         "region": "Saguenay-Lac-Saint-Jean",
         "lat": 48.245,
         "lon": -70.2815,
-        "mainImage": "https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-raymond-val-morin.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-raymond-val-morin.jpg"
         ],
         "description": "Fjord du Saguenay (L'Anse) est un spot de paddle de la région Saguenay-Lac-Saint-Jean. Naviguez au milieu de falaises géantes de 300m. Réservé aux experts (marées et vents forts).",
         "longDescription": "Fjord du Saguenay (L'Anse) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Saguenay-Lac-Saint-Jean. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Naviguez au milieu de falaises géantes de 300m. Réservé aux experts (marées et vents forts).",
@@ -1623,9 +1685,9 @@ const supplementalSpotDetails = [
         "region": "Saguenay-Lac-Saint-Jean",
         "lat": 48.47962,
         "lon": -71.79344,
-        "mainImage": "https://images.unsplash.com/photo-1439853949127-fa647821ebb0?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-mercier-illustration-ia.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1439853949127-fa647821ebb0?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-mercier-illustration-ia.jpg"
         ],
         "description": "Lac Saint-Jean (Alma) est un spot de paddle de la r?gion Saguenay-Lac-Saint-Jean. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Marina St-Gédéon, mise à l'eau OSM près de la plage.",
         "longDescription": "Lac Saint-Jean (Alma) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Saguenay-Lac-Saint-Jean. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Une véritable mer intérieure. Vagues importantes par vent d'Est.",
@@ -1691,9 +1753,9 @@ const supplementalSpotDetails = [
         "region": "Gaspésie",
         "lat": 48.0625,
         "lon": -65.5165,
-        "mainImage": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-forbes.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-forbes.jpg"
         ],
         "description": "Rivière Bonaventure est un spot de paddle de la région Gaspésie. Considérée comme l'une des rivières les plus limpides au monde. Sensation de léviter sur l'eau.",
         "longDescription": "Rivière Bonaventure est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Gaspésie. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Considérée comme l'une des rivières les plus limpides au monde. Sensation de léviter sur l'eau.",
@@ -1759,9 +1821,9 @@ const supplementalSpotDetails = [
         "region": "Gaspésie",
         "lat": 48.8305,
         "lon": -64.2165,
-        "mainImage": "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-matapedia-baie-de-charlie/rive-boisee.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-matapedia-baie-de-charlie/rive-boisee.jpg"
         ],
         "description": "Le point GPS de la plage du parc national Forillon est confirmé. Le stationnement se trouve de l'autre côté de la rue.",
         "longDescription": "Le point GPS confirmé mène à la plage du parc national Forillon. Le stationnement se trouve directement de l'autre côté de la rue. Avant une sortie, vérifiez les droits d'entrée de Parcs Canada, la météo marine, le vent, les vagues et les restrictions locales.",
@@ -1827,9 +1889,9 @@ const supplementalSpotDetails = [
         "region": "Québec",
         "lat": 46.9435,
         "lon": -71.2935,
-        "mainImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-megantic.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-megantic.jpg"
         ],
         "description": "Lac Beauport est un spot de paddle de la région Québec. Le point de ralliement des paddlers de la région de Québec. Plan d'eau très calme et abrité.",
         "longDescription": "Lac Beauport est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Québec. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Le point de ralliement des paddlers de la région de Québec. Plan d'eau très calme et abrité.",
@@ -1895,9 +1957,9 @@ const supplementalSpotDetails = [
         "region": "Québec",
         "lat": 46.958743932978464, 
         "lon": -71.39128783083098,
-        "mainImage": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-forbes.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-forbes.jpg"
         ],
         "description": "Marais du Nord (St-Charles) est un spot de paddle de la région Québec. Explorez un labyrinthe d'eau calme d'une biodiversité exceptionnelle. Calme absolu garanti.",
         "longDescription": "Marais du Nord (St-Charles) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Québec. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Explorez un labyrinthe d'eau calme d'une biodiversité exceptionnelle. Calme absolu garanti.",
@@ -1963,9 +2025,9 @@ const supplementalSpotDetails = [
         "region": "Outaouais",
         "lat": 45.5305,
         "lon": -75.8435,
-        "mainImage": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-raymond-val-morin.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-raymond-val-morin.jpg"
         ],
         "description": "Lac Meech (Gatineau) est un spot de paddle de la région Outaouais. Plan d'eau très calme niché dans les collines de la Gatineau. Très populaire en été.",
         "longDescription": "Lac Meech (Gatineau) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Outaouais. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Plan d'eau très calme niché dans les collines de la Gatineau. Très populaire en été.",
@@ -2031,9 +2093,9 @@ const supplementalSpotDetails = [
         "region": "Montréal",
         "lat": 45.61196,
         "lon": -73.45680,
-        "mainImage": "https://images.unsplash.com/photo-1472214222541-d510753a4907?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-mercier-illustration-ia.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1472214222541-d510753a4907?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-mercier-illustration-ia.jpg"
         ],
         "description": "Îles-de-Boucherville est un spot de paddle de la r?gion Montréal. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Mise à l'eau du parc national des Îles-de-Boucherville.",
         "longDescription": "Îles-de-Boucherville est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Montréal. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Naviguez dans des chenaux étroits et calmes du Saint-Laurent. Il est fréquent de croiser des cerfs !",
@@ -2099,9 +2161,9 @@ const supplementalSpotDetails = [
         "region": "Montréal",
         "lat": 45.47895,
         "lon": -73.57404,
-        "mainImage": "https://images.unsplash.com/photo-1513829096960-ef048298497a?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-mercier-illustration-ia.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1513829096960-ef048298497a?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-mercier-illustration-ia.jpg"
         ],
         "description": "Canal de Lachine est un spot de paddle de la r?gion Montréal. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Centre Nautique du Canal.",
         "longDescription": "Canal de Lachine est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Montréal. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Parcours urbain historique au cœur de Montréal. Eaux calmes sans aucun courant.",
@@ -2167,9 +2229,9 @@ const supplementalSpotDetails = [
         "region": "Laurentides",
         "lat": 46.0795,
         "lon": -74.9218,
-        "mainImage": "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-mercier-illustration-ia.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-mercier-illustration-ia.jpg"
         ],
         "description": "Rivière des Outaouais (Arundel) est un spot de paddle de la région Laurentides. Rivière paisible idéale pour débuter, paysages forestiers exceptionnels.",
         "longDescription": "Rivière des Outaouais (Arundel) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Laurentides. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Rivière paisible idéale pour débuter, paysages forestiers exceptionnels.",
@@ -2235,9 +2297,9 @@ const supplementalSpotDetails = [
         "region": "Laurentides",
         "lat": 46.488844424555495,
         "lon": -74.17198999349367,
-        "mainImage": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-forbes.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-forbes.jpg"
         ],
         "description": "Lac Forbes (Laurentides) remplace l'ancien point du Lac du Diable avec un point GPS confirmé par l'utilisateur.",
         "longDescription": "Lac Forbes (Laurentides) est référencé dans Spot Paddle comme point d'accès confirmé par l'utilisateur. Avant la sortie, validez les règles locales, la météo, le vent, le stationnement et les restrictions saisonnières sur place.",
@@ -2303,9 +2365,9 @@ const supplementalSpotDetails = [
         "region": "Estrie",
         "lat": 45.58749460337366,
         "lon": -70.9277716473864,
-        "mainImage": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-megantic.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-megantic.jpg"
         ],
         "description": "La Station touristique Baie-des-Sables donne accès au lac Mégantic par une plage aménagée avec location nautique, descente de bateaux et quais visiteurs.",
         "longDescription": "Le point GPS confirmé mène à la Station touristique Baie-des-Sables, sur le lac Mégantic. Le site officiel confirme une plage aménagée, de la location nautique, une descente de bateaux, des quais visiteurs, des espaces de pique-nique et un bâtiment sanitaire. Le départ en paddle doit se faire depuis le secteur nautique autorisé, à l'extérieur de la zone réservée à la baignade.",
@@ -2372,9 +2434,9 @@ const supplementalSpotDetails = [
         "region": "Estrie",
         "lat": 45.80647,
         "lon": -71.32590,
-        "mainImage": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-lyster.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-lyster.jpg"
         ],
         "description": "Lac Aylmer (Stratford) est un spot de paddle de la r?gion Estrie. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Mise à l'eau Lac Aylmer, secteur Stratford.",
         "longDescription": "Lac Aylmer (Stratford) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Estrie. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Petit lac tranquille entouré de montagnes boisées. Excellente expérience de paddle.",
@@ -2440,9 +2502,9 @@ const supplementalSpotDetails = [
         "region": "Estrie",
         "lat": 45.25649,
         "lon": -72.49532,
-        "mainImage": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-forbes.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-forbes.jpg"
         ],
         "description": "Lac Brome est un spot de paddle de la r?gion Estrie. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Mise à l'eau du Lac Brome.",
         "longDescription": "Lac Brome est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Estrie. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Réputé pour sa clarté exceptionnelle, communauté de paddlers très active.",
@@ -2508,9 +2570,9 @@ const supplementalSpotDetails = [
         "region": "Saguenay-Lac-Saint-Jean",
         "lat": 48.43030,
         "lon": -71.05171,
-        "mainImage": "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-lyster.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-lyster.jpg"
         ],
         "description": "Rivière Chicoutimi est un spot de paddle de la r?gion Saguenay-Lac-Saint-Jean. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Marina Saguenay / mise à l'eau.",
         "longDescription": "Rivière Chicoutimi est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Saguenay-Lac-Saint-Jean. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Rivière serpentant entre les montagnes, faible courant en amont.",
@@ -2576,9 +2638,9 @@ const supplementalSpotDetails = [
         "region": "Saguenay-Lac-Saint-Jean",
         "lat": 48.3865,
         "lon": -71.2365,
-        "mainImage": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-lyster.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-lyster.jpg"
         ],
         "description": "Lac Kénogami est un spot de paddle de la région Saguenay-Lac-Saint-Jean. Lac magnifique avec cascades accessibles. Eau très claire et froide.",
         "longDescription": "Lac Kénogami est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Saguenay-Lac-Saint-Jean. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Lac magnifique avec cascades accessibles. Eau très claire et froide.",
@@ -2644,9 +2706,9 @@ const supplementalSpotDetails = [
         "region": "Saguenay-Lac-Saint-Jean",
         "lat": 48.6415,
         "lon": -72.6875,
-        "mainImage": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-maskinonge.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-maskinonge.jpg"
         ],
         "description": "Rivière Ashuapmushuan est un spot de paddle de la région Saguenay-Lac-Saint-Jean. Rivière de classe mondiale, sections calmes accessibles aux débutants.",
         "longDescription": "Rivière Ashuapmushuan est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Saguenay-Lac-Saint-Jean. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Rivière de classe mondiale, sections calmes accessibles aux débutants.",
@@ -2712,9 +2774,9 @@ const supplementalSpotDetails = [
         "region": "Gaspésie",
         "lat": 48.517193260835136,
         "lon": -64.21663054575258,
-        "mainImage": "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-matapedia-baie-de-charlie/rive-boisee.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-matapedia-baie-de-charlie/rive-boisee.jpg"
         ],
         "description": "La Baie de Percé est un spot côtier de la Gaspésie. Le point GPS d'accès a été confirmé directement pour remplacer l'ancien point générique.",
         "longDescription": "Le point GPS confirmé mène au secteur d'accès fourni pour la Baie de Percé. Avant une sortie, vérifiez le stationnement, les droits d'accès, les marées, le vent et les conditions maritimes. Le secteur offre un décor côtier remarquable, mais exige une préparation adaptée au fleuve et à la météo gaspésienne.",
@@ -2780,9 +2842,9 @@ const supplementalSpotDetails = [
         "region": "Gaspésie",
         "lat": 48.3795,
         "lon": -64.8905,
-        "mainImage": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-du-cap-aux-os.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-du-cap-aux-os.jpg"
         ],
         "description": "Le point GPS du Lac du Cap-aux-Os a été confirmé directement. Un stationnement se trouve juste à côté de l'accès, sur la route 132.",
         "longDescription": "Le point GPS confirmé mène à l'accès du Lac du Cap-aux-Os. Le stationnement adjacent se trouve sur la route 132. Avant une sortie, vérifiez les conditions locales, le vent, la température de l'eau et les éventuelles restrictions saisonnières.",
@@ -2848,9 +2910,9 @@ const supplementalSpotDetails = [
         "region": "Gaspésie",
         "lat": 48.25311727909155,
         "lon": -65.90292651939353,
-        "mainImage": "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-mercier-illustration-ia.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-mercier-illustration-ia.jpg"
         ],
         "description": "Rivière Cascapédia est un spot de paddle de la région Gaspésie. Rivière réputée pour sa grande clarté et ses courants modérés.",
         "longDescription": "Rivière Cascapédia est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Gaspésie. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Rivière réputée pour sa grande clarté et ses courants modérés.",
@@ -2916,9 +2978,9 @@ const supplementalSpotDetails = [
         "region": "Laurentides",
         "lat": 46.408652633180225,
         "lon": -75.5163500723817,
-        "mainImage": "https://images.unsplash.com/photo-1470070459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-des-iles-baie-poulin.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1470070459604-3b5ec3a7fe05?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-des-iles-baie-poulin.jpg"
         ],
         "description": "Lac des Îles (Laurentides) est un spot de paddle accessible par le quai public de la Baie Poulin, dans le secteur Lac-des-Îles.",
         "longDescription": "Lac des Îles (Laurentides) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau depuis le quai public confirmé à la Baie Poulin. Avant la sortie, validez les règles locales, la météo, le vent et les conditions de stationnement sur place.",
@@ -2984,9 +3046,9 @@ const supplementalSpotDetails = [
         "region": "Estrie",
         "lat": 45.268449928380484,
         "lon": -72.04829719674834,
-        "mainImage": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-forbes.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-forbes.jpg"
         ],
         "description": "Le Parc Monseigneur-Vel remplace l'ancien point de l'Île du Marais avec un accès et un stationnement confirmés par l'utilisateur.",
         "longDescription": "Le Parc Monseigneur-Vel est référencé dans Spot Paddle comme point d'accès confirmé pour le secteur de l'Île du Marais / lac Magog. Le stationnement et l'accès à l'eau sont enregistrés séparément. Avant la sortie, validez les règles locales, la météo, le vent et les conditions du site.",
@@ -3052,9 +3114,9 @@ const supplementalSpotDetails = [
         "region": "Québec",
         "lat": 46.9495,
         "lon": -71.0865,
-        "mainImage": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-maskinonge.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-maskinonge.jpg"
         ],
         "description": "Rivière Sainte-Anne (Québec) est un spot de paddle de la région Québec. Rivière pittoresque avec sections très calmes, prairies et forêts alentour.",
         "longDescription": "Rivière Sainte-Anne (Québec) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Québec. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Rivière pittoresque avec sections très calmes, prairies et forêts alentour.",
@@ -3120,9 +3182,9 @@ const supplementalSpotDetails = [
         "region": "Outaouais",
         "lat": 45.43198,
         "lon": -75.70705,
-        "mainImage": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-raymond-val-morin.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-raymond-val-morin.jpg"
         ],
         "description": "Lac Leamy (Gatineau) est un spot de paddle de la r?gion Outaouais. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Mise à l'eau du Lac Leamy.",
         "longDescription": "Lac Leamy (Gatineau) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Outaouais. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Lac tranquille au cœur du parc de la Gatineau, très populaire en week-end.",
@@ -3188,9 +3250,9 @@ const supplementalSpotDetails = [
         "region": "Outaouais",
         "lat": 45.46081,
         "lon": -75.68523,
-        "mainImage": "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-mercier-illustration-ia.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-mercier-illustration-ia.jpg"
         ],
         "description": "Rivière des Outaouais (Chelsea) est un spot de paddle de la r?gion Outaouais. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Mise à l'eau sur la rivière des Outaouais, secteur Gatineau/Chelsea.",
         "longDescription": "Rivière des Outaouais (Chelsea) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Outaouais. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Section calme de la rivière majeure de la région, idéale pour débuter.",
@@ -3256,9 +3318,9 @@ const supplementalSpotDetails = [
         "region": "Outaouais",
         "lat": 45.62240,
         "lon": -76.17843,
-        "mainImage": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-forbes.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-forbes.jpg"
         ],
         "description": "Lac la Pêche (Outaouais) est un spot de paddle de la r?gion Outaouais. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Mise à l'eau du lac la Pêche.",
         "longDescription": "Lac la Pêche (Outaouais) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Outaouais. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Lac du parc de la Gatineau avec activités de canotage; choix plus approprié que le lac Pink, protégé.",
@@ -3324,9 +3386,9 @@ const supplementalSpotDetails = [
         "region": "Outaouais",
         "lat": 45.60212,
         "lon": -76.04355,
-        "mainImage": "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-lyster.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-lyster.jpg"
         ],
         "description": "Lac Philippe (Outaouais) est un spot de paddle de la r?gion Outaouais. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Mise à l'eau du lac Philippe, parc de la Gatineau.",
         "longDescription": "Lac Philippe (Outaouais) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Outaouais. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Lac de parc provincial avec plages aménagées et zones protégées.",
@@ -3392,9 +3454,9 @@ const supplementalSpotDetails = [
         "region": "Montréal",
         "lat": 45.48807,
         "lon": -73.56237,
-        "mainImage": "https://images.unsplash.com/photo-1513829096960-ef048298497a?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-mercier-illustration-ia.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1513829096960-ef048298497a?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-mercier-illustration-ia.jpg"
         ],
         "description": "Bassin de Lachine (Montréal) est un spot de paddle de la région Montréal. Plan d'eau urbain parfait pour les sorties courtes, bien développé.",
         "longDescription": "Bassin de Lachine (Montréal) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Montréal. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Plan d'eau urbain parfait pour les sorties courtes, bien développé.",
@@ -3460,9 +3522,9 @@ const supplementalSpotDetails = [
         "region": "Montréal",
         "lat": 45.50176,
         "lon": -73.52360,
-        "mainImage": "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-matapedia-baie-de-charlie/rive-boisee.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-matapedia-baie-de-charlie/rive-boisee.jpg"
         ],
         "description": "Fleuve Saint-Laurent (Île Sainte-Hélène) est un spot de paddle de la r?gion Montréal. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Mise à l'eau du parc Jean-Drapeau / Île Sainte-Hélène.",
         "longDescription": "Fleuve Saint-Laurent (Île Sainte-Hélène) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Montréal. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Fjord urbain magnifique, eaux un peu plus agitées (niveau intermédiaire).",
@@ -3528,9 +3590,9 @@ const supplementalSpotDetails = [
         "region": "Montréal",
         "lat": 45.50176,
         "lon": -73.52360,
-        "mainImage": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800",
+        "mainImage": "assets/spots/lac-forbes.jpg",
         "gallery": [
-            "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&q=80&w=800"
+            "assets/spots/lac-forbes.jpg"
         ],
         "description": "Bassin olympique (Parc Jean-Drapeau) est un spot de paddle de la r?gion Montréal. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Mise à l'eau du parc Jean-Drapeau.",
         "longDescription": "Bassin olympique (Parc Jean-Drapeau) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Montréal. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Bassin calme du parc Jean-Drapeau, mieux identifié que l'ancien libellé Lac Masson.",
@@ -3598,6 +3660,7 @@ const supplementalSpotDetails = [
 const paysDenHautVerifiedSpots = [
     {
         id: "lac-du-mont-habitant-plage", slug: "lac-du-mont-habitant-plage", name: "Lac du Mont Habitant (plage)", region: "Laurentides", lat: 45.88072798572343, lon: -74.17963580639703,
+        mainImage: "assets/spots/lac-du-mont-habitant-plage.jpg", gallery: ["assets/spots/lac-du-mont-habitant-plage.jpg"],
         description: "Plage payante de Saint-Sauveur avec location d'embarcations non motorisées.", longDescription: "La plage du Mont Habitant, au 12 chemin des Skieurs, permet la baignade et les activités nautiques non motorisées en été. La MRC confirme la location d'embarcations sur place. Vérifiez l'horaire, le tarif et les règles visant les embarcations personnelles avant le départ.",
         difficulty: "facile", paddleScore: 78, scoreFactors: { wind: 8, rain: 7, temperature: 8, waves: 9 }, isFree: false, cost: "Accès payant; tarif à confirmer", waterQuality: "À vérifier localement", maxLength: "Petit lac", season: "Été",
         parking: { location: "12, chemin des Skieurs, Saint-Sauveur", spots: null, accessible: true, cost: "À confirmer" }, access: { description: "Accès par la plage", type: "Plage / location", difficulty: "Accès facile", launchPoint: "Plage du Mont Habitant" },
@@ -3605,18 +3668,21 @@ const paysDenHautVerifiedSpots = [
     },
     {
         id: "lac-saint-joseph-plage-gratton", slug: "lac-saint-joseph-plage-gratton", name: "Lac Saint-Joseph (plage Gratton)", region: "Laurentides", lat: 45.972370018135365, lon: -74.33935648574739,
+        mainImage: "assets/spots/lac-saint-joseph-plage-gratton.jpg", gallery: ["assets/spots/lac-saint-joseph-plage-gratton.jpg"],
         description: "Plage municipale gratuite où la MRC confirme les activités nautiques non motorisées.", longDescription: "La plage Gratton, au 2000 chemin du Village, offre baignade surveillée, pique-nique, pavillon sanitaire et activités nautiques non motorisées.",
         difficulty: "facile", paddleScore: 80, scoreFactors: { wind: 7, rain: 7, temperature: 8, waves: 8 }, isFree: true, waterQuality: "À vérifier localement", maxLength: "Parcours variable", season: "Été",
         parking: { location: "2000, chemin du Village, Saint-Adolphe-d'Howard", spots: null, accessible: true, cost: "Gratuit" }, access: { description: "Accès depuis la plage Gratton", type: "Plage", difficulty: "Accès facile", launchPoint: "Plage Gratton" }, amenities: ["Plage surveillée", "Pique-nique", "Pavillon sanitaire", "Jeux"], warnings: ["Baignade interdite sans sauveteur", "Circulation motorisée", "Valider la mise à l'eau avec le personnel"], faq: [{ q: "L'accès est-il gratuit?", a: "Oui, selon la fiche MRC 2026." }], highlights: ["Accès gratuit", "Services familiaux", "Accès nautique vérifié"]
     },
     {
         id: "lac-rond-plage-jean-guy-caron", slug: "lac-rond-plage-jean-guy-caron", name: "Lac Rond (plage Jean-Guy-Caron)", region: "Laurentides", lat: 45.94967058887019, lon: -74.14095805832862,
+        mainImage: "assets/spots/lac-rond-plage-jean-guy-caron.jpg", gallery: ["assets/spots/lac-rond-plage-jean-guy-caron.jpg"],
         description: "Plage avec location de SUP, kayaks et canots; depuis 2026, les embarcations personnelles sont réservées aux résidents.", longDescription: "La plage Jean-Guy-Caron, au 1080 chemin du Chantecler, loue des embarcations non motorisées. Depuis 2026, les non-résidents ne peuvent plus mettre leur propre embarcation à l'eau. Les résidents utilisent le quai du parc Lionel-Patry après nettoyage obligatoire à la station du stationnement de la plage.",
         difficulty: "facile", paddleScore: 82, scoreFactors: { wind: 8, rain: 7, temperature: 8, waves: 8 }, isFree: false, cost: "Plage et stationnement payants pour les non-résidents; location en sus", waterQuality: "Excellente (échantillons municipaux 2026)", maxLength: "Petit lac", season: "Été",
         parking: { location: "1080, chemin du Chantecler, Sainte-Adèle", spots: null, accessible: true, cost: "10 $ par bloc de 4 h sans vignette (2026)" }, access: { description: "Location à la plage; embarcation personnelle réservée aux résidents", type: "Plage / location", difficulty: "Accès réglementé", launchPoint: "Plage Jean-Guy-Caron" }, amenities: ["Plage", "Location de SUP, kayaks et canots", "Pique-nique", "Station de lavage"], warnings: ["Embarcations personnelles interdites aux non-résidents depuis 2026", "Nettoyage obligatoire pour les résidents", "Embarcations interdites dans la zone de baignade"], faq: [{ q: "Un non-résident peut-il apporter son SUP?", a: "Non depuis 2026, mais il peut en louer un sur place." }], highlights: ["Location de SUP", "Eau excellente en 2026", "Règles actuelles vérifiées"]
     },
     {
         id: "lac-des-seize-iles-debarcadere", slug: "lac-des-seize-iles-debarcadere", name: "Lac des Seize Îles (débarcadère municipal)", region: "Laurentides", lat: 45.9231495841278, lon: -74.46794202259929,
+        mainImage: "assets/spots/lac-des-seize-iles-debarcadere.jpg", gallery: ["assets/spots/lac-des-seize-iles-debarcadere.jpg"],
         description: "Débarcadère municipal sur la rue Lapierre, accessible aux visiteurs sur rendez-vous avec lavage obligatoire.", longDescription: "Le débarcadère accepte les embarcations sans moteur. En 2026, l'accès visiteur coûte 10 $ par jour et exige un rendez-vous pour l'entrée et la sortie. Le nettoyage est obligatoire avant et après. La plage Joseph-Rodger n'est pas un accès alternatif: toute embarcation y est interdite.",
         difficulty: "facile", paddleScore: 79, scoreFactors: { wind: 7, rain: 7, temperature: 8, waves: 8 }, isFree: false, cost: "10 $/jour sans moteur (visiteur, 2026)", waterQuality: "À vérifier localement", maxLength: "Parcours variable", season: "Saison nautique",
         parking: { location: "Rue Lapierre, Lac-des-Seize-Îles", spots: null, accessible: false, cost: "À confirmer" }, access: { description: "Rue Lapierre, sur réservation seulement", type: "Débarcadère municipal", difficulty: "Réservation obligatoire", launchPoint: "Débarcadère et station de lavage du lac des Seize-Îles" }, amenities: ["Rampe", "Station de lavage"], warnings: ["Rendez-vous requis pour l'entrée et la sortie", "Lavage avant et après", "Embarcations interdites à la plage Joseph-Rodger"], faq: [{ q: "Faut-il réserver?", a: "Oui, au 450 226-3117." }], highlights: ["Accès sans moteur confirmé", "Tarif 2026", "Lavage obligatoire"]
@@ -3704,9 +3770,13 @@ const laVieSupPopularSpotDetails = laVieSupPopularSpotSeeds.map(seed => {
         "assets/spots/lac-matapedia-baie-de-charlie/vue-depuis-la-planche.jpeg",
         "assets/spots/lac-matapedia-baie-de-charlie/panorama-baie.jpg"
     ];
+    const generatedLakeImages = {
+        "lac-lyster": "assets/spots/lac-lyster.jpg",
+        "lac-raymond-val-morin": "assets/spots/lac-raymond-val-morin.jpg"
+    };
     const gallery = seed.slug === "lac-matapedia-sayabec"
         ? matapediaGallery
-        : ["https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=800"];
+        : [generatedLakeImages[seed.slug] || "assets/spots/lac-lyster.jpg"];
     return {
         id: seed.slug,
         slug: seed.slug,
@@ -3744,7 +3814,49 @@ const laVieSupPopularSpotDetails = laVieSupPopularSpotSeeds.map(seed => {
     }
 });
 
+// Les photos principales réutilisées sont remplacées par une variante locale
+// propre au spot. La carte, les listes et la fiche détaillée lisent ainsi le
+// même fichier sans afficher exactement la même photo pour plusieurs lieux.
+const mainImageUsage = lacDatabase.reduce((usage, lake) => {
+    const image = lake.mainImage || "(aucune)";
+    usage[image] = (usage[image] || 0) + 1;
+    return usage;
+}, {});
+
+lacDatabase.forEach(lake => {
+    const originalImage = lake.mainImage || "(aucune)";
+    if (mainImageUsage[originalImage] <= 1) return;
+
+    const uniqueImage = `assets/spots/unique/${lake.slug}.jpg`;
+    lake.mainImage = uniqueImage;
+    lake.gallery = [
+        uniqueImage,
+        ...(Array.isArray(lake.gallery)
+            ? lake.gallery.filter(image => image && image !== originalImage && image !== uniqueImage)
+            : [])
+    ];
+});
+
+// Une photo secondaire ne doit pas être partagée entre plusieurs spots.
+// La première fiche qui la référence la conserve; les suivantes gardent leur
+// image principale unique et leurs autres photos propres.
+const galleryImageOwners = new Map();
+lacDatabase.forEach(lake => {
+    if (lake.mainImage) galleryImageOwners.set(lake.mainImage, lake.slug);
+});
+lacDatabase.forEach(lake => {
+    lake.gallery = (Array.isArray(lake.gallery) ? lake.gallery : [lake.mainImage])
+        .filter(image => {
+            if (!image || image === lake.mainImage) return Boolean(image);
+            const owner = galleryImageOwners.get(image);
+            if (owner && owner !== lake.slug) return false;
+            galleryImageOwners.set(image, lake.slug);
+            return true;
+        });
+});
+
 const accessPointOverrides = {
+    "lac-mercier": { lat: 46.193499, lon: -74.631738, name: "Mise à l'eau à gauche du quai du lac Mercier", type: "Quai / mise à l'eau manuelle", confidence: "high", source: "Coordonnées et indication confirmées par une personne contributrice le 3 août 2026" },
     "riviere-macaza": { lat: 46.398759536928964, lon: -74.72960327747677, name: "Accès à l’eau de la rivière Macaza", type: "Accès riverain / mise à l’eau manuelle", confidence: "high", source: "Coordonnées fournies par la personne contributrice; mise à l’eau répertoriée sur la carte Rivière Macaza de Canot Kayak Québec (publication 2022)" },
     "lac-saint-joseph-plage-gratton": { lat: 45.972370018135365, lon: -74.33935648574739, name: "Plage Gratton", type: "Plage / accès à l'eau", confidence: "high", source: "Coordonnées confirmées par l'utilisateur" },
     "lac-rond-plage-jean-guy-caron": { lat: 45.94967058887019, lon: -74.14095805832862, name: "Plage Jean-Guy-Caron", type: "Plage / accès à l'eau", confidence: "high", source: "Coordonnées confirmées par l'utilisateur" },
@@ -3804,6 +3916,7 @@ const accessPointOverrides = {
 // Le point d'accès et le stationnement sont volontairement séparés. Les itinéraires
 // visent le stationnement afin d'éviter d'envoyer un véhicule directement sur la rive.
 const parkingPointOverrides = {
+    "lac-mercier": { lat: 46.193499, lon: -74.631738, name: "Stationnement gratuit près du quai du lac Mercier", confidence: "high", source: "Coordonnées et gratuité confirmées par une personne contributrice le 3 août 2026", distanceToAccessMeters: 0, fee: "Gratuit" },
     "riviere-macaza": { lat: 46.39878543336365, lon: -74.73001633765895, name: "Stationnement confirmé de l’accès à la rivière Macaza", confidence: "high", source: "Emplacement du stationnement confirmé par la personne contributrice", distanceToAccessMeters: 32, fee: "À vérifier" },
     "lac-saint-joseph-plage-gratton": { lat: 45.97194980542055, lon: -74.33984292665237, name: "Stationnement de la plage Gratton", confidence: "high", source: "Coordonnées confirmées par l'utilisateur", distanceToAccessMeters: 60, fee: "Gratuit" },
     "lac-rond-plage-jean-guy-caron": { lat: 45.949804584150016, lon: -74.1404316234221, name: "Stationnement de la plage Jean-Guy-Caron", confidence: "high", source: "Coordonnées confirmées par l'utilisateur", distanceToAccessMeters: 43, fee: "Payant pour les non-résidents" },
