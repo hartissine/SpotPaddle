@@ -72,8 +72,20 @@ check(
 );
 check(
     hydroPhp.includes("'02OE012'") &&
-    hydroPhp.includes('hydrometric-realtime/items'),
+    hydroPhp.includes("'02NG019'") &&
+    hydroPhp.includes('MSP_RESOURCE_ID') &&
+    hydroPhp.includes('selectMspStation') &&
+    hydroPhp.includes('fetchEcccPayload') &&
+    hydroPhp.includes('X-SpotPaddle-Hydro-Version: 4'),
     'hydro.php: le relais hydrométrique officiel est incomplet'
+);
+check(
+    lakeHtml.includes("params.set('waterbody', waterbody)") &&
+    lakeHtml.includes("'lac-des-piles': '02NG019'") &&
+    lakeHtml.includes('id="hydrometricSection" class="hidden"') &&
+    lakeHtml.includes("section.classList.remove('hidden')") &&
+    lakeHtml.includes('getHydrometricRequest(currentLake)'),
+    'lac.html: la recherche exacte ou le masquage sans données est absent'
 );
 
 if (failures.length) {

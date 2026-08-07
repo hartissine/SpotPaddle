@@ -6,6 +6,8 @@ Cette checklist sert avant et après chaque déploiement public.
 
 - `https://meteo.spotpaddle.ca/health.php` retourne `status: ok`.
 - `https://meteo.spotpaddle.ca/meteo.php?lat=48.47962&lon=-71.79344` retourne un JSON OpenWeather avec `cod: 200`.
+- `https://meteo.spotpaddle.ca/hydro.php?station=02OE012` retourne la dernière mesure officielle du lac Memphrémagog et l'en-tête `X-SpotPaddle-Hydro-Version: 4`.
+- `https://meteo.spotpaddle.ca/hydro.php?station=02NG019` retourne la dernière donnée officielle disponible du lac des Piles; si aucune mesure n'existe, la fiche masque complètement la section.
 - `https://meteo.spotpaddle.ca/suggestion.php` retourne `status: ok`, `service: spotpaddle-suggestions`, `checks.delivery_configured: true` et idéalement `checks.delivery_provider: resend`.
 - Dans Render, le `Health Check Path` du service météo est `/health.php`.
 - `OPENWEATHER_API_KEY` est configurée dans Render et n'apparaît dans aucun fichier public.

@@ -108,7 +108,8 @@
             'riviere-mille-iles-laval': '02OA003',
             'riviere-mille-iles-saint-eustache': '02OA003',
             'verdun-parc-george-oreilly': '02OA016',
-            'lac-saint-louis-chateauguay': '02OA039'
+            'lac-saint-louis-chateauguay': '02OA039',
+            'lac-des-piles': '02NG019'
         };
 
         function toAbsoluteSiteUrl(value, fallback = FALLBACK_SOCIAL_IMAGE) {
@@ -220,8 +221,18 @@
             return `https://meteo.spotpaddle.ca/meteo.php?${params.toString()}`;
         }
 
-        function getHydrometricStation(currentLake) {
-            return HYDROMETRIC_STATIONS[currentLake?.slug] || null;
+        function getHydrometricRequest(currentLake) {
+            const params = new URLSearchParams();
+            const station = HYDROMETRIC_STATIONS[currentLake?.slug];
+            if (station) {
+                params.set('station', station);
+                return params;
+            }
+
+            const waterbody = String(currentLake?.name || '').replace(/\s*\([^)]*\)\s*$/, '').trim();
+            if (!waterbody) return null;
+            params.set('waterbody', waterbody);
+            return params;
         }
 
         function getHydrometricTrendLabel(trend) {
@@ -233,6 +244,17 @@
         }
 
         function getHydrometricActivityGuidance(data) {
+            if (data.station?.association === 'nearest') {
+                const distance = Number.isFinite(Number(data.station.distance_km))
+                    ? ` à ${Number(data.station.distance_km).toLocaleString('fr-CA')} km du spot`
+                    : '';
+                return {
+                    title: 'Station officielle voisine — indicateur régional seulement',
+                    message: `Cette station${distance} peut se trouver sur un autre plan d’eau ou bassin versant. Sa mesure ne confirme ni le niveau ni la profondeur à cette mise à l’eau.`,
+                    classes: 'border-amber-300 bg-amber-50 text-amber-950 dark:border-amber-800 dark:bg-amber-950/30 dark:text-amber-100'
+                };
+            }
+
             if (data.data_type === 'historical') {
                 return {
                     title: 'Impossible d’évaluer les conditions actuelles',
@@ -281,8 +303,10 @@
         }
 
         function setHydrometricUnavailable(message) {
+            const section = document.getElementById('hydrometricSection');
             const status = document.getElementById('hydrometricStatus');
             const content = document.getElementById('hydrometricContent');
+            if (section) section.classList.add('hidden');
             if (status) {
                 status.className = 'rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm font-semibold text-slate-600 dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-300';
                 status.textContent = message;
@@ -291,20 +315,22 @@
         }
 
         async function loadLakeHydrometry(currentLake) {
-            const stationNumber = getHydrometricStation(currentLake);
-            if (!stationNumber) {
-                setHydrometricUnavailable('Aucune station hydrométrique officielle suffisamment fiable n’est associée à ce spot.');
+            const requestParams = getHydrometricRequest(currentLake);
+            if (!requestParams) {
+                setHydrometricUnavailable('Le nom du plan d’eau est indisponible; aucune station officielle ne peut être recherchée.');
                 return;
             }
 
             try {
-                const response = await fetch(`https://meteo.spotpaddle.ca/hydro.php?station=${encodeURIComponent(stationNumber)}`, {
+                const response = await fetch(`https://meteo.spotpaddle.ca/hydro.php?${requestParams.toString()}`, {
                     headers: { Accept: 'application/json' }
                 });
                 const data = await response.json().catch(() => ({}));
 
                 if (!response.ok) {
-                    throw new Error(data.error || 'Service hydrométrique indisponible.');
+                    const error = new Error(data.error || 'Service hydrométrique indisponible.');
+                    error.status = response.status;
+                    throw error;
                 }
 
                 if (!data.available || !data.measurement) {
@@ -312,6 +338,7 @@
                     return;
                 }
 
+                const section = document.getElementById('hydrometricSection');
                 const status = document.getElementById('hydrometricStatus');
                 const content = document.getElementById('hydrometricContent');
                 const levelEl = document.getElementById('hydrometricLevel');
@@ -326,7 +353,12 @@
                 const trend = getHydrometricTrendLabel(data.measurement.trend);
                 const guidance = getHydrometricActivityGuidance(data);
                 const isHistorical = data.data_type === 'historical';
+                const isNearbyStation = data.station?.association === 'nearest';
+                const stationDistance = Number.isFinite(Number(data.station?.distance_km))
+                    ? Number(data.station.distance_km).toLocaleString('fr-CA')
+                    : null;
 
+                if (section) section.classList.remove('hidden');
                 if (status) status.classList.add('hidden');
                 if (content) content.classList.remove('hidden');
                 if (levelEl) levelEl.textContent = Number.isFinite(data.measurement.level) ? `${data.measurement.level.toFixed(3)} m` : 'Non mesuré';
@@ -335,17 +367,19 @@
                     trendEl.textContent = `${trend.icon} ${trend.label}`;
                     trendEl.className = `text-xl font-black ${trend.color}`;
                 }
-                if (stationEl) stationEl.textContent = `${data.station.name} (${data.station.number})`;
+                if (stationEl) stationEl.textContent = `${data.station.name} (${data.station.number})${isNearbyStation && stationDistance ? ` — ${stationDistance} km du spot` : ''}`;
                 if (observedEl) observedEl.textContent = `${isHistorical ? 'Dernière donnée disponible' : 'Dernière mesure'} : ${formatHydrometricObservationTime(data.measurement.observed_at)}`;
                 if (sourceEl) sourceEl.href = data.source_url;
                 if (badgeEl) {
-                    badgeEl.textContent = isHistorical ? 'Donnée historique' : 'Temps quasi réel';
-                    badgeEl.className = isHistorical
+                    badgeEl.textContent = isNearbyStation ? 'Station voisine' : (isHistorical ? 'Donnée historique' : 'Dernière mesure officielle');
+                    badgeEl.className = isNearbyStation || isHistorical
                         ? 'rounded-full bg-amber-100 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-amber-800 dark:bg-amber-950/50 dark:text-amber-300'
                         : 'rounded-full bg-sky-100 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-sky-800 dark:bg-sky-950/50 dark:text-sky-300';
                 }
                 if (noticeEl) {
-                    noticeEl.textContent = isHistorical
+                    noticeEl.textContent = isNearbyStation
+                        ? 'Mesure provisoire d’une station officielle voisine. Elle sert uniquement d’indicateur régional et ne représente pas nécessairement ce plan d’eau.'
+                        : isHistorical
                         ? 'Cette station ne transmet plus de mesure récente. Valeur affichée à titre historique seulement.'
                         : 'Mesures provisoires en temps quasi réel. Elles ne remplacent pas l’observation des conditions sur place.';
                 }
@@ -354,7 +388,11 @@
                     guidanceEl.innerHTML = `<strong class="block font-black">${guidance.title}</strong><span class="mt-1 block">${guidance.message}</span>`;
                 }
             } catch (error) {
-                setHydrometricUnavailable('Le niveau d’eau est temporairement indisponible. Réessayez plus tard.');
+                if (error?.status === 400 && /station hydrométrique non autorisée|nom du plan d’eau invalide/i.test(error.message || '')) {
+                    setHydrometricUnavailable('La recherche automatique de stations n’est pas encore active sur le serveur hydrométrique. Une mise à jour du service est requise.');
+                    return;
+                }
+                setHydrometricUnavailable('Le service hydrométrique officiel est temporairement indisponible. Réessayez plus tard.');
             }
         }
 
@@ -776,7 +814,7 @@
                                     </div>
                                 </section>
 
-                                <section>
+                                <section id="hydrometricSection" class="hidden">
                                     <div class="mb-4 flex flex-wrap items-center justify-between gap-3">
                                         <h2 class="text-2xl font-bold flex items-center gap-2">🌊 Niveau de l’eau</h2>
                                         <span id="hydrometricBadge" class="rounded-full bg-sky-100 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-sky-800 dark:bg-sky-950/50 dark:text-sky-300">Station officielle</span>
