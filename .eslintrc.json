@@ -11,8 +11,34 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
+  "globals": {
+    "L": "readonly",
+    "lacDatabase": "readonly",
+    "getLakeAccessPoint": "readonly",
+    "getLakeParkingPoint": "readonly",
+    "getLakeDirectionsPoint": "readonly",
+    "getNearestLakes": "readonly"
+  },
   "rules": {
     "no-console": ["warn", { "allow": ["error", "warn"] }],
     "eqeqeq": "error"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["data.js", "script.js"],
+      "rules": {
+        "no-unused-vars": "off"
+      }
+    },
+    {
+      "files": ["scripts/*.js", "tailwind.config.js"],
+      "env": {
+        "browser": false,
+        "node": true
+      },
+      "parserOptions": {
+        "sourceType": "script"
+      }
+    }
+  ]
 }

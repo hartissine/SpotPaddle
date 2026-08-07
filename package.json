@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "npm run build:css && npm run build:js && npm run vendor:leaflet",
-    "lint": "npx eslint . --ext .js,.html",
+    "lint": "eslint . --ext .js",
     "test": "node scripts/quality-check.js",
     "build:js": "node scripts/minify-js.js",
     "build:css": "tailwindcss -i ./src/tailwind.css -o ./assets/tailwind.css --minify",
@@ -12,6 +12,7 @@
     "vendor:leaflet": "node scripts/vendor-leaflet.js"
   },
   "devDependencies": {
+    "eslint": "8.57.1",
     "leaflet": "1.9.4",
     "tailwindcss": "3.4.17",
     "terser": "5.31.6"

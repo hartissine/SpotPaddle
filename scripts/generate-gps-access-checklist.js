@@ -50,7 +50,7 @@ lakes.forEach((lake, index) => {
     `Confiance GPS actuelle : ${value(access.confidence, 'à vérifier')}`,
     `Stationnement déclaré : ${value(lake.parking?.location)}`,
     `Stationnement GPS distinct : ${parking ? `${parking.lat}, ${parking.lon}` : 'Non défini'}`,
-    `Distance stationnement-eau : ${parking?.distanceToAccessMeters != null ? `${Math.round(parking.distanceToAccessMeters)} m` : 'À vérifier'}`,
+    `Distance stationnement-eau : ${parking?.distanceToAccessMeters !== null && parking?.distanceToAccessMeters !== undefined ? `${Math.round(parking.distanceToAccessMeters)} m` : 'À vérifier'}`,
     `Station de lavage : ${washStation ? `${washStation.name} — ${washStation.lat}, ${washStation.lon}` : 'Non définie'}`,
     `Coût / condition : ${value(lake.cost || lake.parking?.cost, lake.isFree ? 'Gratuit selon la fiche' : 'À vérifier')}`,
     `Restrictions : ${warnings}`,
