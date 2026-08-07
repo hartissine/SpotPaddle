@@ -11,14 +11,16 @@ const lacDatabase = [
         region: "Mauricie",
         lat: 46.6110,
         lon: -72.6240,
-        mainImage: "assets/spots/lac-raymond-val-morin.jpg",
+        mainImage: "assets/spots/lac-a-la-tortue/paddle-coucher-soleil.jpg",
         gallery: [
-            "assets/spots/lac-raymond-val-morin.jpg",
-            "assets/spots/lac-forbes.jpg",
-            "assets/spots/lac-raymond-val-morin.jpg"
+            "assets/spots/lac-a-la-tortue/paddle-coucher-soleil.jpg",
+            "assets/spots/lac-a-la-tortue/coucher-soleil-lac.jpg",
+            "assets/spots/lac-a-la-tortue/plage.jpg",
+            "assets/spots/lac-a-la-tortue/station-lavage-gratuite.jpg",
+            "assets/spots/lac-a-la-tortue/stationnement.jpg"
         ],
         description: "Lac à la Tortue est un joyau populaire de la Mauricie, réputé pour ses eaux calmes et accessibles. Parfait pour les débutants, ce lac offre un environnement sécuritaire avec une infrastructure bien établie.",
-        longDescription: "Situées en plein cœur de la Mauricie, les eaux de Lac à la Tortue offrent une expérience paddle accessible et agréable. Le lac est bien aménagé avec des plages publiques, et les conditions généralement calmes le rendent idéal pour les familles et les paddlers débutants. Attention toutefois à la zone de décollage des hydravions au centre du lac.",
+        longDescription: "Situées en plein cœur de la Mauricie, les eaux de Lac à la Tortue offrent une expérience paddle accessible et agréable. Le lac est bien aménagé avec une plage publique, un stationnement et une station gratuite de décontamination des embarcations. Le lavage est obligatoire avant la mise à l'eau. Les conditions généralement calmes rendent le lac idéal pour les familles et les paddlers débutants. Attention toutefois à la zone de décollage des hydravions au centre du lac.",
         difficulty: "facile",
         paddleScore: 78,
         scoreFactors: {
@@ -46,10 +48,12 @@ const lacDatabase = [
         amenities: [
             "Toilettes publiques",
             "Aire de pique-nique",
+            "Station de lavage gratuite",
             "Location d'équipement disponible",
             "Consignes pour paddleboard"
         ],
         warnings: [
+            "⚠️ Lavage obligatoire avant la mise à l'eau — station gratuite sur place",
             "⚠️ Zone de décollage d'hydravions - Restez vigilant près du centre du lac",
             "⚠️ Navigation moteur autorisée - Restez prudent",
             "⚠️ Vitesse du vent peut augmenter rapidement l'après-midi"
@@ -69,13 +73,14 @@ const lacDatabase = [
             },
             {
                 q: "Puis-je apporter mon propre équipement ?",
-                a: "Absolument ! Le parc accueille les paddlers avec leur propre matériel. Des consignes de rangement sont disponibles."
+                a: "Absolument ! Le parc accueille les paddlers avec leur propre matériel. Le lavage de l'embarcation est toutefois obligatoire et gratuit à la station sur place."
             }
         ],
         highlights: [
             "🟢 Lac idéal pour débuter",
             "🟢 Infrastructure complète",
             "🟢 Zone très accessible",
+            "🟢 Station de lavage gratuite",
             "⚠️ Hydravions à surveiller"
         ]
     },
@@ -438,10 +443,10 @@ const lacDatabase = [
         region: "Lanaudière",
         lat: 46.33623,
         lon: -73.39885,
-        mainImage: "assets/spots/lac-maskinonge.jpg",
+        mainImage: "assets/spots/lac-des-piles/vue-depuis-le-sup.jpg",
         gallery: [
-            "assets/spots/lac-maskinonge.jpg",
-            "assets/spots/lac-forbes.jpg"
+            "assets/spots/lac-des-piles/vue-depuis-le-sup.jpg",
+            "assets/spots/lac-des-piles/plage-baie-martin.jpg"
         ],
         description: "Grand lac accessible depuis la plage de Saint-Gabriel, au 333 rue du Parc. L'accès par la plage facilite l'arrivée avec une embarcation légère.",
         longDescription: "Le lac Maskinongé est accessible depuis la plage de Saint-Gabriel à Saint-Gabriel-de-Brandon. L'itinéraire mène au 333 rue du Parc, près de la plage, plutôt qu'au centre du lac. Le plan d'eau peut être exposé au vent et à la circulation nautique; vérifiez les conditions et les règles locales avant la mise à l'eau.",
@@ -987,6 +992,50 @@ const lacDatabase = [
 // tout en conservant les fiches ?ditoriales plus riches d?j? pr?sentes ci-dessus.
 const supplementalSpotDetails = [
     {
+        id: "plage-maria-goretti",
+        slug: "plage-maria-goretti",
+        name: "Plage Maria-Goretti",
+        region: "Lanaudière",
+        lat: 46.0474285,
+        lon: -73.440816,
+        mainImage: "assets/spots/unique/plage-maria-goretti.jpg",
+        gallery: ["assets/spots/unique/plage-maria-goretti.jpg"],
+        description: "Accès facile à la rivière L'Assomption depuis la plage Maria-Goretti, à Saint-Charles-Borromée. Le faible courant convient particulièrement aux débutants et aux sorties avec des enfants.",
+        longDescription: "La plage Maria-Goretti offre une mise à l'eau facile pour les embarcations légères sur la rivière L'Assomption. Le courant est généralement faible et le niveau de l'eau devient très bas en été. Le stationnement est gratuit, mais le fort achalandage à la plage et à la descente peut rendre une place difficile à trouver pendant les vacances estivales.",
+        difficulty: "facile",
+        paddleScore: 82,
+        scoreFactors: { wind: 8, rain: 7, temperature: 8, waves: 9 },
+        isFree: true,
+        cost: "Accès et stationnement gratuits",
+        waterQuality: "À vérifier localement",
+        maxLength: "Parcours variable",
+        season: "Mai à septembre",
+        parking: {
+            location: "Stationnement du parc Maria-Goretti, Saint-Charles-Borromée",
+            spots: "Capacité limitée lors des journées achalandées",
+            accessible: true,
+            cost: "Gratuit"
+        },
+        access: {
+            description: "Mise à l'eau depuis la plage Maria-Goretti",
+            type: "Plage / mise à l'eau pour embarcations légères",
+            difficulty: "Accès facile",
+            launchPoint: "Plage Maria-Goretti"
+        },
+        amenities: ["Plage", "Stationnement gratuit", "Mise à l'eau facile"],
+        warnings: [
+            "Endroit très fréquenté pendant les vacances estivales",
+            "Stationnement parfois difficile malgré sa gratuité",
+            "Eau très basse en été — surveiller les hauts-fonds"
+        ],
+        faq: [
+            { q: "Ce spot convient-il aux débutants et aux enfants ?", a: "Oui. La mise à l'eau est facile et le courant est généralement faible. Portez toujours un vêtement de flottaison individuel et surveillez les conditions du jour." },
+            { q: "Le stationnement est-il gratuit ?", a: "Oui, mais les places peuvent être difficiles à trouver pendant les vacances estivales en raison du fort achalandage." },
+            { q: "À quoi faut-il faire attention en été ?", a: "Le niveau de l'eau peut être très bas. Restez attentif aux hauts-fonds et aux obstacles près de la surface." }
+        ],
+        highlights: ["Mise à l'eau facile", "Peu de courant", "Idéal pour débutants et familles", "Stationnement gratuit"]
+    },
+    {
         "id": "riviere-macaza",
         "slug": "riviere-macaza",
         "name": "Rivière Macaza",
@@ -1204,9 +1253,12 @@ const supplementalSpotDetails = [
         "region": "Laurentides",
         "lat": 46.193499,
         "lon": -74.631738,
-        "mainImage": "assets/spots/lac-mercier-illustration-ia.jpg",
+        "mainImage": "assets/spots/lac-mercier/panorama-coucher-soleil.webp",
         "gallery": [
-            "assets/spots/lac-mercier-illustration-ia.jpg"
+            "assets/spots/lac-mercier/panorama-coucher-soleil.webp",
+            "assets/spots/lac-mercier/vue-depuis-le-sup.webp",
+            "assets/spots/lac-mercier/quai-au-crepuscule.webp",
+            "assets/spots/lac-mercier/stationnement.webp"
         ],
         "description": "Le lac Mercier, à Mont-Tremblant, offre un stationnement gratuit et une mise à l'eau située à gauche du quai.",
         "longDescription": "Ce point d'accès au lac Mercier a été confirmé par une personne contributrice. Le stationnement est gratuit et la mise à l'eau pour les embarcations légères se trouve à gauche du quai. Vérifiez les conditions et les règles locales avant le départ.",
@@ -3770,13 +3822,21 @@ const laVieSupPopularSpotDetails = laVieSupPopularSpotSeeds.map(seed => {
         "assets/spots/lac-matapedia-baie-de-charlie/vue-depuis-la-planche.jpeg",
         "assets/spots/lac-matapedia-baie-de-charlie/panorama-baie.jpg"
     ];
+    const batiscanGallery = [
+        "assets/spots/riviere-batiscan-sainte-genevieve/vue-riviere.jpg",
+        "assets/spots/riviere-batiscan-sainte-genevieve/vue-pont.jpg",
+        "assets/spots/riviere-batiscan-sainte-genevieve/rampe-vers-riviere.jpg",
+        "assets/spots/riviere-batiscan-sainte-genevieve/rampe-vers-village.jpg"
+    ];
     const generatedLakeImages = {
         "lac-lyster": "assets/spots/lac-lyster.jpg",
         "lac-raymond-val-morin": "assets/spots/lac-raymond-val-morin.jpg"
     };
     const gallery = seed.slug === "lac-matapedia-sayabec"
         ? matapediaGallery
-        : [generatedLakeImages[seed.slug] || "assets/spots/lac-lyster.jpg"];
+        : seed.slug === "riviere-batiscan-sainte-genevieve"
+            ? batiscanGallery
+            : [generatedLakeImages[seed.slug] || "assets/spots/lac-lyster.jpg"];
     return {
         id: seed.slug,
         slug: seed.slug,
@@ -3868,6 +3928,7 @@ const accessPointOverrides = {
     "lac-matapedia-baie-de-charlie": { lat: 48.5868597, lon: -67.6347988, name: "Plage du parc de la Baie-de-Charlie", type: "Plage / mise à l'eau manuelle", confidence: "high", source: "Lien Google Maps fourni par l'utilisateur: https://maps.app.goo.gl/m9NBpw64FCsYtrog8; site confirmé par la Municipalité de Sayabec" },
     "baie-de-shawinigan-parc-de-la-baie": { lat: 46.5285141, lon: -72.7815819, name: "Mise à l'eau du Parc de la Baie", type: "Mise à l'eau en gravier", confidence: "high", hideSource: true },
     "lac-a-la-tortue": { lat: 46.6104797, lon: -72.6269128, name: "Plage du parc municipal du Lac à la Tortue", type: "Plage", confidence: "high", source: "OpenStreetMap natural=beach way 487542775" },
+    "plage-maria-goretti": { lat: 46.0474285, lon: -73.440816, name: "Plage Maria-Goretti", type: "Plage / mise à l'eau pour embarcations légères", confidence: "high", source: "Lien Google Maps fourni par l'utilisateur: https://maps.app.goo.gl/Ve4Qvbn6Etcqvakk8" },
     "lac-sacacomie": { lat: 46.5274337, lon: -73.2032333, name: "Mise à l'eau du lac Sacacomie", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
     "riviere-st-maurice": { lat: 46.35126835324924, lon: -72.52643053695992,  name: "Mise à l'eau de l'Île Saint-Quentin / Avenue des Draveurs", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
     "lac-saint-pierre": { lat: 46.2245511, lon: -72.9223353, name: "Rampe de mise à l'eau près du Domaine du Lac Saint-Pierre", type: "Rampe de mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
@@ -3916,6 +3977,7 @@ const accessPointOverrides = {
 // Le point d'accès et le stationnement sont volontairement séparés. Les itinéraires
 // visent le stationnement afin d'éviter d'envoyer un véhicule directement sur la rive.
 const parkingPointOverrides = {
+    "plage-maria-goretti": { lat: 46.0474285, lon: -73.440816, name: "Stationnement du parc Maria-Goretti", confidence: "high", source: "Destination confirmée par le lien Google Maps fourni par l'utilisateur", distanceToAccessMeters: 0, fee: "Gratuit" },
     "lac-mercier": { lat: 46.193499, lon: -74.631738, name: "Stationnement gratuit près du quai du lac Mercier", confidence: "high", source: "Coordonnées et gratuité confirmées par une personne contributrice le 3 août 2026", distanceToAccessMeters: 0, fee: "Gratuit" },
     "riviere-macaza": { lat: 46.39878543336365, lon: -74.73001633765895, name: "Stationnement confirmé de l’accès à la rivière Macaza", confidence: "high", source: "Emplacement du stationnement confirmé par la personne contributrice", distanceToAccessMeters: 32, fee: "À vérifier" },
     "lac-saint-joseph-plage-gratton": { lat: 45.97194980542055, lon: -74.33984292665237, name: "Stationnement de la plage Gratton", confidence: "high", source: "Coordonnées confirmées par l'utilisateur", distanceToAccessMeters: 60, fee: "Gratuit" },

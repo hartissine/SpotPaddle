@@ -2,759 +2,799 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://spotpaddle.ca/</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/mentions-legales.html</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/politique-confidentialite.html</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://spotpaddle.ca/contribuer.html</loc>
-    <lastmod>2026-07-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://spotpaddle.ca/informations-pratiques.html</loc>
-    <lastmod>2026-07-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
     <loc>https://spotpaddle.ca/lac.html?lake=anse-a-l-orme</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=anse-cap-rouge-parc-jean-dery</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=baie-de-beauport-quebec</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=baie-de-perce</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=baie-de-shawinigan-parc-de-la-baie</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=baie-des-rochers-charlevoix</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=bassin-de-lachine-montreal</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=bassin-olympique-parc-jean-drapeau</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=canal-de-lachine</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=fjord-du-saguenay-l-anse</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=fleuve-saint-laurent-ile-sainte-helene</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=fleuve-trois-rivieres-antoine-gauthier</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=ile-bizard-parc-nature</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=ile-des-soeurs-pointe-nord</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=iles-de-boucherville</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-31-milles-sainte-therese</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-a-la-tortue</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-arthabaska-grands-jardins</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-aux-sables</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-aylmer-stratford</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-beauport</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-boivin-granby</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-brome</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-brompton-racine</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-clair-grandes-piles</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-delage</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-des-iles-quebec</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-des-piles</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://spotpaddle.ca/lac.html?lake=lac-des-seize-iles-debarcadere</loc>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-du-cap-aux-os</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-du-diable-laurentides</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://spotpaddle.ca/lac.html?lake=lac-du-mont-habitant-plage</loc>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-etchemin</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-kenogami</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-la-peche-outaouais</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-leamy-gatineau</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-long-portneuf</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-lyster</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-maskinonge</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-masson-plage-municipale</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-matapedia-baie-de-charlie</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-matapedia-sayabec</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-meech-gatineau</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-megantic</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-memphremagog-magog</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://spotpaddle.ca/lac.html?lake=lac-philippe-outaouais</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://spotpaddle.ca/lac.html?lake=lac-raymond-val-morin</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://spotpaddle.ca/lac.html?lake=lac-sacacomie</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://spotpaddle.ca/lac.html?lake=lac-saint-augustin</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://spotpaddle.ca/lac.html?lake=lac-saint-charles-centre-agiro</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://spotpaddle.ca/lac.html?lake=lac-saint-jean-alma</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://spotpaddle.ca/lac.html?lake=lac-saint-jean-roberval</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://spotpaddle.ca/lac.html?lake=lac-saint-jean-saint-prime</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://spotpaddle.ca/lac.html?lake=lac-saint-joseph-duchesnay</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://spotpaddle.ca/lac.html?lake=lac-saint-louis-chateauguay</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://spotpaddle.ca/lac.html?lake=lac-saint-pierre</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://spotpaddle.ca/lac.html?lake=lac-sainte-emelie</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://spotpaddle.ca/lac.html?lake=lac-sept-iles-portneuf</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://spotpaddle.ca/lac.html?lake=lac-simon-portneuf</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://spotpaddle.ca/lac.html?lake=lac-stukely-mont-orford</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://spotpaddle.ca/lac.html?lake=lac-taureau</loc>
-    <lastmod>2026-07-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://spotpaddle.ca/lac.html?lake=lac-temiscouata-parc-national</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-mercier</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
+
+  <url>
+    <loc>https://spotpaddle.ca/lac.html?lake=lac-philippe-outaouais</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://spotpaddle.ca/lac.html?lake=lac-raymond-val-morin</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://spotpaddle.ca/lac.html?lake=lac-rond-plage-jean-guy-caron</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://spotpaddle.ca/lac.html?lake=lac-sacacomie</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://spotpaddle.ca/lac.html?lake=lac-saint-augustin</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://spotpaddle.ca/lac.html?lake=lac-saint-charles-centre-agiro</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://spotpaddle.ca/lac.html?lake=lac-saint-jean-alma</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://spotpaddle.ca/lac.html?lake=lac-saint-jean-roberval</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://spotpaddle.ca/lac.html?lake=lac-saint-jean-saint-prime</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://spotpaddle.ca/lac.html?lake=lac-saint-joseph-duchesnay</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://spotpaddle.ca/lac.html?lake=lac-saint-joseph-plage-gratton</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://spotpaddle.ca/lac.html?lake=lac-saint-louis-chateauguay</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://spotpaddle.ca/lac.html?lake=lac-saint-pierre</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://spotpaddle.ca/lac.html?lake=lac-sainte-emelie</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://spotpaddle.ca/lac.html?lake=lac-sept-iles-portneuf</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://spotpaddle.ca/lac.html?lake=lac-simon-portneuf</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://spotpaddle.ca/lac.html?lake=lac-stukely-mont-orford</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://spotpaddle.ca/lac.html?lake=lac-taureau</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://spotpaddle.ca/lac.html?lake=lac-temiscouata-parc-national</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-tremblant</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-trois-lacs</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=lac-trois-saumons</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=marais-de-l-ile-madame</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=marais-du-nord-st-charles</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=parc-national-forillon</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=parc-national-lac-edouard</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=parc-national-oka</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=parc-national-plaisance</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=parc-national-wapizagonke</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=petit-lac-magog-plage-municipale</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=plage-berthier-sur-mer</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=plage-de-l-est-montreal</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://spotpaddle.ca/lac.html?lake=plage-maria-goretti</loc>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=quai-kamouraska</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=recreoparc-sainte-catherine</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=reservoir-choiniere-yamaska</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=reservoir-poisson-blanc</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=rimouski-rocher-blanc</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=riviere-ashuapmushuan</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=riviere-batiscan-sainte-genevieve</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=riviere-bonaventure</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=riviere-bras-du-nord</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=riviere-cascapedia</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=riviere-chateauguay-pointe-nautique</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=riviere-chicoutimi</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=riviere-des-outaouais-arundel</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=riviere-des-outaouais-chelsea</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=riviere-des-prairies-beausejour</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=riviere-du-gouffre-baie-saint-paul</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://spotpaddle.ca/lac.html?lake=riviere-du-nord-parc-chemin-du-pont</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://spotpaddle.ca/lac.html?lake=riviere-du-nord-parc-gilbert-aubin</loc>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=riviere-du-nord-val-david</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=riviere-jacques-cartier-grand-heron</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=riviere-jacques-cartier-parc-national</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://spotpaddle.ca/lac.html?lake=riviere-macaza</loc>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=riviere-malbaie-hautes-gorges</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=riviere-mille-iles-laval</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=riviere-mille-iles-rosemere</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=riviere-mille-iles-saint-eustache</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=riviere-rouge-labelle</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=riviere-sainte-anne-portneuf</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=riviere-sainte-anne-quebec</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=riviere-st-maurice</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=saint-laurent-ile-orleans</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://spotpaddle.ca/lac.html?lake=verdun-parc-george-oreilly</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url><loc>https://spotpaddle.ca/lac.html?lake=lac-du-mont-habitant-plage</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://spotpaddle.ca/lac.html?lake=lac-saint-joseph-plage-gratton</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://spotpaddle.ca/lac.html?lake=lac-rond-plage-jean-guy-caron</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://spotpaddle.ca/lac.html?lake=lac-des-seize-iles-debarcadere</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://spotpaddle.ca/lac.html?lake=riviere-du-nord-parc-chemin-du-pont</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://spotpaddle.ca/lac.html?lake=riviere-du-nord-parc-gilbert-aubin</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>
