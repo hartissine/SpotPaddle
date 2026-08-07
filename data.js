@@ -992,6 +992,50 @@ const lacDatabase = [
 // tout en conservant les fiches ?ditoriales plus riches d?j? pr?sentes ci-dessus.
 const supplementalSpotDetails = [
     {
+        id: "parc-du-quai-crabtree",
+        slug: "parc-du-quai-crabtree",
+        name: "Parc du Quai (Crabtree)",
+        region: "Lanaudière",
+        lat: 45.973805,
+        lon: -73.4758384,
+        mainImage: "assets/spots/unique/parc-du-quai-crabtree.jpg",
+        gallery: ["assets/spots/unique/parc-du-quai-crabtree.jpg"],
+        description: "Accès à la rivière Ouareau au parc du Quai de Crabtree, avec location, essais et formations de planche à pagaie offerts sur place en saison.",
+        longDescription: "Situé au 398, 1re Avenue à Crabtree, le parc du Quai donne accès à la rivière Ouareau. Évasion SUP y annonce des essais, de la location, des formations de différents niveaux et des activités de SUP yoga. La saison 2026 est annoncée de mai à octobre. Vérifiez l'horaire, la disponibilité des locations, le niveau et le débit de la rivière avant le départ.",
+        difficulty: "facile",
+        paddleScore: 80,
+        scoreFactors: { wind: 8, rain: 7, temperature: 8, waves: 8 },
+        isFree: false,
+        cost: "Accès au parc et frais de location à vérifier",
+        waterQuality: "À vérifier localement",
+        maxLength: "Parcours de rivière variable",
+        season: "Mai à octobre",
+        parking: {
+            location: "398, 1re Avenue, Crabtree",
+            spots: "Capacité à vérifier",
+            accessible: true,
+            cost: "À vérifier"
+        },
+        access: {
+            description: "Accès à la rivière Ouareau depuis le parc du Quai",
+            type: "Parc riverain / quai",
+            difficulty: "Accès facile",
+            launchPoint: "Parc du Quai"
+        },
+        amenities: ["Toilettes", "Location de SUP en saison", "Essais et formations", "SUP yoga et méditation"],
+        warnings: [
+            "Vérifier le débit et le niveau de la rivière Ouareau avant la sortie",
+            "Confirmer l'horaire et la disponibilité des locations",
+            "Les conditions d'une rivière peuvent changer rapidement après la pluie"
+        ],
+        faq: [
+            { q: "Peut-on louer une planche à pagaie sur place ?", a: "Oui, Évasion SUP annonce de la location au parc du Quai. Confirmez les disponibilités et réservez avant votre déplacement." },
+            { q: "Le site convient-il aux débutants ?", a: "Des formations de base sont offertes sur place. Vérifiez tout de même le débit de la rivière et les conditions du jour." },
+            { q: "Quelle est la saison d'activité ?", a: "Évasion SUP annonce une saison 2026 de mai à octobre." }
+        ],
+        highlights: ["Accès à la rivière Ouareau", "Location de SUP", "Formations pour plusieurs niveaux", "Toilettes sur place"]
+    },
+    {
         id: "plage-maria-goretti",
         slug: "plage-maria-goretti",
         name: "Plage Maria-Goretti",
@@ -3928,6 +3972,7 @@ const accessPointOverrides = {
     "lac-matapedia-baie-de-charlie": { lat: 48.5868597, lon: -67.6347988, name: "Plage du parc de la Baie-de-Charlie", type: "Plage / mise à l'eau manuelle", confidence: "high", source: "Lien Google Maps fourni par l'utilisateur: https://maps.app.goo.gl/m9NBpw64FCsYtrog8; site confirmé par la Municipalité de Sayabec" },
     "baie-de-shawinigan-parc-de-la-baie": { lat: 46.5285141, lon: -72.7815819, name: "Mise à l'eau du Parc de la Baie", type: "Mise à l'eau en gravier", confidence: "high", hideSource: true },
     "lac-a-la-tortue": { lat: 46.6104797, lon: -72.6269128, name: "Plage du parc municipal du Lac à la Tortue", type: "Plage", confidence: "high", source: "OpenStreetMap natural=beach way 487542775" },
+    "parc-du-quai-crabtree": { lat: 45.973805, lon: -73.4758384, name: "Parc du Quai", type: "Parc riverain / quai", confidence: "medium", source: "Adresse confirmée par Évasion SUP et la Ville de Crabtree; coordonnées rapprochées de la 1re Avenue avec OpenStreetMap" },
     "plage-maria-goretti": { lat: 46.0474285, lon: -73.440816, name: "Plage Maria-Goretti", type: "Plage / mise à l'eau pour embarcations légères", confidence: "high", source: "Lien Google Maps fourni par l'utilisateur: https://maps.app.goo.gl/Ve4Qvbn6Etcqvakk8" },
     "lac-sacacomie": { lat: 46.5274337, lon: -73.2032333, name: "Mise à l'eau du lac Sacacomie", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
     "riviere-st-maurice": { lat: 46.35126835324924, lon: -72.52643053695992,  name: "Mise à l'eau de l'Île Saint-Quentin / Avenue des Draveurs", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
@@ -3977,6 +4022,7 @@ const accessPointOverrides = {
 // Le point d'accès et le stationnement sont volontairement séparés. Les itinéraires
 // visent le stationnement afin d'éviter d'envoyer un véhicule directement sur la rive.
 const parkingPointOverrides = {
+    "parc-du-quai-crabtree": { lat: 45.973805, lon: -73.4758384, name: "Destination du parc du Quai, 398, 1re Avenue", confidence: "medium", source: "Adresse publiée par Évasion SUP et la Ville de Crabtree", distanceToAccessMeters: 0, fee: "À vérifier" },
     "plage-maria-goretti": { lat: 46.0474285, lon: -73.440816, name: "Stationnement du parc Maria-Goretti", confidence: "high", source: "Destination confirmée par le lien Google Maps fourni par l'utilisateur", distanceToAccessMeters: 0, fee: "Gratuit" },
     "lac-mercier": { lat: 46.193499, lon: -74.631738, name: "Stationnement gratuit près du quai du lac Mercier", confidence: "high", source: "Coordonnées et gratuité confirmées par une personne contributrice le 3 août 2026", distanceToAccessMeters: 0, fee: "Gratuit" },
     "riviere-macaza": { lat: 46.39878543336365, lon: -74.73001633765895, name: "Stationnement confirmé de l’accès à la rivière Macaza", confidence: "high", source: "Emplacement du stationnement confirmé par la personne contributrice", distanceToAccessMeters: 32, fee: "À vérifier" },
