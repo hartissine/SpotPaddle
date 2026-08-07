@@ -1,0 +1,6 @@
+assets/vendor/
+assets/*.min.js
+assets/*.min.css
+node_modules/
+dist/
+tmp/
