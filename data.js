@@ -443,10 +443,10 @@ const lacDatabase = [
         region: "Lanaudière",
         lat: 46.33623,
         lon: -73.39885,
-        mainImage: "assets/spots/lac-des-piles/vue-depuis-le-sup.jpg",
+        mainImage: "assets/spots/lac-maskinonge.jpg",
         gallery: [
-            "assets/spots/lac-des-piles/vue-depuis-le-sup.jpg",
-            "assets/spots/lac-des-piles/plage-baie-martin.jpg"
+            "assets/spots/lac-maskinonge.jpg",
+            "assets/spots/lac-forbes.jpg"
         ],
         description: "Grand lac accessible depuis la plage de Saint-Gabriel, au 333 rue du Parc. L'accès par la plage facilite l'arrivée avec une embarcation légère.",
         longDescription: "Le lac Maskinongé est accessible depuis la plage de Saint-Gabriel à Saint-Gabriel-de-Brandon. L'itinéraire mène au 333 rue du Parc, près de la plage, plutôt qu'au centre du lac. Le plan d'eau peut être exposé au vent et à la circulation nautique; vérifiez les conditions et les règles locales avant la mise à l'eau.",
@@ -511,10 +511,10 @@ const lacDatabase = [
         region: "Mauricie",
         lat: 46.6518317,
         lon: -72.7986336,
-        mainImage: "assets/spots/lac-maskinonge.jpg",
+        mainImage: "assets/spots/lac-des-piles/vue-depuis-le-sup.jpg",
         gallery: [
-            "assets/spots/lac-maskinonge.jpg",
-            "assets/spots/lac-forbes.jpg"
+            "assets/spots/lac-des-piles/vue-depuis-le-sup.jpg",
+            "assets/spots/lac-des-piles/plage-baie-martin.jpg"
         ],
         description: "Grand lac de la Mauricie accessible par le Camping Plage Baie Martin, qui propose une plage ainsi que des activités de canot et de kayak.",
         longDescription: "Le lac des Piles offre un vaste plan d'eau entouré de relief boisé. L'accès présenté ici passe par le Camping Plage Baie Martin, au 1801 chemin de la Baie-Martin. Les conditions d'accès de jour et les tarifs doivent être confirmés auprès du camping avant le départ.",
