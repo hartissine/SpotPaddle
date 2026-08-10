@@ -32,7 +32,6 @@
 
     <title>Spot Paddle - Détails Lac</title>
     <link rel="stylesheet" href="assets/tailwind.css?v=20260719-2" />
-    <link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css?v=1.9.4" />
     <link rel="stylesheet" href="style.css?v=20260719-1" />
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans dark:bg-slate-900 dark:text-slate-100 transition-colors">
@@ -83,7 +82,6 @@
         </button>
     </div>
 
-    <script src="assets/vendor/leaflet/leaflet.js?v=1.9.4"></script>
     <script src="assets/data.min.js?v=20260807-1"></script>
     <script id="lakeStructuredData" type="application/ld+json"></script>
     <script>
@@ -595,6 +593,101 @@
             }
         }
 
+        const DETAIL_MAP_ASSET_VERSION = '1.9.4';
+        let detailMapAssetsPromise = null;
+        let detailMapInitStarted = false;
+
+        function loadDetailMapStylesheet() {
+            if (document.querySelector('link[data-detail-leaflet-css]')) {
+                return Promise.resolve();
+            }
+
+            return new Promise(resolve => {
+                const link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = `assets/vendor/leaflet/leaflet.css?v=${DETAIL_MAP_ASSET_VERSION}`;
+                link.dataset.detailLeafletCss = 'true';
+                link.onload = resolve;
+                link.onerror = () => {
+                    console.warn('Feuille Leaflet indisponible.');
+                    resolve();
+                };
+                document.head.appendChild(link);
+            });
+        }
+
+        function loadDetailMapScript() {
+            if (typeof L !== 'undefined') {
+                return Promise.resolve();
+            }
+
+            const existingScript = document.querySelector('script[data-detail-leaflet-js]');
+            if (existingScript) {
+                return new Promise((resolve, reject) => {
+                    existingScript.addEventListener('load', resolve, { once: true });
+                    existingScript.addEventListener('error', () => reject(new Error('Script Leaflet indisponible')), { once: true });
+                });
+            }
+
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = `assets/vendor/leaflet/leaflet.js?v=${DETAIL_MAP_ASSET_VERSION}`;
+                script.async = true;
+                script.dataset.detailLeafletJs = 'true';
+                script.onload = resolve;
+                script.onerror = () => reject(new Error('Script Leaflet indisponible'));
+                document.body.appendChild(script);
+            });
+        }
+
+        function loadDetailMapAssets() {
+            if (!detailMapAssetsPromise) {
+                detailMapAssetsPromise = Promise.all([
+                    loadDetailMapStylesheet(),
+                    loadDetailMapScript()
+                ]).then(() => undefined);
+            }
+
+            return detailMapAssetsPromise;
+        }
+
+        function startDetailMapInit(currentLake) {
+            if (detailMapInitStarted) return;
+            detailMapInitStarted = true;
+
+            loadDetailMapAssets()
+                .then(() => initMap(currentLake))
+                .catch(error => {
+                    console.warn('Carte Leaflet non chargee:', error.message);
+                    initMap(currentLake);
+                });
+        }
+
+        function scheduleDetailMapInit(currentLake) {
+            const mapTarget = document.getElementById('map');
+            if (!mapTarget) return;
+
+            mapTarget.addEventListener('pointerenter', () => startDetailMapInit(currentLake), { once: true });
+            mapTarget.addEventListener('touchstart', () => startDetailMapInit(currentLake), { once: true, passive: true });
+
+            if (!('IntersectionObserver' in window)) {
+                if ('requestIdleCallback' in window) {
+                    window.requestIdleCallback(() => startDetailMapInit(currentLake), { timeout: 2500 });
+                } else {
+                    window.setTimeout(() => startDetailMapInit(currentLake), 1200);
+                }
+                return;
+            }
+
+            const observer = new IntersectionObserver(entries => {
+                if (!entries.some(entry => entry.isIntersecting)) return;
+                observer.disconnect();
+                startDetailMapInit(currentLake);
+            }, { rootMargin: '360px 0px' });
+
+            observer.observe(mapTarget);
+        }
+
         // ========== INITIALISATION PAGE ==========
         const urlParams = new URLSearchParams(window.location.search);
         const lakeSlug = urlParams.get('lake');
@@ -945,9 +1038,9 @@
                 void loadLakeWeather(currentLake);
                 void loadLakeHydrometry(currentLake);
 
-                // Laisser le navigateur peindre le contenu avant d'initialiser la carte.
+                // Laisser le navigateur peindre le contenu avant de preparer la carte.
                 requestAnimationFrame(() => {
-                    initMap(currentLake);
+                    scheduleDetailMapInit(currentLake);
                     if (typeof getNearestLakes === 'function') {
                         loadNearbyLakes(currentLake);
                     }

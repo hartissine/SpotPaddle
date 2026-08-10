@@ -984,6 +984,23 @@ const lacDatabase = [
             "Très bon pour observation de la faune",
             "GPS accès et stationnement validés"
         ]
+    },
+    {
+        id: "lac-beattie", slug: "lac-beattie", name: "Lac Beattie", region: "Laurentides", lat: 45.7253, lon: -74.2602,
+        mainImage: "assets/spots/lac-beattie.jpg", gallery: ["assets/spots/lac-beattie.jpg"],
+        description: "Lac sauvage du parc nature du Lac Beattie, à Gore, avec location de canots, kayaks et SUP sur place.",
+        longDescription: "Le lac Beattie s'étend sur environ 2 km dans un milieu entièrement sauvage. Depuis le stationnement du parc, il faut transporter son embarcation sur environ 200 m jusqu'au quai. Les embarcations non motorisées sont admises et des canots, kayaks et planches à pagaie sont offerts en location. L'accès journalier coûte 12 $ pour un adulte non résident selon la contribution reçue le 9 août 2026.",
+        difficulty: "facile", paddleScore: 84, scoreFactors: { wind: 8, rain: 7, temperature: 8, waves: 9 }, isFree: false, cost: "12 $ par adulte non résident; location en sus", waterQuality: "À vérifier localement", maxLength: "Lac d'environ 2 km", season: "Printemps à automne",
+        parking: { location: "501, chemin Beattie, Gore", spots: "Deux stationnements, environ 40 places au total", accessible: true, cost: "Stationnement sur place" },
+        access: { description: "Portage d'environ 200 m depuis le stationnement jusqu'au quai", type: "Quai / mise à l'eau manuelle", difficulty: "Portage requis", launchPoint: "Quai du Parc nature du Lac Beattie" },
+        amenities: ["Location de canots, kayaks et SUP", "Quai", "Toilettes chimiques", "Aire de pique-nique"],
+        warnings: ["Portage d'environ 200 m", "Aucune descente de bateau", "Moteurs thermiques interdits", "Vérifier les horaires et tarifs avant le départ"],
+        faq: [
+            { q: "Peut-on louer une embarcation sur place?", a: "Oui. Des canots, kayaks et planches à pagaie sont offerts en location selon les disponibilités et les tarifs du parc." },
+            { q: "Peut-on apporter son propre SUP?", a: "Oui, mais il faut le transporter sur environ 200 m entre le stationnement et le quai." },
+            { q: "Combien coûte l'accès?", a: "La contribution reçue le 9 août 2026 indique 12 $ pour un adulte non résident. Confirmez le tarif courant auprès du parc." }
+        ],
+        highlights: ["Lac entièrement sauvage", "Location sur place", "Quai de mise à l'eau", "Milieu abrité"]
     }
 ];
 
@@ -1042,8 +1059,12 @@ const supplementalSpotDetails = [
         region: "Lanaudière",
         lat: 46.0474285,
         lon: -73.440816,
-        mainImage: "assets/spots/unique/plage-maria-goretti.jpg",
-        gallery: ["assets/spots/unique/plage-maria-goretti.jpg"],
+        mainImage: "assets/spots/plage-maria-goretti/riviere-calme-et-foret.jpg",
+        gallery: [
+            "assets/spots/plage-maria-goretti/riviere-calme-et-foret.jpg",
+            "assets/spots/plage-maria-goretti/saules-et-reflets.jpg",
+            "assets/spots/plage-maria-goretti/riviere-et-ciel.jpg"
+        ],
         description: "Accès facile à la rivière L'Assomption depuis la plage Maria-Goretti, à Saint-Charles-Borromée. Le faible courant convient particulièrement aux débutants et aux sorties avec des enfants.",
         longDescription: "La plage Maria-Goretti offre une mise à l'eau facile pour les embarcations légères sur la rivière L'Assomption. Le courant est généralement faible et le niveau de l'eau devient très bas en été. Le stationnement est gratuit, mais le fort achalandage à la plage et à la descente peut rendre une place difficile à trouver pendant les vacances estivales.",
         difficulty: "facile",
@@ -3974,6 +3995,7 @@ const accessPointOverrides = {
     "lac-a-la-tortue": { lat: 46.6104797, lon: -72.6269128, name: "Plage du parc municipal du Lac à la Tortue", type: "Plage", confidence: "high", source: "OpenStreetMap natural=beach way 487542775" },
     "parc-du-quai-crabtree": { lat: 45.973805, lon: -73.4758384, name: "Parc du Quai", type: "Parc riverain / quai", confidence: "medium", source: "Adresse confirmée par Évasion SUP et la Ville de Crabtree; coordonnées rapprochées de la 1re Avenue avec OpenStreetMap" },
     "plage-maria-goretti": { lat: 46.0474285, lon: -73.440816, name: "Plage Maria-Goretti", type: "Plage / mise à l'eau pour embarcations légères", confidence: "high", source: "Lien Google Maps fourni par l'utilisateur: https://maps.app.goo.gl/Ve4Qvbn6Etcqvakk8" },
+    "lac-beattie": { lat: 45.7253, lon: -74.2602, name: "Quai du Parc nature du Lac Beattie", type: "Quai / mise à l'eau manuelle", confidence: "medium", source: "Contribution reçue le 9 août 2026; accès et portage recoupés avec la Municipalité du Canton de Gore" },
     "lac-sacacomie": { lat: 46.5274337, lon: -73.2032333, name: "Mise à l'eau du lac Sacacomie", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
     "riviere-st-maurice": { lat: 46.35126835324924, lon: -72.52643053695992,  name: "Mise à l'eau de l'Île Saint-Quentin / Avenue des Draveurs", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
     "lac-saint-pierre": { lat: 46.2245511, lon: -72.9223353, name: "Rampe de mise à l'eau près du Domaine du Lac Saint-Pierre", type: "Rampe de mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
@@ -4022,6 +4044,7 @@ const accessPointOverrides = {
 // Le point d'accès et le stationnement sont volontairement séparés. Les itinéraires
 // visent le stationnement afin d'éviter d'envoyer un véhicule directement sur la rive.
 const parkingPointOverrides = {
+    "lac-beattie": { lat: 45.7253, lon: -74.2602, name: "Stationnement du Parc nature du Lac Beattie, 501 chemin Beattie", confidence: "high", source: "Adresse officielle et coordonnées du stationnement publiées par Balise Québec", distanceToAccessMeters: 200, fee: "Stationnement sur place" },
     "parc-du-quai-crabtree": { lat: 45.973805, lon: -73.4758384, name: "Destination du parc du Quai, 398, 1re Avenue", confidence: "medium", source: "Adresse publiée par Évasion SUP et la Ville de Crabtree", distanceToAccessMeters: 0, fee: "À vérifier" },
     "plage-maria-goretti": { lat: 46.0474285, lon: -73.440816, name: "Stationnement du parc Maria-Goretti", confidence: "high", source: "Destination confirmée par le lien Google Maps fourni par l'utilisateur", distanceToAccessMeters: 0, fee: "Gratuit" },
     "lac-mercier": { lat: 46.193499, lon: -74.631738, name: "Stationnement gratuit près du quai du lac Mercier", confidence: "high", source: "Coordonnées et gratuité confirmées par une personne contributrice le 3 août 2026", distanceToAccessMeters: 0, fee: "Gratuit" },

@@ -50,7 +50,25 @@
             }
         };
 
-        syncHeroMedia();
+        const scheduleInitialHeroMedia = () => {
+            const loadWhenIdle = () => {
+                if ('requestIdleCallback' in window) {
+                    window.requestIdleCallback(syncHeroMedia, { timeout: 2500 });
+                    return;
+                }
+
+                window.setTimeout(syncHeroMedia, 1200);
+            };
+
+            if (document.readyState === 'complete') {
+                loadWhenIdle();
+                return;
+            }
+
+            window.addEventListener('load', loadWhenIdle, { once: true });
+        };
+
+        scheduleInitialHeroMedia();
         desktopMedia.addEventListener?.('change', syncHeroMedia);
         reducedMotion.addEventListener?.('change', syncHeroMedia);
         connection?.addEventListener?.('change', syncHeroMedia);
