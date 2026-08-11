@@ -772,9 +772,9 @@ const lacDatabase = [
         "region": "Estrie",
         "lat": 45.42668294095945,
         "lon": -72.61486447370173,
-        "mainImage": "assets/spots/reservoir-choiniere-yamaska.jpg",
+        "mainImage": "assets/spots/reservoir-choiniere-yamaska-illustration-ia.png",
         "gallery": [
-            "assets/spots/reservoir-choiniere-yamaska.jpg"
+            "assets/spots/reservoir-choiniere-yamaska-illustration-ia.png"
         ],
         "description": "Le réservoir Choinière, au parc national de la Yamaska, est un plan d'eau populaire pour le canot, le kayak, le pédalo et le surf à pagaie.",
         "longDescription": "Le parc national de la Yamaska entoure le réservoir Choinière, un vaste plan d'eau utilisé pour les activités nautiques. La Sépaq y mentionne le canot, le kayak, le surf à pagaie, le pédalo et la baignade surveillée en saison. C'est un bon choix pour une sortie encadrée et familiale en Estrie.",
@@ -1053,17 +1053,58 @@ const supplementalSpotDetails = [
         highlights: ["Accès à la rivière Ouareau", "Location de SUP", "Formations pour plusieurs niveaux", "Toilettes sur place"]
     },
     {
+        id: "parc-andre-auger",
+        slug: "parc-andre-auger",
+        name: "Parc André-Auger",
+        region: "Lanaudière",
+        lat: 45.85138,
+        lon: -73.75748,
+        mainImage: "assets/spots/parc-andre-auger/chien-en-sup.png",
+        gallery: ["assets/spots/parc-andre-auger/chien-en-sup.png"],
+        photoCredit: "Contribution Spot Paddle (illustration IA)",
+        description: "Accès nautique municipal à la rivière de l'Achigan avec quai, rampe de mise à l'eau et location d'embarcations en été.",
+        longDescription: "Situé au 710, rue Saint-Isidore à Saint-Lin-Laurentides, le parc André-Auger donne accès à la rivière de l'Achigan par un quai et une rampe de mise à l'eau. Le parc comprend des tables de pique-nique et un service estival de location de kayaks, canots, pédalos et planches à pagaie. L'accès et le stationnement ont été signalés comme gratuits dans une contribution Spot Paddle.",
+        difficulty: "facile",
+        paddleScore: 78,
+        scoreFactors: { wind: 8, rain: 7, temperature: 8, waves: 8 },
+        isFree: true,
+        cost: "Accès gratuit; location payante",
+        waterQuality: "À vérifier localement",
+        maxLength: "Parcours variable sur la rivière de l'Achigan",
+        season: "Mai à septembre; location saisonnière",
+        parking: {
+            location: "710, rue Saint-Isidore, Saint-Lin-Laurentides",
+            spots: "Capacité à vérifier",
+            accessible: true,
+            cost: "Gratuit selon la contribution"
+        },
+        access: {
+            description: "Quai et rampe de mise à l'eau au parc André-Auger",
+            type: "Quai / rampe de mise à l'eau",
+            difficulty: "Accès facile",
+            launchPoint: "Parc André-Auger"
+        },
+        amenities: ["Quai", "Rampe de mise à l'eau", "Location de kayaks, canots et SUP", "Tables de pique-nique"],
+        warnings: ["Vérifier le courant de la rivière avant le départ", "Respecter la signalisation et rester à distance du barrage", "Location offerte selon l'horaire estival"],
+        faq: [
+            { q: "Peut-on louer une planche à pagaie?", a: "Oui, la programmation estivale 2026 annonce la location de SUP, kayaks, canots et pédalos au kiosque du parc." },
+            { q: "L'accès est-il gratuit?", a: "L'accès au parc et le stationnement ont été signalés comme gratuits; la location d'embarcations est payante." },
+            { q: "Où se trouve la mise à l'eau?", a: "Au parc André-Auger, au 710, rue Saint-Isidore à Saint-Lin-Laurentides." }
+        ],
+        highlights: ["Quai et rampe municipale", "Location de SUP en été", "Accès gratuit", "Aire de pique-nique"]
+    },
+    {
         id: "plage-maria-goretti",
         slug: "plage-maria-goretti",
         name: "Plage Maria-Goretti",
         region: "Lanaudière",
         lat: 46.0474285,
         lon: -73.440816,
-        mainImage: "assets/spots/plage-maria-goretti/riviere-calme-et-foret.jpg",
+        mainImage: "assets/spots/plage-maria-goretti/vue-riviere-et-ciel.png",
         gallery: [
-            "assets/spots/plage-maria-goretti/riviere-calme-et-foret.jpg",
-            "assets/spots/plage-maria-goretti/saules-et-reflets.jpg",
-            "assets/spots/plage-maria-goretti/riviere-et-ciel.jpg"
+            "assets/spots/plage-maria-goretti/vue-riviere-et-ciel.png",
+            "assets/spots/plage-maria-goretti/parcours-rive-boisee.png",
+            "assets/spots/plage-maria-goretti/saules-et-reflets-nettoyes.png"
         ],
         description: "Accès facile à la rivière L'Assomption depuis la plage Maria-Goretti, à Saint-Charles-Borromée. Le faible courant convient particulièrement aux débutants et aux sorties avec des enfants.",
         longDescription: "La plage Maria-Goretti offre une mise à l'eau facile pour les embarcations légères sur la rivière L'Assomption. Le courant est généralement faible et le niveau de l'eau devient très bas en été. Le stationnement est gratuit, mais le fort achalandage à la plage et à la descente peut rendre une place difficile à trouver pendant les vacances estivales.",
@@ -3994,6 +4035,7 @@ const accessPointOverrides = {
     "baie-de-shawinigan-parc-de-la-baie": { lat: 46.5285141, lon: -72.7815819, name: "Mise à l'eau du Parc de la Baie", type: "Mise à l'eau en gravier", confidence: "high", hideSource: true },
     "lac-a-la-tortue": { lat: 46.6104797, lon: -72.6269128, name: "Plage du parc municipal du Lac à la Tortue", type: "Plage", confidence: "high", source: "OpenStreetMap natural=beach way 487542775" },
     "parc-du-quai-crabtree": { lat: 45.973805, lon: -73.4758384, name: "Parc du Quai", type: "Parc riverain / quai", confidence: "medium", source: "Adresse confirmée par Évasion SUP et la Ville de Crabtree; coordonnées rapprochées de la 1re Avenue avec OpenStreetMap" },
+    "parc-andre-auger": { lat: 45.85138, lon: -73.75748, name: "Quai et rampe du parc André-Auger", type: "Quai / rampe de mise à l'eau", confidence: "high", source: "Adresse, coordonnées et installations confirmées par la Ville de Saint-Lin-Laurentides et la Commission de toponymie du Québec" },
     "plage-maria-goretti": { lat: 46.0474285, lon: -73.440816, name: "Plage Maria-Goretti", type: "Plage / mise à l'eau pour embarcations légères", confidence: "high", source: "Lien Google Maps fourni par l'utilisateur: https://maps.app.goo.gl/Ve4Qvbn6Etcqvakk8" },
     "lac-beattie": { lat: 45.7253, lon: -74.2602, name: "Quai du Parc nature du Lac Beattie", type: "Quai / mise à l'eau manuelle", confidence: "medium", source: "Contribution reçue le 9 août 2026; accès et portage recoupés avec la Municipalité du Canton de Gore" },
     "lac-sacacomie": { lat: 46.5274337, lon: -73.2032333, name: "Mise à l'eau du lac Sacacomie", type: "Mise à l'eau", confidence: "high", source: "OpenStreetMap leisure=slipway" },
@@ -4044,6 +4086,7 @@ const accessPointOverrides = {
 // Le point d'accès et le stationnement sont volontairement séparés. Les itinéraires
 // visent le stationnement afin d'éviter d'envoyer un véhicule directement sur la rive.
 const parkingPointOverrides = {
+    "parc-andre-auger": { lat: 45.85138, lon: -73.75748, name: "Stationnement du parc André-Auger, 710 rue Saint-Isidore", confidence: "high", source: "Adresse officielle confirmée par la Ville de Saint-Lin-Laurentides", distanceToAccessMeters: 0, fee: "Gratuit selon la contribution" },
     "lac-beattie": { lat: 45.7253, lon: -74.2602, name: "Stationnement du Parc nature du Lac Beattie, 501 chemin Beattie", confidence: "high", source: "Adresse officielle et coordonnées du stationnement publiées par Balise Québec", distanceToAccessMeters: 200, fee: "Stationnement sur place" },
     "parc-du-quai-crabtree": { lat: 45.973805, lon: -73.4758384, name: "Destination du parc du Quai, 398, 1re Avenue", confidence: "medium", source: "Adresse publiée par Évasion SUP et la Ville de Crabtree", distanceToAccessMeters: 0, fee: "À vérifier" },
     "plage-maria-goretti": { lat: 46.0474285, lon: -73.440816, name: "Stationnement du parc Maria-Goretti", confidence: "high", source: "Destination confirmée par le lien Google Maps fourni par l'utilisateur", distanceToAccessMeters: 0, fee: "Gratuit" },
