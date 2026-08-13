@@ -987,7 +987,16 @@ const lacDatabase = [
     },
     {
         id: "lac-beattie", slug: "lac-beattie", name: "Lac Beattie", region: "Laurentides", lat: 45.7253, lon: -74.2602,
-        mainImage: "assets/spots/lac-beattie.jpg", gallery: ["assets/spots/lac-beattie.jpg"],
+        mainImage: "assets/spots/lac-beattie/vue-principale-lac.webp",
+        gallery: [
+            "assets/spots/lac-beattie/vue-principale-lac.webp",
+            "assets/spots/lac-beattie/ile-boisee.webp",
+            "assets/spots/lac-beattie/rive-sauvage.webp",
+            "assets/spots/lac-beattie/sortie-en-sup.webp",
+            "assets/spots/lac-beattie/baie-rocheuse.webp",
+            "assets/spots/lac-beattie/anse-et-planches.webp"
+        ],
+        photoCredit: "Véronique",
         description: "Lac sauvage du parc nature du Lac Beattie, à Gore, avec location de canots, kayaks et SUP sur place.",
         longDescription: "Le lac Beattie s'étend sur environ 2 km dans un milieu entièrement sauvage. Depuis le stationnement du parc, il faut transporter son embarcation sur environ 200 m jusqu'au quai. Les embarcations non motorisées sont admises et des canots, kayaks et planches à pagaie sont offerts en location. L'accès journalier coûte 12 $ pour un adulte non résident selon la contribution reçue le 9 août 2026.",
         difficulty: "facile", paddleScore: 84, scoreFactors: { wind: 8, rain: 7, temperature: 8, waves: 9 }, isFree: false, cost: "12 $ par adulte non résident; location en sus", waterQuality: "À vérifier localement", maxLength: "Lac d'environ 2 km", season: "Printemps à automne",
@@ -1001,6 +1010,81 @@ const lacDatabase = [
             { q: "Combien coûte l'accès?", a: "La contribution reçue le 9 août 2026 indique 12 $ pour un adulte non résident. Confirmez le tarif courant auprès du parc." }
         ],
         highlights: ["Lac entièrement sauvage", "Location sur place", "Quai de mise à l'eau", "Milieu abrité"]
+    },
+    {
+        "id": "riviere-du-loup-camping-au-soleil-st-paulin",
+        "slug": "riviere-du-loup-camping-au-soleil-st-paulin",
+        "name": "Rivière du Loup (Camping Au Soleil, Saint-Paulin)",
+        "region": "Mauricie",
+        "lat": 46.4243,
+        "lon": -73.0397,
+        "mainImage": "assets/spots/riviere-du-loup-camping-au-soleil-st-paulin/vue-riviere-depuis-le-sup.jpeg",
+        "gallery": [
+            "assets/spots/riviere-du-loup-camping-au-soleil-st-paulin/vue-riviere-depuis-le-sup.jpeg",
+            "assets/spots/riviere-du-loup-camping-au-soleil-st-paulin/quai-mise-a-eau.jpeg",
+            "assets/spots/riviere-du-loup-camping-au-soleil-st-paulin/chutes-fin-du-parcours.jpeg",
+            "assets/spots/riviere-du-loup-camping-au-soleil-st-paulin/avis-acces-quai.jpeg",
+            "assets/spots/riviere-du-loup-camping-au-soleil-st-paulin/eau-et-planche.jpeg"
+        ],
+        "photoCredit": "Anie",
+        "description": "Accès à la rivière du Loup par le quai privé du Camping Au Soleil à Saint-Paulin, avec un petit stationnement près de la mise à l’eau.",
+        "longDescription": "Le quai du Camping Au Soleil permet de partir sur la rivière du Loup à Saint-Paulin. Une contribution reçue le 13 août 2026 indique un droit d’accès de 5 $, à payer à l’accueil du camping, ainsi qu’un petit stationnement tout près du quai. En direction de Saint-Alexis-des-Monts, la contributrice a parcouru environ 7 km avant d’atteindre des chutes et de rebrousser chemin, pour une sortie de 14 km aller-retour. Il est aussi possible de partir dans l’autre direction, d’abord avec le courant puis de revenir à contre-courant. Confirmez le tarif, l’autorisation d’accès et les conditions de la rivière auprès du camping avant le départ.",
+        "difficulty": "intermédiaire",
+        "paddleScore": 74,
+        "scoreFactors": {
+            "wind": 8,
+            "rain": 6,
+            "temperature": 8,
+            "waves": 7
+        },
+        "isFree": false,
+        "cost": "5 $ selon la contribution; à confirmer auprès du camping",
+        "waterQuality": "À vérifier localement",
+        "maxLength": "14 km aller-retour jusqu’aux chutes",
+        "season": "À confirmer auprès du camping",
+        "parking": {
+            "location": "Petit stationnement près du quai du Camping Au Soleil",
+            "spots": "Capacité limitée",
+            "accessible": null,
+            "cost": "5 $ pour l’accès selon la contribution"
+        },
+        "access": {
+            "description": "Présentez-vous à l’accueil du camping avant d’utiliser le quai privé.",
+            "type": "Quai privé / mise à l’eau manuelle",
+            "difficulty": "Accès facile par le quai",
+            "launchPoint": "Quai du Camping Au Soleil"
+        },
+        "amenities": [
+            "Quai de mise à l’eau",
+            "Petit stationnement à proximité",
+            "Accueil du camping"
+        ],
+        "warnings": [
+            "Le quai est privé : présentez-vous à l’accueil et acquittez le droit d’accès avant la mise à l’eau",
+            "Des chutes se trouvent à environ 7 km en direction de Saint-Alexis-des-Monts : rebroussez chemin avant les rapides",
+            "Le courant, le niveau de l’eau et la difficulté du retour peuvent varier rapidement après la pluie",
+            "Le point GPS correspond au camping; l’emplacement précis du quai reste à confirmer"
+        ],
+        "faq": [
+            {
+                "q": "Combien coûte l’accès ?",
+                "a": "La contribution du 13 août 2026 indique 5 $, à payer à l’accueil du camping. Confirmez le tarif avant votre déplacement."
+            },
+            {
+                "q": "Quel parcours a été testé ?",
+                "a": "En direction de Saint-Alexis-des-Monts, environ 7 km jusqu’aux chutes, puis retour par le même trajet, soit 14 km au total."
+            },
+            {
+                "q": "Peut-on partir dans l’autre direction ?",
+                "a": "Oui selon la contribution. Le départ se fait alors dans le sens du courant et le retour à contre-courant; gardez assez d’énergie pour revenir."
+            }
+        ],
+        "highlights": [
+            "Quai de mise à l’eau",
+            "Petit stationnement à proximité",
+            "Parcours testé de 14 km aller-retour",
+            "Contribution terrain du 13 août 2026"
+        ]
     }
 ];
 
@@ -4022,6 +4106,7 @@ lacDatabase.forEach(lake => {
 });
 
 const accessPointOverrides = {
+    "riviere-du-loup-camping-au-soleil-st-paulin": { lat: 46.4243, lon: -73.0397, name: "Quai du Camping Au Soleil St-Paulin", type: "Quai privé / mise à l'eau manuelle", confidence: "medium", source: "Contribution terrain reçue le 13 août 2026; emplacement général du camping recoupé avec l'adresse officielle et ReservationQC, point précis du quai à confirmer" },
     "lac-mercier": { lat: 46.193499, lon: -74.631738, name: "Mise à l'eau à gauche du quai du lac Mercier", type: "Quai / mise à l'eau manuelle", confidence: "high", source: "Coordonnées et indication confirmées par une personne contributrice le 3 août 2026" },
     "riviere-macaza": { lat: 46.398759536928964, lon: -74.72960327747677, name: "Accès à l’eau de la rivière Macaza", type: "Accès riverain / mise à l’eau manuelle", confidence: "high", source: "Coordonnées fournies par la personne contributrice; mise à l’eau répertoriée sur la carte Rivière Macaza de Canot Kayak Québec (publication 2022)" },
     "lac-saint-joseph-plage-gratton": { lat: 45.972370018135365, lon: -74.33935648574739, name: "Plage Gratton", type: "Plage / accès à l'eau", confidence: "high", source: "Coordonnées confirmées par l'utilisateur" },
@@ -4086,6 +4171,7 @@ const accessPointOverrides = {
 // Le point d'accès et le stationnement sont volontairement séparés. Les itinéraires
 // visent le stationnement afin d'éviter d'envoyer un véhicule directement sur la rive.
 const parkingPointOverrides = {
+    "riviere-du-loup-camping-au-soleil-st-paulin": { lat: 46.4243, lon: -73.0397, name: "Camping Au Soleil St-Paulin, 2470 chemin de la Belle-Montagne", confidence: "medium", source: "Adresse officielle du Camping Au Soleil St-Paulin; petit stationnement près du quai signalé dans une contribution terrain reçue le 13 août 2026", fee: "5 $ selon la contribution; à confirmer" },
     "parc-andre-auger": { lat: 45.85138, lon: -73.75748, name: "Stationnement du parc André-Auger, 710 rue Saint-Isidore", confidence: "high", source: "Adresse officielle confirmée par la Ville de Saint-Lin-Laurentides", distanceToAccessMeters: 0, fee: "Gratuit selon la contribution" },
     "lac-beattie": { lat: 45.7253, lon: -74.2602, name: "Stationnement du Parc nature du Lac Beattie, 501 chemin Beattie", confidence: "high", source: "Adresse officielle et coordonnées du stationnement publiées par Balise Québec", distanceToAccessMeters: 200, fee: "Stationnement sur place" },
     "parc-du-quai-crabtree": { lat: 45.973805, lon: -73.4758384, name: "Destination du parc du Quai, 398, 1re Avenue", confidence: "medium", source: "Adresse publiée par Évasion SUP et la Ville de Crabtree", distanceToAccessMeters: 0, fee: "À vérifier" },
