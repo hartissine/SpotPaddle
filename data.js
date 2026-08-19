@@ -1093,6 +1093,105 @@ const lacDatabase = [
 // tout en conservant les fiches ?ditoriales plus riches d?j? pr?sentes ci-dessus.
 const supplementalSpotDetails = [
     {
+        id: "riviere-maskinonge-rang-saint-augustin", slug: "riviere-maskinonge-rang-saint-augustin", name: "Rivière Maskinongé — rang Saint-Augustin", region: "Lanaudière",
+        lat: 46.3274807, lon: -73.3610448,
+        mainImage: "assets/spots/riviere-maskinonge-rang-saint-augustin.jpg",
+        gallery: ["assets/spots/riviere-maskinonge-rang-saint-augustin.jpg"],
+        photoCredit: "Visuel Spot Paddle",
+        description: "Mise à l'eau aménagée sur la rivière Maskinongé avec quai réservé aux SUP et kayaks, station de lavage et station de gonflage.",
+        longDescription: "Le débarcadère municipal du rang Saint-Augustin se trouve sur la rivière Maskinongé, près de Mandeville, à l'adresse officielle du 5111 rang Saint-Augustin à Saint-Gabriel-de-Brandon. Une halte sportive y offre un quai réservé aux planches à pagaie et aux kayaks, une station gratuite de lavage et une station de gonflage pour les embarcations non motorisées. Ce point donne accès à la rivière et au lac Maskinongé, ainsi qu'à un parcours Route Bleue de 17 km aller-retour vers Saint-Didace. La mise à l'eau est gratuite pour les embarcations non motorisées, mais des frais de stationnement s'appliquent.",
+        difficulty: "facile à intermédiaire", paddleScore: 80,
+        scoreFactors: { wind: 8, rain: 7, temperature: 8, waves: 8 },
+        isFree: false, cost: "Mise à l'eau gratuite pour les embarcations non motorisées; stationnement payant",
+        waterQuality: "À vérifier localement", maxLength: "17 km aller-retour sur la Route Bleue", season: "Mi-mai à l'automne; services saisonniers",
+        parking: { location: "Débarcadère municipal, 5111 rang Saint-Augustin, Saint-Gabriel-de-Brandon", spots: "Capacité à vérifier", accessible: true, cost: "Payant; tarif à confirmer" },
+        access: { description: "Quai réservé aux SUP et kayaks au débarcadère du rang Saint-Augustin", type: "Quai / rampe de mise à l'eau", difficulty: "Mise à l'eau facile; parcours complet plus exigeant", launchPoint: "Débarcadère municipal du lac Maskinongé" },
+        amenities: ["Station de gonflage pour SUP", "Station de lavage gratuite", "Quai réservé aux SUP et kayaks", "Tables de pique-nique", "Petits BBQ", "Rampe double pour embarcations motorisées"],
+        warnings: ["Le lavage de toute embarcation est obligatoire avant la mise à l'eau", "Stationnement payant même si la mise à l'eau des embarcations non motorisées est gratuite", "Limitez la vitesse à 10 km/h dans la rivière et près des rives", "Vérifiez le courant, les obstacles, les débris et la circulation nautique avant le départ", "Le parcours complet de 17 km demande davantage d'endurance et d'autonomie"],
+        faq: [
+            { q: "Y a-t-il une station de gonflage?", a: "Oui. Une station de gonflage dédiée aux planches à pagaie est installée à la halte sportive du débarcadère." },
+            { q: "La mise à l'eau est-elle gratuite?", a: "Oui pour les embarcations non motorisées selon la Route Bleue. Des frais s'appliquent toutefois au stationnement." },
+            { q: "Faut-il laver son embarcation?", a: "Oui. Le lavage est obligatoire avant chaque mise à l'eau; une station gratuite est accessible sur place." },
+            { q: "Le parcours est-il technique?", a: "La mise à l'eau et le secteur d'eau calme sont accessibles. Le parcours complet exige toutefois de savoir lire le courant, d'éviter les obstacles et de gérer une sortie pouvant atteindre 17 km aller-retour." }
+        ],
+        highlights: ["Station de gonflage", "Lavage gratuit", "Quai réservé aux SUP et kayaks", "Route Bleue de 17 km"]
+    },
+    {
+        id: "lac-mcfee", slug: "lac-mcfee", name: "Lac McFee", region: "Outaouais",
+        lat: 45.7145863, lon: -75.6231354,
+        mainImage: "assets/spots/lac-mcfee.jpg",
+        gallery: ["assets/spots/lac-mcfee.jpg"],
+        photoCredit: "Visuel Spot Paddle",
+        description: "Lac profond et clair de Val-des-Monts avec une mise à l'eau facile et un stationnement gratuit à proximité.",
+        longDescription: "Le lac McFee se trouve à Val-des-Monts, en Outaouais. Une contribution Spot Paddle signale une mise à l'eau facile, un stationnement gratuit et l'absence de toilettes. Le débarcadère est accessible par le chemin du Débarcadère, relié au chemin du Lac-McFee. Une étude municipale décrit un lac profond à l'eau très claire, avec peu de plantes aquatiques sauf dans certaines baies. Comme le lien Maps fourni vise le lac en général, vérifiez la signalisation et l'emplacement exact du stationnement à votre arrivée.",
+        difficulty: "facile", paddleScore: 82,
+        scoreFactors: { wind: 8, rain: 7, temperature: 8, waves: 9 },
+        isFree: true, cost: "Mise à l'eau et stationnement gratuits selon la contribution",
+        waterQuality: "Eau très claire; conditions actuelles à vérifier", maxLength: "Parcours variable", season: "Printemps à automne",
+        parking: { location: "Chemin du Débarcadère, près du chemin du Lac-McFee, Val-des-Monts", spots: "Capacité à vérifier", accessible: null, cost: "Gratuit selon la contribution" },
+        access: { description: "Débarcadère au bout du chemin du Débarcadère", type: "Débarcadère / mise à l'eau", difficulty: "Accès facile", launchPoint: "Débarcadère du lac McFee" },
+        amenities: ["Mise à l'eau facile", "Stationnement gratuit", "Eau claire"],
+        warnings: ["Aucune toilette sur place", "Le lien Maps fourni désigne le lac plutôt qu'une épingle précise sur le stationnement; suivez la signalisation du chemin du Débarcadère", "Nettoyez l'embarcation avant et après la sortie afin de limiter la propagation d'espèces aquatiques envahissantes", "Vérifiez les règles de pêche en vigueur; la population de touladis du lac est vulnérable"],
+        faq: [
+            { q: "Où se trouve la mise à l'eau?", a: "Le débarcadère est accessible par le chemin du Débarcadère, relié au chemin du Lac-McFee à Val-des-Monts." },
+            { q: "Le stationnement est-il gratuit?", a: "Oui selon la contribution reçue. Vérifiez tout de même la signalisation locale à votre arrivée." },
+            { q: "Y a-t-il des toilettes?", a: "Non. Aucune toilette n'a été signalée sur place; prévoyez votre arrêt avant d'arriver." },
+            { q: "Le lac convient-il aux débutants?", a: "La mise à l'eau est facile et le lac convient à une sortie calme lorsque la météo est favorable. Restez près de la rive si vous débutez et vérifiez le vent avant le départ." }
+        ],
+        highlights: ["Mise à l'eau facile", "Stationnement gratuit", "Eau très claire", "Cadre naturel"]
+    },
+    {
+        id: "riviere-du-lievre-outaouais", slug: "riviere-du-lievre-outaouais", name: "Rivière du Lièvre", region: "Outaouais",
+        lat: 45.59576, lon: -75.41995,
+        mainImage: "assets/spots/riviere-du-lievre-outaouais.jpg",
+        gallery: ["assets/spots/riviere-du-lievre-outaouais.jpg"],
+        photoCredit: "Visuel Spot Paddle",
+        description: "Rivière calme de l'Outaouais avec deux accès faciles, au Centre nautique de la Lièvre et au parc régional de Champboisé.",
+        longDescription: "La rivière du Lièvre offre un parcours nautique sur eau généralement calme entre le secteur de Buckingham et L'Ange-Gardien. Deux accès ont été signalés dans une contribution Spot Paddle : le Centre nautique de la Lièvre, au parc du Landing, et le parc régional de Champboisé. Le Centre nautique constitue le point de départ principal de cette fiche; il comprend un quai, des toilettes publiques, de l'eau potable, des tables de pique-nique et un stationnement gratuit. Champboisé, au 1521 route 309 à L'Ange-Gardien, offre une seconde possibilité de mise à l'eau et une halte dans un vaste parc boisé. Le parcours complet demande une bonne expérience; les débutants devraient privilégier une sortie plus courte depuis le Centre nautique.",
+        difficulty: "facile à intermédiaire", paddleScore: 80,
+        scoreFactors: { wind: 8, rain: 7, temperature: 8, waves: 8 },
+        isFree: true, cost: "Mise à l'eau et stationnement gratuits; location et navette payantes",
+        waterQuality: "À vérifier selon les avis locaux", maxLength: "Jusqu'à 18 km d'eau navigable", season: "Mi-juin à mi-septembre",
+        parking: { location: "Centre nautique de la Lièvre, 255 avenue de Buckingham, Gatineau", spots: "Capacité à vérifier", accessible: true, cost: "Gratuit" },
+        access: { description: "Mise à l'eau principale au Centre nautique de la Lièvre; second accès au parc régional de Champboisé", type: "Quai / mise à l'eau pour embarcations non motorisées", difficulty: "Facile au Centre nautique; parcours complet intermédiaire", launchPoint: "Centre nautique de la Lièvre — parc du Landing" },
+        amenities: ["Deux endroits de mise à l'eau", "Toilettes publiques", "Stationnement gratuit", "Quai", "Eau potable", "Tables de pique-nique", "Location d'embarcations et navette en saison"],
+        warnings: ["Le parcours complet demande une bonne expérience nautique", "Nettoyez l'embarcation avant et après la sortie pour limiter les espèces exotiques envahissantes", "Vérifiez le courant, le niveau d'eau, la météo et l'horaire des services avant le départ"],
+        faq: [
+            { q: "Où peut-on mettre son embarcation à l'eau?", a: "Deux accès sont proposés : le Centre nautique de la Lièvre au 255 avenue de Buckingham à Gatineau, et le parc régional de Champboisé au 1521 route 309 à L'Ange-Gardien." },
+            { q: "Le stationnement est-il gratuit?", a: "Oui. La contribution et le parcours nautique officiel indiquent un stationnement gratuit au Centre nautique de la Lièvre." },
+            { q: "Le parcours convient-il aux débutants?", a: "Une courte sortie depuis le Centre nautique convient mieux aux débutants. Une bonne expérience est recommandée pour compléter le parcours nautique en entier." },
+            { q: "Peut-on louer une embarcation?", a: "Oui en saison au Centre nautique : SUP, kayak, canot et pédalo sont proposés, ainsi qu'un service de navette. Vérifiez les horaires et les tarifs avant le déplacement." }
+        ],
+        highlights: ["Deux mises à l'eau", "Eau calme", "Stationnement gratuit", "Toilettes publiques", "Location et navette en saison"]
+    },
+    {
+        id: "parc-maison-valois", slug: "parc-maison-valois", name: "Parc de la Maison-Valois", region: "Montérégie",
+        lat: 45.391389, lon: -74.015556,
+        mainImage: "assets/spots/parc-maison-valois/quai-et-location.jpeg",
+        gallery: [
+            "assets/spots/parc-maison-valois/quai-et-location.jpeg",
+            "assets/spots/parc-maison-valois/sortie-sur-la-baie-sans-personnes.png",
+            "assets/spots/parc-maison-valois/algues-mi-aout.jpeg"
+        ],
+        photoCredit: "Contribution Spot Paddle",
+        description: "Embarquement facile sur la baie de Vaudreuil grâce à une petite plage de sable et à un quai, au parc de la Maison-Valois.",
+        longDescription: "Le parc de la Maison-Valois offre un accès simple à la baie de Vaudreuil pour les embarcations légères. La petite plage de sable facilite l'embarquement et un quai se trouve juste à côté. Le stationnement gratuit et la surface gazonnée sont à quelques pas de la mise à l'eau. Des toilettes chimiques et un service saisonnier de location d'embarcations, dont des pédalos, sont offerts sur place. Une contribution terrain du 14 août 2026 signale toutefois beaucoup d'algues à la mi-août.",
+        difficulty: "facile", paddleScore: 79, scoreFactors: { wind: 7, rain: 7, temperature: 8, waves: 8 },
+        isFree: true, cost: "Accès et stationnement gratuits; location payante",
+        waterQuality: "Beaucoup d'algues observées à la mi-août 2026",
+        maxLength: "Parcours variable sur la baie de Vaudreuil", season: "Printemps à automne; location saisonnière",
+        parking: { location: "Stationnement du parc, 331 avenue Saint-Charles, Vaudreuil-Dorion", spots: "Capacité à vérifier", accessible: true, cost: "Gratuit" },
+        access: { description: "Embarquement depuis la petite plage de sable ou le quai, à quelques pas du stationnement", type: "Petite plage de sable / quai", difficulty: "Accès facile", launchPoint: "Parc de la Maison-Valois" },
+        amenities: ["Quai", "Petite plage de sable", "Toilettes chimiques", "Location saisonnière d'embarcations", "Surface gazonnée", "Stationnement gratuit"],
+        warnings: ["Beaucoup d'algues ont été observées à la mi-août 2026", "La baie peut être exposée au vent; vérifiez les conditions avant le départ", "Confirmez l'horaire et les tarifs du service de location avant votre déplacement"],
+        faq: [
+            { q: "La mise à l'eau est-elle facile?", a: "Oui. La petite plage de sable permet un embarquement facile et un quai se trouve juste à côté." },
+            { q: "Le stationnement est-il gratuit?", a: "Oui selon la contribution reçue. Le stationnement et une surface gazonnée se trouvent à quelques pas de la mise à l'eau." },
+            { q: "Peut-on louer une embarcation sur place?", a: "Oui en saison. La Ville annonce la location de kayaks, canots, planches à pagaie et pédalos; vérifiez l'horaire et les tarifs avant de partir." }
+        ],
+        highlights: ["Embarquement facile", "Petite plage de sable et quai", "Stationnement gratuit à proximité", "Location d'embarcations en saison"]
+    },
+    {
         id: "parc-du-quai-crabtree",
         slug: "parc-du-quai-crabtree",
         name: "Parc du Quai (Crabtree)",
@@ -4106,6 +4205,10 @@ lacDatabase.forEach(lake => {
 });
 
 const accessPointOverrides = {
+    "riviere-maskinonge-rang-saint-augustin": { lat: 46.3274807, lon: -73.3610448, name: "Quai SUP et kayak du débarcadère du rang Saint-Augustin", type: "Quai / rampe de mise à l'eau", confidence: "high", source: "Contribution Spot Paddle; adresse, coordonnées et installations confirmées par la Municipalité de Saint-Gabriel-de-Brandon et la Route Bleue" },
+    "lac-mcfee": { lat: 45.7225691, lon: -75.6121143, name: "Débarcadère du lac McFee — chemin du Débarcadère", type: "Débarcadère / mise à l'eau", confidence: "medium", source: "Contribution Spot Paddle; lac confirmé par le lien Google Maps fourni et chemin du Débarcadère recoupé avec la cartographie routière de Val-des-Monts" },
+    "riviere-du-lievre-outaouais": { lat: 45.59576, lon: -75.41995, name: "Centre nautique de la Lièvre — parc du Landing", type: "Quai / mise à l'eau publique", confidence: "high", source: "Contribution Spot Paddle; adresse et services confirmés par la Corporation plein air de la Lièvre et le parcours nautique officiel de L'Ange-Gardien" },
+    "parc-maison-valois": { lat: 45.391389, lon: -74.015556, name: "Petite plage et quai du parc de la Maison-Valois", type: "Petite plage de sable / quai", confidence: "high", source: "Lien Google Maps et observations fournis dans une contribution terrain le 14 août 2026; emplacement du parc recoupé avec la Ville de Vaudreuil-Dorion" },
     "riviere-du-loup-camping-au-soleil-st-paulin": { lat: 46.4243, lon: -73.0397, name: "Quai du Camping Au Soleil St-Paulin", type: "Quai privé / mise à l'eau manuelle", confidence: "medium", source: "Contribution terrain reçue le 13 août 2026; emplacement général du camping recoupé avec l'adresse officielle et ReservationQC, point précis du quai à confirmer" },
     "lac-mercier": { lat: 46.193499, lon: -74.631738, name: "Mise à l'eau à gauche du quai du lac Mercier", type: "Quai / mise à l'eau manuelle", confidence: "high", source: "Coordonnées et indication confirmées par une personne contributrice le 3 août 2026" },
     "riviere-macaza": { lat: 46.398759536928964, lon: -74.72960327747677, name: "Accès à l’eau de la rivière Macaza", type: "Accès riverain / mise à l’eau manuelle", confidence: "high", source: "Coordonnées fournies par la personne contributrice; mise à l’eau répertoriée sur la carte Rivière Macaza de Canot Kayak Québec (publication 2022)" },
@@ -4171,6 +4274,10 @@ const accessPointOverrides = {
 // Le point d'accès et le stationnement sont volontairement séparés. Les itinéraires
 // visent le stationnement afin d'éviter d'envoyer un véhicule directement sur la rive.
 const parkingPointOverrides = {
+    "riviere-maskinonge-rang-saint-augustin": { lat: 46.3274807, lon: -73.3610448, name: "Stationnement du débarcadère municipal du lac Maskinongé", confidence: "high", source: "Adresse et coordonnées confirmées; stationnement payant indiqué dans le dépliant municipal 2026", distanceToAccessMeters: 0, fee: "Payant; tarif à confirmer" },
+    "lac-mcfee": { lat: 45.7225691, lon: -75.6121143, name: "Stationnement du débarcadère du lac McFee", confidence: "medium", source: "Stationnement gratuit signalé dans une contribution; destination routière placée sur le chemin du Débarcadère, à confirmer avec la signalisation locale", distanceToAccessMeters: 0, fee: "Gratuit selon la contribution" },
+    "riviere-du-lievre-outaouais": { lat: 45.59576, lon: -75.41995, name: "Stationnement du Centre nautique de la Lièvre, 255 avenue de Buckingham", confidence: "high", source: "Stationnement gratuit confirmé par le parcours nautique officiel de la rivière du Lièvre", distanceToAccessMeters: 0, fee: "Gratuit" },
+    "parc-maison-valois": { lat: 45.391389, lon: -74.015556, name: "Stationnement du parc de la Maison-Valois, 331 avenue Saint-Charles", confidence: "high", source: "Stationnement gratuit à quelques pas de la mise à l'eau signalé dans une contribution terrain; adresse du parc confirmée par la Ville de Vaudreuil-Dorion", distanceToAccessMeters: 0, fee: "Gratuit" },
     "riviere-du-loup-camping-au-soleil-st-paulin": { lat: 46.4243, lon: -73.0397, name: "Camping Au Soleil St-Paulin, 2470 chemin de la Belle-Montagne", confidence: "medium", source: "Adresse officielle du Camping Au Soleil St-Paulin; petit stationnement près du quai signalé dans une contribution terrain reçue le 13 août 2026", fee: "5 $ selon la contribution; à confirmer" },
     "parc-andre-auger": { lat: 45.85138, lon: -73.75748, name: "Stationnement du parc André-Auger, 710 rue Saint-Isidore", confidence: "high", source: "Adresse officielle confirmée par la Ville de Saint-Lin-Laurentides", distanceToAccessMeters: 0, fee: "Gratuit selon la contribution" },
     "lac-beattie": { lat: 45.7253, lon: -74.2602, name: "Stationnement du Parc nature du Lac Beattie, 501 chemin Beattie", confidence: "high", source: "Adresse officielle et coordonnées du stationnement publiées par Balise Québec", distanceToAccessMeters: 200, fee: "Stationnement sur place" },
