@@ -1093,6 +1093,30 @@ const lacDatabase = [
 // tout en conservant les fiches ?ditoriales plus riches d?j? pr?sentes ci-dessus.
 const supplementalSpotDetails = [
     {
+        id: "lac-pemichangan", slug: "lac-pemichangan", name: "Lac Pemichangan", region: "Outaouais",
+        lat: 46.0508268, lon: -75.8331653,
+        mainImage: "assets/spots/lac-pemichangan.jpg",
+        gallery: ["assets/spots/lac-pemichangan.jpg"],
+        photoCredit: "Visuel Spot Paddle",
+        description: "Grand lac clair de l'Outaouais avec une mise à l'eau facile à Pointe Comfort et du stationnement limité en bordure de route.",
+        longDescription: "Le lac Pemichangan est un grand lac profond et parsemé d'îles dans la Vallée-de-la-Gatineau. Une contribution Spot Paddle indique un accès à l'eau facile et du stationnement en bordure de rue. La descente publique la mieux documentée se trouve à Pointe Comfort, dans le secteur de Northfield, à l'extrémité nord du lac. Le lavage est obligatoire avant la mise à l'eau pour toutes les embarcations, y compris les kayaks, canots et planches à pagaie. Faites laver l'embarcation et conservez la preuve exigée avant d'arriver à la descente.",
+        difficulty: "intermédiaire", paddleScore: 76,
+        scoreFactors: { wind: 6, rain: 7, temperature: 8, waves: 7 },
+        isFree: null, cost: "Accès et frais à vérifier; lavage obligatoire",
+        waterQuality: "Lac clair; présence de myriophylle dans certains secteurs", maxLength: "Lac d'environ 8 km", season: "Printemps à automne",
+        parking: { location: "En bordure de route près de la descente de Pointe Comfort / Northfield", spots: "Places limitées", accessible: null, cost: "À vérifier" },
+        access: { description: "Descente publique de Pointe Comfort, près du chemin de la Pointe-à-Comfort", type: "Rampe / mise à l'eau", difficulty: "Accès à l'eau facile", launchPoint: "Pointe Comfort / Northfield" },
+        amenities: ["Mise à l'eau facile", "Accès routier", "Stationnement limité en bordure de route"],
+        warnings: ["Lavage obligatoire pour toutes les embarcations, y compris SUP, kayaks et canots", "Procurez-vous une preuve de lavage avant d'arriver à la descente", "Stationnement limité en bordure de route : ne bloquez pas la circulation ni l'accès à la rampe", "Grand lac profond et exposé : le vent peut rapidement produire des vagues", "Respectez les bouées signalant les hauts-fonds, dangers et zones de myriophylle"],
+        faq: [
+            { q: "Où se trouve la mise à l'eau?", a: "La descente publique se trouve à Pointe Comfort, dans le secteur de Northfield, à l'extrémité nord du lac." },
+            { q: "Le lavage est-il obligatoire?", a: "Oui. Toutes les embarcations doivent être lavées avant la mise à l'eau, y compris les planches à pagaie, kayaks et canots. Conservez la preuve de lavage exigée." },
+            { q: "Où peut-on stationner?", a: "La contribution signale du stationnement en bordure de rue près de l'accès. Les places sont limitées; respectez la signalisation et laissez la rampe dégagée." },
+            { q: "Le lac convient-il aux débutants?", a: "La mise à l'eau est facile, mais le lac est grand, profond et exposé. Un débutant devrait rester près de la rive et sortir uniquement par vent faible." }
+        ],
+        highlights: ["Mise à l'eau facile", "Eau claire", "Nombreuses îles", "Accès à Pointe Comfort"]
+    },
+    {
         id: "riviere-maskinonge-rang-saint-augustin", slug: "riviere-maskinonge-rang-saint-augustin", name: "Rivière Maskinongé — rang Saint-Augustin", region: "Lanaudière",
         lat: 46.3274807, lon: -73.3610448,
         mainImage: "assets/spots/riviere-maskinonge-rang-saint-augustin.jpg",
@@ -4205,6 +4229,7 @@ lacDatabase.forEach(lake => {
 });
 
 const accessPointOverrides = {
+    "lac-pemichangan": { lat: 46.078, lon: -75.856, name: "Descente publique de Pointe Comfort / Northfield", type: "Rampe / mise à l'eau", confidence: "medium", source: "Contribution Spot Paddle et lien Google Maps; accès public de Pointe Comfort recoupé avec les informations locales du lac Pemichangan" },
     "riviere-maskinonge-rang-saint-augustin": { lat: 46.3274807, lon: -73.3610448, name: "Quai SUP et kayak du débarcadère du rang Saint-Augustin", type: "Quai / rampe de mise à l'eau", confidence: "high", source: "Contribution Spot Paddle; adresse, coordonnées et installations confirmées par la Municipalité de Saint-Gabriel-de-Brandon et la Route Bleue" },
     "lac-mcfee": { lat: 45.7225691, lon: -75.6121143, name: "Débarcadère du lac McFee — chemin du Débarcadère", type: "Débarcadère / mise à l'eau", confidence: "medium", source: "Contribution Spot Paddle; lac confirmé par le lien Google Maps fourni et chemin du Débarcadère recoupé avec la cartographie routière de Val-des-Monts" },
     "riviere-du-lievre-outaouais": { lat: 45.59576, lon: -75.41995, name: "Centre nautique de la Lièvre — parc du Landing", type: "Quai / mise à l'eau publique", confidence: "high", source: "Contribution Spot Paddle; adresse et services confirmés par la Corporation plein air de la Lièvre et le parcours nautique officiel de L'Ange-Gardien" },
@@ -4274,6 +4299,7 @@ const accessPointOverrides = {
 // Le point d'accès et le stationnement sont volontairement séparés. Les itinéraires
 // visent le stationnement afin d'éviter d'envoyer un véhicule directement sur la rive.
 const parkingPointOverrides = {
+    "lac-pemichangan": { lat: 46.078, lon: -75.856, name: "Stationnement en bordure près de la descente de Pointe Comfort", confidence: "medium", source: "Stationnement en bordure de rue signalé dans une contribution; capacité limitée indiquée par les informations locales", distanceToAccessMeters: 0, fee: "À vérifier" },
     "riviere-maskinonge-rang-saint-augustin": { lat: 46.3274807, lon: -73.3610448, name: "Stationnement du débarcadère municipal du lac Maskinongé", confidence: "high", source: "Adresse et coordonnées confirmées; stationnement payant indiqué dans le dépliant municipal 2026", distanceToAccessMeters: 0, fee: "Payant; tarif à confirmer" },
     "lac-mcfee": { lat: 45.7225691, lon: -75.6121143, name: "Stationnement du débarcadère du lac McFee", confidence: "medium", source: "Stationnement gratuit signalé dans une contribution; destination routière placée sur le chemin du Débarcadère, à confirmer avec la signalisation locale", distanceToAccessMeters: 0, fee: "Gratuit selon la contribution" },
     "riviere-du-lievre-outaouais": { lat: 45.59576, lon: -75.41995, name: "Stationnement du Centre nautique de la Lièvre, 255 avenue de Buckingham", confidence: "high", source: "Stationnement gratuit confirmé par le parcours nautique officiel de la rivière du Lièvre", distanceToAccessMeters: 0, fee: "Gratuit" },
