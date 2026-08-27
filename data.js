@@ -91,10 +91,10 @@ const lacDatabase = [
         region: "Mauricie",
         lat: 46.527974024663074,
         lon: -73.19878614418161,
-        mainImage: "assets/spots/lac-sacacomie/vue-depuis-la-planche.jpeg",
+        mainImage: "assets/spots/lac-sacacomie/falaise-rocheuse.jpeg",
         gallery: [
-            "assets/spots/lac-sacacomie/vue-depuis-la-planche.jpeg",
             "assets/spots/lac-sacacomie/falaise-rocheuse.jpeg",
+            "assets/spots/lac-sacacomie/vue-depuis-la-planche.jpeg",
             "assets/spots/lac-sacacomie/vue-panoramique.jpeg",
             "assets/spots/lac-sacacomie/rive-boisee.jpeg",
             "assets/spots/lac-sacacomie/eau-claire-et-reflets.jpeg"
