@@ -9,14 +9,15 @@
         const getConnectionType = () => String(connection?.type || '').toLowerCase();
         const isExplicitWifi = () => ['wifi', 'ethernet'].includes(getConnectionType());
         const isExplicitCellular = () => ['cellular', '2g', '3g', '4g', '5g'].includes(getConnectionType());
+        let userRequestedHeroVideo = false;
 
         const shouldUseVideo = () => {
             if (reducedMotion.matches || connection?.saveData || isExplicitCellular()) return false;
+            if (!desktopMedia.matches) return false;
             if (isExplicitWifi()) return true;
 
-            // Beaucoup de navigateurs ne disent pas si le téléphone est en Wi-Fi.
-            // Dans ce cas, on reste prudent sur mobile et on charge la vidéo sur écran large.
-            return desktopMedia.matches;
+            // Without a reliable network signal, keep the poster until user intent.
+            return userRequestedHeroVideo;
         };
 
         const unloadVideo = () => {
@@ -51,6 +52,8 @@
         };
 
         const scheduleInitialHeroMedia = () => {
+            if (!isExplicitWifi()) return;
+
             const loadWhenIdle = () => {
                 if ('requestIdleCallback' in window) {
                     window.requestIdleCallback(syncHeroMedia, { timeout: 2500 });
@@ -68,7 +71,20 @@
             window.addEventListener('load', loadWhenIdle, { once: true });
         };
 
+        const scheduleInteractionHeroMedia = () => {
+            const target = video.closest('header') || video;
+            const requestVideo = () => {
+                userRequestedHeroVideo = true;
+                syncHeroMedia();
+            };
+
+            target.addEventListener('pointerenter', requestVideo, { once: true });
+            target.addEventListener('pointerdown', requestVideo, { once: true, passive: true });
+            target.addEventListener('focusin', requestVideo, { once: true });
+        };
+
         scheduleInitialHeroMedia();
+        scheduleInteractionHeroMedia();
         desktopMedia.addEventListener?.('change', syncHeroMedia);
         reducedMotion.addEventListener?.('change', syncHeroMedia);
         connection?.addEventListener?.('change', syncHeroMedia);
@@ -118,21 +134,27 @@
     }
 
     // Fonction pour créer un marqueur SVG coloré par région
+    const markerIconUrlByColor = new Map();
+
     function createRegionMarkerIcon(color) {
-        const svg = encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 40" width="32" height="40">
-            <path fill="${color}" d="M16 0C8.3 0 2 6.3 2 14c0 9 14 26 14 26s14-17 14-26c0-7.7-6.3-14-14-14z"/>
+        const markerColor = color || "#64748b";
+        if (markerIconUrlByColor.has(markerColor)) {
+            return markerIconUrlByColor.get(markerColor);
+        }
+
+        const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 40" width="32" height="40">
+            <path fill="${markerColor}" d="M16 0C8.3 0 2 6.3 2 14c0 9 14 26 14 26s14-17 14-26c0-7.7-6.3-14-14-14z"/>
             <circle cx="16" cy="14" r="5" fill="white"/>
-        </svg>`);
-        return 'data:image/svg+xml;base64,' + btoa(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 40" width="32" height="40">
-            <path fill="${color}" d="M16 0C8.3 0 2 6.3 2 14c0 9 14 26 14 26s14-17 14-26c0-7.7-6.3-14-14-14z"/>
-            <circle cx="16" cy="14" r="5" fill="white"/>
-        </svg>`);
+        </svg>`;
+        const iconUrl = 'data:image/svg+xml;base64,' + btoa(svg);
+        markerIconUrlByColor.set(markerColor, iconUrl);
+        return iconUrl;
     }
 
     // 2. Map Setup
     const initialView = { lat: 46.8, lon: -71.5, zoom: 6 };
     const mapElement = document.getElementById('map');
-    const leafletAvailable = typeof L !== 'undefined' && mapElement;
+    const MAIN_MAP_ASSET_VERSION = '1.9.4';
     var map = null;
     var streetMapLayer = null;
     var satelliteMapLayer = null;
@@ -140,6 +162,8 @@
     var isMapZoomLocked = false;
     var isMainMapInteractionEnabled = true;
     var isMainMapPopupOpen = false;
+    var mainMapAssetsPromise = null;
+    var mainMapInitPromise = null;
 
     function isMobileMapViewport() {
         return window.matchMedia('(max-width: 767px)').matches;
@@ -212,6 +236,13 @@
     }
 
     function toggleMainMapInteraction() {
+        if (!map) {
+            void ensureMainMapReady().then(isReady => {
+                if (isReady) toggleMainMapInteraction();
+            });
+            return;
+        }
+
         setMainMapInteractionEnabled(!isMainMapInteractionEnabled);
     }
 
@@ -242,7 +273,18 @@
 
     function setMapMode(mode, persist = true) {
         const selectedMode = mode === 'satellite' ? 'satellite' : 'street';
-        if (!map || !streetMapLayer || !satelliteMapLayer) return;
+        if (!map || !streetMapLayer || !satelliteMapLayer) {
+            updateMapModeControl(selectedMode);
+            if (persist) {
+                try {
+                    localStorage.setItem('spotPaddleMapMode', selectedMode);
+                } catch (error) {
+                    // La carte reste fonctionnelle mÃªme si le stockage local est dÃ©sactivÃ©.
+                }
+            }
+            void ensureMainMapReady();
+            return;
+        }
 
         if (selectedMode === 'satellite') {
             if (map.hasLayer(streetMapLayer)) map.removeLayer(streetMapLayer);
@@ -310,7 +352,81 @@
         return options;
     }
 
-    if (leafletAvailable) {
+    function setMainMapLoadingState() {
+        if (!mapElement || map || mapElement.dataset.mapState === 'loading') return;
+
+        mapElement.dataset.mapState = 'loading';
+        mapElement.innerHTML = `
+            <div class="h-full min-h-[420px] flex items-center justify-center bg-slate-100 text-slate-600 text-center p-8 rounded-3xl">
+                <div>
+                    <div class="mx-auto mb-4 h-8 w-8 animate-spin rounded-full border-4 border-blue-200 border-t-blue-600"></div>
+                    <p class="font-bold">Carte en chargement...</p>
+                    <p class="text-sm mt-2">Les spots et filtres restent disponibles.</p>
+                </div>
+            </div>
+        `;
+    }
+
+    function loadMainMapStylesheet() {
+        if (document.querySelector('link[data-main-leaflet-css]') || document.querySelector('link[href*="assets/vendor/leaflet/leaflet.css"]')) {
+            return Promise.resolve();
+        }
+
+        return new Promise((resolve, reject) => {
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = `assets/vendor/leaflet/leaflet.css?v=${MAIN_MAP_ASSET_VERSION}`;
+            link.dataset.mainLeafletCss = 'true';
+            link.onload = resolve;
+            link.onerror = () => reject(new Error('Feuille Leaflet indisponible'));
+            document.head.appendChild(link);
+        });
+    }
+
+    function loadMainMapScript() {
+        if (typeof L !== 'undefined') return Promise.resolve();
+
+        const existingScript = document.querySelector('script[data-main-leaflet-js], script[src*="assets/vendor/leaflet/leaflet.js"]');
+        if (existingScript) {
+            return new Promise((resolve, reject) => {
+                existingScript.addEventListener('load', resolve, { once: true });
+                existingScript.addEventListener('error', () => reject(new Error('Script Leaflet indisponible')), { once: true });
+            });
+        }
+
+        return new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = `assets/vendor/leaflet/leaflet.js?v=${MAIN_MAP_ASSET_VERSION}`;
+            script.async = true;
+            script.dataset.mainLeafletJs = 'true';
+            script.onload = resolve;
+            script.onerror = () => reject(new Error('Script Leaflet indisponible'));
+            document.body.appendChild(script);
+        });
+    }
+
+    function loadMainMapAssets() {
+        if (!mainMapAssetsPromise) {
+            setMainMapLoadingState();
+            mainMapAssetsPromise = Promise.all([
+                loadMainMapStylesheet(),
+                loadMainMapScript()
+            ]).then(() => undefined);
+        }
+
+        return mainMapAssetsPromise;
+    }
+
+    function initMainMap() {
+        if (!mapElement) return false;
+        if (map) return true;
+        if (typeof L === 'undefined') {
+            showMainMapUnavailable();
+            return false;
+        }
+
+        mapElement.innerHTML = '';
+        mapElement.dataset.mapState = 'ready';
         map = L.map('map', { zoomControl: false }).setView([initialView.lat, initialView.lon], initialView.zoom);
         map.createPane('satelliteLabelsPane');
         map.getPane('satelliteLabelsPane').style.zIndex = 350;
@@ -354,9 +470,16 @@
             }
             setMainMapPopupOpen(isMainMapPopupOpen);
         });
-    } else if (mapElement) {
+        initMainMarkers();
+        appliquerFiltres();
+        return true;
+    }
+
+    function showMainMapUnavailable() {
+        if (!mapElement) return;
         const mapModeControl = document.getElementById('mapModeControl');
         if (mapModeControl) mapModeControl.classList.add('hidden');
+        mapElement.dataset.mapState = 'unavailable';
         mapElement.innerHTML = `
             <div class="h-full min-h-[420px] flex items-center justify-center bg-slate-100 text-slate-600 text-center p-8 rounded-3xl">
                 <div>
@@ -368,8 +491,64 @@
         `;
     }
 
+    function ensureMainMapReady() {
+        if (!mapElement) return Promise.resolve(false);
+        if (map) return Promise.resolve(true);
+
+        if (!mainMapInitPromise) {
+            mainMapInitPromise = loadMainMapAssets()
+                .then(() => initMainMap())
+                .catch(error => {
+                    console.warn('Carte Leaflet non chargee:', error.message);
+                    showMainMapUnavailable();
+                    return false;
+                });
+        }
+
+        return mainMapInitPromise;
+    }
+
+    function scheduleMainMapInit() {
+        if (!mapElement) return;
+
+        const start = () => {
+            void ensureMainMapReady();
+        };
+
+        mapElement.addEventListener('pointerenter', start, { once: true });
+        mapElement.addEventListener('touchstart', start, { once: true, passive: true });
+
+        if (window.location.hash === '#carte' || window.location.hash.startsWith('#spot-')) {
+            start();
+            return;
+        }
+
+        if (!('IntersectionObserver' in window)) {
+            if ('requestIdleCallback' in window) {
+                window.requestIdleCallback(start, { timeout: 2500 });
+            } else {
+                window.setTimeout(start, 1200);
+            }
+            return;
+        }
+
+        const observer = new IntersectionObserver(entries => {
+            if (!entries.some(entry => entry.isIntersecting)) return;
+            observer.disconnect();
+            start();
+        }, { rootMargin: '520px 0px' });
+
+        observer.observe(mapElement);
+    }
+
     function zoomMap(direction) {
-        if (!map || isMapZoomLocked) return;
+        if (!map) {
+            void ensureMainMapReady().then(isReady => {
+                if (isReady) zoomMap(direction);
+            });
+            return;
+        }
+        if (isMapZoomLocked) return;
         if (direction > 0) {
             map.zoomIn();
         } else {
@@ -887,13 +1066,20 @@
         }
     ];
 
+    function getEmbeddedGpsPoint(point, fallbackLake = null) {
+        const lat = Number(point?.lat ?? fallbackLake?.lat);
+        const lon = Number(point?.lon ?? fallbackLake?.lon);
+        if (!Number.isFinite(lat) || !Number.isFinite(lon)) return null;
+        return { ...point, lat, lon };
+    }
+
     function buildSpotFromLake(lake) {
         const accessPoint = typeof getLakeAccessPoint === 'function'
             ? getLakeAccessPoint(lake)
-            : null;
+            : getEmbeddedGpsPoint(lake?.accessPoint || lake?.access?.coordinates, lake);
         const parkingPoint = typeof getLakeParkingPoint === 'function'
             ? getLakeParkingPoint(lake)
-            : null;
+            : getEmbeddedGpsPoint(lake?.parkingPoint);
         const directionsPoint = typeof getLakeDirectionsPoint === 'function'
             ? getLakeDirectionsPoint(lake)
             : (parkingPoint || accessPoint);
@@ -1704,18 +1890,25 @@
     }
 
     function geolocaliser(event) {
+    const btn = event?.currentTarget || { set innerText(value) {} };
     if (!navigator.geolocation) {
         alert("La géolocalisation n'est pas supportée par votre navigateur.");
         return;
     }
 
     if (!map || typeof L === 'undefined') {
-        alert("La carte n'est pas disponible pour le moment, mais les fiches de spots restent accessibles.");
+        void ensureMainMapReady().then(isReady => {
+            if (isReady) {
+                geolocaliser({ currentTarget: btn });
+                return;
+            }
+            alert("La carte n'est pas disponible pour le moment, mais les fiches de spots restent accessibles.");
+        });
         return;
     }
 
     // On affiche un petit message de chargement
-    const btn = event.currentTarget;
+    if (btn) btn.innerText = "loading";
     btn.innerText = "⌛";
 
     navigator.geolocation.getCurrentPosition(
@@ -1747,7 +1940,9 @@
 
     // 5. Markers init
     let markers = [];
-    if (map && typeof L !== 'undefined') {
+    function initMainMarkers() {
+        if (!map || typeof L === 'undefined' || markers.length > 0) return;
+
         spots.forEach(spot => {
             const regionColor = getRegionColor(spot.region);
             const accessCoords = getSpotAccessCoords(spot);
@@ -1806,6 +2001,8 @@
         level: 'all'
     };
 
+    scheduleMainMapInit();
+
     // Fonction de filtrage multi-critères
     function appliquerFiltres() {
         if (!map) return;
@@ -1852,6 +2049,12 @@
         appliquerFiltres();
 
         // Libérer l'espace sur la carte une fois qu'une région précise est choisie.
+        if (!map) {
+            void ensureMainMapReady().then(isReady => {
+                if (isReady) filterRegion(region);
+            });
+        }
+
         const filterContent = document.getElementById('filterContent');
         if (region !== 'all' && filterContent && !filterContent.classList.contains('hidden')) {
             toggleFilterCollapse();
@@ -1873,6 +2076,7 @@
         });
         
         appliquerFiltres();
+        if (!map) void ensureMainMapReady();
     }
 
     function filterLevel(level) {
@@ -1889,11 +2093,13 @@
         });
         
         appliquerFiltres();
+        if (!map) void ensureMainMapReady();
     }
 
     function toggleFreeFilter(checked) {
         currentFilters.freeOnly = checked;
         appliquerFiltres();
+        if (!map) void ensureMainMapReady();
     }
 
     // Fonction toggle thème
@@ -2014,6 +2220,11 @@
             // 3. Centrer la carte sur le spot
             if (map) {
                 map.setView([accessCoords.lat, accessCoords.lon], 13);
+            } else {
+                void ensureMainMapReady().then(isReady => {
+                    if (isReady) goToFavorite(name);
+                });
+                return;
             }
 
             // 4. OUVRIR LA PAGE D'INFORMATION (la sidebar de gauche/droite selon ton code)
@@ -2355,6 +2566,10 @@
 
         if (map) {
             map.setView([accessCoords.lat, accessCoords.lon], 12);
+        } else {
+            void ensureMainMapReady().then(isReady => {
+                if (isReady) map.setView([accessCoords.lat, accessCoords.lon], 12);
+            });
         }
         const carteElement = document.getElementById('carte');
         if (carteElement) {
@@ -2365,7 +2580,12 @@
     }
 
     function resetView() {
-        if (!map) return;
+        if (!map) {
+            void ensureMainMapReady().then(isReady => {
+                if (isReady) resetView();
+            });
+            return;
+        }
         map.closePopup(); // Fermer tout popup ouvert
         map.setView([initialView.lat, initialView.lon], initialView.zoom);
     }
@@ -2565,6 +2785,7 @@
         });
 
         appliquerFiltres();
+        if (!map) void ensureMainMapReady();
     }
 
     // ========== NOUVELLES FONCTIONNALITÉS SPOT PADDLE ==========

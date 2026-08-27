@@ -36,7 +36,6 @@
 
     <title>Spot Paddle Québec - Accès GPS, météo & Paddle Score™</title>
     <link rel="stylesheet" href="assets/tailwind.css?v=20260719-2" />
-    <link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css?v=1.9.4" />
     <link rel="stylesheet" href="style.css?v=20260719-1" />
     <meta name="spotpaddle-env" content="production">
     <meta http-equiv="Content-Security-Policy-Report-Only" content="default-src 'self' data: https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; connect-src 'self' https:; frame-ancestors 'self'; base-uri 'self';">
@@ -55,8 +54,8 @@
 <body class="bg-slate-50 text-slate-900 font-sans">
 
     <nav class="flex flex-nowrap items-center justify-between gap-1.5 bg-gradient-to-r from-blue-600 to-blue-800 px-2 py-2 shadow-lg sticky top-0 z-[2000] backdrop-blur-md sm:gap-3 sm:p-4">
-        <a href="#accueil" class="flex shrink-0 items-center gap-1 text-lg font-bold text-white sm:gap-2 sm:text-2xl" aria-label="Spot Paddle — Accueil">
-            <span class="text-2xl sm:text-3xl" aria-hidden="true">🚣</span><span class="hidden sm:inline">Spot Paddle</span>
+        <a href="#accueil" class="flex shrink-0 items-center gap-1 text-sm font-bold text-white sm:gap-2 sm:text-2xl" aria-label="Spot Paddle — Accueil">
+            <span class="text-xl sm:text-3xl" aria-hidden="true">🚣</span><span>Spot Paddle</span>
         </a>
         <div class="flex min-w-0 flex-1 flex-nowrap items-center justify-end gap-1.5 sm:gap-6">
             <div class="hidden md:flex space-x-8">
@@ -526,8 +525,7 @@
         </div>
     </footer>
 
-    <script src="assets/vendor/leaflet/leaflet.js?v=1.9.4"></script>
-    <script src="assets/data.min.js?v=20260807-1"></script>
-    <script src="assets/script.min.js?v=20260809-1"></script>
+    <script src="assets/data.index.min.js?v=20260827-1"></script>
+    <script src="assets/script.min.js?v=20260827-1"></script>
 </body>
 </html>

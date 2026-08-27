@@ -91,11 +91,15 @@ const lacDatabase = [
         region: "Mauricie",
         lat: 46.527974024663074,
         lon: -73.19878614418161,
-        mainImage: "assets/spots/lac-forbes.jpg",
+        mainImage: "assets/spots/lac-sacacomie/vue-depuis-la-planche.jpeg",
         gallery: [
-            "assets/spots/lac-forbes.jpg",
-            "assets/spots/lac-maskinonge.jpg"
+            "assets/spots/lac-sacacomie/vue-depuis-la-planche.jpeg",
+            "assets/spots/lac-sacacomie/falaise-rocheuse.jpeg",
+            "assets/spots/lac-sacacomie/vue-panoramique.jpeg",
+            "assets/spots/lac-sacacomie/rive-boisee.jpeg",
+            "assets/spots/lac-sacacomie/eau-claire-et-reflets.jpeg"
         ],
+        photoCredit: "Anie",
         description: "Réputé pour son eau cristalline et ses 42 km de rivage sauvage, Lac Sacacomie est le paradis des paddlers en quête d'aventure. Une eau d'une clarté exceptionnelle vous permettra de voir 15 mètres de profondeur.",
         longDescription: "Avec une longueur de 42 km et une eau exceptionnellement claire, Lac Sacacomie offre l'une des plus belles expériences de paddle en Mauricie. Le rivage sauvage, parsemé d'îles verdoyantes et de baies secrètes, en fait un lieu de prédilection pour les explorateurs. L'eau cristalline permet une visibilité remarquable sous l'eau.",
         difficulty: "sportif",
@@ -772,9 +776,9 @@ const lacDatabase = [
         "region": "Estrie",
         "lat": 45.42668294095945,
         "lon": -72.61486447370173,
-        "mainImage": "assets/spots/reservoir-choiniere-yamaska-illustration-ia.png",
+        "mainImage": "assets/spots/reservoir-choiniere-yamaska.jpg",
         "gallery": [
-            "assets/spots/reservoir-choiniere-yamaska-illustration-ia.png"
+            "assets/spots/reservoir-choiniere-yamaska.jpg"
         ],
         "description": "Le réservoir Choinière, au parc national de la Yamaska, est un plan d'eau populaire pour le canot, le kayak, le pédalo et le surf à pagaie.",
         "longDescription": "Le parc national de la Yamaska entoure le réservoir Choinière, un vaste plan d'eau utilisé pour les activités nautiques. La Sépaq y mentionne le canot, le kayak, le surf à pagaie, le pédalo et la baignade surveillée en saison. C'est un bon choix pour une sortie encadrée et familiale en Estrie.",
