@@ -1267,7 +1267,7 @@ const supplementalSpotDetails = [
         id: "parc-andre-auger",
         slug: "parc-andre-auger",
         name: "Parc André-Auger",
-        region: "Lanaudière",
+        region: "Laurentides",
         lat: 45.85138,
         lon: -73.75748,
         mainImage: "assets/spots/parc-andre-auger/chien-en-sup.png",
