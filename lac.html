@@ -120,6 +120,10 @@
             }
         }
 
+        function getLakeHeroImage(currentLake) {
+            return currentLake?.heroImage || currentLake?.mainImage || currentLake?.gallery?.[0] || FALLBACK_SOCIAL_IMAGE;
+        }
+
         function setMetaContent(selector, content) {
             const meta = document.querySelector(selector);
             if (meta && content) {
@@ -702,7 +706,7 @@
             } else {
                 // Métadonnées dynamiques
                 const canonicalUrl = `https://spotpaddle.ca/lac.html?lake=${encodeURIComponent(currentLake.slug)}`;
-                const imageUrl = toAbsoluteSiteUrl(currentLake.mainImage);
+                const imageUrl = toAbsoluteSiteUrl(getLakeHeroImage(currentLake));
                 const pageTitle = `${currentLake.name} - Spot Paddle`;
                 const pageDescription = currentLake.description || currentLake.longDescription || 'Spot de paddle au Québec avec GPS, météo et informations pratiques.';
 
@@ -766,10 +770,11 @@
                 if(score === null) { badgeEmoji = "⚪"; badgeColor = "#64748b"; }
                 else if(score < 50) { badgeEmoji = "🔴"; badgeColor = "#ef4444"; }
                 else if(score < 75) { badgeEmoji = "🟡"; badgeColor = "#f59e0b"; }
+                const heroImage = getLakeHeroImage(currentLake);
 
                 const html = `
                     <section class="relative h-96 md:h-[60vh] flex items-end overflow-hidden">
-                        <img src="${currentLake.mainImage}" alt="${currentLake.name}" decoding="async" fetchpriority="high" class="absolute inset-0 w-full h-full object-cover">
+                        <img src="${heroImage}" alt="${currentLake.name}" decoding="async" fetchpriority="high" class="absolute inset-0 w-full h-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                         
                         <div class="relative z-10 max-w-6xl mx-auto w-full px-6 pb-12">

@@ -4145,6 +4145,11 @@ const laVieSupPopularSpotDetails = laVieSupPopularSpotSeeds.map(seed => {
         "assets/spots/riviere-batiscan-sainte-genevieve/rampe-vers-riviere.jpg",
         "assets/spots/riviere-batiscan-sainte-genevieve/rampe-vers-village.jpg"
     ];
+    const malbaieGallery = [
+        "assets/spots/riviere-malbaie-hautes-gorges/vue-depuis-la-planche.jpg",
+        "assets/spots/riviere-malbaie-hautes-gorges/mise-a-eau-et-montagnes.jpg",
+        "assets/spots/riviere-malbaie-hautes-gorges/falaises-de-la-riviere.jpg"
+    ];
     const generatedLakeImages = {
         "lac-lyster": "assets/spots/lac-lyster.jpg",
         "lac-raymond-val-morin": "assets/spots/lac-raymond-val-morin.jpg"
@@ -4153,7 +4158,9 @@ const laVieSupPopularSpotDetails = laVieSupPopularSpotSeeds.map(seed => {
         ? matapediaGallery
         : seed.slug === "riviere-batiscan-sainte-genevieve"
             ? batiscanGallery
-            : [generatedLakeImages[seed.slug] || "assets/spots/lac-lyster.jpg"];
+            : seed.slug === "riviere-malbaie-hautes-gorges"
+                ? malbaieGallery
+                : [generatedLakeImages[seed.slug] || "assets/spots/lac-lyster.jpg"];
     return {
         id: seed.slug,
         slug: seed.slug,
@@ -4163,6 +4170,7 @@ const laVieSupPopularSpotDetails = laVieSupPopularSpotSeeds.map(seed => {
         lon: seed.lon,
         mainImage: gallery[0],
         gallery,
+        photoCredit: seed.slug === "riviere-malbaie-hautes-gorges" ? "Anie" : undefined,
         description: `${seed.name} est une destination de paddle accessible par ${seed.accessName}.`,
         longDescription: `Le point de départ de ${seed.name} se situe à ${seed.accessName}. Vérifiez les frais, les services, les heures d'ouverture et les restrictions saisonnières auprès du gestionnaire avant chaque sortie.`,
         difficulty: "facile",
@@ -4230,6 +4238,21 @@ lacDatabase.forEach(lake => {
             galleryImageOwners.set(image, lake.slug);
             return true;
         });
+});
+
+// Les fiches detaillees utilisent ces variantes 1280x720 en hero pour eviter
+// de charger en priorite des photos originales de plusieurs megaoctets.
+const detailHeroImageOverrides = {
+    "lac-a-la-tortue": "assets/spots/unique/lac-a-la-tortue.jpg",
+    "lac-sacacomie": "assets/spots/unique/lac-sacacomie.jpg",
+    "lac-des-piles": "assets/spots/unique/lac-des-piles.jpg",
+    "plage-maria-goretti": "assets/spots/unique/plage-maria-goretti.jpg",
+    "riviere-batiscan-sainte-genevieve": "assets/spots/unique/riviere-batiscan-sainte-genevieve.jpg"
+};
+
+lacDatabase.forEach(lake => {
+    const heroImage = detailHeroImageOverrides[lake.slug];
+    if (heroImage) lake.heroImage = heroImage;
 });
 
 const accessPointOverrides = {
