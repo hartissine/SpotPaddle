@@ -4245,8 +4245,13 @@ lacDatabase.forEach(lake => {
         });
 });
 
-// Les fiches detaillees utilisent ces variantes 1280x720 en hero pour eviter
-// de charger en priorite des photos originales de plusieurs megaoctets.
+// Une photo de galerie reelle est toujours prioritaire comme couverture.
+// Les illustrations IA restent disponibles uniquement pour les spots sans
+// photo reelle dans leur galerie.
+const isAiGeneratedImage = image =>
+    typeof image === "string" &&
+    (image.includes("/unique/") || image.includes("illustration-ia"));
+
 const detailHeroImageOverrides = {
     "lac-a-la-tortue": "assets/spots/unique/lac-a-la-tortue.jpg",
     "lac-sacacomie": "assets/spots/unique/lac-sacacomie.jpg",
@@ -4256,8 +4261,18 @@ const detailHeroImageOverrides = {
 };
 
 lacDatabase.forEach(lake => {
-    const heroImage = detailHeroImageOverrides[lake.slug];
-    if (heroImage) lake.heroImage = heroImage;
+    const realGallery = (Array.isArray(lake.gallery) ? lake.gallery : [])
+        .filter(image => image && !isAiGeneratedImage(image));
+
+    if (realGallery.length > 0) {
+        lake.gallery = realGallery;
+        lake.mainImage = realGallery[0];
+        delete lake.heroImage;
+        return;
+    }
+
+    const aiFallback = detailHeroImageOverrides[lake.slug];
+    if (aiFallback) lake.heroImage = aiFallback;
 });
 
 const accessPointOverrides = {

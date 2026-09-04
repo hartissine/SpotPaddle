@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const vm = require('vm');
 
 const root = path.resolve(__dirname, '..');
 const failures = [];
@@ -31,6 +32,33 @@ const lakeHtml = read('lac.html');
 const mainScript = read('script.js');
 const suggestionPhp = read('suggestion.php');
 const hydroPhp = read('hydro.php');
+const dataScript = read('data.js');
+
+const dataContext = {};
+vm.runInNewContext(`${dataScript}\nglobalThis.__lacDatabase = lacDatabase;`, dataContext, {
+    filename: 'data.js'
+});
+const lakes = dataContext.__lacDatabase;
+const isAiGeneratedImage = image =>
+    typeof image === 'string' &&
+    (image.includes('/unique/') || image.includes('illustration-ia'));
+
+lakes.forEach(lake => {
+    const firstGalleryImage = Array.isArray(lake.gallery) ? lake.gallery[0] : null;
+    const hasRealGalleryImage = Array.isArray(lake.gallery) &&
+        lake.gallery.some(image => image && !isAiGeneratedImage(image));
+
+    if (!hasRealGalleryImage) return;
+
+    check(
+        firstGalleryImage === lake.mainImage && !isAiGeneratedImage(lake.mainImage),
+        `data.js: ${lake.slug} doit utiliser sa premiere photo reelle de galerie comme couverture`
+    );
+    check(
+        !lake.heroImage || lake.heroImage === firstGalleryImage,
+        `data.js: ${lake.slug} ne doit pas remplacer sa galerie par une couverture IA`
+    );
+});
 
 checkInlineScripts('contribuer.html', contributionHtml);
 checkInlineScripts('lac.html', lakeHtml);
@@ -97,3 +125,4 @@ console.log('[OK] Scripts HTML valides');
 console.log('[OK] Parcours photo par spot protégé');
 console.log('[OK] Formulaire complet conservé sans titre de photo');
 console.log('[OK] Niveau d’eau officiel intégré aux fiches compatibles');
+console.log('[OK] Photos réelles prioritaires sur les couvertures IA');

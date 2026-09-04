@@ -121,7 +121,7 @@
         }
 
         function getLakeHeroImage(currentLake) {
-            return currentLake?.heroImage || currentLake?.mainImage || currentLake?.gallery?.[0] || FALLBACK_SOCIAL_IMAGE;
+            return currentLake?.gallery?.[0] || currentLake?.heroImage || currentLake?.mainImage || FALLBACK_SOCIAL_IMAGE;
         }
 
         function setMetaContent(selector, content) {
