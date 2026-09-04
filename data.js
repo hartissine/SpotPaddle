@@ -4266,7 +4266,10 @@ lacDatabase.forEach(lake => {
 
     if (realGallery.length > 0) {
         lake.gallery = realGallery;
-        lake.mainImage = realGallery[0];
+        const selectedRealCover = realGallery.includes(lake.mainImage)
+            ? lake.mainImage
+            : realGallery[0];
+        lake.mainImage = selectedRealCover;
         delete lake.heroImage;
         return;
     }

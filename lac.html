@@ -82,7 +82,7 @@
         </button>
     </div>
 
-    <script src="assets/data.min.js?v=20260904-1"></script>
+    <script src="assets/data.min.js?v=20260904-2"></script>
     <script id="lakeStructuredData" type="application/ld+json"></script>
     <script>
         // ========== GESTION DU THÈME ==========
@@ -121,7 +121,7 @@
         }
 
         function getLakeHeroImage(currentLake) {
-            return currentLake?.gallery?.[0] || currentLake?.heroImage || currentLake?.mainImage || FALLBACK_SOCIAL_IMAGE;
+            return currentLake?.mainImage || currentLake?.gallery?.[0] || currentLake?.heroImage || FALLBACK_SOCIAL_IMAGE;
         }
 
         function setMetaContent(selector, content) {

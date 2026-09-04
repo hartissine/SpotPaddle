@@ -1099,7 +1099,7 @@
             launchLon: Number(accessPoint?.lon ?? lake.lon),
             hasParkingPoint: Boolean(parkingPoint),
             parkingDistanceMeters: parkingPoint?.distanceToAccessMeters ?? null,
-            image: lake.gallery?.[0] || lake.mainImage || "assets/spots/lac-maskinonge.jpg",
+            image: lake.mainImage || lake.gallery?.[0] || "assets/spots/lac-maskinonge.jpg",
             parking: lake.parking?.location || lake.access?.description || "Accès à vérifier",
             prix: lake.cost || lake.parking?.cost || (lake.isFree ? "Accès public gratuit." : "Frais à vérifier."),
             info: lake.description || lake.longDescription || "Vérifiez les conditions locales avant de partir.",

@@ -83,7 +83,7 @@ function buildIndexLake(lake) {
     region: lake.region,
     lat: lake.lat,
     lon: lake.lon,
-    mainImage: lake.gallery?.[0] || lake.mainImage,
+    mainImage: lake.mainImage || lake.gallery?.[0],
     description: lake.description,
     cost: lake.cost,
     isFree: lake.isFree,

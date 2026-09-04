@@ -44,18 +44,17 @@ const isAiGeneratedImage = image =>
     (image.includes('/unique/') || image.includes('illustration-ia'));
 
 lakes.forEach(lake => {
-    const firstGalleryImage = Array.isArray(lake.gallery) ? lake.gallery[0] : null;
     const hasRealGalleryImage = Array.isArray(lake.gallery) &&
         lake.gallery.some(image => image && !isAiGeneratedImage(image));
 
     if (!hasRealGalleryImage) return;
 
     check(
-        firstGalleryImage === lake.mainImage && !isAiGeneratedImage(lake.mainImage),
-        `data.js: ${lake.slug} doit utiliser sa premiere photo reelle de galerie comme couverture`
+        lake.gallery.includes(lake.mainImage) && !isAiGeneratedImage(lake.mainImage),
+        `data.js: ${lake.slug} doit utiliser une photo reelle de sa galerie comme couverture`
     );
     check(
-        !lake.heroImage || lake.heroImage === firstGalleryImage,
+        !lake.heroImage || (lake.gallery.includes(lake.heroImage) && !isAiGeneratedImage(lake.heroImage)),
         `data.js: ${lake.slug} ne doit pas remplacer sa galerie par une couverture IA`
     );
 });
