@@ -309,9 +309,13 @@ const lacDatabase = [
         region: "Mauricie",
         lat: 46.66976,
         lon: -73.00577,
-        mainImage: "assets/spots/lac-maskinonge.jpg",
+        mainImage: "assets/spots/parc-national-wapizagonke/plage-et-planche.jpg",
         gallery: [
-            "assets/spots/lac-maskinonge.jpg"
+            "assets/spots/parc-national-wapizagonke/plage-et-planche.jpg",
+            "assets/spots/parc-national-wapizagonke/reflets-et-nuages.jpg",
+            "assets/spots/parc-national-wapizagonke/vue-sur-le-lac.jpg",
+            "assets/spots/parc-national-wapizagonke/montagnes-et-lac.jpg",
+            "assets/spots/parc-national-wapizagonke/rive-forestiere.jpg"
         ],
         description: "Naviguez au pied de falaises mythiques dans le Parc National de la Mauricie. Les chutes Waber sont accessibles via ce lac - une expérience inoubliable !",
         longDescription: "Le Lac Wapizagonke offre une immersion totale dans la nature sauvage de la Mauricie. Les falaises imposantes, la faune diversifiée et l'accessibilité aux chutes Waber en font un destination de choix pour les amoureux de la nature.",
@@ -3755,10 +3759,11 @@ const supplementalSpotDetails = [
         "region": "Outaouais",
         "lat": 45.60212,
         "lon": -76.04355,
-        "mainImage": "assets/spots/lac-lyster.jpg",
+        "mainImage": "assets/spots/lac-philippe-outaouais/vue-lac-et-kayaks.jpg",
         "gallery": [
-            "assets/spots/lac-lyster.jpg"
+            "assets/spots/lac-philippe-outaouais/vue-lac-et-kayaks.jpg"
         ],
+        "photoCredit": "Contribution Spot Paddle",
         "description": "Lac Philippe (Outaouais) est un spot de paddle de la r?gion Outaouais. Le point cartographique a ?t? rapproch? d'un acc?s r?el: Mise à l'eau du lac Philippe, parc de la Gatineau.",
         "longDescription": "Lac Philippe (Outaouais) est référencé dans Spot Paddle comme point d'accès pour partir sur l'eau dans la région Outaouais. Les informations de stationnement et de tarif proviennent de la fiche de carte actuelle. Avant la sortie, validez les règles locales, la météo, le vent et l'accès exact sur place. Lac de parc provincial avec plages aménagées et zones protégées.",
         "difficulty": "facile",
